@@ -39,6 +39,14 @@
 
     <body id="{% block body_id %}default{% endblock %}" class="{% block body_class %}default{% endblock %}">
         {# Main content goes in this 'layout' block #}
+        <div id="wrapper">
+    <!-- Page Loader -->
+    <div id="pre-loader" class="loader-container">
+      <div class="loader">
+        <img src="{% static "markatix/images/svg/rings.svg"%}" alt="loader">
+      </div>
+    </div>
+    <div class="w1">
         {% block layout %}{% endblock %}
 
         {# Scripts loaded from a CDN. #}
@@ -61,7 +69,7 @@
                 {% block onbodyload %}{% endblock %}
             });
         </script>
-
+    </div>
         {# Page meta-data - this is populated by the 'metadata' template context processor #}
         <!-- {% trans "Version:" %} {{ version }} -->
     </body>

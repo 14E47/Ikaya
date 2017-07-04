@@ -74,11 +74,11 @@
 {% endblock %}
 
 {% block cdn_scripts %}
-  {{ block.super }}
-  {% if use_less and debug %}
-    {# Load the on-the-fly less compiler. Never do this in production. #}
-    <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.5.3/less.min.js"></script>
-  {% endif %}
+    {{ block.super }}
+        {% if use_less and debug %}
+        {# Load the on-the-fly less compiler. Never do this in production. #}
+        <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.5.3/less.min.js"></script>
+    {% endif %}
 {% endblock %}
 
 {# Local scripts #}
@@ -89,9 +89,8 @@
     <script src="{% static "markatix/js/plugins.js" %}"  type="text/javascript"></script>
     <script src="{% static "markatix/js/jquery.main.js" %}"  type="text/javascript"></script>
     <script src="{% static "markatix/js/parallex.js" %}"  type="text/javascript"></script>
-    <script src="{% static "markatix/js/main.js" %}"  type="text/javascript"></script>
-
-	<!-- include jQuery -->
+    <script src="{% static "markatix/js/modernizr.js" %}"  type="text/javascript"></script>
+    <!-- include jQuery -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/stellar-base/0.7.4/stellar-base.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.3/jquery.nicescroll.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
@@ -135,7 +134,6 @@
 		});
 	</script>
     <!-- Oscar -->
-
 {% endblock %}
 
 {% block extrascripts %}

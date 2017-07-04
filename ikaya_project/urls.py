@@ -27,6 +27,11 @@ urlpatterns = [
     # The Django admin is not officially supported; expect breakage.
     # Nonetheless, it's often useful for debugging.
     url(r'^admin/', include(admin.site.urls)),
-
+    url(r'^about$', TemplateView.as_view(template_name='about.html'), name="about"),
+    url(r'^journal$', TemplateView.as_view(template_name='journal.html'), name="journal"),
+    url(r'^contact$', TemplateView.as_view(template_name='contact.html'), name="contact"),
+    url(r'^retailer$', TemplateView.as_view(template_name='retailer.html'), name="retailer"),
+    url(r'^privacy$', TemplateView.as_view(template_name='privacy.html'), name="privacy"),
+    url(r'^news$', TemplateView.as_view(template_name='news.html'), name="news"),
     url(r'', include(application.urls)),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
