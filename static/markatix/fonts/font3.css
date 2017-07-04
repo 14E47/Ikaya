@@ -1,0 +1,9 @@
+@font-face {
+  font-family: 'MetaSerifTf-Book';
+  src: url('MetaSerifTf-Book.woff') format('woff'),
+       url('MetaSerifTf-Book.ttf') format('truetype'),
+       url('MetaSerifTf-Book.svg#MetaSerifTf-Book') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+

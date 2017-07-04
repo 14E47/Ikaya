@@ -67,7 +67,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(BASE_DIR, 'templates'),
+            os.path.join(BASE_DIR, 'templates/oscar'),
             OSCAR_MAIN_TEMPLATE_DIR
         ],
         'APP_DIRS': True,
@@ -139,7 +139,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = 'static'
+MEDIA_ROOT = 'media'
+MEDIA_URL = '/media/'
+STATIC_ROOT = 'public/static'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 AUTHENTICATION_BACKENDS = (
     'oscar.apps.customer.auth_backends.EmailBackend',

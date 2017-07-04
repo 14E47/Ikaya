@@ -1,0 +1,9 @@
+@font-face {
+  font-family: 'Gotham-XLight';
+  src: url('Gotham-XLight.woff') format('woff'),
+       url('Gotham-XLight.ttf') format('truetype'),
+       url('Gotham-XLight.svg#Gotham-XLight') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
