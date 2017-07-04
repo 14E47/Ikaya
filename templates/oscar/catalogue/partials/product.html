@@ -17,7 +17,11 @@
         </div>
     </a>
     <a class="thumbnail_pro" href="#">
-        <h3><a href="{{ product.get_absolute_url }}" title="{{ product.get_title }}">{{ product.get_title|truncatewords:4 }}<span class="pull-right"><i class="fa fa-heart-o"></i></span></a></h3>
+        <h3><a href="{{ product.get_absolute_url }}" title="{{ product.get_title }}">{{ product.get_title|truncatewords:4 }}</a></h3>
+        <form id="add_to_wishlist_form" action="{% url 'customer:wishlists-add-product' product_pk=product.pk %}" method="post" class="btn-wishlist">
+            {% csrf_token %}
+            <button type="submit"><span class="pull-right"><i class="fa fa-heart-o"></i></span></button>
+        </form>
         <div class="row">
             <div class="col-md-6 col-sm-6">
                 <p class="price">{% include "catalogue/partials/stock_record.html" %}</p>
