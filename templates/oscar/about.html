@@ -1,10 +1,194 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "layout.html" %}
+{% load i18n %}
+{% load staticfiles %}
 
-</body>
-</html>
+{% block content %}
+<main id="mt-main">
+<!-- Mt Content Banner of the Page -->
+        <section class="mt-contact-banner wow slideInUp" data-wow-delay="0.4s" style="background-image: url(../../static/markatix/images/new/about/01.jpg);">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 text-center">
+                        <h1></h1>
+                        <nav class="breadcrumbs">
+                            <ul class="list-unstyled">
+                                <li></li>
+                                <li></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </section>
+    <!-- Mt Content Banner of the Page end -->
+    <!-- Mt About Section of the Page -->
+        <section class="mt-about-sec wow slideInUp" data-wow-delay="0.4s">
+            <div class="container">
+                <div class="row equalh">
+                    <div class="col-xs-12 vcenter1">
+                        <div class="col-sm-6 italic wow fadeInUp" data-wow-delay="0.4s">
+                            <a href="#"  class="hovereffect">
+                                <img src="{% static "markatix/images/new/about/02.jpg" %}">
+                                <div class="overlay">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-1">
+                        </div>
+                        <div class="col-sm-5">
+                            <div class="txt text-center italic wow fadeInUp" data-wow-delay="0.4s">
+                                <h3 style="color:#d2c9bc !important;font-size: 40px;">brand</h3>
+                                <p>Rooted in Banaras’ rich textile heritage, Ekaya is a contemporary, bespoke store, presenting curated handcrafted textiles. With the modern Indian woman as our muse, Ekaya blends ancient art with an eclectic vision to present the finest works of art from the Indian craftsman’s repertoire. Designed as a rich, engaging experience, Ekaya’s greatest strength lies in the blend of exquisite quality with true value for money. The Ekaya ‘India Modern’ aesthetic sensitively infuses pure traditional craftsmanship and visual stories with contemporary styling and accents – lovingly crafted to last generations and to be shared with loved ones.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    <!-- Mt About Section of the Page -->
+
+    <!-- Mt Team Section of the Page -->
+        <section class="mt-team-sec wow slideInUp" data-wow-delay="0.4s">
+            <div class="container">
+                <div class="row equalh">
+                    <div class="col-sm-5 vcenter1">
+                        <div class="text-center">
+                            <img src="{% static "markatix/images/new/about/07.png"%}" class="abt-logo">
+                            <br>
+                            <h4>pure,timeless,treasured.</h4>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-7">
+                        <a href="#"  class="hovereffect">
+                            <img src="{% static "markatix/images/new/about/03.jpg"%}" class="abt-pad">
+                            <div class="overlay">
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    <!-- Mt About Section of the Page -->
+    <!-- Mt about text Section of the Page -->
+        <section class="mt-about-text-sec  wow slideInUp" data-wow-delay="0.4s">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+                        <div class="text-center wow fadeInUp" data-wow-delay="0.4s">
+                            <h4>
+                            Every touch point of the Ekaya Experience has been consciouly designed to speak one unilateral voice of the brand.
+                            </h4>
+                            <p>
+                            Embodying the spirit of our muse - the contemporary Indian woman, the space is a reflection of her flair to blend tradition with today’s sensibilities. Clean, linear lines accentuated by soft colours and textures lend the saris prominence, allowing the genius of the Indian artisan shine through.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    <!-- Mt about text Section of the Page -->
+    <!-- Mt Workspace Section of the Page -->
+        <section class="mt-workspace-sec mage wow slideInUp" data-wow-delay="0.4s">
+            <div class="container">
+                <div class="row equalh">
+                    <div class="col-sm-4">
+                        <a href="#"  class="hovereffect">
+                            <img src="{% static "markatix/images/new/about/04.jpg"%}" class="abt-img">
+                            <div class="overlay">
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-sm-7 vcenter wow slideInUp" data-wow-delay="0.4s">
+                        <div class="text-left">
+                            <h3>craft</h3>
+                            <p>
+                                Master Craftsmanship at its finest, most authentic.
+                            </p>
+                            <p>
+                                Ekaya's home Banaras, with its sunsets of crimson red, yellow beige and river reflected exteriors, is a maze of rather more modest spaces, furnished with age-old looms. We have been rooted in the city’s textile tradition for over four generations, passing down a wealth of knowledge and expertise.Having formed an association with families of hundreds of local weavers over decades, we’re committed to furthering the tradition of pure, handcrafted, hand-woven textiles. Aside from the brand’s in-house collections, Ekaya is deeply involved with the restoration of precious textiles and saris (that may have degenerated over time) as well as the revival of forgotten weaves and motifs.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="mt-muse-sec  wow slideInUp" data-wow-delay="0.4s">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-7">
+                        <div class="text-center">
+                            <h3>muse</h3>
+                            <h4>the modern Indian women</h4>
+                            <p>
+                                The Ekaya muse is one who treasures her heritage through textiles and saris and holds authentic craftsmanship in high regard.
+                            </p>
+                            <p>
+                                The epitomes of urban sophistication, the Ekaya Women push the boundaries of style with strength and panache in their pursuit for self-development and personal authenticity. The brand peaks to their aesthetic sensibilities by re-interpreting and reviving traditional weaves and motifs. Each piece is rooted with an old-world elegance while channeling modern glamour.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="mt-workspace-sec2 mage wow slideInUp" data-wow-delay="0.4s">
+            <div class="container">
+                <div class="row equalh">
+                    <div class="col-sm-1">
+                    </div>
+                    <div class="col-sm-7 vcenter">
+                        <div class="text-r">
+                            <h3>collaborations</h3>
+                            <p>
+                                Ekaya not only provides livelihood to the artisans but also helps them develop their aesthetic sensibilities by introducing new mastery into their design vocabulary. We achieve this by challenging ourselves out of our own comfort zones, by means of various collaboration projects with leading designers in the industry, in order to explore the vast, untapped potential of Indian craftsmanship, through modern design.
+                            </p>
+                            <p>
+                                These collaboration projects provide the artisans with opportunities to explore and develop new techniques under the guidelines of the designers.
+                            </p>
+                            <p>
+                                The collaborations thus far include:<br>
+                                <span style="text-transform:uppercase">ABRAHAM & THAKORE, ANUPAMA DAYAL, PLAY CLAN, ARCHANA RAO, ASHDEEN L</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <a href="#"  class="hovereffect">
+                            <img src="{% static "markatix/images/new/about/05.jpg" %}" class="abt-img">
+                            <div class="overlay">
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="mt-about-text2-sec">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="text-center wow fadeInUp" data-wow-delay="0.4s">
+                            <h4 style="color:#ac997c;font-style:italic;font-weight:bold;">“ addressing not only the connoisseur but also the urban Indian woman ”</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="mt-contact-about-banner wow slideInUp" data-wow-delay="0.4s">
+            <img src="{% static "markatix/images/new/about/09.png"%}">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 text-center">
+                        <h1></h1>
+                        <nav class="breadcrumbs">
+                            <ul class="list-unstyled">
+                                <li></li>
+                                <li></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </section>
+    <!-- Mt Workspace Section of the Page -->
+</main><!-- Main of the Page end -->
+{% endblock content %}
