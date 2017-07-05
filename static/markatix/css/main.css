@@ -9171,7 +9171,7 @@ label span {
 		display: inline-block;
 		position: relative;
 		float:left;
-		background:fff;
+		background:#FFFFFF;
 	}
 label p{
 		float:left;
@@ -9349,8 +9349,8 @@ l,btn-box li:after {
 	}
     .panel-title > a {
         display: block;
-        padding:20px 0 0 0;
-		font-size:16px;
+        padding:15px 0 0 0;
+		font-size:14px;
         text-decoration: none;
 		color:#AFA389;
 		border-bottom:1px solid #AFA389;
@@ -9371,14 +9371,15 @@ l,btn-box li:after {
 	}
 	.detail h3
 	{
+        margin-top:5px;
 		margin-bottom:5px;
-		font-size:20px !important;
+		font-size:18px !important;
 		font-weight:bold;
 	}
 	.detail p
 	{
 		margin-bottom:5px !important;
-		font-size:20px !important;
+		font-size:17px !important;
 	}
 	.detail	hr {
 		margin-top: 0px;

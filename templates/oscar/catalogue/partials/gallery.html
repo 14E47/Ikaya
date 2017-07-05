@@ -7,44 +7,52 @@
 
     {% if all_images|length > 1 %}
 
-        <div id="product_gallery" class="carousel slide">
-
-            <div class="thumbnail">
-                <div class="carousel-inner" role="listbox">
+        <div class="slider">
+            <!-- Product Slider of the Page -->
+            <ul class="list-unstyled breadcrumbs">
+                <li><a href="#">Saree <i class="fa fa-angle-right"></i></a></li>
+                <li>Banarsi Saree</li>
+            </ul>
+            <div class="product-slider">
                 {% for image in all_images %}
-                    <div class="item {% if forloop.first %}active{% endif %}">
-                        {% thumbnail image.original "440x400" upscale=False as thumb %}
-                        <img src="{{ thumb.url }}" alt="{{ product.get_title }}" />
-                        {% endthumbnail %}
+                    <div class="slide">
+                        <img src="{{ image.original.url }}" alt="{{ product.get_title }}" />
                     </div>
                 {% endfor %}
-                </div>
-                <a class="carousel-control left" href="#product_gallery" role="button" data-slide="prev">
-                    <span class="icon-prev fa-stack fa-lg" aria-hidden="true">
-                        <i class="fa fa-square-o fa-stack-2x"></i>
-                        <i class="fa fa-angle-left fa-stack-1x"></i>
-                    </span>
-                </a>
-                <a class="carousel-control right" href="#product_gallery" role="button" data-slide="next">
-                    <span class="icon-next fa-stack fa-lg" aria-hidden="true">
-                        <i class="fa fa-square-o fa-stack-2x"></i>
-                        <i class="fa fa-angle-right fa-stack-1x"></i>
-                    </span>
-                </a>
             </div>
-
-            <ol class="carousel-indicators thumbnail">
+            <!-- Product Slider of the Page end -->
+            <!-- Pagg Slider of the Page -->
+            <ul class="list-unstyled slick-slider pagg-slider">
                 {% for image in all_images %}
-                    <li data-target="#product_gallery" data-slide-to="{{ forloop.counter0 }}" class="{% if forloop.first %}active{% endif %}">
-                        {% thumbnail image.original "65x55" crop="center" as thumb %}
-                        <img src="{{ thumb.url }}" alt="{{ product.get_title }}" />
-                        {% endthumbnail %}
-                    </li>
+                    <li><div class="img"><img src="{{ image.original.url }}" alt="{{ product.get_title }}"></div></li>
                 {% endfor %}
-            </ol>
+            </ul>
+            <!-- Pagg Slider of the Page end -->
         </div>
-
     {% else %}
+
+{#        <div class="slider">#}
+{#            <!-- Product Slider of the Page -->#}
+{#            <ul class="list-unstyled breadcrumbs">#}
+{#                <li><a href="#">Saree <i class="fa fa-angle-right"></i></a></li>#}
+{#                <li>Banarsi Saree</li>#}
+{#            </ul>#}
+{#            <div class="product-slider">#}
+{#                {% for image in all_images %}#}
+{#                    <div class="slide">#}
+{#                        <img src="{{ image.original.url }}" alt="{{ product.get_title }}" />#}
+{#                    </div>#}
+{#                {% endfor %}#}
+{#            </div>#}
+{#            <!-- Product Slider of the Page end -->#}
+{#            <!-- Pagg Slider of the Page -->#}
+{#            <ul class="list-unstyled slick-slider pagg-slider">#}
+{#                {% for image in all_images %}#}
+{#                    <li><div class="img"><img src="{{ image.original.url }}" alt="{{ product.get_title }}"></div></li>#}
+{#                {% endfor %}#}
+{#            </ul>#}
+{#            <!-- Pagg Slider of the Page end -->#}
+{#        </div>#}
 
         {# Only one image to show #}
         <div id="product_gallery" class="carousel">

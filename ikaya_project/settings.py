@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.messages',
+    'template_debug',
     'django.contrib.staticfiles',
     'django.contrib.flatpages',
     'compressor',
@@ -77,12 +78,12 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 # 'django.core.context_processors.i18n',
-                # 'django.contrib.messages.context_processors.messages',
-                # 'oscar.apps.search.context_processors.search_form',
-                # 'oscar.apps.promotions.context_processors.promotions',
-                # 'oscar.apps.checkout.context_processors.checkout',
+                'django.contrib.messages.context_processors.messages',
+                'oscar.apps.search.context_processors.search_form',
+                'oscar.apps.promotions.context_processors.promotions',
+                'oscar.apps.checkout.context_processors.checkout',
                 # 'oscar.apps.customer.notifications.context_processors.notifications',
-                # 'oscar.core.context_processors.metadata',
+                'oscar.core.context_processors.metadata',
             ],
         },
     },
@@ -154,3 +155,12 @@ HAYSTACK_CONNECTIONS = {
         'ENGINE': 'haystack.backends.simple_backend.SimpleEngine',
     },
 }
+
+# ***************Shop Tilte and shop name************************************
+
+OSCAR_SHOP_NAME='EKAYA'
+OSCAR_SHOP_TAGLINE='BEST SAREES'
+OSCAR_DEFAULT_CURRENCY = 'INR'
+
+# ***************************************************************************
+

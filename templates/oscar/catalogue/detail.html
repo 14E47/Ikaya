@@ -17,185 +17,367 @@
     {{ product.description|default:""|striptags }}
 {% endblock %}
 
-{% block breadcrumbs %}
-<ul class="breadcrumb">
-    <li>
-        <a href="{{ homepage_url }}">{% trans "Home" %}</a>
-    </li>
-    {% with category=product.categories.all.0 %}
-        {% for c in category.get_ancestors_and_self %}
-        <li>
-            <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>
-        </li>
-        {% endfor %}
-        <li class="active">{{ product.title }}</li>
-
-        {% get_back_button as backbutton %}
-        {% if backbutton %}
-            <li class="pull-right">
-                <a href="{{ backbutton.url }}">
-                    <i class="icon-arrow-left"></i> {{ backbutton.title }}
-                </a>
-            </li>
-        {% endif %}
-    {% endwith %}
-</ul>
-{% endblock %}
+{#{% block breadcrumbs %}#}
+{#<ul class="breadcrumb">#}
+{#    <li>#}
+{#        <a href="{{ homepage_url }}">{% trans "Home" %}</a>#}
+{#    </li>#}
+{#    {% with category=product.categories.all.0 %}#}
+{#        {% for c in category.get_ancestors_and_self %}#}
+{#        <li>#}
+{#            <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>#}
+{#        </li>#}
+{#        {% endfor %}#}
+{#        <li class="active">{{ product.title }}</li>#}
+{##}
+{#        {% get_back_button as backbutton %}#}
+{#        {% if backbutton %}#}
+{#            <li class="pull-right">#}
+{#                <a href="{{ backbutton.url }}">#}
+{#                    <i class="icon-arrow-left"></i> {{ backbutton.title }}#}
+{#                </a>#}
+{#            </li>#}
+{#        {% endif %}#}
+{#    {% endwith %}#}
+{#</ul>#}
+{#{% endblock %}#}
 
 {% block header %}
 {% endblock header %}
 
 {% block content %}
 
-<article class="product_page"><!-- Start of product page -->
+    <main id="mt-main">
+        <!-- Mt Product Detial of the Page -->
+        <section class="mt-product-detial wow fadeInUp" data-wow-delay="0.4s">
+            <div class="container">
+                <div class="row">
+                    <div class="mt-textbox equalhh basket">
+                        <img src="{% static "markatix/images/new/about/07.png"%}" class="pro-logo" >
+                        <h3 class="vcenter2" style="margin:0px;">SARIS</h3>
+                    </div>
+                    <br><br><br>
+                </div>
+                <div class="row">
+                    {% block product_gallery %}
+                    <div class="col-xs-12 col-sm-5">
+                        {% include "catalogue/partials/gallery.html" %}
+                    </div>
 
-    <div class="row">
+                    {% endblock %}
 
-        {% block product_gallery %}
-        <div class="col-sm-6">
-            {% include "catalogue/partials/gallery.html" %}
-        </div>
-        {% endblock %}
+                    {% block product_main %}
+                        <div class="col-xs-12 col-sm-7">
+                            <!-- Detail Holder of the Page -->
+                            <div class="detial-holder">
+                                <!-- Admin Rights -->
+                                {% if user.is_authenticated and user.is_staff %}
+                                    <a class="pull-right hidden-xs" href="{% url 'dashboard:catalogue-product' pk=product.id %}"><small><i class="icon-edit"></i> {% trans "Edit this product" %}</small></a>
+                                {% endif %}
+                                <!-- admin rights end-->
+                                <h2>{{ product.get_title }}</h2>
+                                <!-- Rank Rating of the Page -->
+                                <div class="rank-rating">
+                                    <span class="total-price">Item Code: {{ product.upc }}</span>
+                                </div>
+                                <!-- Rank Rating of the Page end -->
+                                <div class="txt-wrap">
+                                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" role="tab" id="headingOne">
+                                                <h4 class="panel-title">
+                                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                        <i class="pull-right"><img src="{% static "markatix/images/new/detail/arrow.png" %}" style="width:14px"></i>
+                                                        FIT
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                                                <div class="panel-body">
+                                                      <p>FIT</p>
+                                                </div>
+                                            </div>
+                                        </div>
 
-        {% block product_main %}
-        <div class="col-sm-6 product_main">
-            {% comment %}
-            This is a but clunky here.  Better to have some kind of JS-driven dashboard menu that 
-            pops out when clicked.  A bit like the Django-Debug-Toolbar button
-            {% endcomment %}
-            {% if user.is_authenticated and user.is_staff %}
-                <a class="pull-right hidden-xs" href="{% url 'dashboard:catalogue-product' pk=product.id %}"><small><i class="icon-edit"></i> {% trans "Edit this product" %}</small></a>
-            {% endif %}
-            <h1>{{ product.get_title }}</h1>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" role="tab" id="headingTwo">
+                                                <h4 class="panel-title">
+                                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                        <i class="pull-right"><img src="{% static "markatix/images/new/detail/arrow.png" %}" style="width:14px"></i>
+                                                        SIZE
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                                <div class="panel-body">
+                                                    <p>SIZE</p>
+                                                </div>
+                                            </div>
+                                        </div>
 
-            {% block product_stock_record %}
-                {% include "catalogue/partials/stock_record.html" with verbose=1 %}
-            {% endblock %}
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" role="tab" id="headingThree">
+                                                <h4 class="panel-title">
+                                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                        <i class="pull-right"><img src="{% static "markatix/images/new/detail/arrow.png" %}" style="width:14px"></i>
+                                                        COLOR
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                                                <div class="panel-body">
+                                                    <p>COLOR</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" role="tab" id="headingThree">
+                                                <h4 class="panel-title">
+                                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                                        <i class="pull-right"><img src="{% static "markatix/images/new/detail/arrow.png" %}" style="width:14px"></i>
+                                                        QUANTITY
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                                                <div class="panel-body">
+                                                    <p>QUANTITY</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
 
-            {% iffeature "reviews" %}
-                {% include "catalogue/reviews/partials/review_stars.html" %}
-            {% endiffeature %}
+                                <!-- Product Form of the Page -->
+                                    <div class="col-sm-4 col-xs-5">
+                                        <div class="row">
+                                            {% include "catalogue/partials/add_to_basket_form.html" %}
+{#                                            <form action="#" class="product-form">#}
+{#                                                <div class="row-val">#}
+{#                                                    <button type="submit">ADD TO CART <span class="pull-right">+</span></button>#}
+{#                                                </div>#}
+{#                                            </form>#}
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-8 col-xs-7 price-sec">
+                                        <p>INR &nbsp;&nbsp;&nbsp;
+                                            <span class="detail_price">
+                                                {% block product_stock_record %}
+                                                    {% include "catalogue/partials/stock_record.html" with verbose=1 %}
+                                                {% endblock %}
+                                            </span>
+                                        </p>
+                                    </div>
+                                <!-- Product Form of the Page end -->
+                                    <div class="col-sm-12">
+                                        <div class="row">
+                                            <h4>
+                                                ADD TO WISHLIST
+                                            </h4>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 detail">
+                                        <div class="row">
+                                            <h3>Material / Type</h3>
+                                            <p>Mulberry Silk Sari</p>
+                                            <hr>
+                                            <h3>Material / Type</h3>
+                                            <p>Mulberry Silk Sari</p>
+                                            <hr>
+                                            <h3>Material / Type</h3>
+                                            <p>Mulberry Silk Sari</p>
+                                            <hr>
+                                            <h3>Material / Type</h3>
+                                            <p>Mulberry Silk Sari</p>
+                                            <hr>
+                                        </div>
+                                        <div class="row">
+                                            <p style="font-size:16px !important;font-weight:700;margin-top:20px;margin-bottom:20px!important;">
+                                                <i>{{ product.description|safe }}</i>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 detail-about">
+                                        <div class="row">
+                                            <div class="mt-textbox equalh">
 
-            <hr/>
 
-            {% block product_basket_form %}
-                {% include "catalogue/partials/add_to_basket_form.html" %}
-            {% endblock %}
-        </div><!-- /col-sm-6 -->
-        {% endblock %}
 
-    </div><!-- /row -->
 
-    {% block product_description %}
-        {% if product.description %}
-        <div id="product_description" class="sub-header">
-            <h2>{% trans "Product Description" %}</h2>
-        </div>
-        <p>{{ product.description|safe }}</p>
-        {% endif %}
-    {% endblock %}
 
-    {% block product_info %}
-    <div class="sub-header">
-        <h2>{% trans "Product Information" %}</h2>
-    </div>
-    <table class="table table-striped">
-        {% if product.upc %}
-        <tr>
-            <th>{% trans "UPC" %}</th><td>{{ product.upc }}</td>
-        </tr>
-        {% endif %}
-        <tr>
-            <th>{% trans "Product Type" %}</th><td>{{ product.get_product_class.name }}</td>
-        </tr>
+                                                <img src="{% static "markatix/images/new/about/07.png"%}" style="width:15%;height:15%;float:left" class="hidden-xs"><h2 style="color:#F6B82F !important;" class="vcenter1">EKAYA RECOMMENDS</h2>
+                                            </div><!-- mt-textbox end here -->
+                                            <p>
+                                                 Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
+                                            </p>
+                                            <div class="col-md-7 col-sm-7 col-xs-7 text-left">
+                                                <div class="row">
+                                                    <ul class="menu list-inline">
+                                                        <li>
+                                                            <a href="#">SHIPPING</a>
+                                                        </li>
 
-        {% purchase_info_for_product request product as session %}
-        {% if session.price.exists %}
-            <tr>
-                <th>{% trans "Price (excl. tax)" %}</th><td>{{ session.price.excl_tax|currency:session.price.currency }}</td>
-            </tr>
-            {% if session.price.is_tax_known %}
-                <tr>
-                    <th>{% trans "Price (incl. tax)" %}</th><td>{{ session.price.incl_tax|currency:session.price.currency }}</td>
-                </tr>
-                <tr>
-                    <th>{% trans "Tax" %}</th><td>{{ session.price.tax|currency:session.price.currency }}</td>
-                </tr>
-            {% endif %}
-            <tr>
-                <th>{% trans "Availability" %}</th>
-                <td>{{ session.availability.message }}</td>
-            </tr>
-        {% endif %}
-        {% for av in product.attribute_values.all %}
-            <tr>
-                <th>{{ av.attribute.name }}</th>
-                <td>{{ av.value_as_html }}</td>
-            </tr>
-        {% endfor %}
-        {% iffeature "reviews" %}
-            <tr>
-                <th>{% trans "Number of reviews" %}</th>
-                <td>{{ product.num_approved_reviews }}</td>
-            </tr>
-        {% endiffeature %}
-    </table>
-    {% endblock %}
+                                                        <li>
+                                                            <a href="#">RETURNS</a>
+                                                        </li>
 
-    {% iffeature "reviews" %}
-        {% block product_review %}
-        <section>
-            <div id="reviews" class="sub-header">
-                {% if product.num_approved_reviews > 3 %}
-                    <a href="{% url 'catalogue:reviews-list' product_slug=product.slug product_pk=product.id %}" class="btn pull-right">{% trans "See all reviews" %}</a>
-                {% endif %}
-                <h2>{% trans "Customer Reviews" %}</h2>
-            </div>
+                                                        <li>
+                                                            <a href="#">TERMS</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
 
-            {% if product.num_approved_reviews == 0 %}
-                <p>
-                    {% if product|is_review_permitted:user %}
-                        {% url 'catalogue:reviews-add' product_slug=product.slug product_pk=product.id as add_review_url %}
-                            {% blocktrans %}This product does not have any reviews yet -
-                            <a href="{{ add_review_url }}#addreview">be the first to write one</a>.
-                        {% endblocktrans %}
-                    {% else %}
-                        {% trans "This product does not have any reviews yet" %}.
-                    {% endif %}
-                </p>
-            {% else %}
-                <ol class="list-unstyled review-list">
-                    {% for review in product.reviews.approved.all|slice:":3" %}
-                        <li>
-                        {% include 'catalogue/partials/review.html' %}
-                        </li>
-                    {% endfor %}
-                </ol>
-            {% endif %}
+                                            <div class="col-md-5 col-sm-5 col-xs-5 text-right">
+                                                <h5>SHARE</h5>
+                                                <ul class="list-inline soc">
+                                                    <li>
+                                                        <a href="#"><i class="fa fa-instagram"></i></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#"><i class="fa fa-facebook fa-1x"></i></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#"><i class="fa fa-pinterest"></i></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#"><i class="fa fa-email"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endblock %}
+                </div><!-- /row -->
+
+{#                {% block product_description %}#}
+{#                    {% if product.description %}#}
+{#                    <div id="product_description" class="sub-header">#}
+{#                        <h2>{% trans "Product Description" %}</h2>#}
+{#                    </div>#}
+{#                    <p></p>#}
+{#                    {% endif %}#}
+{#                {% endblock %}#}
+
+{#                {% block product_info %}#}
+{#                    <div class="sub-header">#}
+{#                        <h2>{% trans "Product Information" %}</h2>#}
+{#                    </div>#}
+{#                    <table class="table table-striped">#}
+{#                        {% if product.upc %}#}
+{#                        <tr>#}
+{#                            <th>{% trans "UPC" %}</th><td></td>#}
+{#                        </tr>#}
+{#                        {% endif %}#}
+{#                        <tr>#}
+{#                            <th>{% trans "Product Type" %}</th><td>{{ product.get_product_class.name }}</td>#}
+{#                        </tr>#}
+{##}
+{#                        {% purchase_info_for_product request product as session %}#}
+{#                        {% if session.price.exists %}#}
+{#                            <tr>#}
+{#                                <th>{% trans "Price (excl. tax)" %}</th><td>{{ session.price.excl_tax|currency:session.price.currency }}</td>#}
+{#                            </tr>#}
+{#                            {% if session.price.is_tax_known %}#}
+{#                                <tr>#}
+{#                                    <th>{% trans "Price (incl. tax)" %}</th><td>{{ session.price.incl_tax|currency:session.price.currency }}</td>#}
+{#                                </tr>#}
+{#                                <tr>#}
+{#                                    <th>{% trans "Tax" %}</th><td>{{ session.price.tax|currency:session.price.currency }}</td>#}
+{#                                </tr>#}
+{#                            {% endif %}#}
+{#                            <tr>#}
+{#                                <th>{% trans "Availability" %}</th>#}
+{#                                <td>{{ session.availability.message }}</td>#}
+{#                            </tr>#}
+{#                        {% endif %}#}
+{#                        {% for av in product.attribute_values.all %}#}
+{#                            <tr>#}
+{#                                <th>{{ av.attribute.name }}</th>#}
+{#                                <td>{{ av.value_as_html }}</td>#}
+{#                            </tr>#}
+{#                        {% endfor %}#}
+{#                        {% iffeature "reviews" %}#}
+{#                            <tr>#}
+{#                                <th>{% trans "Number of reviews" %}</th>#}
+{#                                <td>{{ product.num_approved_reviews }}</td>#}
+{#                            </tr>#}
+{#                        {% endiffeature %}#}
+{#                    </table>#}
+{#                {% endblock %}#}
+{##}
+{#                {% iffeature "reviews" %}#}
+{#                    {% block product_review %}#}
+{#                        <section>#}
+{#                        <div id="reviews" class="sub-header">#}
+{#                            {% if product.num_approved_reviews > 3 %}#}
+{#                                <a href="{% url 'catalogue:reviews-list' product_slug=product.slug product_pk=product.id %}" class="btn pull-right">{% trans "See all reviews" %}</a>#}
+{#                            {% endif %}#}
+{#                            <h2>{% trans "Customer Reviews" %}</h2>#}
+{#                        </div>#}
+{##}
+{#                        {% if product.num_approved_reviews == 0 %}#}
+{#                            <p>#}
+{#                                {% if product|is_review_permitted:user %}#}
+{#                                    {% url 'catalogue:reviews-add' product_slug=product.slug product_pk=product.id as add_review_url %}#}
+{#                                        {% blocktrans %}This product does not have any reviews yet -#}
+{#                                        <a href="{{ add_review_url }}#addreview">be the first to write one</a>.#}
+{#                                    {% endblocktrans %}#}
+{#                                {% else %}#}
+{#                                    {% trans "This product does not have any reviews yet" %}.#}
+{#                                {% endif %}#}
+{#                            </p>#}
+{#                        {% else %}#}
+{#                            <ol class="list-unstyled review-list">#}
+{#                                {% for review in product.reviews.approved.all|slice:":3" %}#}
+{#                                    <li>#}
+{#                                    {% include 'catalogue/partials/review.html' %}#}
+{#                                    </li>#}
+{#                                {% endfor %}#}
+{#                            </ol>#}
+{#                        {% endif %}#}
+{#                    </section>#}
+{#                    {% endblock product_review %}#}
+{#                {% endiffeature %}#}
+{#                {% recently_viewed_products current_product=product %}#}
+
+            </div><!-- End of product page -->
         </section>
-        {% endblock product_review %}
-    {% endiffeature %}
-
-    {% with recommended_products=product.recommended_products.all|slice:":6" %}
-        {% if recommended_products %}
-            <div class="sub-header">
-                <h2>{% trans "Recommended items" %}</h2>
+        <div class="related-products wow fadeInUp" data-wow-delay="0.4s">
+            <div class="container">
+                <!-- BEGIN PRODUCTS -->
+                {% with recommended_products=product.recommended_products.all|slice:":4" %}
+                    {% if recommended_products %}
+                        <h2>you may also like</h2>
+                            <div class="row product_list">
+                                {% for product in recommended_products %}
+                                    <div class="col-md-3 col-sm-6 col-xs-6">
+                                        <a href="{{ product.get_absolute_url }}"  class="hovereffect">
+                                            {% block product_image %}
+                                                {% with image=product.primary_image %}
+                                                    <img src="{{ image.original.url }}" alt="{{ product.get_title }}">
+                                                {% endwith %}
+                                            {% endblock %}
+                                            <div class="overlay">
+                                            </div>
+                                        </a>
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+                        {% endwith %}
+                </div>
             </div>
-            <ul class="row">
-                {% for product in recommended_products %}
-                <li class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
-                    {% render_product product %}
-                </li>
-                {% endfor %}
-            </ul>
-        {% endif %}
-    {% endwith %}
-
-    {% recently_viewed_products current_product=product %}
-
-</article><!-- End of product page -->
+        </div>
+    </main>
 {% endblock content %}
-
+{% block extrastyles  %}
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="{% static "markatix/css/bootstrap.css" %}" />
+    <link rel="stylesheet" href="{% static "markatix/css/main.css" %}" />
+    <link rel="stylesheet" href="{% static "markatix/css/responsive.css" %}" />
+{% endblock %}
 {% block extrascripts %}
     {{ block.super }}
 {% endblock %}

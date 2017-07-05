@@ -7,9 +7,7 @@
 {% load i18n %}
 {% load staticfiles %}
 
-{% block title %}
-    {% if summary %}{{ summary }} |{% endif %} {{ block.super }}
-{% endblock %}
+{% block title %}Catalogue | {{ shop_name }}{% endblock %}
 
 {% block headertext %}{{ summary }}{% endblock %}
 

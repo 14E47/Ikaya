@@ -3,6 +3,7 @@
 {% load i18n %}
 {% load display_tags %}
 {% load staticfiles %}
+{% load debug_tags %}
 
 {% block product %}
 
@@ -16,18 +17,22 @@
         <div class="overlay">
         </div>
     </a>
-    <a class="thumbnail_pro" href="#">
-        <h3><a href="{{ product.get_absolute_url }}" title="{{ product.get_title }}">{{ product.get_title|truncatewords:4 }}</a></h3>
-        <form id="add_to_wishlist_form" action="{% url 'customer:wishlists-add-product' product_pk=product.pk %}" method="post" class="btn-wishlist">
+    <div>
+        <h3 style="width:88%;float: left;margin-top:0px"><a style="text-decoration: none;color:#ac997d;" href="{{ product.get_absolute_url }}" title="{{ product.get_title }}">{{ product.get_title|truncatewords:4 }}</a></h3>
+        <form id="add_to_wishlist_form" action="{% url 'customer:wishlists-add-product' product_pk=product.pk %}" method="post" style="width:12%;float: left">
             {% csrf_token %}
-            <button type="submit"><span class="pull-right"><i class="fa fa-heart-o"></i></span></button>
+            {% if product.wishlists_lines.all %}
+                <button type="submit" style="background-color:transparent;border:0px;font-size:18px"><i style="color:red" class="fa fa-heart"></i></button>
+            {% else %}
+                <button type="submit" style="background-color:transparent;border:0px;font-size:18px"><i style="color:red" class="fa fa-heart-o"></i></button>
+            {% endif %}
         </form>
         <div class="row">
             <div class="col-md-6 col-sm-6">
                 <p class="price">{% include "catalogue/partials/stock_record.html" %}</p>
             </div>
         </div>
-    </a>
+    </div>
 
 
 
@@ -69,3 +74,4 @@
 {#        {% endblock %}#}
 {#    </article>#}
 {% endblock %}
+
