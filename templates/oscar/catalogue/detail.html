@@ -170,9 +170,18 @@
                                 <!-- Product Form of the Page end -->
                                     <div class="col-sm-12">
                                         <div class="row">
-                                            <h4>
-                                                ADD TO WISHLIST
-                                            </h4>
+                                            {% if product.wishlists_lines.all %}
+                                                <form action="{% url 'customer:wishlists-remove-product' key=0 product_pk=product.id %}" method="post" style="width:50%;float: left">
+                                                    {% csrf_token %}
+                                                    <button type="submit" style="background-color:transparent;border:0px;font-size:18px"><i style="color:red" class="fa fa-heart"></i> In WishList</button>
+                                                </form>
+                                            {% else %}
+                                                <form id="add_to_wishlist_form" action="{% url 'customer:wishlists-add-product' product_pk=product.pk %}" method="post" style="width:50%;float: left">
+                                                    {% csrf_token %}
+                                                    <button type="submit" style="background-color:transparent;border:0px;font-size:18px"><i style="color:red" class="fa fa-heart-o"></i> Add to Wishlist</button>
+                                                </form>
+
+                                            {% endif %}
                                         </div>
                                     </div>
                                     <div class="col-sm-12 detail">
