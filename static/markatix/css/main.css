@@ -8989,14 +8989,14 @@ a:hover, a:active, a:focus {
   position: absolute;
   font-size: 0;
   color: #f36b21;
-  left: 50%;
-  top: 50%;
-  width: 100px;
-  height: 100px;
-  -webkit-transform: translateY(-50%) translateX(-50%);
-  -ms-transform: translateY(-50%) translateX(-50%);
-  transform: translateY(-50%) translateX(-50%); }
-
+  left: 40%;
+  top: 35%;
+  width: 300px;
+  height: 300px;
+  /*-webkit-transform: translateY(-50%) translateX(-50%);*/
+  /*-ms-transform: translateY(-50%) translateX(-50%);*/
+  /*transform: translateY(-50%) translateX(-50%); }*/
+}
 .changer-active #style-changer {
   margin: 0; }
 /*# sourceMappingURL=main.css.map */
@@ -9775,6 +9775,105 @@ l,btn-box li:after {
     {
         padding-left:7.5px;
         padding-right:7.5px;
+    }
+    .login_form .form-control {
+        display: block;
+        width: 90%;
+        height: 33px;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.4285;
+        color: #999;
+        background-color: #EBEBED !important;
+        background-image: none;
+        border: 0px solid #ccc;
+        border-radius: 0px;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+        -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+        -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+        transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    }
+    .login_form h2
+    {
+        font-family: "MetaSerifTf-Book";
+        font-weight:400;
+        color: #EBEBED !important;
+    }
+    .login_form button[type="submit"],.login_form button[type="submit"]:hover
+    {
+        background-color:#7E7D82;
+        border-radius:0px;
+        border:0px;
+        color:#fff;
+        padding:8px 0px;
+        width:90%;
+    }
+    .register_form .form-control {
+        display: block;
+        width: 90%;
+        height: 33px;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.4285;
+        color: #999;
+        background-color: #EBEBED !important;
+        background-image: none;
+        border: 0px solid #ccc;
+        border-radius: 0px;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+        -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+        -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+        transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    }
+    .register_form h2
+    {
+        font-family: "MetaSerifTf-Book";
+        font-weight:400;
+        color: #EBEBED !important;
+    }
+    .register_form button[type="submit"],.register_form button[type="submit"]:hover
+    {
+        background-color:#7E7D82;
+        border-radius:0px;
+        border:0px;
+        color:#fff;
+        padding:8px 0px;
+        width:90%;
+    }
+    .guest_form .form-control {
+      display: block;
+      width: 90%;
+      height: 33px;
+      padding: 6px 12px;
+      font-size: 14px;
+      line-height: 1.4285;
+      color: #999;
+      background-color: #EBEBED !important;
+      background-image: none;
+      border: 0px solid #ccc;
+      border-radius: 0px;
+      -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+      -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+      -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+      transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    }
+    .guest_form h2
+    {
+        font-family: "MetaSerifTf-Book";
+        font-weight:400;
+        color: #EBEBED !important;
+    }
+    .guest_form button[type="submit"],.guest_form button[type="submit"]:hover
+    {
+        background-color:#7E7D82;
+        border-radius:0px;
+        border:0px;
+        color:#fff;
+        padding:8px 0px;
+        width:90%;
     }
 /*****product detail accordion*****/
 

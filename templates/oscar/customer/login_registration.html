@@ -2,40 +2,60 @@
 {% load i18n %}
 
 {% block title %}
-    {% trans 'Login or register' %} | {{ block.super }}
+    {% trans 'Login/Register/Guest' %} | {{ block.super }}
 {% endblock %}
 
 {% block breadcrumbs %}
-    <ul class="breadcrumb">
-        <li>
-            <a href="{{ homepage_url }}">{% trans 'Home' %}</a>
-        </li>
-        <li class="active">{% trans 'Login or register' %}</li>
-    </ul>
+{#    <ul class="breadcrumb">#}
+{#        <li>#}
+{#            <a href="{{ homepage_url }}">{% trans 'Home' %}</a>#}
+{#        </li>#}
+{#        <li class="active">{% trans 'Login or register' %}</li>#}
+{#    </ul>#}
 {% endblock %}
 
 {% block header %}{% endblock %}
 
 {% block content %}
+    <main id="mt-main">
+        <div class="container checkout">
+            <div class="row">
+                <div class="col-sm-4 register_form">
+                    <form id="register_form" action="{{ request.get_full_path }}" method="post" class="well">
+                        <h2>{% trans 'REGISTER' %}</h2>
+                        {% csrf_token %}
+                        {% include "partials/form_fields.html" with form=registration_form %}
+                        <button name="registration_submit" type="submit" value="Register" class="btn btn-lg btn-primary" data-loading-text="{% trans 'REGISTERING...' %}">{% trans 'REGISTER' %}</button>
+                    </form>
+                </div>
+                <div class="col-sm-4 login_form">
+                    <form id="login_form" action="{{ request.get_full_path }}" method="post" class="well" >
+                        <h2>{% trans 'LOG IN' %}</h2>
+                        {% csrf_token %}
+                        {% include "partials/form_fields.html" with form=login_form %}
+                        <p><a href="{% url 'password-reset' %}">{% trans "I've forgotten my password" %}</a></p>
+                        <button name="login_submit" type="submit" value="Log In" class="btn btn-lg btn-primary" data-loading-text="{% trans "Logging in..." %}">{% trans 'LOG IN' %}</button>
+                    </form>
+                </div>
+                <div class="col-sm-4 register_form">
+                    <form id="guest_form" action="{{ request.get_full_path }}" method="post" class="well">
+                        <h2>{% trans 'GUEST USER' %}</h2>
+                        {% csrf_token %}
 
-    <div class="row">
-        <div class="col-sm-6 login_form">
-            <form id="login_form" action="{{ request.get_full_path }}" method="post" class="well" >
-                <h2>{% trans 'Log In' %}</h2>
-                {% csrf_token %}
-                {% include "partials/form_fields.html" with form=login_form %}
-                <p><a href="{% url 'password-reset' %}">{% trans "I've forgotten my password" %}</a></p>
-                <button name="login_submit" type="submit" value="Log In" class="btn btn-lg btn-primary" data-loading-text="{% trans "Logging in..." %}">{% trans 'Log In' %}</button>
-            </form>
+
+
+                        <button name="registration_submit" type="submit" value="Register" class="btn btn-lg btn-primary" data-loading-text="{% trans 'Checkout...' %}">{% trans 'CHECKOUT AS GUEST' %}</button>
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-8 col-sm-offset-2">
+                    <a href="#">Login with Facebook</a>
+                    <a href="#">Login with Google Plus</a>
+                </div>
+            </div>
         </div>
-        <div class="col-sm-6 register_form">
-            <form id="register_form" action="{{ request.get_full_path }}" method="post" class="well">
-                <h2>{% trans 'Register' %}</h2>
-                {% csrf_token %}
-                {% include "partials/form_fields.html" with form=registration_form %}
-                <button name="registration_submit" type="submit" value="Register" class="btn btn-lg btn-primary" data-loading-text="{% trans 'Registering...' %}">{% trans 'Register' %}</button>
-            </form>
-        </div>
-    </div>
+    </main>
+
 
 {% endblock content %}

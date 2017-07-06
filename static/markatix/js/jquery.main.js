@@ -40,7 +40,7 @@ function initCountDown() {
 }
 // PreLoader init
 function initPreLoader() {
-	jQuery('#pre-loader').delay(1200).fadeOut();
+	jQuery('#pre-loader').delay(2200).fadeOut();
 }
 // NavOpener init
 function initNavOpener() {
