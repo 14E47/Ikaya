@@ -170,17 +170,23 @@
                                 <!-- Product Form of the Page end -->
                                     <div class="col-sm-12">
                                         <div class="row">
-                                            {% if product.wishlists_lines.all %}
-                                                <form action="{% url 'customer:wishlists-remove-product' key=0 product_pk=product.id %}" method="post" style="width:50%;float: left">
-                                                    {% csrf_token %}
-                                                    <button type="submit" style="background-color:transparent;border:0px;font-size:18px"><i style="color:red" class="fa fa-heart"></i> In WishList</button>
-                                                </form>
+                                            {% if user.is_authenticated %}
+                                                {% if product.wishlists_lines.all %}
+                                                    {% for pro_wish in product.wishlists_lines.all %}
+                                                        <form action="{% url 'customer:wishlists-remove-product' key=pro_wish.wishlist.key product_pk=product.id %}" method="post">
+                                                            {% csrf_token %}
+                                                            <input type="hidden" name="next" value="/catalogue" />
+                                                            <button type="submit" style="background-color:transparent;border:0px;font-size:18px"><i style="color:red" class="fa fa-heart"></i> In Wishlist </button>
+                                                        </form>
+                                                    {% endfor %}
+                                                {% else %}
+                                                    <form id="add_to_wishlist_form" action="{% url 'customer:wishlists-add-product' product_pk=product.pk %}" method="post">
+                                                        {% csrf_token %}
+                                                        <button type="submit" style="background-color:transparent;border:0px;font-size:18px"><i style="color:#f6b220" class="fa fa-heart-o"></i> Add to Wishlist </button>
+                                                    </form>
+                                                {% endif %}
                                             {% else %}
-                                                <form id="add_to_wishlist_form" action="{% url 'customer:wishlists-add-product' product_pk=product.pk %}" method="post" style="width:50%;float: left">
-                                                    {% csrf_token %}
-                                                    <button type="submit" style="background-color:transparent;border:0px;font-size:18px"><i style="color:red" class="fa fa-heart-o"></i> Add to Wishlist</button>
-                                                </form>
-
+                                                <button style="background-color:transparent;border:0px;font-size:18px"><i style="color:grey" class="fa fa-heart-o"></i></button><br/>
                                             {% endif %}
                                         </div>
                                     </div>
