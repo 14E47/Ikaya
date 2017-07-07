@@ -8,6 +8,7 @@
 {% load display_tags %}
 {% load i18n %}
 {% load purchase_info_tags %}
+{% load debug_tags %}
 
 {% block title %}
     {{ product.title }} | {{ block.super }}
@@ -94,7 +95,7 @@
                                             </div>
                                             <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
                                                 <div class="panel-body">
-                                                      <p>FIT</p>
+                                                    <p>{{product.attr.fit.option}}</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -110,7 +111,7 @@
                                             </div>
                                             <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
                                                 <div class="panel-body">
-                                                    <p>SIZE</p>
+                                                    <p>{{product.attr.size.option}}</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -126,7 +127,7 @@
                                             </div>
                                             <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
                                                 <div class="panel-body">
-                                                    <p>COLOR</p>
+                                                    <p>{{product.attr.colour.option}}</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -192,17 +193,17 @@
                                     </div>
                                     <div class="col-sm-12 detail">
                                         <div class="row">
-                                            <h3>Material / Type</h3>
-                                            <p>Mulberry Silk Sari</p>
+                                            <h3>Material Type</h3>
+                                            <p>{{product.attr.material_type}}</p>
                                             <hr>
-                                            <h3>Material / Type</h3>
-                                            <p>Mulberry Silk Sari</p>
+                                            <h3>Detail</h3>
+                                            <p>{{ product.description|safe }}</p>
                                             <hr>
-                                            <h3>Material / Type</h3>
-                                            <p>Mulberry Silk Sari</p>
+                                            <h3>Approx Weight</h3>
+                                            <p>{{product.attr.approx_weight}}</p>
                                             <hr>
-                                            <h3>Material / Type</h3>
-                                            <p>Mulberry Silk Sari</p>
+                                            <h3>Wash Instructions</h3>
+                                            <p>{{pproduct.attr.ekaya_recommendsroduct.attr.wash_instructions.option}}</p>
                                             <hr>
                                         </div>
                                         <div class="row">
@@ -212,19 +213,16 @@
                                             </p>
                                         </div>
                                     </div>
-                                    <div class="col-sm-12 detail-about">
-                                        <div class="row">
-                                            <div class="mt-textbox equalh">
-
-
-
-
-
-                                                <img src="{% static "markatix/images/new/about/07.png"%}" style="width:15%;height:15%;float:left" class="hidden-xs"><h2 style="color:#F6B82F !important;" class="vcenter1">EKAYA RECOMMENDS</h2>
-                                            </div><!-- mt-textbox end here -->
-                                            <p>
-                                                The colours you see on your device may vary due to the varying colour reproduction and temperature of individual devices. The colours you see on your device may vary due to the varying colour reproduction and temperature of individual devices
-                                            </p>
+                                    <div class="col-sm-12 detail-about"> 
+                                       <div class="row">
+                                            {% if product.attr.ekaya_recommends %}
+                                                <div class="mt-textbox equalh">
+                                                    <img src="{% static "markatix/images/new/about/07.png"%}" style="width:15%;height:15%;float:left" class="hidden-xs"><h2 style="color:#F6B82F !important;" class="vcenter1">EKAYA RECOMMENDS</h2>
+                                                </div><!-- mt-textbox end here -->
+                                                <p>
+                                                    The colours you see on your device may vary due to the varying colour reproduction and temperature of individual devices. The colours you see on your device may vary due to the varying colour reproduction and temperature of individual devices
+                                                </p>
+                                            {% endif %}
                                             <div class="col-md-7 col-sm-7 col-xs-7 text-left">
                                                 <div class="row">
                                                     <ul class="menu list-inline">
