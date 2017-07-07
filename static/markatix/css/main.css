@@ -9492,19 +9492,21 @@ l,btn-box li:after {
 		font-family: "MetaSerifTf-Book";
         color: #AFA488;
     }
-	.checkout .panel-body input {
+	.checkout .panel-body input,.checkout .panel-body input:hover,.checkout .panel-body input:focus,.checkout .panel-body input.active {
 		border: 0px;
 		border-radius:0px;
-		color: #AFA488;
+		color: #999;
 		width:100%;
 		font-family: "MetaSerifTf-Book";
 		margin-bottom:15px;
 		background-color:#eee;
 		outline:0;
+        box-shadow:0px;
 	}
 	.checkout .save
 	{
 		margin-top:10px;
+        margin-bottom:20px;
 		padding:10px 15px;
 		font-family: "MetaSerifTf-Book";
 		background-color:#827272;
@@ -9805,11 +9807,19 @@ l,btn-box li:after {
         background-color:#7E7D82;
         border-radius:0px;
         border:0px;
+        outline:0px;
         color:#fff;
         padding:8px 0px;
         width:90%;
     }
-    .register_form .form-control {
+
+    #register_form,#login_form
+    {
+        width:100%;
+        height:100%;
+        border-right:1px solid #7E7D82;
+    }
+    #register_form .form-control {
         display: block;
         width: 90%;
         height: 33px;
@@ -9827,18 +9837,19 @@ l,btn-box li:after {
         -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
         transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
     }
-    .register_form h2
+    #register_form h2
     {
         font-family: "MetaSerifTf-Book";
         font-weight:400;
         color: #EBEBED !important;
     }
-    .register_form button[type="submit"],.register_form button[type="submit"]:hover
+    #register_form button[type="submit"],.register_form button[type="submit"]:hover
     {
         background-color:#7E7D82;
         border-radius:0px;
         border:0px;
         color:#fff;
+        outline:0px;
         padding:8px 0px;
         width:90%;
     }
@@ -9875,6 +9886,41 @@ l,btn-box li:after {
         padding:8px 0px;
         width:90%;
     }
+    .facebook,.facebook:hover
+    {
+        width:40%;
+        margin-left:5%;
+        padding:10px 0px;
+        text-align: center;
+        background-color:#827272;
+        color:#fff;
+        outline:0;
+        border:0px;
+        border-radius:0px;
+    }
+    .mt-textbox1
+    {
+        padding-top:20px;
+        padding-bottom:40px;
+    }
+    select
+    {
+      background-color: #eee;
+      height: 33px;
+      border: 0px;
+      padding-left:10px;
+      padding-right:10px;
+      outline: 0px;
+      width:97.5%;
+      color:#999;
+      text-transform: uppercase;
+    }
+    #id_title
+    {
+      width:48.5%;
+      margin-bottom:15px;
+    }
+
 /*****product detail accordion*****/
 
 @media screen and (max-width:480px)

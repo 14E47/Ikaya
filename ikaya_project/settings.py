@@ -163,4 +163,8 @@ OSCAR_SHOP_TAGLINE='BEST SAREES'
 OSCAR_DEFAULT_CURRENCY = 'INR'
 
 # ***************************************************************************
+# ****************Shipping addresss required fields***********************************************************
 
+OSCAR_REQUIRED_ADDRESS_FIELDS = ('first_name', 'last_name', 'line1', 'postcode', 'country')
+
+# ***************************************************************************

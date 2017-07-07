@@ -35,3 +35,8 @@ urlpatterns = [
     url(r'^news$', TemplateView.as_view(template_name='news.html'), name="news"),
     url(r'', include(application.urls)),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+
+
+
