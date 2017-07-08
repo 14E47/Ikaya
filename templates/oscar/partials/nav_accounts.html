@@ -17,13 +17,6 @@
                                     <span class="bar"></span>
                                 </a>
                             </li>
-{#                            <li>#}
-{#                                <a href="#" class="bar-opener side-opener">#}
-{#                                    <span class="bar"></span>#}
-{#                                    <span class="bar"></span>#}
-{#                                    <span class="bar"></span>#}
-{#                                </a>#}
-{#                            </li>#}
                         </ul><!-- mt icon list end here -->
                         <!-- navigation start here -->
                         <nav id="nav">
@@ -38,9 +31,34 @@
                                     <a href="/catalogue">COLLECTION</a>
                                 </li>
                                 <li><a href="/journal">JOURNAL</a></li>
-                                <li>
-                                    <a href="#">LOGIN</a>
-                                </li>
+
+                                    {% if user.is_authenticated %}
+                                        <li>
+                                            <a class="drop-link" href="#">ACCOUNT</a>
+                                            <div class="s-drop">
+                                                <ul>
+                                                    <li>
+                                                        {% if num_unread_notifications > 0 %}
+{#                                                          If user has new notifications - we change account link to go to inbox#}
+                                                            <a href="{% url 'customer:notifications-inbox' %}">
+                                                                <i class="icon-user"></i>
+                                                                {% trans "Account" %}
+                                                                <span class="label label-important">{{ num_unread_notifications }}</span>
+                                                            </a>
+                                                        {% else %}
+                                                            <a href="{% url 'customer:summary' %}"><i class="icon-user"></i> {% trans "Account" %}</a>
+                                                        {% endif %}
+                                                    </li>
+                                                    {% if user.is_staff or perms.partner.dashboard_access %}
+                                                        <li><a href="{% url 'dashboard:index' %}"><i class="icon-list-ul"></i> {% trans "Dashboard" %}</a></li>
+                                                    {% endif %}
+                                                    <li><a id="logout_link" href="{% url 'customer:logout' %}"><i class="icon-signout"></i> {% trans "Logout" %}</a></li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                    {% else %}
+                                        <li><a id="login_link" href="{% url 'customer:login' %}"><i class="icon-signin"></i> {% trans "LOGIN" %}</a></li>
+                                    {% endif %}
                                 <li><a href="#">CONTACT</a></li>
 
                                 <li><a href="#" class="icon-magnifier"></a></li>
@@ -55,65 +73,6 @@
         <!-- mt bottom bar end here -->
         <span class="mt-side-over"></span>
     </header><!-- mt header style4 end here -->
-{#    <div class="mt-side-menu">#}
-{#        <!-- mt holder start here -->#}
-{#        <div class="mt-holder">#}
-{#            <a href="#" class="side-close"><span></span><span></span></a>#}
-{#            <strong class="mt-side-title">MY CART</strong>#}
-{#            <!-- mt side widget start here -->#}
-{#            <div class="mt-side-widget">#}
-{#                <div class="cart-row">#}
-{#                    <a href="#" class="img"><img src="{% static "markatix/images\new\product\03.jpg" %}" alt="image" class="img-responsive"></a>#}
-{#                    <div class="mt-h">#}
-{#                        <span class="mt-h-title"><a href="#">#}
-{#                    <!--<div class="form-control input-sm center merge-bottom-input" name="first">0</div>-->#}
-{#                            1 x Burgundy Double Crepe</a>#}
-{#                        </span>#}
-{#                        <span class="price1">Standard/L/Burgundy</span><br>#}
-{#                        <span class="price"><i class="fa fa-eur" aria-hidden="true"></i> 599,00</span>#}
-{#                        <span class="mt-h-title">#}
-{#                            <div class="btn-group btn-block" role="group" aria-label="plus-minus">#}
-{#                                <button type="button" class="pull-right btn plus-button merge-top-right-button"><span class="glyphicon glyphicon-plus"></span></button>#}
-{#                                <button type="button" class="pull-right btn minus-button merge-top-left-button" disabled="disabled"><span class="glyphicon glyphicon-minus"></span></button>#}
-{#                            </div>#}
-{#                        </span>#}
-{#                    </div>#}
-{#                </div>#}
-{#                <div class="cart-row">#}
-{#                    <a href="#" class="img"><img <img src="{% static "markatix/images\new\product\03.jpg" %}" alt="image" class="img-responsive"></a>#}
-{#                    <div class="mt-h">#}
-{#                        <span class="mt-h-title"><a href="#">#}
-{#                        <!--<div class="form-control input-sm center merge-bottom-input" name="first">0</div>-->#}
-{#                            1 x Burgundy Double Crepe</a>#}
-{#                        </span>#}
-{#                        <span class="price1">Standard/L/Burgundy</span><br>#}
-{#                        <span class="price"><i class="fa fa-eur" aria-hidden="true"></i> 599,00</span>#}
-{#                        <span class="mt-h-title">#}
-{#                            <div class="btn-group btn-block" role="group" aria-label="plus-minus">#}
-{#                                <button type="button" class="pull-right btn plus-button merge-top-right-button"><span class="glyphicon glyphicon-plus"></span></button>#}
-{#                                <button type="button" class="pull-right btn minus-button merge-top-left-button" disabled="disabled"><span class="glyphicon glyphicon-minus"></span></button>#}
-{#                            </div>#}
-{#                        </span>#}
-{#                    </div>#}
-{#                </div>#}
-{#                <div class="cart-row-total">#}
-{#                <span class="mt-total">Sub Total</span>#}
-{#                <span class="mt-total-txt"><i class="fa fa-eur" aria-hidden="true"></i> 1797,00</span>#}
-{#                </div>#}
-{#                <!-- cart row total end here -->#}
-{#                <div class="cart-btn-row">#}
-{#                <a href="#" class="btn-type3">Proceed to Payment</a>#}
-{#                </div>#}
-{#            </div>#}
-{#            <!-- mt side widget end here -->#}
-{##}
-{#            <!-- mt side widget start here -->#}
-{##}
-{#            <!-- mt side widget end here -->#}
-{#        </div>#}
-{#    <!-- mt holder end here -->#}
-{#    </div><!-- mt side menu end here -->#}
-
     <div class="mt-search-popup">
         <div class="mt-holder">
             <a href="#" class="search-close"><span></span><span></span></a>
@@ -135,58 +94,3 @@
             </div>
         </div>
     </div><!-- mt search popup end here -->
-
-{#<div id="top_page" class="navbar navbar-default navbar-static-top accounts">#}
-    {# This is used in mobile view #}
-{#    <div class="navbar-header">#}
-{#        <a class="btn btn-default navbar-toggle collapsed" data-toggle="collapse" data-target=".account-collapse">#}
-{#            <span class="icon-bar"></span>#}
-{#            <span class="icon-bar"></span>#}
-{#            <span class="icon-bar"></span>#}
-{#        </a>#}
-{#    </div>#}
-{##}
-{#    <div class="navbar-collapse account-collapse collapse">#}
-{#        <div class="container-fluid">#}
-{#            {% if LANGUAGES|length > 1 %}#}
-{#                <form id="language_selector" class="navbar-left navbar-form" action="{% url 'set_language' %}" method="post">#}
-{#                    {% csrf_token %}#}
-{#                    <input name="next" type="hidden" value="{{ language_neutral_url_path }}" />#}
-{#                    <div class="form-group">#}
-{#                        <select name="language" class="form-control">#}
-{#                            {% get_language_info_list for LANGUAGES as languages %}#}
-{#                            {% for language in languages %}#}
-{#                                <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE%} selected="selected"{% endif %}>#}
-{#                                    {{ language.name_local }}#}
-{#                                </option>#}
-{#                            {% endfor %}#}
-{#                        </select>#}
-{#                    </div>#}
-{#                    <button class="btn btn-default" type="submit" data-loading-text="{% trans 'Submitting...' %}">{% trans "Go" %}</button>#}
-{#                </form>#}
-{#            {% endif %}#}
-{#            <ul class="nav navbar-nav navbar-right">#}
-{#                {% if user.is_authenticated %}#}
-{#                    <li>#}
-{#                        {% if num_unread_notifications > 0 %}#}
-                            {# If user has new notifications - we change account link to go to inbox #}
-{#                            <a href="{% url 'customer:notifications-inbox' %}">#}
-{#                                <i class="icon-user"></i>#}
-{#                                {% trans "Account" %}#}
-{#                                <span class="label label-important">{{ num_unread_notifications }}</span>#}
-{#                            </a>#}
-{#                        {% else %}#}
-{#                            <a href="{% url 'customer:summary' %}"><i class="icon-user"></i> {% trans "Account" %}</a>#}
-{#                        {% endif %}#}
-{#                    </li>#}
-{#                    {% if user.is_staff or perms.partner.dashboard_access %}#}
-{#                        <li><a href="{% url 'dashboard:index' %}"><i class="icon-list-ul"></i> {% trans "Dashboard" %}</a></li>#}
-{#                    {% endif %}#}
-{#                    <li><a id="logout_link" href="{% url 'customer:logout' %}"><i class="icon-signout"></i> {% trans "Logout" %}</a></li>#}
-{#                {% else %}#}
-{#                    <li><a id="login_link" href="{% url 'customer:login' %}"><i class="icon-signin"></i> {% trans "Login or register" %}</a></li>#}
-{#                {% endif %}#}
-{#            </ul>#}
-{#        </div>#}
-{#    </div>#}
-{#</div>#}

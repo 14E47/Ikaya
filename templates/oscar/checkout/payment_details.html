@@ -3,6 +3,7 @@
 {% load thumbnail %}
 {% load basket_tags %}
 {% load currency_filters %}
+{% load shipping_tags %}
 
 {% block title %}
     {% trans "Payment details" %} | {{ block.super }}
@@ -12,6 +13,8 @@
     {% include 'checkout/nav.html' with step=3 %}
 {% endblock %}
 
+{% block checkout_title %}{% trans "Enter payment details" %}{% endblock %}
+
 {% block order_contents %}{% endblock %}
 {% block shipping_address %}{% endblock %}
 {% block shipping_method %}{% endblock %}
@@ -19,196 +22,157 @@
 
 {% block payment_details %}
     {% block payment_details_content %}
-        {#    {% if user.is_authenticated %}#}
-{#        {% if addresses %}#}
-{#            <h3>{% trans "An address from your address book?" %}</h3>#}
-{#            <div class="choose-block">#}
-{#                <div class="row">#}
-{#                    {% for address in addresses %}#}
-{#                        {% block select_address_form %}#}
-{#                            <div class="col-sm-6">#}
-{#                                <div class="well">#}
-{#                                    <address>#}
-{#                                        {% block select_address_fields %}#}
-{#                                            {% for field in address.active_address_fields %}#}
-{#                                                <span>{{ field }}</span>{% if not forloop.first %}<br/>{% endif %}#}
-{#                                            {% endfor %}#}
-{#                                        {% endblock %}#}
-{#                                    </address>#}
-{#                                    <form action="{% url 'checkout:shipping-address' %}" method="post" id="select_shipping_address_{{ address.id }}">#}
-{#                                        {% csrf_token %}#}
-{#                                        <input type="hidden" name="action" value="ship_to" />#}
-{#                                        <input type="hidden" name="address_id" value="{{ address.id }}" />#}
-{#                                        {% if address.is_default_for_shipping %}#}
-{#                                            <button type="submit" class="btn btn-success btn-large ship-address" data-loading-text="{% trans 'Saving...' %}"><i class="icon-ok"></i> {% trans "Ship to your default shipping address" %}</button>#}
-{#                                        {% else %}#}
-{#                                            <button type="submit" class="btn btn-primary btn-large ship-address" data-loading-text="{% trans 'Saving...' %}">{% trans "Ship to this address" %}</button>#}
-{#                                        {% endif %}#}
-{##}
-{#                                        <div class="btn-group address-controls">#}
-{#                                            <a href="{% url 'checkout:user-address-update' pk=address.id %}" class="btn btn-default btn-sm">{% trans "Edit address" %}</a>#}
-{#                                            <button class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">#}
-{#                                                <span class="caret"></span>#}
-{#                                            </button>#}
-{#                                            <ul class="dropdown-menu">#}
-{#                                                <li><a href="{% url 'checkout:user-address-delete' pk=address.id %}" class="btn-remove-address">{% trans "Delete" %}</a></li>#}
-{#                                            </ul>#}
-{#                                        </div>#}
-{#                                    </form>#}
-{#                                </div>#}
-{#                            </div>#}
-{#                            {% if forloop.counter|divisibleby:2 %}#}
-{#                                </div><div class="row">#}
-{#                            {% endif %}#}
-{#                        {% endblock %}#}
-{#                    {% endfor %}#}
-{#                </div>#}
-{#            </div>#}
-{#            <h3>{% trans "Or a new address?" %}</h3>#}
-{#        {% endif %}#}
-{#    {% endif %}#}
-        <div class="col-sm-6">
-            <p class="headding">CHECKOUT</p>
-            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                <div class="panel panel-default">
-                    <div class="panel-heading" role="tab" id="headingOne">
-                        <h4 class="panel-title">
-                            <a hrf="#">
-                                <i class="more-less glyphicon glyphicon-plus"></i>
-                                1. ADDRESS
-                            </a>
-                        </h4>
-                    </div>
-                </div>
+        <main id="mt-main">
+			<div class="container checkout">
+				<div class="row">
 
-                <div class="panel panel-default">
-                    <div class="panel-heading" role="tab" id="headingTwo">
-                        <h4 class="panel-title">
-                            <a href="#">
-                                <i class="more-less glyphicon glyphicon-plus"></i>
-                                2. DELIVERY
-                            </a>
-                        </h4>
-                    </div>
-                </div>
+				</div>
+				<div class="row">
 
-                <div class="panel panel-default">
-                    <div class="panel-heading" role="tab" id="headingThree">
-                        <h4 class="panel-title">
-                            <a href="#">
-                                <i class="more-less glyphicon glyphicon-plus"></i>
-                                3. ADDRESS DETAILS GIVEN
-                            </a>
-                        </h4>
-                    </div>
-                </div>
+					<div class="col-sm-6">
+						<p class="headding">CHECKOUT</p>
+						<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+							<div class="panel panel-default">
+								<div class="panel-heading" role="tab" id="headingOne">
+									<h4 class="panel-title">
+										<a href="{% url 'checkout:shipping-address' %}" aria-expanded="true" aria-controls="collapseOne">
+											<i class="more-less glyphicon glyphicon-plus"></i>
+											1. ADDRESS
+										</a>
+									</h4>
+								</div>
+							</div>
 
-                <div class="panel panel-default">
-                    <div class="panel-heading" role="tab" id="headingThree">
-                        <h4 class="panel-title">
-                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
-                                <i class="more-less glyphicon glyphicon-plus"></i>
-                                4. PAYMENT
-                            </a>
-                        </h4>
-                    </div>
-                    <div id="collapseFour" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingFour">
-                        <div class="panel-body">
-                            <div class="radio radio-primary">
-                                <input type="radio" name="radio1" id="radio1" value="option1">
-                                <label for="radio1">
-                                    COD
-                                </label>
-                            </div>
-                            <div class="radio radio-primary">
-                                <input type="radio" name="radio1" id="radio2" value="option2">
-                                <label for="radio2">
-                                    CCAVENUE
-                                </label>
-                            </div>
-                            <div class="col-sm-12">
-                                <div class="row">
-                                    <a href="/thankyou" class="pull-right save">PAY</a>
+							<div class="panel panel-default">
+								<div class="panel-heading" role="tab" id="headingTwo">
+									<h4 class="panel-title">
+										<a href="{% url 'checkout:shipping-method' %}">
+											<i class="more-less glyphicon glyphicon-plus"></i>
+											2. DELIVERY
+										</a>
+									</h4>
+								</div>
+							</div>
+
+							<div class="panel panel-default">
+								<div class="panel-heading" role="tab" id="headingThree">
+									<h4 class="panel-title">
+										<a href="{% url 'checkout:shipping-method' %}">
+											<i class="more-less glyphicon glyphicon-plus"></i>
+											3. ADDRESS DETAILS GIVEN
+										</a>
+									</h4>
+								</div>
+							</div>
+
+							<div class="panel panel-default">
+								<div class="panel-heading" role="tab" id="headingfour">
+									<h4 class="panel-title">
+										<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
+											<i class="more-less glyphicon glyphicon-plus"></i>
+											4. PAYMENT
+										</a>
+									</h4>
+								</div>
+								<div id="collapseFour" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingFour">
+									<div class="panel-body">
+										<div class="radio radio-primary">
+											<input type="radio" name="radio1" id="radio1" value="option1">
+											<label for="radio1">
+												COD
+											</label>
+										</div>
+										<div class="radio radio-primary">
+											<input type="radio" name="radio1" id="radio2" value="option2">
+											<label for="radio2">
+												CCAVENUE
+											</label>
+										</div>
+										<div class="radio radio-primary">
+											<input type="radio" name="radio1" id="radio3" value="option3">
+											<label for="radio3">
+												WALLET
+											</label>
+										</div>
+										<div class="col-sm-12">
+											<div class="row">
+												<a href="{% url 'checkout:preview' %}" class="pull-right save">PAY</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+                            <div class="panel panel-default">
+								<div class="panel-heading" role="tab" id="headingThree">
+									<h4 class="panel-title">
+										<a href="#">
+											<i class="more-less glyphicon glyphicon-plus"></i>
+											5. CONFIRMATION
+										</a>
+									</h4>
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+					<div class="col-sm-1">
+					</div>
+					<div class="col-sm-5 basket">
+                        <p class="headding">MY ORDER</p>
+                        <div class="col-sm-12">
+                            {% for line in request.basket.all_lines %}
+                                <div class="row equalh bb">
+                                    <div class="col-sm-3 col-xs-3">
+                                        <div class="row">
+                                            {% with image=line.product.primary_image %}
+                                                {% thumbnail image.original "100x100" upscale=False as thumb %}
+                                                <a href="{{ line.product.get_absolute_url }}">
+                                                    <img class="thumbnail" src="{{ thumb.url }}" alt="{{ line.product.get_title }}">
+                                                </a>
+                                                {% endthumbnail %}
+                                            {% endwith %}
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-9 col-xs-9 vcenter2">
+                                        <h4 class="name"><a href="{{ line.product.get_absolute_url }}">{{ line.description }}</a></h4>
+                                        <p class="qty">QTY:<span>{{ line.quantity }}</span></p>
+                                        <h4 class="basket-price">PRICE:<br><span>{{ line.unit_price_excl_tax|currency:request.basket.currency }}</span></h4>
+                                    </div>
+                                    <hr>
+                                </div>
+                            {% endfor %}
+                            <div class="total">
+                                {% with offer_discounts=basket.offer_discounts voucher_discounts=basket.grouped_voucher_discounts %}
+
+                                {% endwith %}
+                                <div class="row bb">
+                                    <p style="padding:0px;margin:0px">SUBTOTAL<span class="pull-right">12,00,000</span></p>
+                                </div>
+                                <div class="row bb">
+                                    <p style="padding:0px;margin:0px">SHIIPING<span class="pull-right"></span></p>
+                                </div>
+                                <div class="row bb">
+                                    <p style="padding:0px;margin:0px">DISCOUNT<span class="pull-right">1200</span></p>
+                                </div>
+                                <div class="row bb">
+                                    <p style="padding:0px;margin:0px">TAXES<span class="pull-right">1200</span></p>
+                                </div>
+                                <div class="row bb">
+                                    {% if request.basket.is_tax_known %}
+                                        <p style="padding:0px;margin:0px">TOTAL<span class="pull-right">{{ request.basket.total_incl_tax|currency:request.basket.currency }}</span></p>
+                                    {% else %}
+                                            <p style="padding:0px;margin:0px">TOTAL<span class="pull-right">{{ request.basket.total_excl_tax|currency:request.basket.currency }}</span></p>
+                                    {% endif %}
+
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="panel panel-default">
-                    <div class="panel-heading" role="tab" id="headingThree">
-                        <h4 class="panel-title">
-                            <a href="#">
-                                <i class="more-less glyphicon glyphicon-plus"></i>
-                                5. CONFIRMATION
-                            </a>
-                        </h4>
-                    </div>
-                </div>
-
             </div>
-        </div>
-
-        <div class="col-sm-1">
-        </div>
-        <div class="col-sm-5 basket">
-            <p class="headding">MY ORDER</p>
-            <div class="col-sm-12">
-                {% for line in request.basket.all_lines %}
-                    <div class="row equalh bb">
-                        <div class="col-sm-3 col-xs-3">
-                            <div class="row">
-                                {% with image=line.product.primary_image %}
-                                    {% thumbnail image.original "100x100" upscale=False as thumb %}
-                                    <a href="{{ line.product.get_absolute_url }}">
-                                        <img class="thumbnail" src="{{ thumb.url }}" alt="{{ line.product.get_title }}">
-                                    </a>
-                                    {% endthumbnail %}
-                                {% endwith %}
-                            </div>
-                        </div>
-                        <div class="col-sm-9 col-xs-9 vcenter2">
-                            <h4 class="name"><a href="{{ line.product.get_absolute_url }}">{{ line.description }}</a></h4>
-                            <p class="qty">QTY:<span>{{ line.quantity }}</span></p>
-                            <h4 class="basket-price">PRICE:<br><span>{{ line.unit_price_excl_tax|currency:request.basket.currency }}</span></h4>
-                        </div>
-                        <hr>
-                    </div>
-                {% endfor %}
-                <div class="total">
-
-                    <div class="row bb">
-                        <p style="padding:0px;margin:0px">SUBTOTAL<span class="pull-right">12,00,000</span></p>
-                    </div>
-                    <div class="row bb">
-                        <p style="padding:0px;margin:0px">SHIIPING<span class="pull-right"></span></p>
-                    </div>
-                    <div class="row bb">
-                        <p style="padding:0px;margin:0px">DISCOUNT<span class="pull-right">1200</span></p>
-                    </div>
-                    <div class="row bb">
-                        <p style="padding:0px;margin:0px">TAXES<span class="pull-right">1200</span></p>
-                    </div>
-                    <div class="row bb">
-                        {% if request.basket.is_tax_known %}
-                            <p style="padding:0px;margin:0px">TOTAL<span class="pull-right">{{ request.basket.total_incl_tax|currency:request.basket.currency }}</span></p>
-                    {% else %}
-                            <p style="padding:0px;margin:0px">TOTAL<span class="pull-right">{{ request.basket.total_excl_tax|currency:request.basket.currency }}</span></p>
-                    {% endif %}
-
-                    </div>
-                </div>
-            </div>
-        </div>
-
+		</main><!-- Main of the Page end here -->
+{#        <a id="view_preview" href="{% url 'checkout:preview' %}" class="btn btn-primary btn-lg">{% trans "Continue" %}</a>#}
     {% endblock payment_details_content %}
 {% endblock payment_details %}
-
-
-
-
-
-
-
-
-

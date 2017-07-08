@@ -5,22 +5,22 @@
 
 {% block layout %}
 
-{#    <header class="header container-fluid">#}
-{#        <div class="page_inner">#}
-{#            <div class="row">#}
-{#                {% include "partials/brand.html" %}#}
-{#            </div><!-- /row -->#}
-{#        </div>#}
+    <header class="header container-fluid">
+        <div class="page_inner">
+            <div class="row">
+                {% include "partials/brand.html" %}
+            </div><!-- /row -->
+        </div>
         {% block checkout_nav %}{% endblock %}
-{#    </header><!-- /header -->#}
+    </header><!-- /header -->
 
-    <div class="page">
+    <div class="container-fluid page">
        <div class="page_inner">
             {% include 'partials/alert_messages.html' %}
 
-{#            <div class="sub-header">#}
-{#                <h1>{% block checkout_title %}{% endblock %}</h1>#}
-{#            </div>#}
+            <div class="sub-header">
+                <h1>{% block checkout_title %}{% endblock %}</h1>
+            </div>
 
             <!-- The main nav on checkout pages contain links to modal flatpages -->
             {% block modal %}
