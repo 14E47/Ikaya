@@ -468,20 +468,88 @@
                             {% endfor %}
                             <div class="total">
                                 {% with offer_discounts=basket.offer_discounts voucher_discounts=basket.grouped_voucher_discounts %}
+                                    <div class="row bb">
+                                        <p style="padding:0px;margin:0px">SUBTOTAL
+                                            <span class="pull-right">
+                                                {% if basket.is_tax_known and not show_tax_separately %}
+                                                    {{ basket.total_incl_tax_excl_discounts|currency:basket.currency }}
+                                                {% else %}
+                                                    {{ basket.total_excl_tax_excl_discounts|currency:basket.currency }}
+                                                {% endif %}
+                                            </span>
+                                        </p>
+                                    </div>
+                                    {% if offer_discounts or voucher_discounts %}
+                                        {% for discount in offer_discounts %}
+                                            {% if discount.description %}
+                                                <div class="row bb">
+                                                    <p style="padding:0px;margin:0px">DISCOUNT({{ discount.description }})
+                                                        <span class="pull-right">
+                                                            -{{ discount.discount|currency:basket.currency }}
+                                                        </span>
+                                                    </p>
+                                                </div>
+                                            {% endif %}
+                                        {% endfor %}
 
+                                        {% if voucher_discounts %}
+                                            {% for discount in voucher_discounts %}
+                                                <div class="row bb">
+                                                    <p style="padding:0px;margin:0px">COUPON({{ discount.voucher.name }} ({{ discount.voucher.code }}))
+                                                        <span class="pull-right">
+                                                            -{{ discount.discount|currency:basket.currency }}
+                                                        </span>
+                                                    </p>
+                                                </div>
+                                            {% endfor %}
+                                        {% endif %}
+                                    {% endif %}
                                 {% endwith %}
-                                <div class="row bb">
-                                    <p style="padding:0px;margin:0px">SUBTOTAL<span class="pull-right">12,00,000</span></p>
-                                </div>
-                                <div class="row bb">
-                                    <p style="padding:0px;margin:0px">SHIIPING<span class="pull-right"></span></p>
-                                </div>
-                                <div class="row bb">
-                                    <p style="padding:0px;margin:0px">DISCOUNT<span class="pull-right">1200</span></p>
-                                </div>
-                                <div class="row bb">
-                                    <p style="padding:0px;margin:0px">TAXES<span class="pull-right">1200</span></p>
-                                </div>
+                                {% if not shipping_method.is_discounted %}
+                                    <div class="row bb">
+                                        <p style="padding:0px;margin:0px">SHIPING({{ shipping_method.name }})
+                                            <span class="pull-right">
+                                                {% if not show_tax_separately and shipping_charge.is_tax_known %}
+                                                    {{ shipping_charge.incl_tax|currency:basket.currency }}
+                                                {% else %}
+                                                    {{ shipping_charge.excl_tax|currency:basket.currency }}
+                                                {% endif %}
+                                            </span>
+                                        </p>
+                                    </div>
+                                {% else %}
+                                    {% shipping_charge_discount shipping_method basket as shipping_discount %}
+                                    {% shipping_charge_excl_discount shipping_method basket as shipping_charge_excl_discount %}
+                                    <div class="row bb">
+                                        <p style="padding:0px;margin:0px">SHIIPING({{ shipping_method.name }})
+                                            <span class="pull-right">
+                                                {% if not show_tax_separately and shipping_charge.is_tax_known %}
+                                                    {{ shipping_charge.incl_tax|currency:basket.currency }}
+                                                {% else %}
+                                                    {{ shipping_charge.excl_tax|currency:basket.currency }}
+                                                {% endif %}
+                                            </span>
+                                        </p>
+                                    </div>
+                                {% endif %}
+                                {% block tax_totals %}
+                                    {% if show_tax_separately %}
+                                        <div class="row bb">
+                                            <p style="padding:0px;margin:0px">TAXES (On Products)
+                                                <span class="pull-right">
+                                                    {{ basket.total_tax|currency:basket.currency }}
+                                                </span>
+                                            </p>
+                                        </div>
+                                        <div class="row bb">
+                                            <p style="padding:0px;margin:0px">TAXES (On Shipping)
+                                                <span class="pull-right">
+                                                    {{ shipping_charge.tax|currency:basket.currency }}
+                                                </span>
+                                            </p>
+                                        </div>
+                                    {% endif %}
+                                {% endblock %}
                                 <div class="row bb">
                                     {% if request.basket.is_tax_known %}
                                         <p style="padding:0px;margin:0px">TOTAL<span class="pull-right">{{ request.basket.total_incl_tax|currency:request.basket.currency }}</span></p>

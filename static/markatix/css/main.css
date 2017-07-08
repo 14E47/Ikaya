@@ -9334,7 +9334,7 @@ l,btn-box li:after {
 }
 /*****product detail accordion*****/
 .panel-group .panel+.panel {
-    margin-top: 10px;
+    margin-top: 20px;
 }
 .panel-group .panel {
         border-radius: 0;
