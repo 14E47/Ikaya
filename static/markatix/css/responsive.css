@@ -25,7 +25,7 @@
 			top:20%;
 			left:50%;
 			text-transform: uppercase;
-			color: #8D7D57;
+			color: #DF2331;
 			font-size: 3em;
 			font-family: "MetaSerifTf-Book";
 			font-weight:400;
@@ -73,7 +73,7 @@
 			top:30%;
 			left:40%;
 			text-transform: uppercase;
-			color: #8D7D57;
+			color: #DF2331;
 			font-size: 3em;
 			font-family: "MetaSerifTf-Book";
 			font-weight:400;
@@ -105,7 +105,7 @@
 		top:45%;
 		left:50%;
 		text-transform: uppercase;
-		color: #8D7D57;
+		color: #DF2331;
 		font-size: 4em;
 		font-family: "MetaSerifTf-Book";
 		font-weight:400;
@@ -134,10 +134,10 @@
 		}
 		article p {
 			position: absolute;
-			top:45%;
-			left:55%;
+			top:35%;
+			left:50%;
 			text-transform: uppercase;
-			color: #8D7D57;
+			color: #DF2331;
 			font-size: 3em;
 			font-family: "MetaSerifTf-Book";
 			font-weight:400;

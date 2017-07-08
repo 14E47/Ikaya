@@ -1727,9 +1727,10 @@ a:hover {
   z-index: 4;
   opacity: 0;
   position: fixed;
+  color:#fff;
   visibility: hidden;
   text-align: center;
-  background: #f8f8f8;
+  background: #000;
   -webkit-transition: all 0.4s linear;
   transition: all 0.4s linear; }
   .mt-search-popup .mt-holder {
@@ -1792,10 +1793,10 @@ a:hover {
     .mt-search-popup input .placeholder {
       color: #9d9d9d; }
   .mt-search-popup .search-close {
-    right: 50%;
+    right: 5%;
     width: 16px;
     height: 16px;
-    bottom: 100px;
+    top: 20px;
     position: fixed; }
     .mt-search-popup .search-close span {
       height: 2px;
@@ -5664,7 +5665,7 @@ a:hover {
 .mt-shoplist-header {
   z-index: 1;
   position: relative;
-  padding: 21px 0 19px; }
+  padding: 50px 0 100px; }
   .mt-shoplist-header .btn-box {
     float: right; }
     .mt-shoplist-header .btn-box > ul {
@@ -5690,7 +5691,7 @@ a:hover {
       display: block;
       color: #ac997d;
       margin: 0 0px 0 0;
-      padding: 12px 20px;
+      padding: 8px 20px;
       border-radius:0px;
       border: 1px solid #ac997d;
 	  border-right:0px;
@@ -7869,7 +7870,7 @@ a:hover {
 -------------------------------------------------------------------*/
 .mt-contact-banner {
   width:100%;
-  height:500px;
+  height:600px;
   padding: 82px 0 40px;
   background-size: cover;
   text-transform: capitalize;
@@ -8019,7 +8020,7 @@ a:hover {
 	background-size:cover;
   }
   .mt-muse-sec {
-	padding: 200px 0px 100px;
+	padding: 100px 0px 50px;
 	background-image:url("../images/new/about/08.png");
 	background-size:cover;
 	background-repeat:no-repeat;
@@ -8034,7 +8035,7 @@ a:hover {
 	  margin-top:0px;
 	  margin-bottom:20px;
 	  color:#fff;
-	  
+
   }
   .mt-muse-sec  p{
 	  font-size:20px;
@@ -9107,12 +9108,13 @@ a:hover, a:active, a:focus {
 }
 
 footer .menu li {
-	color:#b1aca1;
+	color:#838383;
 	text-decoration:none;
 }
 footer .menu li a{
-	color:#b1aca1;
+	color:#838383;
 	padding:10px;
+    font-family: 'Gotham-XLight';
 	text-decoration:none;
 }
 
@@ -9150,6 +9152,7 @@ footer .menu
 {
 	line-height: 1.429 !important;
 	color:#AFA389;
+    font-family: 'Gotham-XLight';
 }
 .detail_price
 {
@@ -9177,18 +9180,20 @@ label p{
 		float:left;
 		margin-left:5px;
 	}
-input[type=checkbox]:checked + span:before {
-	content: '\2713';		
+input[type=checkbox]:checked + span:before{
+	content: '\2713';
 	position:absolute;
 	top:0px;
-	color:#000;
+	color:#856587;
 	height:100%;
 	border-right: 1px solid grey;
 	width:100%;
 	font-size:16px;
 	left:2px;
 	background-color:#fff;
-}	
+}
+
+
 input#black:checked + span:before {
 		content: '\2713';		
 		position:absolute;
@@ -9328,6 +9333,9 @@ l,btn-box li:after {
 	background:transparent;
 }
 /*****product detail accordion*****/
+.panel-group .panel+.panel {
+    margin-top: 10px;
+}
 .panel-group .panel {
         border-radius: 0;
         box-shadow: none;
@@ -9371,15 +9379,15 @@ l,btn-box li:after {
 	}
 	.detail h3
 	{
-        margin-top:5px;
+        margin-top:15px;
 		margin-bottom:5px;
-		font-size:18px !important;
+		font-size:20px !important;
 		font-weight:bold;
 	}
 	.detail p
 	{
 		margin-bottom:5px !important;
-		font-size:17px !important;
+		font-size:19px !important;
 	}
 	.detail	hr {
 		margin-top: 0px;
@@ -9398,13 +9406,15 @@ l,btn-box li:after {
 	.detail-about ul.menu
 	{
 		margin-top:30px;
+        font-family: 'Gotham-XLight';
 		color:#E0DBC7;
 	}
 	.detail-about ul.menu li a
 	{
 		font-size:12px;
 		text-decoration:underline;
-		color:#E0DBC7
+		color:#E0DBC7;
+        font-family: 'Gotham-XLight';
 	}
 	.detail-about ul.soc
 	{
@@ -9450,7 +9460,7 @@ l,btn-box li:after {
 		 right:0px!important;
 	}
 	.tab-li{
-		width:20%;
+		width:23%;
 	}
 		
 	.checkout .panel-group .panel {
@@ -9747,6 +9757,7 @@ l,btn-box li:after {
         opacity:1;
         filter:alpha(opacity=100);
     }
+
     article {
         position: relative;
         width: 100%;
@@ -9766,7 +9777,7 @@ l,btn-box li:after {
         top:45%;
         left:50%;
         text-transform: uppercase;
-        color: #8D7D57;
+        color: #DF2331;
         font-size: 4em;
         font-family: "MetaSerifTf-Book";
         font-weight:400;
@@ -9919,6 +9930,12 @@ l,btn-box li:after {
     {
       width:48.5%;
       margin-bottom:15px;
+    }
+    .size-guide
+    {
+      margin-right:-70px;
+      margin-top:5px;
+      float:right;
     }
 
 /*****product detail accordion*****/
@@ -10249,7 +10266,7 @@ l,btn-box li:after {
 		top:15%;
 		left:5%;
 		text-transform: uppercase;
-		color: #8D7D57;
+		color: #DF2331;
 		font-size:2em;
 		font-weight:700;
 		font-family: "MetaSerifTf-Book";
