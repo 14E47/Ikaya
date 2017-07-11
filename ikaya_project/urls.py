@@ -32,7 +32,8 @@ urlpatterns = [
     url(r'^contact$', TemplateView.as_view(template_name='contact.html'), name="contact"),
     url(r'^retailer$', TemplateView.as_view(template_name='retailer.html'), name="retailer"),
     url(r'^privacy$', TemplateView.as_view(template_name='privacy.html'), name="privacy"),
-    url(r'^news$', TemplateView.as_view(template_name='news.html'), name="news"),
+    url(r'^terms$', TemplateView.as_view(template_name='terms.html'), name="terms"),
+
     url(r'', include(application.urls)),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

@@ -1,10 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "layout.html" %}
+{% load i18n %}
+{% load staticfiles %}
+{% block title %}Contact | {{ shop_name }}{% endblock %}
+{% block content %}
+    <main id="mt-main">
+    <!-- Mt Content Banner of the Page -->
+        <section class="wow slideInUp" data-wow-delay="0.4s">
+            <img style="width:100%" src="{% static "markatix/images/new/about/01.jpeg"%}">
+        </section>
+    <!-- Mt Content Banner of the Page end -->
+    <!-- Mt About Section of the Page -->
+        <section class="terms wow slideInUp" data-wow-delay="0.4s">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h4>Comming Soon</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+{% endblock content %}
 
-</body>
-</html>
+
+
+
+
+
+
+
+

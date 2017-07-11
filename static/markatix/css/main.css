@@ -1899,7 +1899,7 @@ a:hover {
   margin: 0 auto;
   }
   #mt-footer.style1 .footer-holder {
-    padding: 30px 0 70px; }
+    padding: 30px 0 40px; }
 
 #mt-footer.style2 .footer-holder {
   padding: 51px 0 60px; }
@@ -5009,6 +5009,9 @@ a:hover {
     float: left;
     padding: 15px 0;
     position: relative; }
+  .mt-product-detial .detial-holder .recom {
+    height:200px;
+  }
   .mt-product-detial h2 {
     font-size: 24px;
     line-height: 36px;
@@ -5670,9 +5673,14 @@ a:hover {
     float: right; }
     .mt-shoplist-header .btn-box > ul {
       margin: 0;
-      float: left; }
+      float: left;
+      padding:5px 0px;
+      border:1px solid #ac997d;
+      border-right:0px;
+      border-left:0px;
+      }
       .mt-shoplist-header .btn-box > ul > li {
-        padding: 0 0 0 3px;
+        padding: 0 0 0;
         position: relative;
         vertical-align: top; }
         .mt-shoplist-header .btn-box > ul > li a {
@@ -5681,7 +5689,7 @@ a:hover {
           .mt-shoplist-header .btn-box > ul > li a:hover {
             text-decoration: none; }
         .mt-shoplist-header .btn-box > ul > li:hover .drop {
-          top: 100%;
+          top: 125%;
           opacity: 1;
           visibility: visible; }
         .mt-shoplist-header .btn-box > ul > li:hover .drop-link {
@@ -5691,10 +5699,11 @@ a:hover {
       display: block;
       color: #ac997d;
       margin: 0 0px 0 0;
-      padding: 8px 20px;
+      padding: 5px 20px;
       border-radius:0px;
-      border: 1px solid #ac997d;
-	  border-right:0px;
+      /*border: 1px solid #ac997d;*/
+	  border-right:1px solid #ac997d;
+      border-bottom:0px;
 	  border-left:0px;
       font: 14px/1 "MetaSerifTf-Book"; }
       .mt-shoplist-header .btn-box .drop-link:hover {
@@ -5714,7 +5723,7 @@ a:hover {
     .mt-shoplist-header .btn-box .drop {
       left: 0;
       right: 0;
-      top: 140%;
+      top: 125%;
       opacity: 0;
       background: #fff;
       visibility: hidden;
@@ -5725,18 +5734,19 @@ a:hover {
 	  
       .mt-shoplist-header .btn-box .drop a {
         display: block;
-        padding: 10px 15px;
+        padding: 10px 10px;
 		font-size:12px;
         color: #ac997d;
       }
         .mt-shoplist-header .btn-box .drop a:hover {
           color: #ac997d; }
       .mt-shoplist-header .btn-box .drop li {
-        border-bottom: 1px solid #AFA488; }
+        border-bottom: 0px solid #AFA488; }
   .mt-shoplist-header .mt-textbox {
     color: #ac997d;
     padding: 2px 0 0;
     font-weight: 300;
+    width:70%;
     overflow: hidden; }
     .mt-shoplist-header .mt-textbox p {
       margin: 0; }
@@ -9008,6 +9018,12 @@ a:hover, a:active, a:focus {
     justify-content: flex-end;
     flex-direction: row;
 }
+.vend {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    flex-direction: row;
+}
 .vend2 {
     display: flex;
     align-items: flex-end;
@@ -9064,6 +9080,7 @@ a:hover, a:active, a:focus {
     justify-content: flex-start;
     flex-direction: row;
 }
+
 .vcenter1 h3{
 	margin-bottom:50px;	
 	color:#7D6750 !important;
@@ -9114,7 +9131,7 @@ footer .menu li {
 footer .menu li a{
 	color:#838383;
 	padding:10px;
-    font-family: 'Gotham-XLight';
+    font-family: 'Gotham-XLight',sans-serif;
 	text-decoration:none;
 }
 
@@ -9152,7 +9169,7 @@ footer .menu
 {
 	line-height: 1.429 !important;
 	color:#AFA389;
-    font-family: 'Gotham-XLight';
+    font-family: 'Gotham-XLight',sans-serif;
 }
 .detail_price
 {
@@ -9274,6 +9291,7 @@ l,btn-box li:after {
 .panel-tabs > li {
     float: left;
     margin-bottom: -1px;
+    border-bottom: 1px solid #ac997d !important;
 }
 .panel-tabs > li:hover {
     float: left;
@@ -9357,10 +9375,11 @@ l,btn-box li:after {
 	}
     .panel-title > a {
         display: block;
-        padding:15px 0 0 0;
+        padding:10px 0 0 0;
 		font-size:14px;
         text-decoration: none;
 		color:#AFA389;
+        letter-spacing:1.5px;
 		border-bottom:1px solid #AFA389;
     }
 
@@ -9381,6 +9400,7 @@ l,btn-box li:after {
 	{
         margin-top:15px;
 		margin-bottom:5px;
+        color:#cbc0a6;
 		font-size:20px !important;
 		font-weight:bold;
 	}
@@ -9388,6 +9408,7 @@ l,btn-box li:after {
 	{
 		margin-bottom:5px !important;
 		font-size:19px !important;
+        color:#cbc0a6;
 	}
 	.detail	hr {
 		margin-top: 0px;
@@ -9403,18 +9424,23 @@ l,btn-box li:after {
 		font-size:16px !important;
 		margin-bottom:20px;
 	}
+    .detail-about .martop
+    {
+      margin-top:5px;
+    }
 	.detail-about ul.menu
 	{
-		margin-top:30px;
-        font-family: 'Gotham-XLight';
-		color:#E0DBC7;
+		margin-top:8%;
+        margin-bottom:0px;
+        font-family: 'Gotham-XLight',sans-serif;
+		color:#cbc0a6;
 	}
 	.detail-about ul.menu li a
 	{
 		font-size:12px;
 		text-decoration:underline;
-		color:#E0DBC7;
-        font-family: 'Gotham-XLight';
+		color:#cbc0a6;
+        font-family: 'Gotham-XLight',sans-serif;
 	}
 	.detail-about ul.soc
 	{
@@ -9933,11 +9959,22 @@ l,btn-box li:after {
     }
     .size-guide
     {
-      margin-right:-70px;
+      margin-right:-80px;
       margin-top:5px;
       float:right;
     }
-
+    .terms {
+      margin-bottom: 50px;
+    }
+    .terms h4
+    {
+      color:#7B674F;
+      margin-top:30px;
+    }
+    .terms p{
+      margin:10px 0px;
+      color:#7B674F;
+    }
 /*****product detail accordion*****/
 
 @media screen and (max-width:480px)
