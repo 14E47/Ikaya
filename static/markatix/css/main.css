@@ -1104,7 +1104,7 @@ a:hover {
       position: relative;
       vertical-align: top;
       margin: 0 36px 0 7px;
-      display: inline-block; }
+      display: inline-block !important; }
       #nav > ul > li .mt-mdropover {
         pointer-events: none; }
       #nav > ul > li > a {
@@ -1259,7 +1259,7 @@ a:hover {
     top: 140%;
     margin: 0;
     opacity: 0;
-    width: 220px;
+    width: 150px;
     list-style: none;
     text-align: left;
     padding: 30px 0 0;
@@ -1865,7 +1865,7 @@ a:hover {
 
 .btn-type3 {
   outline: none;
-  color: #fff;
+  color: #7b674f;
   padding: 9px 20px;
   background: #000;
   border-radius: 0px;
@@ -1875,7 +1875,7 @@ a:hover {
   text-transform: uppercase;
   font: 300 14px/20px "MetaSerifTf-Book"; }
   .btn-type3:focus, .btn-type3:hover {
-    color: #8D7D57;
+    color: #7b674f;
     background: transparent;
     border: 1px solid #8D7D57; }
 
@@ -5711,7 +5711,7 @@ a:hover {
       display: block;
       color: #ac997d;
       margin: 0 0px 0 0;
-      padding: 5px 20px;
+      padding: 5px 10px;
       border-radius:0px;
       /*border: 1px solid #ac997d;*/
 	  border-right:1px solid #ac997d;
@@ -9194,7 +9194,7 @@ footer .menu
 }
 .price{
 	margin: 0 auto 50px;
-	color: #CBBFA5;
+	color: #7b674f;
 }
 label input 
 	{
@@ -9991,6 +9991,224 @@ l,btn-box li:after {
       margin:10px 0px;
       color:#7B674F;
     }
+
+    /**********cart****/
+
+    #sidebar-wrapper {
+        margin-right: -300px;
+        right: 0;
+        left:auto;
+        width: 250px;
+        background: rgb(0,0,0);
+        position: fixed;
+        height: 100%;
+        top:0;
+        overflow-y: auto;
+        z-index: 1000;
+        transition: all 0.5s ease-in 0s;
+        -webkit-transition: all 0.5s ease-in 0s;
+        -moz-transition: all 0.5s ease-in 0s;
+        -ms-transition: all 0.5s ease-in 0s;
+        -o-transition: all 0.5s ease-in 0s;
+    }
+    .sidebar-nav {
+        position: absolute;
+        top: 50px;
+        width: 250px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    .sidebar-nav li {
+        line-height: 50px;
+        text-indent: 20px;
+    }
+    .sidebar-nav li a {
+        color: #7b674f;
+        display: block;
+        text-decoration: none;
+    }
+    .sidebar-nav li a:hover {
+        color: #7b674f;
+        background: rgba(255,255,255,0.2);
+        text-decoration: none;
+    }
+    .sidebar-nav li a:active, .sidebar-nav li a:focus {
+        text-decoration: none;
+    }
+    .sidebar-nav > .sidebar-brand {
+        height: 55px;
+        line-height: 55px;
+        font-size: 18px;
+    }
+    .sidebar-nav > .sidebar-brand a {
+        color: #7b674f;
+    }
+    .sidebar-nav > .sidebar-brand a:hover {
+        color: #7b674f;
+        background: none;
+    }
+    #menu-toggle {
+        top: 0;
+        left: 0;
+        position: fixed;
+        z-index: 1;
+    }
+    #sidebar-wrapper.active {
+        right: 300px;
+        width: 300px;
+        top:0px;
+        transition: all 0.5s ease-out 0s;
+        -webkit-transition: all 0.5s ease-out 0s;
+        -moz-transition: all 0.5s ease-out 0s;
+        -ms-transition: all 0.5s ease-out 0s;
+        -o-transition: all 0.5s ease-out 0s;
+    }
+    #sidebar-wrapper .mt-total {
+      float: left;
+      text-transform:uppercase;
+      letter-spacing:2px;
+      color: #7b674f;
+	}
+     #sidebar-wrapper .mt-total-txt {
+      float: right;
+      color: #7b674f;
+      font: 600 14px/20px "MetaSerifTf-Book";
+    }
+     #sidebar-wrapper .input-group
+     {
+        width: 45%;
+        float: left;
+     }
+    .toggle {
+        margin: 35px 25px
+    }
+    .toggle1,.toggle1:focus,.toggle1:hover,.toggle1.active {
+      margin: 5px 5px;
+      color: #7b674f;
+      opacity: 1 !important;
+    }
+    .cart
+    {
+      font-size:12px;
+      color:#7b674f;
+      text-align: center;
+      margin-bottom:30px;
+      margin-top:10px
+    }
+
+    .navbar-collapse {
+      padding-right: 0px;
+      padding-left: 0px;
+      overflow-x: visible;
+      -webkit-overflow-scrolling: touch;
+      border-top: 1px solid transparent;
+      -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.1);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.1);
+    }
+    #sidebar-wrapper .form-control {
+      display: block;
+      width: 60%;
+      height: 20px;
+      float:left;
+      padding: 3px 6px;
+      font-size: 14px;
+      line-height: 1.4285;
+      color: #7b674f;
+      background-color: #000;
+      background-image: none;
+      border: 1px solid #7b674f;
+      border-radius: 0px;
+      -webkit-box-shadow:none;
+      box-shadow:none;
+      -webkit-transition: none;
+      -o-transition: none;
+      transition: none;
+    }
+    #sidebar-wrapper .btn {
+      display: inline-block;
+      margin-bottom: 0;
+      font-weight: normal;
+      text-align: center;
+      vertical-align: middle;
+      touch-action: manipulation;
+      cursor: pointer;
+      background-color:#000;
+      color: #7b674f;
+      border: 1px solid #7b674f;
+      white-space: nowrap;
+      margin-left:10px;
+      padding: 0px 5px;
+      font-size: 14px;
+      line-height: 1.4285;
+      border-radius: 0px;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+    #sidebar-wrapper .price1 {
+    color: #7b674f;
+    font: 100 11px/20px "MetaSerifTf-Book"; }
+    #sidebar-wrapper .name {
+      color: #7b674f !important;
+      font: 100 14px/20px "MetaSerifTf-Book";
+      margin-bottom:0px;
+    }
+    #sidebar-wrapper .checkout-quantity
+    {
+      margin-top:10px;
+    }
+      .dropdown-submenu {
+      position: relative;
+    }
+
+  .dropdown-submenu>.dropdown-menu {
+      top: 0;
+      left: 100%;
+      margin-top: -6px;
+      margin-left: -1px;
+      -webkit-border-radius: 0;
+      -moz-border-radius: 0;
+      border-radius: 0;
+  }
+
+  .dropdown-submenu:hover>.dropdown-menu {
+      display: block;
+  }
+
+  .dropdown-submenu>a:after {
+      display: block;
+      content: " ";
+      float: right;
+      width: 0;
+      height: 0;
+      border-color: transparent;
+      border-style: solid;
+      border-width: 0;
+      border-left-color:#7b674f;;
+      margin-top: 5px;
+      margin-right: -10px;
+  }
+
+  .dropdown-submenu:hover>a:after {
+      border-left-color: #fff;
+  }
+
+  .dropdown-submenu.pull-left {
+      float: none;
+  }
+
+  .dropdown-submenu.pull-left>.dropdown-menu {
+      left: -100%;
+      margin-left: 10px;
+      -webkit-border-radius:0;
+      -moz-border-radius:0;
+      border-radius:0;
+  }
+
+
+
 /*****product detail accordion*****/
 
 @media screen and (max-width:480px)

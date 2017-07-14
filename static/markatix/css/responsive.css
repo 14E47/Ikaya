@@ -908,6 +908,7 @@
 
 	#nav > ul > li {
 		margin: 0;
+		WIDTH:100% !IMPORTANT;
 		display: block;
 		border-bottom: 1px solid #ccc;
 	}

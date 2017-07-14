@@ -600,3 +600,15 @@ ResponsiveHelper = (function($){
 		}
 	};
 }(jQuery));
+
+$(document).ready(function(){
+	$("#menu-close").click(function(e) {
+		$("#sidebar-wrapper").toggleClass("active");
+	});
+	$("#mt-main,article,.mt-logo,footer").click(function(e) {
+		$("#sidebar-wrapper").removeClass("active");
+	});
+	$("#menu-toggle").click(function(e) {
+		$("#sidebar-wrapper").toggleClass("active");
+	});
+})
