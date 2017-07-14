@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% load i18n %}
-{% load staticfiles %}
+{% load staticfiles custom_tags %}
 
 {% block navigation %}
 {#    {% include "partials/nav_primary.html" with expand_dropdown=1 %}#}
@@ -8,6 +8,14 @@
 {% block header %}{% endblock %}
 
 {% block content %}
+
+    <!-- 
+    {% get_home_sections 'section1' as home_sections %}
+    {% for section in home_sections %}
+        {{section.name}}
+    {% endfor %} 
+    -->
+
     <article class="hidden-xs hidden-sm">
         <img src="{% static "markatix/images/new/140.jpeg" %}" alt="Ekaya Banner" data-parallax='{"y": 200}'/>
         <p class="wow slideInUp" data-wow-delay="0.4s" data-wow-duration="2s" >SPRING<br>SUMMER<br><span style="color:#fff;">2017</span><br><br>
