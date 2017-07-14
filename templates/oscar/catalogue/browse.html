@@ -110,7 +110,7 @@
 								<header class="mt-shoplist-header equalh">
                                     <div class="mt-textbox equalh hidden-xs">
 										<img src="{% static "markatix/images/new/about/07.png" %}" style="width:120px;height:120px;float:left" >
-                                        <h4 style="color:#ac997d;margin:0;" class="vcenter1">SARIS</h4>
+                                        <h4 style="color:#ac997d;margin:0;margin-left: 10px;" class="vcenter1">SARIS</h4>
 									</div><!-- mt-textbox end here -->
 									<!-- btn-box start here -->
 									<div class="btn-box vcenter1">
@@ -126,8 +126,8 @@
 																	<!-- Tabs -->
 																<ul class="nav panel-tabs">
 																	<li class="active tab-li"><a href="#tab1" data-toggle="tab">PRICE</a></li>
-																	<li class="tab-li"><a href="#tab2" data-toggle="tab">FABRIC</a></li>
-																	<li class="tab-li"><a href="#tab3" data-toggle="tab">CRAFT</a></li>
+																	<li class="tab-li"><a href="#tab2" data-toggle="tab">CRAFT</a></li>
+																	<li class="tab-li"><a href="#tab3" data-toggle="tab">FABRIC</a></li>
 																	<li class="tab-li"><a href="#tab4" data-toggle="tab">COLOR</a></li>
 																</ul>
 															</div>
@@ -156,57 +156,139 @@
 																		</div>
 
 																	</div>
-																	<div class="tab-pane filter" id="tab2">
-																		<div class="continents" style="font-size:12px;width:100%;">
-																			<label>
-																				<input type="checkbox" name="fl-cont" value="cotton" id="cotton"/>
-																				<span></span>
-																				<p>Cotton</p>
-																			</label>
-																			<label>
-																				<input type="checkbox" name="fl-cont" value="silk" id="silk"/>
-																				<span></span>
-																				<p>Silk</p>
-																			</label>
-																			<label>
-																				<input type="checkbox" name="fl-cont" value="cambric" id="cambric"/>
-																				<span></span>
-																				<p>Cambric</p>
-																			</label>
-
-
-																		</div>
-
-																	</div>
-																	<div class="tab-pane filter" id="tab3">
-																		<form>
-																			<label>
-																				<input type='checkbox' name="fl-size" value="jeans" id="jeans">
-																				<span></span>
-																				<p>jeans</p>
-																			</label>
-																			<label>
-																				<input type='checkbox' name="fl-size" value="suit" id="suit">
-																				<span></span>
-																				<p>suit</p>
-																			</label>
-																			<label>
-																				<input type='checkbox' name="fl-size" value="saree" id="saree">
-																				<span></span>
-																				<p>suit</p>
-																			</label>
-																			<label>
-																				<input type='checkbox' name="fl-size" value="top" id="top">
-																				<span></span>
-																				<p>Top</p>
-																			</label>
-																			<label>
-																				<input type='checkbox' name="fl-size" value="bottom" id="bottom">
-																				<span></span>
-																				<p>Bottom</p>
-																			</label>
-																		</form>
-																	</div>
+                                                                    <div class="tab-pane filter" id="tab2">
+                                                                        <div class="continents" style="font-size:12px;width:100%;">
+                                                                            <label>
+                                                                                <input type="checkbox" name="fl-cont" value="kadwa" id="kadwa"/>
+                                                                                <span></span>
+                                                                                <p style="margin-top:2px;">Kadwa</p>
+                                                                            </label>
+                                                                            <label>
+                                                                                <input type="checkbox" name="fl-cont" value="cutwork" id="cutwork"/>
+                                                                                <span></span>
+                                                                                <p style="margin-top:2px;">Cutwork</p>
+                                                                            </label>
+                                                                            <label>
+                                                                                <input type="checkbox" name="fl-cont" value="khimkab" id="khimkab"/>
+                                                                                <span></span>
+                                                                                <p style="margin-top:2px;">Khimkab</p>
+                                                                            </label>
+                                                                            <label>
+                                                                                <input type="checkbox" name="fl-cont" value="utchint" id="utchint"/>
+                                                                                <span></span>
+                                                                                <p style="margin-top:2px;">Utchint</p>
+                                                                            </label>
+                                                                            <label>
+                                                                                <input type="checkbox" name="fl-cont" value="tanchoi" id="tanchoi"/>
+                                                                                <span></span>
+                                                                                <p style="margin-top:2px;">Tanchoi</p>
+                                                                            </label>
+                                                                            <label>
+                                                                                <input type="checkbox" name="fl-cont" value="ajrakprinting" id="ajrakprinting"/>
+                                                                                <span></span>
+                                                                                <p style="margin-top:2px;">Ajrak Printing</p>
+                                                                            </label>
+                                                                            <label>
+                                                                                <input type="checkbox" name="fl-cont" value="digitalprint" id="digitalprint"/>
+                                                                                <span></span>
+                                                                                <p style="margin-top:2px;">Digital Print</p>
+                                                                            </label>
+                                                                            <label>
+                                                                                <input type="checkbox" name="fl-cont" value="blockprint" id="blockprint"/>
+                                                                                <span></span>
+                                                                                <p style="margin-top:2px;">Block Print</p>
+                                                                            </label>
+                                                                            <label>
+                                                                                <input type="checkbox" name="fl-cont" value="kantha" id="kantha"/>
+                                                                                <span></span>
+                                                                                <p style="margin-top:2px;">Kantha</p>
+                                                                            </label>
+                                                                       </div>
+                                                                    </div>
+                                                                    <div class="tab-pane filter" id="tab3">
+                                                                        <form>
+                                                                            <label>
+                                                                                <input type='checkbox' name="fl-size" value="silk" id="silk">
+                                                                                <span></span>
+                                                                                <p>Silk</p>
+                                                                            </label>
+                                                                            <label>
+                                                                                <input type='checkbox' name="fl-size" value="silkgeorgette" id="silkgeorgette">
+                                                                                <span></span>
+                                                                                <p>Silk Georgette</p>
+                                                                            </label>
+                                                                            <label>
+                                                                                <input type='checkbox' name="fl-size" value="silktassur" id="silktassur">
+                                                                                <span></span>
+                                                                                <p>Silk Tassur</p>
+                                                                            </label>
+                                                                            <label>
+                                                                                <input type='checkbox' name="fl-size" value="georgette" id="georgette">
+                                                                                <span></span>
+                                                                                <p>Georgette</p>
+                                                                            </label>
+                                                                            <label>
+                                                                                <input type='checkbox' name="fl-size" value="cotton" id="cotton">
+                                                                                <span></span>
+                                                                                <p>Cotton</p>
+                                                                            </label>
+                                                                            <label>
+                                                                                <input type='checkbox' name="fl-size" value="linen" id="linen">
+                                                                                <span></span>
+                                                                                <p>Linen</p>
+                                                                            </label>
+                                                                            <label>
+                                                                                <input type='checkbox' name="fl-size" value="kora" id="kora">
+                                                                                <span></span>
+                                                                                <p>Kora</p>
+                                                                            </label>
+                                                                            <label>
+                                                                                <input type='checkbox' name="fl-size" value="organza" id="organza">
+                                                                                <span></span>
+                                                                                <p>Organza</p>
+                                                                            </label>
+                                                                            <label>
+                                                                                <input type='checkbox' name="fl-size" value="chanderi" id="chanderi">
+                                                                                <span></span>
+                                                                                <p>Chanderi</p>
+                                                                            </label>
+                                                                            <label>
+                                                                                <input type='checkbox' name="fl-size" value="tassur" id="tassur">
+                                                                                <span></span>
+                                                                                <p>Tassur</p>
+                                                                            </label>
+                                                                            <label>
+                                                                                <input type='checkbox' name="fl-size" value="benarasinet" id="benarasinet">
+                                                                                <span></span>
+                                                                                <p>Benarasi Net</p>
+                                                                            </label>
+                                                                            <label>
+                                                                                <input type='checkbox' name="fl-size" value="crepe" id="crepe">
+                                                                                <span></span>
+                                                                                <p>Crepe</p>
+                                                                            </label>
+                                                                            <label>
+                                                                                <input type='checkbox' name="fl-size" value="chiffon" id="chiffon">
+                                                                                <span></span>
+                                                                                <p>Chiffon</p>
+                                                                            </label>
+                                                                            <label>
+                                                                                <input type='checkbox' name="fl-size" value="mushroo" id="mushroo">
+                                                                                <span></span>
+                                                                                <p>Mushroo</p>
+                                                                            </label>
+                                                                            <label>
+                                                                                <input type='checkbox' name="fl-size" value="tissue" id="tissue">
+                                                                                <span></span>
+                                                                                <p>Tissue</p>
+                                                                            </label>
+                                                                            <label>
+                                                                                <input type='checkbox' name="fl-size" value="tissuenet" id="tissuenet">
+                                                                                <span></span>
+                                                                                <p>Tissue Net</p>
+                                                                            </label>
+                                                                        </form>
+                                                                    </div>
 																	<div class="tab-pane filter" id="tab4">
 																		<form>
 																			<label>
