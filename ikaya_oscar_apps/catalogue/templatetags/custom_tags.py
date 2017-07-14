@@ -81,3 +81,11 @@ def get_product_attrib_array(product_obj):
     #     {% endfor %}
     # {% endfor %}    
     # <-- above template tag usage in *.html file end -->
+
+
+from custom_block.models import CustomImage
+
+@register.assignment_tag(name='get_home_sections')
+def get_home_sections(section):
+    custom_image_section = CustomImage.objects.get(name=section)
+    return custom_image_section

@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.flatpages',
     'compressor',
     'widget_tweaks',
+    'custom_block',
 ] + get_core_apps(['ikaya_oscar_apps.catalogue'])
 
 SITE_ID = 1

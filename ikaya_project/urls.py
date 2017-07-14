@@ -13,13 +13,16 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import include, url
-from django.contrib import admin
-from oscar.app import application
 from django.views.generic.base import TemplateView
+from django.contrib import admin
+
 from django.conf.urls.static import static
+from django.conf.urls import include, url
 from django.conf import settings
-from django.conf.urls.static import static
+
+from oscar.app import application
+
+from custom_block import urls as custom_block_urls
 
 urlpatterns = [
     url(r'^i18n/', include('django.conf.urls.i18n')),
@@ -35,9 +38,5 @@ urlpatterns = [
     url(r'^terms$', TemplateView.as_view(template_name='terms.html'), name="terms"),
 
     url(r'', include(application.urls)),
+    url(r'^custom-image/', include(custom_block_urls)),    
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
-
-
-
-
