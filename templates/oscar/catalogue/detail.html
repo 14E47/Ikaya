@@ -167,13 +167,23 @@
                                                 </div>
                                             </div>
                                             <div class="col-sm-8 col-xs-7 price-sec">
-                                                <p><span style="width:12%;margin-top:15px;float: left;">INR<img src="{% static "markatix/images/new/detail/arrow.png" %}" style="width:14px;float:right"></span>&nbsp;
+                                                <div class="btn-group">
+                                                    <button class="btn dropdown-toggle" name="recordinput" data-toggle="dropdown">
+                                                        INR
+                                                        <span class="caret"></span>
+                                                    </button>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a href="#">EURO</a></li>
+                                                        <li><a href="#">DOLLOR</a></li>
+                                                        <li><a href="#">POUND</a></li>
+                                                    </ul>
+
                                                     <span class="detail_price">
                                                         {% block product_stock_record %}
                                                             {% include "catalogue/partials/stock_record.html" with verbose=1 %}
                                                         {% endblock %}
                                                     </span>
-                                                </p>
+                                                </div>
                                             </div>
                                         <!-- Product Form of the Page end -->
                                             <div class="col-sm-12">
@@ -515,5 +525,13 @@
 {% endblock %}
 
 {% block extrascripts %}
+    <script>
+        $(document).ready(function(){
+            $(".dropdown-menu li a").click(function(){
+                var selText = $(this).text();
+                $(this).parents('.btn-group').find('.dropdown-toggle').html(selText+' <span class="caret"></span>');
+            });
+        });
+    </script>
     {{ block.super }}
 {% endblock %}

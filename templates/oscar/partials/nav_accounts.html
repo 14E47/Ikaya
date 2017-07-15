@@ -14,7 +14,9 @@
                         <div class="mt-logo"><a href="/"><img src="{% static "markatix/images/new/mt-logo.png" %}" alt="Ekaya"></a></div>
                         <!-- mt icon list start here -->
                         <ul class="mt-icon-list">
-
+                            <li class="collapse navbar-collapse" id="navigation">
+                                <a id="menu-toggle" href="#" class="toggle"><i class="fa fa-bars" aria-hidden="true"></i></a>
+                            </li>
                             <li class="hidden-lg hidden-md">
                                 <a href="#" class="bar-opener mobile-toggle">
                                     <span class="bar"></span>
@@ -36,21 +38,21 @@
                                     <a class="drop-link" href="/catalogue">SHOP<i class="fa fa-angle-down hidden-lg hidden-md" aria-hidden="true"></i></a>
                                     <div class="s-drop">
                                         <ul>
-                                            <li class="dropdown-submenu">
-                                                <a tabindex="-1" href="#">Hover</a>
-                                                    <ul class="dropdown-menu" style="width:150px;margin:0;padding:0;">
-                                                        <li><a tabindex="-1" href="#">Second level</a></li>
-                                                        <li class="dropdown-submenu">
-                                                            <a href="#">Even More..</a>
-                                                            <ul class="dropdown-menu" style="width:150px;margin:0;padding:0;">
-                                                                <li><a href="#">3rd level</a></li>
-                                                                <li><a href="#">3rd level</a></li>
-                                                            </ul>
-                                                        </li>
-                                                        <li><a href="#">Second level</a></li>
-                                                        <li><a href="#">Second level</a></li>
-                                                    </ul>
-                                              </li>
+{#                                            <li class="dropdown-submenu">#}
+{#                                                <a tabindex="-1" href="#">Hover</a>#}
+{#                                                <ul class="dropdown-menu">#}
+{#                                                    <li><a tabindex="-1" href="#">Second level</a></li>#}
+{#                                                    <li class="dropdown-submenu">#}
+{#                                                        <a href="#">Even More..</a>#}
+{#                                                        <ul class="dropdown-menu">#}
+{#                                                            <li><a href="#">3rd level</a></li>#}
+{#                                                            <li><a href="#">3rd level</a></li>#}
+{#                                                        </ul>#}
+{#                                                    </li>#}
+{#                                                    <li><a href="#">Second level</a></li>#}
+{#                                                    <li><a href="#">Second level</a></li>#}
+{#                                                </ul>#}
+{#                                            </li>#}
                                             <li><a href="/catalogue">SARIS</a></li>
                                             <li><a href="/catalogue">SUITS</a></li>
                                             <li><a href="/catalogue">LENGHAS</a></li>
@@ -88,9 +90,22 @@
                                     {% else %}
                                         <li><a id="login_link" href="{% url 'customer:login' %}"><i class="icon-signin"></i> {% trans "LOGIN" %}</a></li>
                                     {% endif %}
-                                    <li class="collapse navbar-collapse" id="navigation">
-                                        <a id="menu-toggle" href="#" class="toggle"><i class="fa fa-bars" aria-hidden="true"></i></a>
-                                        <div id="sidebar-wrapper">
+{#                                    <li class="collapse navbar-collapse" id="navigation">#}
+{#                                        <a id="menu-toggle" href="#" class="toggle"><i class="fa fa-bars" aria-hidden="true"></i></a>#}
+
+{#                                    </li>#}
+                            </ul>
+                        </nav>
+                        <!-- mt icon list end here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- mt bottom bar end here -->
+        <span class="mt-side-over"></span>
+    </header><!-- mt header style4 end here -->
+<div id="sidebar-wrapper">
                                             <a id="menu-close" href="#" class="pull-right toggle1"><i class="glyphicon glyphicon-remove"></i>&nbsp;Close</a>
                                             <div class="col-sm-12">
                                                 <h3 class="cart">MY CART</h3>
@@ -191,14 +206,3 @@
                                                 {% endif %}
                                             </div>
                                         </div>
-                                    </li>
-                            </ul>
-                        </nav>
-                        <!-- mt icon list end here -->
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- mt bottom bar end here -->
-        <span class="mt-side-over"></span>
-    </header><!-- mt header style4 end here -->
