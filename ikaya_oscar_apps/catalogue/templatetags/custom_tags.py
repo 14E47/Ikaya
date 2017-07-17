@@ -95,5 +95,5 @@ def get_home_sections(section):
 
 @register.assignment_tag
 def top_products():
-	top_products = Product.objects.filter(parent__isnull=True)[:6]
+	top_products = Product.objects.filter(parent__isnull=True)[:3]
 	return top_products

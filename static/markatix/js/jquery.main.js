@@ -214,6 +214,7 @@ function initSlickSlider() {
 			breakpoint: 768,
 			settings: {
 				arrows: false,
+
 				centerMode: true,
 				centerPadding: '20%',
 				slidesToShow: 1

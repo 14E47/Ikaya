@@ -141,7 +141,7 @@
 																				</div>
 																			</div>
 																			<div class="col-xs-2 col-sm-1">
-																				<div class="row text-center vend" style="padding-top:7px;color:#AFA488;">
+																				<div class="row text-center vend fp">
 																					<span>TO</span>
 																				</div>
 																			</div>
@@ -161,22 +161,22 @@
                                                                             <label>
                                                                                 <input type="checkbox" name="fl-cont" value="kadwa" id="kadwa"/>
                                                                                 <span></span>
-                                                                                <p style="margin-top:2px;">Kadwa</p>
+                                                                                <p>Kadwa</p>
                                                                             </label>
                                                                             <label>
                                                                                 <input type="checkbox" name="fl-cont" value="cutwork" id="cutwork"/>
                                                                                 <span></span>
-                                                                                <p style="margin-top:2px;">Cutwork</p>
+                                                                                <p>Cutwork</p>
                                                                             </label>
                                                                             <label>
                                                                                 <input type="checkbox" name="fl-cont" value="khimkab" id="khimkab"/>
                                                                                 <span></span>
-                                                                                <p style="margin-top:2px;">Khimkab</p>
+                                                                                <p>Khimkab</p>
                                                                             </label>
                                                                             <label>
                                                                                 <input type="checkbox" name="fl-cont" value="utchint" id="utchint"/>
                                                                                 <span></span>
-                                                                                <p style="margin-top:2px;">Utchint</p>
+                                                                                <p>Utchint</p>
                                                                             </label>
                                                                             <label>
                                                                                 <input type="checkbox" name="fl-cont" value="tanchoi" id="tanchoi"/>
@@ -186,12 +186,12 @@
                                                                             <label>
                                                                                 <input type="checkbox" name="fl-cont" value="ajrakprinting" id="ajrakprinting"/>
                                                                                 <span></span>
-                                                                                <p style="margin-top:2px;">Ajrak Printing</p>
+                                                                                <p>Ajrak Printing</p>
                                                                             </label>
                                                                             <label>
                                                                                 <input type="checkbox" name="fl-cont" value="digitalprint" id="digitalprint"/>
                                                                                 <span></span>
-                                                                                <p style="margin-top:2px;">Digital Print</p>
+                                                                                <p>Digital Print</p>
                                                                             </label>
                                                                             <label>
                                                                                 <input type="checkbox" name="fl-cont" value="blockprint" id="blockprint"/>
@@ -201,7 +201,7 @@
                                                                             <label>
                                                                                 <input type="checkbox" name="fl-cont" value="kantha" id="kantha"/>
                                                                                 <span></span>
-                                                                                <p style="margin-top:2px;">Kantha</p>
+                                                                                <p>Kantha</p>
                                                                             </label>
                                                                        </div>
                                                                     </div>
@@ -372,12 +372,9 @@
     {% endif %}
 
 {% endblock content %}
-{% block extrastyles  %}
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
-    <link rel="stylesheet" href="{% static "markatix/css/bootstrap.css" %}" />
-{% endblock %}
+
 {% block extrascripts  %}
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
     <script src="{% static "markatix/js/main.js" %}"  type="text/javascript"></script>
     <script>
         var $filterCheckboxes = $('input[type="checkbox"]');
