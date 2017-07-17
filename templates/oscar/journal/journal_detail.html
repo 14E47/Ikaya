@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% load i18n %}
+{% load staticfiles %}
+{% block title %}Journal | {{ shop_name }}{% endblock %}
+
+{% block content %}
+    <main id="mt-main">
+        <section class="equalh journel toppadding-eighty wow slideInUp" data-wow-delay="0.6s">
+            <div class="col-sm-8">
+                <div class="row">
+                    <a href="#"  class="hovereffect">
+                        <img src="{% static "markatix/images/new/journel/01.jpg" %}"/>
+                        <div class="overlay">
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+            <div class="col-sm-4 vend2">
+                <div class="texts">
+                    <h3 class="title">JANUARY '17</h3>
+                    <h1 class="heading">{{ journal.title }}</h1>
+                    <p>{{ journal.content }}</p>
+                </div>
+            </div>
+        </section>
+        <div class="row text-center journel-last">
+            <a href="#">PREV</a>
+            <a href="#">NEXT</a>
+        </div>
+    </main>
+{% endblock content %}

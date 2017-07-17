@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'compressor',
     'widget_tweaks',
     'custom_block',
+    'journal',
 ] + get_core_apps(['ikaya_oscar_apps.catalogue'])
 
 SITE_ID = 1

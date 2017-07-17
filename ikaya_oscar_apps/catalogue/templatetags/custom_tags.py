@@ -88,13 +88,12 @@ from custom_block.models import CustomImage
 
 @register.assignment_tag(name='get_home_sections')
 def get_home_sections(section):
-    custom_image_section = CustomImage.objects.filter(name=section)[0]
+    custom_image_section = CustomImage.objects.filter(name=section)
+    if custom_image_section:
+        custom_image_section = CustomImage.objects.get(name=section)
     return custom_image_section
 
 @register.assignment_tag
 def top_products():
 	top_products = Product.objects.filter(parent__isnull=True)[:6]
-	print "======================"
-	print top_products
-	print "======================"
 	return top_products

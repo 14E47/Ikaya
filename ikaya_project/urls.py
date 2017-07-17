@@ -23,6 +23,7 @@ from django.conf import settings
 from oscar.app import application
 
 from custom_block import urls as custom_block_urls
+from journal import urls as journal_urls
 
 urlpatterns = [
     url(r'^i18n/', include('django.conf.urls.i18n')),
@@ -31,12 +32,13 @@ urlpatterns = [
     # Nonetheless, it's often useful for debugging.
     url(r'^admin/', include(admin.site.urls)),
     url(r'^about$', TemplateView.as_view(template_name='about.html'), name="about"),
-    url(r'^journal$', TemplateView.as_view(template_name='journal.html'), name="journal"),
+    url(r'^journal1$', TemplateView.as_view(template_name='journal.html'), name="journal"),
     url(r'^contact$', TemplateView.as_view(template_name='contact.html'), name="contact"),
     url(r'^retailer$', TemplateView.as_view(template_name='retailer.html'), name="retailer"),
     url(r'^privacy$', TemplateView.as_view(template_name='privacy.html'), name="privacy"),
     url(r'^terms$', TemplateView.as_view(template_name='terms.html'), name="terms"),
 
     url(r'', include(application.urls)),
-    url(r'^custom-image/', include(custom_block_urls)),    
+    url(r'^custom-image/', include(custom_block_urls)),
+    url(r'^journal/', include(journal_urls)),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
