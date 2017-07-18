@@ -41,7 +41,7 @@ class JournalImage(models.Model):
         verbose_name_plural = "Journal Images"
 
 class JournalYoutube(models.Model):
-    url = models.URLField()
+    url = models.CharField(max_length=250)
     journal = models.ForeignKey(Journal)
 
     class Meta:

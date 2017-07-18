@@ -9,8 +9,8 @@
            <section class="equalh journel wow slideInUp" data-wow-delay="0.6s">
               <div class="col-sm-8">
                  <div class="row">
-                    <a href="#"  class="hovereffect">
-                       <img src="{% static "markatix/images/new/journel/01.jpeg" %}">
+                    <a href="/journal/{{journal_section.0.title}}" class="hovereffect">
+                       <img src="{{ journal_section.0.images.0.image.url }}">
                        <div class="overlay">
                        </div>
                     </a>
@@ -18,10 +18,9 @@
               </div>
               <div class="col-sm-4 vend2">
                  <div class="texts">
-                    {% set_trace %}
                     <h3 class="title">{{journal_section.0.title}}</h3>
                     <h2 class="heading">NRITYA-THE DANCING<br>WEAVERS</h2>
-                    <a href="#" class="link">read article</a>
+                    <a href="/journal/{{journal_section.0.title}}" class="link">read article</a>
                  </div>
               </div>
            </section>

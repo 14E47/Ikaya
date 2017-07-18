@@ -136,6 +136,54 @@ function initSlickSlider() {
 		]
 	});
 	jQuery('.bestseller-slider').slick({
+		slidesToShow: 6,
+		slidesToScroll: 1,
+		responsive: [
+			{
+			  breakpoint: 1024,
+			  settings: {
+			    slidesToShow: 3,
+			  }
+			},
+			{
+			  breakpoint: 767,
+			  settings: {
+			    slidesToShow: 2,
+			  }
+			},
+			{
+			  breakpoint: 479,
+			  settings: {
+			    slidesToShow: 1,
+			  }
+			}
+		]
+	});
+	jQuery('.journal-img-slider').slick({
+		slidesToShow: 2,
+		slidesToScroll: 1,
+		responsive: [
+			{
+			  breakpoint: 1024,
+			  settings: {
+			    slidesToShow: 3,
+			  }
+			},
+			{
+			  breakpoint: 767,
+			  settings: {
+			    slidesToShow: 2,
+			  }
+			},
+			{
+			  breakpoint: 479,
+			  settings: {
+			    slidesToShow: 1,
+			  }
+			}
+		]
+	});
+	jQuery('.journal-video-slider').slick({
 		slidesToShow: 4,
 		slidesToScroll: 1,
 		responsive: [
