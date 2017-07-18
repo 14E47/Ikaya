@@ -19,6 +19,14 @@ class Journal(models.Model):
     def get_absolute_url(self):
         return self.slug
 
+    def images(self):
+        images = JournalImage.objects.filter(journal=self)
+        return images
+
+    def youtube_urls(self):
+        urls = JournalYoutube.objects.filter(journal=self)
+        return urls
+
     def save(self, *args, **kwargs):
         if not self.id:
             self.slug = slugify(self.title)
