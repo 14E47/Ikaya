@@ -25,6 +25,7 @@ SECRET_KEY = '5i()506w^#=31=-*+lyw0(y&lk$c_uduegaaz^9!&6$mjhw&=2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -84,7 +85,7 @@ TEMPLATES = [
                 'oscar.apps.search.context_processors.search_form',
                 'oscar.apps.promotions.context_processors.promotions',
                 'oscar.apps.checkout.context_processors.checkout',
-                # 'oscar.apps.customer.notifications.context_processors.notifications',
+                'oscar.apps.customer.notifications.context_processors.notifications',
                 'oscar.core.context_processors.metadata',
             ],
         },
@@ -170,3 +171,12 @@ OSCAR_DEFAULT_CURRENCY = 'INR'
 OSCAR_REQUIRED_ADDRESS_FIELDS = ('first_name', 'last_name', 'line1', 'postcode', 'country')
 
 # ***************************************************************************
+
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+###########################
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'markatixcontact@gmail.com'
+EMAIL_HOST_PASSWORD = 'markatix@123'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+###############################

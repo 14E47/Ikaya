@@ -19,7 +19,7 @@
             </div>
             <div class="col-sm-4 vend2">
                 <div class="texts">
-                    <h3 class="title">JANUARY '17</h3>
+                    <h3 class="title">{{ journal.posted_month|upper }}</h3>
                     <h1 class="heading">{{ journal.title }}</h1>
                 </div>
             </div>
@@ -27,7 +27,7 @@
         <div class="container">
             <div class="col-sm-12">
                 <div class="journel-img-slider">
-                    <h4>Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet </h4>
+                    <h4>{{ journal.summary }}</h4>
                 </div>
                 <div class="text-center wow slideInUp" data-wow-delay="0.4s" data-wow-duration="2s">
 

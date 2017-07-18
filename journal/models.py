@@ -5,7 +5,8 @@ from django.utils.text import slugify
 
 class Journal(models.Model):
     title = models.CharField(max_length=100, unique=True)
-    content = models.TextField()    
+    summary = models.TextField()
+    content = models.TextField()
     slug = models.SlugField(max_length=100, unique=True)
     posted_on = models.DateTimeField(auto_now_add=True)
 
@@ -26,6 +27,12 @@ class Journal(models.Model):
     def youtube_urls(self):
         urls = JournalYoutube.objects.filter(journal=self)
         return urls
+
+    def posted_month(self):
+        from datetime import datetime 
+        from time import strftime
+        date = self.posted_on.strftime("%B '%y")
+        return date
 
     def save(self, *args, **kwargs):
         if not self.id:
