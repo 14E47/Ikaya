@@ -15,7 +15,14 @@
                         <!-- mt icon list start here -->
                         <ul class="mt-icon-list">
                             <li class="collapse navbar-collapse" id="navigation">
-                                <a id="menu-toggle" href="#" class="toggle"><i class="fa fa-bars" aria-hidden="true"></i></a>
+{#                                <a  href="#" class="cart-opener toggle">#}
+{#											<span class="icon-handbag"></span>#}
+{#											#}
+{#										</a>#}
+                                <a id="menu-toggle" href="#" class="toggle">
+                                    <i class="fa fa-shopping-cart fa-1x" aria-hidden="true"></i>
+                                    <span class="num">{{ request.basket.num_items }}</span>
+                                </a>
                             </li>
                             <li class="hidden-lg hidden-md">
                                 <a href="#" class="bar-opener mobile-toggle">
@@ -39,42 +46,41 @@
                                     <div class="s-drop">
                                         <ul>
                                             <li class="dropdown-submenu">
-                                                <a tabindex="-1" href="#">SARIS</a>
+                                                <a tabindex="-1" href="/catalogue">SARIS</a>
                                                 <ul class="dropdown-menu">
-                                                    <li><a tabindex="-1" href="#">WOVEN</a></li>
-                                                    <li><a href="#">PRINTED</a></li>
-                                                    <li><a href="#">EMBROIDERED</a></li>
-                                                    <li><a href="#">REAL ZARI</a></li>
+                                                    <li><a tabindex="-1" href="/catalogue">WOVEN</a></li>
+                                                    <li><a href="/catalogue">PRINTED</a></li>
+                                                    <li><a href="/catalogue">EMBROIDERED</a></li>
+                                                    <li><a href="/catalogue">REAL ZARI</a></li>
                                                 </ul>
                                             </li>
                                             <li class="dropdown-submenu">
-                                                <a tabindex="-1" href="#">SUIT</a>
+                                                <a tabindex="-1" href="/catalogue">SUIT</a>
                                                 <ul class="dropdown-menu">
-                                                    <li><a tabindex="-1" href="#">UNSTICHED</a></li>
+                                                    <li><a tabindex="-1" href="/catalogue">UNSTICHED</a></li>
                                                     <li class="dropdown-submenu">
-                                                        <a href="#">STICHED</a>
+                                                        <a href="/catalogue">STICHED</a>
                                                         <ul class="dropdown-menu">
-                                                            <li><a href="#">EMBROIDEREDE</a></li>
-                                                            <li><a href="#">WOVEN</a></li>
+                                                            <li><a href="/catalogue">EMBROIDEREDE</a></li>
+                                                            <li><a href="/catalogue">WOVEN</a></li>
                                                         </ul>
                                                     </li>
                                                 </ul>
                                             </li>
                                             <li class="dropdown-submenu">
-                                                <a tabindex="-1" href="#">LENGHAS</a>
+                                                <a tabindex="-1" href="/catalogue">LENGHAS</a>
                                                 <ul class="dropdown-menu">
-                                                    <li><a tabindex="-1" href="#">EMBROIDEREDE</a></li>
-                                                    <li><a href="#">WOVEN</a></li>
+                                                    <li><a tabindex="-1" href="/catalogue">EMBROIDEREDE</a></li>
+                                                    <li><a href="/catalogue">WOVEN</a></li>
                                                 </ul>
                                             </li>
-                                            <li><a href="/journal">JOURNAL</a></li>
                                             <li class="dropdown-submenu">
-                                                <a tabindex="-1" href="#">READY TO WEAR</a>
+                                                <a tabindex="-1" href="/catalogue">READY TO WEAR</a>
                                                 <ul class="dropdown-menu">
-                                                    <li><a tabindex="-1" href="#">JACKETS</a></li>
-                                                    <li><a href="#">BLOUSES</a></li>
-                                                    <li><a href="#">SKIRTS</a></li>
-                                                    <li><a href="#">TROUSERS</a></li>
+                                                    <li><a tabindex="-1" href="/catalogue">JACKETS</a></li>
+                                                    <li><a href="/catalogue">BLOUSES</a></li>
+                                                    <li><a href="/catalogue">SKIRTS</a></li>
+                                                    <li><a href="/catalogue">TROUSERS</a></li>
                                                 </ul>
                                             </li>
                                         </ul>
@@ -123,104 +129,159 @@
         <!-- mt bottom bar end here -->
         <span class="mt-side-over"></span>
     </header><!-- mt header style4 end here -->
-<div id="sidebar-wrapper">
-                                            <a id="menu-close" href="#" class="pull-right toggle1"><i class="glyphicon glyphicon-remove"></i>&nbsp;Close</a>
-                                            <div class="col-sm-12">
-                                                <h3 class="cart">MY CART</h3>
-                                                {% if not basket.is_empty %}
+{#    <div id="sidebar-wrapper">#}
+{#        <a id="menu-close" href="#" class="pull-right toggle1"><i class="glyphicon glyphicon-remove"></i>&nbsp;Close</a>#}
+{#        <div class="col-sm-12">#}
+{#            <h3 class="cart">MY CART</h3>#}
+{#            {% if not basket.is_empty %}#}
+{#    #}
+{#                {% block basket_form_main %}#}
+{#    #}
+{#                    <form action="." method="post" class="basket_summary" id="basket_formset">#}
+{#                        {% csrf_token %}#}
+{#                        {{ formset.management_form }}#}
+{#    #}
+{#                        {% for form in formset %}#}
+{#                            {% with line=form.instance product=form.instance.product %}#}
+{#                                {% purchase_info_for_line request line as session %}#}
+{#                                <div class="basket-items">#}
+{#                                    <div class="row">#}
+{#                                        <div class="col-sm-4 col-xs-4">#}
+{#                                            {{ form.id }}#}
+{#                                            {% with image=product.primary_image %}#}
+{#                                                {% thumbnail image.original "60x100" upscale=False as thumb %}#}
+{#                                                    <a href="{{ product.get_absolute_url }}">#}
+{#                                                        <img class="thumbnail" src="{{ thumb.url }}" alt="{{ product.get_title }}"/>#}
+{#                                                    </a>#}
+{#                                                {% endthumbnail %}#}
+{#                                            {% endwith %}#}
+{#                                        </div>#}
+{#                                        <div class="col-sm-8 col-xs-8">#}
+{#                                            <div class="row">#}
+{#                                                <p class="name">{{ line.description }}</p>#}
+{#                                                <span class="price1">Standard/L/Burgundy</span><br>#}
+{#                                                <span class="price"><i class="fa fa-eur" aria-hidden="true"></i> 599,00</span>#}
+{#                                                <div class="checkout-quantity">#}
+{#                                                    <div class="input-group  {% if form.errors %}error{% endif %}">#}
+{#                                                        {% render_field form.quantity class+="form-control" %}#}
+{#                                                    <span class="input-group-btn">#}
+{#                                                        <button class="btn btn-default" type="submit" data-loading-text="..."><i class="fa fa-refresh" aria-hidden="true"></i></button>#}
+{#                                                    </span>#}
+{#                                                    </div>#}
+{#    #}
+    {#                                                                                            <a href="#" data-id="{{ forloop.counter0 }}" data-behaviours="remove" class="btn btn-default"><i class="fa fa-remove" aria-hidden="true"></i></a>#}
+    {#                                                                                            {% if user.is_authenticated %}#}
+    {#                                                                                                | <a href="#" data-id="{{ forloop.counter0 }}" data-behaviours="save" class="inline">{% trans "Save for later" %}</a>#}
+    {#                                                                                            {% endif %}#}
+    {#                                                                                            <div style="display:none">#}
+    {#                                                                                                {{ form.save_for_later }}#}
+    {#                                                                                                {{ form.DELETE }}#}
+    {#                                                                                            </div>#}
+    {#                                                                                            {% for field_errors in form.errors.values %}#}
+    {#                                                                                                {% for error in field_errors %}#}
+    {#                                                                                                    <span class="error-block"><i class="icon-exclamation-sign"></i> {{ error }}</span>#}
+    {#                                                                                                {% endfor %}#}
+    {##}
+    {#                                                                                            {% endfor %}#}
+{#                                                </div>#}
+{#                                            </div>#}
+{#                                        <br><br>#}
+{#                                        </div>#}
+{#                                        <div class="col-sm-12 col-xs-12">#}
+{#                                            <div class="row">#}
+{#                                                <div class="col-sm-6">#}
+{#                                                    <p class="mt-total">Sub Total</p>#}
+{#                                                </div>#}
+{#                                                <div class="col-sm-6">#}
+{#                                                    <p class="mt-total-txt">#}
+{#                                                        {% if line.is_tax_known %}#}
+{#                                                            {{ line.line_price_incl_tax|currency:line.price_currency }}#}
+{#                                                        {% else %}#}
+{#                                                            {{ line.line_price_excl_tax|currency:line.price_currency }}#}
+{#                                                        {% endif %}#}
+{#                                                    </p>#}
+{#                                                </div>#}
+{#                                            </div>#}
+    {#                                            <p class="price_color align-right">#}
+    {#                                                {% if line.is_tax_known %}#}
+    {#                                                    {{ line.unit_price_incl_tax|currency:line.price_currency }}#}
+    {#                                                {% else %}#}
+    {#                                                    {{ line.unit_price_excl_tax|currency:line.price_currency }}#}
+    {#                                                {% endif %}#}
+    {#                                            </p>#}
+{#                                        </div>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            {% endwith %}#}
+{#                        {% endfor %}#}
+{#                    </form>#}
+{#                {% endblock %}#}
+{#                <div class="col-xs-12 text-center">#}
+{#                    <br><br>#}
+{#                    <a href="{% url 'checkout:index' %}" class="btn-type3">{% trans "Proceed to checkout" %}</a>#}
+{#                </div>#}
+{#            {% else %}#}
+{#                {% block emptybasket %}#}
+{#                    <p>#}
+{#                        {% trans "Your basket is empty." %}#}
+{#                        <a href="{{ homepage_url }}">{% trans "Continue shopping" %}</a>#}
+{#                    </p>#}
+{#                {% endblock %}#}
+{#            {% endif %}#}
+{#        </div>#}
+{#    </div>#}
+    <div id="sidebar-wrapper">
+        <a id="menu-close" href="#" class="pull-right toggle1"><i class="glyphicon glyphicon-remove"></i>&nbsp;Close</a>
+        <div class="col-sm-12">
+            <h3 class="cart">{{ request.basket.num_items }}&nbsp;&nbsp;MY CART</h3>
+            {% if request.basket.num_lines %}
+                {% for line in request.basket.all_lines %}
+                    <div class="basket-items">
+                        <div class="row">
+                            <div class="col-sm-4 col-xs-4">
+                                {% with image=line.product.primary_image %}
+                                    {% thumbnail image.original "60x100" upscale=False as thumb %}
+                                    <a href="{{ line.product.get_absolute_url }}">
+                                        <img src="{{ thumb.url }}" alt="{{ line.product.get_title }}">
+                                    </a>
+                                    {% endthumbnail %}
+                                {% endwith %}
+                            </div>
 
-                                                    {% block basket_form_main %}
-
-                                                        <form action="." method="post" class="basket_summary" id="basket_formset">
-                                                            {% csrf_token %}
-                                                            {{ formset.management_form }}
-
-                                                            {% for form in formset %}
-                                                                {% with line=form.instance product=form.instance.product %}
-                                                                    {% purchase_info_for_line request line as session %}
-                                                                    <div class="basket-items">
-                                                                        <div class="row">
-                                                                            <div class="col-sm-4 col-xs-4">
-                                                                                {{ form.id }}
-                                                                                {% with image=product.primary_image %}
-                                                                                    {% thumbnail image.original "60x100" upscale=False as thumb %}
-                                                                                        <a href="{{ product.get_absolute_url }}">
-                                                                                            <img class="thumbnail" src="{{ thumb.url }}" alt="{{ product.get_title }}"/>
-                                                                                        </a>
-                                                                                    {% endthumbnail %}
-                                                                                {% endwith %}
-                                                                            </div>
-                                                                            <div class="col-sm-8 col-xs-8">
-                                                                                <div class="row">
-                                                                                    <p class="name">{{ line.description }}</p>
-                                                                                    <span class="price1">Standard/L/Burgundy</span><br>
-                                                                                    <span class="price"><i class="fa fa-eur" aria-hidden="true"></i> 599,00</span>
-                                                                                    <div class="checkout-quantity">
-                                                                                        <div class="input-group  {% if form.errors %}error{% endif %}">
-                                                                                            {% render_field form.quantity class+="form-control" %}
-                                                                                        <span class="input-group-btn">
-                                                                                            <button class="btn btn-default" type="submit" data-loading-text="..."><i class="fa fa-refresh" aria-hidden="true"></i></button>
-                                                                                        </span>
-                                                                                        </div>
-
-{#                                                                                            <a href="#" data-id="{{ forloop.counter0 }}" data-behaviours="remove" class="btn btn-default"><i class="fa fa-remove" aria-hidden="true"></i></a>#}
-{#                                                                                            {% if user.is_authenticated %}#}
-{#                                                                                                | <a href="#" data-id="{{ forloop.counter0 }}" data-behaviours="save" class="inline">{% trans "Save for later" %}</a>#}
-{#                                                                                            {% endif %}#}
-{#                                                                                            <div style="display:none">#}
-{#                                                                                                {{ form.save_for_later }}#}
-{#                                                                                                {{ form.DELETE }}#}
-{#                                                                                            </div>#}
-{#                                                                                            {% for field_errors in form.errors.values %}#}
-{#                                                                                                {% for error in field_errors %}#}
-{#                                                                                                    <span class="error-block"><i class="icon-exclamation-sign"></i> {{ error }}</span>#}
-{#                                                                                                {% endfor %}#}
-{##}
-{#                                                                                            {% endfor %}#}
-                                                                                    </div>
-                                                                                </div>
-                                                                            <br><br>
-                                                                            </div>
-                                                                            <div class="col-sm-12 col-xs-12">
-                                                                                <div class="row">
-                                                                                    <div class="col-sm-6">
-                                                                                        <p class="mt-total">Sub Total</p>
-                                                                                    </div>
-                                                                                    <div class="col-sm-6">
-                                                                                        <p class="mt-total-txt">
-                                                                                            {% if line.is_tax_known %}
-                                                                                                {{ line.line_price_incl_tax|currency:line.price_currency }}
-                                                                                            {% else %}
-                                                                                                {{ line.line_price_excl_tax|currency:line.price_currency }}
-                                                                                            {% endif %}
-                                                                                        </p>
-                                                                                    </div>
-                                                                                </div>
-                                    {#                                            <p class="price_color align-right">#}
-                                    {#                                                {% if line.is_tax_known %}#}
-                                    {#                                                    {{ line.unit_price_incl_tax|currency:line.price_currency }}#}
-                                    {#                                                {% else %}#}
-                                    {#                                                    {{ line.unit_price_excl_tax|currency:line.price_currency }}#}
-                                    {#                                                {% endif %}#}
-                                    {#                                            </p>#}
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                {% endwith %}
-                                                            {% endfor %}
-                                                        </form>
-                                                    {% endblock %}
-                                                    <div class="col-xs-12 text-center">
-                                                        <br><br>
-                                                        <a href="{% url 'checkout:index' %}" class="btn-type3">{% trans "Proceed to checkout" %}</a>
-                                                    </div>
-                                                {% else %}
-                                                    {% block emptybasket %}
-                                                        <p>
-                                                            {% trans "Your basket is empty." %}
-                                                            <a href="{{ homepage_url }}">{% trans "Continue shopping" %}</a>
-                                                        </p>
-                                                    {% endblock %}
-                                                {% endif %}
-                                            </div>
-                                        </div>
+                            <div class="col-sm-8 col-xs-8">
+                                <div class="row">
+                                    <p class="name">{{ line.description }}</p>
+                                    <span class="price">{{ line.quantity }} x {{ line.unit_price_excl_tax|currency:request.basket.currency }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+                    <div class="col-sm-12 col-xs-12">
+                    <br>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="row">
+                                    <p class="mt-total">Sub Total</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <p class="mt-total-txt">
+                                    {% if request.basket.is_tax_known %}
+                                        <small>{% trans "Total:" %} {{ request.basket.total_incl_tax|currency:request.basket.currency }}</small>
+                                    {% else %}
+                                        <small>{% trans "Total:" %} {{ request.basket.total_excl_tax|currency:request.basket.currency }}</small>
+                                    {% endif %}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 text-center">
+                        <br><br>
+                        <a href="{% url 'checkout:index' %}" class="btn-type3">{% trans "Proceed to checkout" %}</a>
+                    </div>
+            {% else %}
+                <p>{% trans "Your basket is empty." %}</p>
+            {% endif %}
+        </div>
+    </div>

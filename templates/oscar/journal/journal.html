@@ -9,7 +9,8 @@
            <section class="equalh journel wow slideInUp" data-wow-delay="0.6s">
               <div class="col-sm-8">
                  <div class="row">
-                    <a href="/journal/{{journal_section.0.title}}" class="hovereffect">
+
+                    <a href="/journal/{{journal_section.0.slug}}" class="hovereffect">
                        <img src="{{ journal_section.0.images.0.image.url }}">
                        <div class="overlay">
                        </div>
@@ -20,7 +21,7 @@
                  <div class="texts">
                     <h3 class="title">{{journal_section.0.posted_month|upper}}</h3>
                     <h2 class="heading">{{journal_section.0.title|safe}}</h2>
-                    <a href="/journal/{{journal_section.0.title}}" class="link">read article</a>
+                    <a href="/journal/{{journal_section.0.slug}}" class="link">read article</a>
                  </div>
               </div>
            </section>
@@ -33,7 +34,7 @@
                         {% if journal_section.1 %}
                            <div class="col-sm-6  wow slideInUp" data-wow-delay="0.6s">
                               <div class="white widthleft">
-                                 <a href="#"  class="hovereffect">
+                                 <a href="/journal/{{journal_section.0.slug}}" class="hovereffect">
                                     <img src="{% static "markatix/images/new/journel/02.jpg" %}"/>
                                     <div class="overlay">
                                     </div>
@@ -46,7 +47,7 @@
                                  <p class="content">
                                     {{journal_section.1.summary|safe}}
                                  </p>
-                                 <a href="#" class="link">read article</a>
+                                 <a href="/journal/{{journal_section.0.slug}}" class="link">read article</a>
                               </div>
                            </div>
                         {% endif %}
@@ -54,7 +55,7 @@
                         {% if journal_section.2 %}
                            <div class="col-sm-6  wow slideInUp" data-wow-delay="0.6s">
                               <div class="white widthright">
-                                 <a href="#"  class="hovereffect">
+                                 <a href="/journal/{{journal_section.0.slug}}" class="hovereffect">
                                     <img src="{% static "markatix/images/new/journel/02.jpg" %}"/>
                                     <div class="overlay">
                                     </div>
@@ -67,7 +68,7 @@
                                  <p class="content">
                                     {{journal_section.2.summary|safe}}
                                  </p>
-                                 <a href="#" class="link">read article</a>
+                                 <a href="/journal/{{journal_section.0.slug}}" class="link">read article</a>
                               </div>
                            </div>
                         {% endif %}
@@ -99,7 +100,7 @@
                         {% if journal_section.4 %}
                            <div class="col-sm-6  wow slideInUp" data-wow-delay="0.6s">
                               <div class="white widthright">
-                                 <a href="#"  class="hovereffect">
+                                 <a href="/journal/{{journal_section.0.slug}}"  class="hovereffect">
                                     <img src="{% static "markatix/images/new/journel/02.jpg" %}"/>
                                     <div class="overlay">
                                     </div>
@@ -112,7 +113,7 @@
                                  <p class="content">
                                     {{journal_section.4.summary|safe}}
                                  </p>
-                                 <a href="#" class="link">read article</a>
+                                 <a href="/journal/{{journal_section.0.slug}}" class="link">read article</a>
                               </div>
                            </div>
                         {% endif %}
@@ -122,7 +123,7 @@
               </div>
            </div>
         {% endfor %}
-       <div class="row text-center journel-last">
+       <div class="row text-center journel-last hidden">
           <a href="#">PREV.</a>
           <a href="#">NEXT</a>
        </div>

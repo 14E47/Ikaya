@@ -952,14 +952,15 @@ a:hover {
   .mt-bottom-bar .cart-opener {
     display: block;
     position: relative; }
-    .mt-bottom-bar .cart-opener .num {
+     .num {
       width: 22px;
-      right: -12px;
-      bottom: -2px;
+      right: 0px;
+      bottom: 0px;
       height: 22px;
       color: #fff;
+      padding:2px 0px;
       text-align: center;
-      background: #2e2e2e;
+      background-color: #7b674f;
       position: absolute;
       border-radius: 50%;
       border: 2px solid #fff;
@@ -1127,7 +1128,7 @@ a:hover {
 	}
         #nav > ul > li > a:hover {
           color: #7B674F;
-		  border-bottom:1px solid #7B674;
+		  border-bottom:1px solid #7b674f;
           text-decoration: none; }
       #nav > ul > li.drop {
         position: static;
