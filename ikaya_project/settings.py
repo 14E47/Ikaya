@@ -180,3 +180,5 @@ EMAIL_HOST_PASSWORD = 'markatix@123'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 ###############################
+
+OSCAR_ALLOW_ANON_CHECKOUT = True
