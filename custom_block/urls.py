@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from views import CustomImageList, CustomImageCreate, CustomImageUpdate, CustomImageDelete
+from custom_block.views import CustomImageList, CustomImageCreate, CustomImageUpdate, CustomImageDelete
 
 urlpatterns = [
     url(r'^$', CustomImageList.as_view(), name='custom-image-list'),

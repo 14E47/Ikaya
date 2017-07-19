@@ -4,8 +4,8 @@ from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import DetailView, ListView
 
-from models import CustomImage
-from forms import CustomImageForm
+from custom_block.models import CustomImage
+from custom_block.forms import CustomImageForm
 
 class CustomImageList(ListView):
     model = CustomImage
