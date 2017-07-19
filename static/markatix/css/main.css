@@ -10063,7 +10063,7 @@ l,btn-box li:after {
         font-weight:400;
         color: #EBEBED !important;
     }
-    .guest_form button[type="submit"],.guest_form button[type="submit"]:hover
+    .guest_form a,.guest_form a:hover
     {
         background-color:#7E7D82;
         border-radius:0px;
