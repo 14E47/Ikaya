@@ -19,10 +19,16 @@
 {#											<span class="icon-handbag"></span>#}
 {#											#}
 {#										</a>#}
-                                <a id="menu-toggle" href="#" class="toggle">
-                                    <i class="fa fa-shopping-cart fa-1x" aria-hidden="true"></i>
-                                    <span class="num">{{ request.basket.num_items }}</span>
-                                </a>
+                                {% if request.basket.num_lines %}
+                                    <a id="menu-toggle" href="#" class="toggle">
+                                        <i class="fa fa-shopping-cart fa-1x" aria-hidden="true"></i>
+                                        <span class="num">{{ request.basket.num_items }}</span>
+                                    </a>
+                                {% else %}
+                                    <a id="menu-toggle" href="#" class="toggle">
+                                        <i class="fa fa-shopping-cart fa-1x" aria-hidden="true"></i>
+                                    </a>
+                                {% endif %}
                             </li>
                             <li class="hidden-lg hidden-md">
                                 <a href="#" class="bar-opener mobile-toggle">
@@ -258,7 +264,7 @@
                     </div>
                 {% endfor %}
                     <div class="col-sm-12 col-xs-12">
-                    <br>
+                    <br><br>
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="row">
