@@ -48,10 +48,10 @@
                                             <li class="dropdown-submenu">
                                                 <a tabindex="-1" href="/catalogue">SARIS</a>
                                                 <ul class="dropdown-menu">
-                                                    <li><a tabindex="-1" href="/catalogue">WOVEN</a></li>
-                                                    <li><a href="/catalogue">PRINTED</a></li>
-                                                    <li><a href="/catalogue">EMBROIDERED</a></li>
-                                                    <li><a href="/catalogue">REAL ZARI</a></li>
+                                                    <li><a style="background-color:#fff" tabindex="-1" href="/catalogue">WOVEN</a></li>
+                                                    <li><a style="background-color:#fff" href="/catalogue">PRINTED</a></li>
+                                                    <li><a style="background-color:#fff" href="/catalogue">EMBROIDERED</a></li>
+                                                    <li><a style="background-color:#fff" href="/catalogue">REAL ZARI</a></li>
                                                 </ul>
                                             </li>
                                             <li class="dropdown-submenu">
@@ -61,8 +61,8 @@
                                                     <li class="dropdown-submenu">
                                                         <a href="/catalogue">STICHED</a>
                                                         <ul class="dropdown-menu">
-                                                            <li><a href="/catalogue">EMBROIDEREDE</a></li>
-                                                            <li><a href="/catalogue">WOVEN</a></li>
+                                                            <li><a style="background-color:#fff" href="/catalogue">EMBROIDEREDE</a></li>
+                                                            <li><a style="background-color:#fff" href="/catalogue">WOVEN</a></li>
                                                         </ul>
                                                     </li>
                                                 </ul>
@@ -70,17 +70,17 @@
                                             <li class="dropdown-submenu">
                                                 <a tabindex="-1" href="/catalogue">LENGHAS</a>
                                                 <ul class="dropdown-menu">
-                                                    <li><a tabindex="-1" href="/catalogue">EMBROIDEREDE</a></li>
-                                                    <li><a href="/catalogue">WOVEN</a></li>
+                                                    <li><a style="background-color:#fff" tabindex="-1" href="/catalogue">EMBROIDEREDE</a></li>
+                                                    <li><a style="background-color:#fff" href="/catalogue">WOVEN</a></li>
                                                 </ul>
                                             </li>
                                             <li class="dropdown-submenu">
-                                                <a tabindex="-1" href="/catalogue">READY TO WEAR</a>
+                                                <a style="background-color:#fff" tabindex="-1" href="/catalogue">READY TO WEAR</a>
                                                 <ul class="dropdown-menu">
-                                                    <li><a tabindex="-1" href="/catalogue">JACKETS</a></li>
-                                                    <li><a href="/catalogue">BLOUSES</a></li>
-                                                    <li><a href="/catalogue">SKIRTS</a></li>
-                                                    <li><a href="/catalogue">TROUSERS</a></li>
+                                                    <li><a style="background-color:#fff" tabindex="-1" href="/catalogue">JACKETS</a></li>
+                                                    <li><a style="background-color:#fff" href="/catalogue">BLOUSES</a></li>
+                                                    <li><a style="background-color:#fff" href="/catalogue">SKIRTS</a></li>
+                                                    <li><a style="background-color:#fff" href="/catalogue">TROUSERS</a></li>
                                                 </ul>
                                             </li>
                                         </ul>
@@ -90,24 +90,24 @@
 
                                     {% if user.is_authenticated %}
                                         <li>
-                                            <a class="drop-link" href="#">ACCOUNT</a>
+                                            <a style="background-color:#fff" class="drop-link" href="#">ACCOUNT</a>
                                             <div class="s-drop">
                                                 <ul>
                                                     <li>
                                                         {% if num_unread_notifications > 0 %}
 {#                                                          If user has new notifications - we change account link to go to inbox#}
-                                                            <a href="{% url 'customer:notifications-inbox' %}">
+                                                            <a style="background-color:#fff" href="{% url 'customer:notifications-inbox' %}">
                                                                 {% trans "Account" %}
                                                                 <span class="label label-important">{{ num_unread_notifications }}</span>
                                                             </a>
                                                         {% else %}
-                                                            <a href="{% url 'customer:summary' %}">{% trans "Account" %}</a>
+                                                            <a style="background-color:#fff" href="{% url 'customer:summary' %}">{% trans "Account" %}</a>
                                                         {% endif %}
                                                     </li>
                                                     {% if user.is_staff or perms.partner.dashboard_access %}
-                                                        <li><a href="{% url 'dashboard:index' %}"><i class="icon-list-ul"></i> {% trans "Dashboard" %}</a></li>
+                                                        <li><a style="background-color:#fff" href="{% url 'dashboard:index' %}"><i class="icon-list-ul"></i> {% trans "Dashboard" %}</a></li>
                                                     {% endif %}
-                                                    <li><a id="logout_link" href="{% url 'customer:logout' %}"><i class="icon-signout"></i> {% trans "Logout" %}</a></li>
+                                                    <li><a style="background-color:#fff" id="logout_link" href="{% url 'customer:logout' %}"><i class="icon-signout"></i> {% trans "Logout" %}</a></li>
                                                 </ul>
                                             </div>
                                         </li>
@@ -236,7 +236,7 @@
             <h3 class="cart">{{ request.basket.num_items }}&nbsp;&nbsp;MY CART</h3>
             {% if request.basket.num_lines %}
                 {% for line in request.basket.all_lines %}
-                    <div class="basket-items">
+                    <div class="basket-items" style="margin-bottom:8px;">
                         <div class="row">
                             <div class="col-sm-4 col-xs-4">
                                 {% with image=line.product.primary_image %}
@@ -255,6 +255,7 @@
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 {% endfor %}
                     <div class="col-sm-12 col-xs-12">

@@ -1287,6 +1287,7 @@ a:hover {
       list-style: none; }
       #nav .s-drop ul > li {
         padding: 0 15px;
+        background: #fff;
         position: relative;
         border-bottom: 1px solid #eee; }
         #nav .s-drop ul > li.drop:before {
@@ -10364,7 +10365,8 @@ l,btn-box li:after {
 
     .dropdown-submenu>.dropdown-menu {
         top: 0;
-        left: 100%;
+        left:auto;
+        right: 100%;
         border:0px;
         margin-top: -6px;
         margin-left: -2px;
@@ -10397,7 +10399,7 @@ l,btn-box li:after {
         height: 0;
         border-color: transparent;
         border-style: solid;
-        border-width: 5px 0 5px 5px;
+        border-width:0px;
         border-left-color: #ccc;
         margin-top: 5px;
         margin-right: -10px;
