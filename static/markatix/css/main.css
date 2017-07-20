@@ -9729,7 +9729,7 @@ l,btn-box li:after {
 	}
 	.checkout .headding
 	{
-		font-size:40px;
+		font-size:30px;
 		margin-top:80px;
 		font-family: "MetaSerifTf-Book";
 	}
@@ -10064,7 +10064,7 @@ l,btn-box li:after {
         font-weight:400;
         color: #EBEBED !important;
     }
-    .guest_form button[type="submit"],.guest_form button[type="submit"]:hover
+    .guest_form a,.guest_form a:hover
     {
         background-color:#7E7D82;
         border-radius:0px;

@@ -29,7 +29,7 @@
             </div>
             <div class="row equalh">
                 <div class="col-sm-4 register_form">
-                    <form id="register_form" action="{{ request.get_full_path }}" method="post" class="well">
+                    <form id="register_form" action="{{ request.get_full_path }}" method="post">
                         <h2>{% trans 'REGISTER' %}</h2>
                         {% csrf_token %}
                         {% include "partials/form_fields.html" with form=registration_form %}
@@ -38,7 +38,7 @@
                     </form>
                 </div>
                 <div class="col-sm-4 login_form">
-                    <form id="login_form" action="{{ request.get_full_path }}" method="post" class="well" >
+                    <form id="login_form" action="{{ request.get_full_path }}" method="post">
                         <h2>{% trans 'LOG IN' %}</h2>
                         {% csrf_token %}
                         {% include "partials/form_fields.html" with form=login_form %}
@@ -48,11 +48,8 @@
 
                 </div>
                 <div class="col-sm-4 guest_form">
-                    <form id="guest_form" action="{{ request.get_full_path }}" method="post" class="well">
-                        <h2>{% trans 'GUEST USER' %}</h2>
-                        <imput type="email" placeholder="Email Id"></imput>
-                        <button name="registration_submit" type="submit" value="Register" class="btn btn-lg btn-primary" data-loading-text="{% trans 'Checkout...' %}">{% trans 'CHECKOUT AS GUEST' %}</button>
-                    </form>
+                    <h2>{% trans 'GUEST USER' %}</h2>
+                    <a href="{% url 'checkout:index' %}" name="registration_submit" type="submit" value="Register" class="btn btn-lg btn-primary" data-loading-text="{% trans 'Checkout...' %}">{% trans 'CHECKOUT AS GUEST' %}</a>
                 </div>
             </div>
             <div class="row" style="margin-top:50px;">

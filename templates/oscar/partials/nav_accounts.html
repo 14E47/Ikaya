@@ -4,6 +4,7 @@
 {% load purchase_info_tags %}
 {% load widget_tweaks %}
 {% load staticfiles %}
+
     <header id="mt-header" class="style4">
         <!-- mt bottom bar start here -->
         <div class="mt-bottom-bar">
@@ -19,10 +20,16 @@
 {#											<span class="icon-handbag"></span>#}
 {#											#}
 {#										</a>#}
-                                <a id="menu-toggle" href="#" class="toggle">
-                                    <i class="fa fa-shopping-cart fa-1x" aria-hidden="true"></i>
-                                    <span class="num">{{ request.basket.num_items }}</span>
-                                </a>
+                                {% if request.basket.num_lines %}
+                                    <a id="menu-toggle" href="#" class="toggle">
+                                        <i class="fa fa-shopping-cart fa-1x" aria-hidden="true"></i>
+                                        <span class="num">{{ request.basket.num_items }}</span>
+                                    </a>
+                                {% else %}
+                                    <a id="menu-toggle" href="#" class="toggle">
+                                        <i class="fa fa-shopping-cart fa-1x" aria-hidden="true"></i>
+                                    </a>
+                                {% endif %}
                             </li>
                             <li class="hidden-lg hidden-md">
                                 <a href="#" class="bar-opener mobile-toggle">
@@ -259,7 +266,7 @@
                     </div>
                 {% endfor %}
                     <div class="col-sm-12 col-xs-12">
-                    <br>
+                    <br><br>
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="row">
@@ -279,7 +286,7 @@
                     </div>
                     <div class="col-xs-12 text-center">
                         <br><br>
-                        <a href="{% url 'checkout:index' %}" class="btn-type3">{% trans "Proceed to checkout" %}</a>
+                        <a href="{% url 'customer:login' %}" class="btn-type3">{% trans "Proceed to checkout" %}</a>
                     </div>
             {% else %}
                 <p>{% trans "Your basket is empty." %}</p>

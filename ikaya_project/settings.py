@@ -27,7 +27,7 @@ SECRET_KEY = '5i()506w^#=31=-*+lyw0(y&lk$c_uduegaaz^9!&6$mjhw&=2'
 DEBUG = True
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -180,3 +180,5 @@ EMAIL_HOST_PASSWORD = 'markatix@123'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 ###############################
+
+OSCAR_ALLOW_ANON_CHECKOUT = True

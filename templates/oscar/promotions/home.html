@@ -16,12 +16,12 @@
     <article class="hidden-xs hidden-sm">
         <img src="{{home_sections.image.url}}" alt="Ekaya Banner" data-parallax='{"y": 50}'/>
         <p class="wow slideInUp" data-wow-duration="2s" style="color:{{home_sections.text_colour|safe}}">{{home_sections.text|safe}}<br><br>
-            <a style="font-size:0.5em;text-decoration:underline;font-family: 'MetaSerifTf-Book';color:#fff" href="#">{{home_sections.button}}</a>
+            <a style="font-size:0.5em;text-decoration:underline;font-family: 'MetaSerifTf-Book';color:#fff" href="{{home_sections.link_url}}">{{home_sections.button}}</a>
         </p>
     </article>
     <article class="hidden-lg hidden-md">
         <img src="{{home_sections.image.url}}" alt="Ekaya Banner" data-parallax='{"y": 50}'/>
-        <p class="wow slideInUp" data-wow-duration="2s" >{{home_sections.text|safe}}<br><br>
+        <p class="wow slideInUp" data-wow-duration="2s" style="color:{{home_sections.text_colour|safe}}">{{home_sections.text|safe}}<br><br>
             <a style="font-size:0.5em;text-decoration:underline;font-family: 'MetaSerifTf-Book';color:#fff" href="{{home_sections.link_url}}">{{home_sections.button}}</a>
         </p>
     </article>
@@ -35,10 +35,10 @@
                     <div class="banner-frame equalh">
                         {% get_home_sections 'section1' as home_sections %}
                         <!-- banner-1 start here -->
-                        <div class="col-sm-4 vcenter wow slideInUp" data-wow-delay="0.5s" data-wow-duration="2s">
+                        <div class="col-sm-4 vcenter wow slideInUp" data-wow-duration="2s">
                             <img src="{% static "markatix/images/new/03.jpg"%}" alt="image description">
                         </div>
-                        <div class="col-sm-2 vend1 hidden-xs wow slideInUp" data-wow-delay="1s" data-wow-duration="2s">
+                        <div class="col-sm-2 vend1 hidden-xs wow slideInUp" data-wow-duration="2s">
                             <div class="text-right">
                                 <h3>
                                     {{home_sections.text|safe}}
@@ -50,7 +50,7 @@
                                 <br><br>
                             </div>
                         </div>
-                        <div class="col-sm-5 wow slideInUp" data-wow-delay="2s" data-wow-duration="2s">
+                        <div class="col-sm-5 wow slideInUp" data-wow-duration="2s">
                             <div class="row">
                                 <div class="hovereffect">
                                     <img src="{{home_sections.image.url}}" alt="image description">

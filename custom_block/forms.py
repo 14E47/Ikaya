@@ -1,6 +1,6 @@
 from django import forms
 
-from models import CustomImage
+from custom_block.models import CustomImage
 
 class CustomImageForm(forms.ModelForm):
     class Meta:
