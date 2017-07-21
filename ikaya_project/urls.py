@@ -24,6 +24,7 @@ from oscar.app import application
 
 from custom_block import urls as custom_block_urls
 from journal import urls as journal_urls
+from ikaya_oscar_apps.catalogue import views as ikaya_oscar_catalogue_app_view
 
 urlpatterns = [
     url(r'^i18n/', include('django.conf.urls.i18n')),
@@ -41,4 +42,5 @@ urlpatterns = [
     url(r'', include(application.urls)),
     url(r'^custom-image/', include(custom_block_urls)),
     url(r'^journal/', include(journal_urls)),
+    url(r'^currency_conversion/$', ikaya_oscar_catalogue_app_view.currency_conv_view),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

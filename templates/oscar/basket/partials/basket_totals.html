@@ -1,6 +1,7 @@
 {% load i18n %}
 {% load currency_filters %}
 {% load shipping_tags %}
+{% load custom_tags %}
 
 <div id="basket_totals">
     <table class="table table-condensed">
@@ -16,9 +17,9 @@
                             <td>{% trans "Basket total (before discounts)" %}</td>
                             <td class="align-right">
                                 {% if basket.is_tax_known and not show_tax_separately %}
-                                    {{ basket.total_incl_tax_excl_discounts|currency:basket.currency }}
+                                    {{ basket.total_incl_tax_excl_discounts|multiply:request.session.currency_factor|currency:request.session.currency_code }}
                                 {% else %}
-                                    {{ basket.total_excl_tax_excl_discounts|currency:basket.currency }}
+                                    {{ basket.total_excl_tax_excl_discounts|multiply:request.session.currency_factor|currency:request.session.currency_code }}
                                 {% endif %}
                             </td>
                         </tr>
@@ -30,7 +31,7 @@
                                         <br/><small>{{ discount.description }}</small>
                                     {% endif %}
                                 </td>
-                                <td class="align-right">-{{ discount.discount|currency:basket.currency }}</td>
+                                <td class="align-right">-{{ discount.discount|multiply:request.session.currency_factor|currency:request.session.currency_code }}</td>
                             </tr>
                         {% endfor %}
 
@@ -49,7 +50,7 @@
                                             </form>
                                         {% endif %}
                                     </td>
-                                    <td class="align-right">-{{ discount.discount|currency:basket.currency }}</td>
+                                    <td class="align-right">-{{ discount.discount|multiply:request.session.currency_factor|currency:request.session.currency_code }}</td>
                                 </tr>
                             {% endfor %}
                         {% endif %}
@@ -62,9 +63,9 @@
                             <th class="total">{% trans "Basket total (after discounts)" %}</th>
                             <th class="total align-right">
                                 {% if not show_tax_separately and basket.is_tax_known %}
-                                    {{ basket.total_incl_tax|currency:basket.currency }}
+                                    {{ basket.total_incl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code }}
                                 {% else %}
-                                    {{ basket.total_excl_tax|currency:basket.currency }}
+                                    {{ basket.total_excl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code }}
                                 {% endif %}
                             </th>
                         </tr>
@@ -74,9 +75,9 @@
                             <th class="total">{% trans "Basket total" %}</th>
                             <th class="total align-right">
                                 {% if not show_tax_separately and basket.is_tax_known %}
-                                    {{ basket.total_incl_tax|currency:basket.currency }}
+                                    {{ basket.total_incl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code }}
                                 {% else %}
-                                    {{ basket.total_excl_tax|currency:basket.currency }}
+                                    {{ basket.total_excl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code }}
                                 {% endif %}
                             </th>
                         </tr>
@@ -105,9 +106,9 @@
                         </th>
                         <th class="total align-right">
                             {% if not show_tax_separately and shipping_charge.is_tax_known %}
-                                {{ shipping_charge.incl_tax|currency:basket.currency }}
+                                {{ shipping_charge.incl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code }}
                             {% else %}
-                                {{ shipping_charge.excl_tax|currency:basket.currency }}
+                                {{ shipping_charge.excl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code }}
                             {% endif %}
                         </th>
                     </tr>
@@ -123,16 +124,16 @@
                         <td>{% trans "Shipping total (before discounts)" %}</td>
                         <td class="align-right">
                             {% if not show_tax_separately and shipping_charge_excl_discount.is_tax_known %}
-                                {{ shipping_charge_excl_discount.incl_tax|currency:basket.currency }}
+                                {{ shipping_charge_excl_discount.incl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code }}
                             {% else %}
-                                {{ shipping_charge_excl_discount.excl_tax|currency:basket.currency }}
+                                {{ shipping_charge_excl_discount.excl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code }}
                             {% endif %}
                         </td>
                     </tr>
                     {# This section needs adjustment to when taxes are shown separately #}
                     <tr>
                         <td class="basket-discount"><span class="label label-success">{% trans "Discount" %}</span> {{ shipping_method.discount_name }}</td>
-                        <td class="align-right">-{{ shipping_discount|currency:basket.currency }}</td>
+                        <td class="align-right">-{{ shipping_discount|multiply:request.session.currency_factor|currency:request.session.currency_code }}</td>
                     </tr>
                     <tr>
                         <th class="total">
@@ -140,9 +141,9 @@
                         </th>
                         <th class="total align-right">
                             {% if not show_tax_separately and shipping_charge.is_tax_known %}
-                                {{ shipping_charge.incl_tax|currency:basket.currency }}
+                                {{ shipping_charge.incl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code }}
                             {% else %}
-                                {{ shipping_charge.excl_tax|currency:basket.currency }}
+                                {{ shipping_charge.excl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code }}
                             {% endif %}
                         </th>
                     </tr>
@@ -163,13 +164,13 @@
                     <tr>
                         <th class="total">{% trans "Basket" %}</th>
                         <th class="total align-right">
-                            {{ basket.total_tax|currency:basket.currency }}
+                            {{ basket.total_tax|multiply:request.session.currency_factor|currency:request.session.currency_code }}
                         </th>
                     </tr>
                     <tr>
                         <th class="total">{% trans "Shipping" %}</th>
                         <th class="total align-right">
-                            {{ shipping_charge.tax|currency:basket.currency }}
+                            {{ shipping_charge.tax|multiply:request.session.currency_factor|currency:request.session.currency_code }}
                         </th>
                     </tr>
                 {% endif %}
@@ -206,9 +207,9 @@
                     <td class="total align-right">
                         <h3 class="price_color">
                             {% if order_total.is_tax_known %}
-                                {{ order_total.incl_tax|currency:basket.currency }}
+                                {{ order_total.incl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code }}
                             {% else %}
-                                {{ order_total.excl_tax|currency:basket.currency }}
+                                {{ order_total.excl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code }}
                             {% endif %}
                         </h3>
                     </td>

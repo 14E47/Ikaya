@@ -36,7 +36,7 @@
                     {% if method.is_discounted %}
                         <small>
                             {% shipping_charge_discount method basket as discount %}
-                            {% blocktrans with amount=discount|currency:basket.currency name=method.discount_name %}
+                            {% blocktrans with amount=discount|multiply:request.session.currency_factor|currency:request.session.currency_code name=method.discount_name %}
                                 This includes a discount of <strong>{{ amount }}</strong> as
                                 your basket qualifies for the <strong>{{ name }}</strong> offer.
                             {% endblocktrans %}
@@ -46,9 +46,9 @@
                 <div class="col-sm-1">
                     {% shipping_charge method basket as charge %}
                     {% if charge.is_tax_known %}
-                        {{ charge.incl_tax|currency:basket.currency }}
+                        {{ charge.incl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code }}
                     {% else %}
-                        {{ charge.excl_tax|currency:basket.currency }}
+                        {{ charge.excl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code }}
                     {% endif %}
                 </div>
                 <div class="col-sm-3">

@@ -3,6 +3,7 @@
 {% load currency_filters %}
 {% load purchase_info_tags %}
 {% load widget_tweaks %}
+{% load custom_tags %}
 
 <div class="container">
 
@@ -90,18 +91,18 @@
                             <div class="col-sm-1">
                                 <p class="price_color align-right">
                                     {% if line.is_tax_known %}
-                                        {{ line.unit_price_incl_tax|currency:line.price_currency }}
+                                        {{ line.unit_price_incl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code }}
                                     {% else %}
-                                        {{ line.unit_price_excl_tax|currency:line.price_currency }}
+                                        {{ line.unit_price_excl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code }}
                                     {% endif %}
                                 </p>
                             </div>
                             <div class="col-sm-2">
                                 <p class="price_color align-right">
                                     {% if line.is_tax_known %}
-                                        {{ line.line_price_incl_tax|currency:line.price_currency }}
+                                        {{ line.line_price_incl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code }}
                                     {% else %}
-                                        {{ line.line_price_excl_tax|currency:line.price_currency }}
+                                        {{ line.line_price_excl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code }}
                                     {% endif %}
                                 </p>
                             </div>
@@ -205,9 +206,9 @@
                             <div class="col-sm-2 align-center">
                                 <p class="price_color">
                                     {% if saved.price.is_tax_known %}
-                                        {{ saved.price.incl_tax|currency:saved.price.currency }}
+                                        {{ saved.price.incl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code }}
                                     {% else %}
-                                        {{ saved.price.excl_tax|currency:saved.price.currency }}
+                                        {{ saved.price.excl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code }}
                                     {% endif %}
                                 </p>
                             </div>

@@ -97,3 +97,9 @@ def get_home_sections(section):
 def top_products():
 	top_products = Product.objects.filter(parent__isnull=True).order_by('-date_updated')[:3]
 	return top_products
+
+from decimal import Decimal as D
+@register.filter(name='multiply')
+def multiply(value, arg):
+    data = value*D(arg)
+    return data

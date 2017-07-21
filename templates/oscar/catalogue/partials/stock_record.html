@@ -1,6 +1,6 @@
 {% load currency_filters %}
 {% load i18n %}
-{% load purchase_info_tags %}
+{% load purchase_info_tags custom_tags %}
 
 {% purchase_info_for_product request product as session %}
 
@@ -8,9 +8,9 @@
     {% if session.price.excl_tax == 0 %}
 {#        <p class="price_color">{% trans "Free" %}</p>#}
     {% elif session.price.is_tax_known %}
-        {{ session.price.incl_tax|currency:session.price.currency }}
+        {{ session.price.incl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code }}
     {% else %}
-        {{ session.price.excl_tax|currency:session.price.currency }}
+        {{ session.price.excl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code }}
     {% endif %}
 {% else %}
     <p class="price_color">&nbsp;</p>

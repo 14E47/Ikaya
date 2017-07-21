@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Django settings for ikaya_project project.
 
@@ -163,7 +164,11 @@ HAYSTACK_CONNECTIONS = {
 
 OSCAR_SHOP_NAME='EKAYA'
 OSCAR_SHOP_TAGLINE='BEST SAREES'
+
 OSCAR_DEFAULT_CURRENCY = 'INR'
+OSCAR_CURRENCY_FORMAT = u'¤ ###0'
+
+OSCAR_ALLOW_ANON_CHECKOUT = True
 
 # ***************************************************************************
 # ****************Shipping addresss required fields***********************************************************
@@ -181,4 +186,3 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 ###############################
 
-OSCAR_ALLOW_ANON_CHECKOUT = True

@@ -80,11 +80,11 @@
                     {% for source in order.sources.all %}
                         <p>
                         {% if source.reference %}
-                            {% blocktrans with amount=source.amount_allocated|currency:source.currency type=source.source_type.name reference=source.reference %}
+                            {% blocktrans with amount=source.amount_allocated|multiply:request.session.currency_factor|currency:request.session.currency_code type=source.source_type.name reference=source.reference %}
                                 Allocation of {{ amount }} from type {{ type }} (reference: {{ reference }})
                             {% endblocktrans %}
                         {% else %}
-                            {% blocktrans with amount=source.amount_allocated|currency:source.currency type=source.source_type.name %}
+                            {% blocktrans with amount=source.amount_allocated|multiply:request.session.currency_factor|currency:request.session.currency_code type=source.source_type.name %}
                                 Allocation of {{ amount }} from type {{ type }}
                             {% endblocktrans %}
                         {% endif %}

@@ -4,6 +4,7 @@
 {% load thumbnail %}
 {% load i18n %}
 {% load staticfiles %}
+{% load custom_tags %}
 
 <ul class="basket-mini-item list-unstyled">
     {% if request.basket.num_lines %}
@@ -23,7 +24,7 @@
                         <p><strong><a href="{{ line.product.get_absolute_url }}">{{ line.description }}</a></strong></p>
                     </div>
                     <div class="col-sm-1 align-center"><strong>{% trans "Qty" %}</strong> {{ line.quantity }}</div>
-                    <div class="col-sm-3 price_color align-right">{{ line.unit_price_excl_tax|currency:request.basket.currency }}</div>
+                    <div class="col-sm-3 price_color align-right">{{ line.unit_price_excl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code }}</div>
                 </div>
             </li>
         {% endfor %}

@@ -134,9 +134,9 @@
                     <div class="col-sm-2 align-right">
                         <p class="price_color">
                             {% if not show_tax_separately and line.is_tax_known %}
-                                {{ line.line_price_incl_tax|currency:basket.currency }}
+                                {{ line.line_price_incl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code }}
                             {% else %}
-                                {{ line.line_price_excl_tax|currency:basket.currency }}
+                                {{ line.line_price_excl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code }}
                             {% endif %}
                         </p>
                     </div>
