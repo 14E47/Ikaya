@@ -9393,6 +9393,7 @@ l,btn-box li:after {
     }
 	.panel-group {
 		margin-bottom: 30px;
+        width:25%;
 	}
     .panel-title > a {
         display: block;
@@ -10484,6 +10485,10 @@ l,btn-box li:after {
 
 @media screen and (max-width:480px)
 {
+    .panel-group {
+		margin-bottom: 30px;
+        width:100%;
+	}
     .fp
     {
       padding-top: 7px;

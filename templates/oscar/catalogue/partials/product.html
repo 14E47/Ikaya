@@ -28,7 +28,7 @@
                     <form action="{% url 'customer:wishlists-remove-product' key=pro_wish.wishlist.key product_pk=product.id %}" method="post" style="width:12%;float: left;text-align:right;">
                         {% csrf_token %}
                         <input type="hidden" name="next" value="/catalogue" />
-                        <button type="submit" style="text-align:right;padding:5px 2px;outline:0;background-color:transparent;border:0px;font-size:18px"><i style="color:red" class="fa fa-heart"></i></button>
+                        <button type="submit" style="text-align:right;padding:5px 2px;outline:0;background-color:transparent;border:0px;font-size:18px"><i style="color:#f6b220"  class="fa fa-heart"></i></button>
                     </form>
                 {% endfor %}
             {% else %}
