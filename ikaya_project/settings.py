@@ -62,6 +62,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'oscar.apps.basket.middleware.BasketMiddleware',
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
+    'ikaya_oscar_apps.catalogue.middleware.custom_middleware.VariableSetMiddleware',
 ] 
 
 ROOT_URLCONF = 'ikaya_project.urls'
