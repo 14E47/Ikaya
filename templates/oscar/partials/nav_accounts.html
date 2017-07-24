@@ -4,6 +4,7 @@
 {% load purchase_info_tags %}
 {% load widget_tweaks %}
 {% load staticfiles %}
+{% load custom_tags %}
 
     <header id="mt-header" class="style4">
         <!-- mt bottom bar start here -->
@@ -260,7 +261,7 @@
                             <div class="col-sm-8 col-xs-8">
                                 <div class="row">
                                     <p class="name">{{ line.description }}</p>
-                                    <span class="price">{{ line.quantity }} x {{ line.unit_price_excl_tax|currency:request.basket.currency }}</span>
+                                    <span class="price">{{ line.quantity }} x {{ line.unit_price_excl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code }}</span>
                                 </div>
                             </div>
                         </div>
@@ -278,9 +279,9 @@
                             <div class="col-sm-6">
                                 <p class="mt-total-txt">
                                     {% if request.basket.is_tax_known %}
-                                        <small>{% trans "Total:" %} {{ request.basket.total_incl_tax|currency:request.basket.currency }}</small>
+                                        <small>{% trans "Total:" %} {{ request.basket.total_incl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code }}</small>
                                     {% else %}
-                                        <small>{% trans "Total:" %} {{ request.basket.total_excl_tax|currency:request.basket.currency }}</small>
+                                        <small>{% trans "Total:" %} {{ request.basket.total_excl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code }}</small>
                                     {% endif %}
                                 </p>
                             </div>
@@ -288,7 +289,7 @@
                     </div>
                     <div class="col-xs-12 text-center">
                         <br><br>
-                        <a href="{% url 'customer:login' %}" class="btn-type3">{% trans "Proceed to checkout" %}</a>
+                        <a href="{% url 'checkout:index' %}" class="btn-type3">{% trans "Proceed to checkout" %}</a>
                     </div>
             {% else %}
                 <p>{% trans "Your basket is empty." %}</p>

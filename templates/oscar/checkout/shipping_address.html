@@ -4,6 +4,7 @@
 {% load basket_tags %}
 {% load currency_filters %}
 {% load shipping_tags %}
+{% load debug_tags custom_tags %}
 
 {% block title %}
     {% trans "Shipping address" %} | {{ block.super }}
@@ -18,7 +19,6 @@
 {% block order_contents %}{% endblock %}
 
 {% block shipping_address %}
-
     {% block new_address_form %}
         <main id="mt-main">
 			<div class="container checkout">
@@ -108,7 +108,7 @@
                                                 <div class="col-md-6 col-xs-12">
                                                     <div class="row">
                                                         <select id="id_country" name="country" required="">
-                                                            <option value="IN">India</option>
+                                                          <option value="IN">India</option>
                     {#                                    <option value="AF">Afghanistan</option>#}
                     {#                                    <option value="AL">Albania</option>#}
                     {#                                    <option value="DZ">Algeria</option>#}

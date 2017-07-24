@@ -101,5 +101,6 @@ def top_products():
 from decimal import Decimal as D
 @register.filter(name='multiply')
 def multiply(value, arg):
-    data = value*D(arg)
-    return data
+    if not value == '':
+        data = value*D(arg)
+        return data

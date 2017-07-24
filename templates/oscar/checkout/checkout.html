@@ -4,6 +4,7 @@
 {% load i18n %}
 {% load purchase_info_tags %}
 {% load staticfiles %}
+{% load debug_tags custom_tags %}
 
 {% block title %}
     {% trans "Checkout" %} | {{ block.super }}
@@ -14,7 +15,6 @@
 {% endblock %}
 
 {% block content %}
-
     {% if error %}
         <div class="alert alert-danger">
             {{ error }}
