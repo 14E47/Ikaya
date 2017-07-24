@@ -9404,14 +9404,14 @@ l,btn-box li:after {
         text-decoration: underline;
 		border-bottom:0px solid #AFA389;
     }
-    .panel-title > a:after {
-      content: "";
-      display: inline-block;
-      text-decoration: none;
-      height:16px;
-      overflow: hidden;
-      padding-left: 10px;
-  }
+    /*.panel-title > a:after {*/
+      /*content: "";*/
+      /*display: inline-block;*/
+      /*text-decoration: none;*/
+      /*height:16px;*/
+      /*overflow: hidden;*/
+      /*padding-left: 10px;*/
+  /*}*/
     .more-less {
         float: right;
         color: #AFA389;
