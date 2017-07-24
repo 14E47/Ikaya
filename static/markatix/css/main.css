@@ -1875,7 +1875,7 @@ a:hover {
   border-radius: 0px;
   vertical-align: top;
   display: inline-block;
-  border: 1px solid #000;
+  border: 1px solid #7b674f;
   text-transform: uppercase;
   font: 300 14px/20px "MetaSerifTf-Book"; }
   .btn-type3:focus, .btn-type3:hover {
@@ -9393,7 +9393,6 @@ l,btn-box li:after {
     }
 	.panel-group {
 		margin-bottom: 30px;
-        width:25%;
 	}
     .panel-title > a {
         display: block;
@@ -9402,14 +9401,24 @@ l,btn-box li:after {
         text-decoration: none;
 		color:#AFA389;
         letter-spacing:1.5px;
-		border-bottom:1px solid #AFA389;
+        text-decoration: underline;
+		border-bottom:0px solid #AFA389;
     }
-
+    .panel-title > a:after {
+      content: "";
+      display: inline-block;
+      text-decoration: none;
+      height:16px;
+      overflow: hidden;
+      padding-left: 10px;
+  }
     .more-less {
         float: right;
         color: #AFA389;
     }
-
+    .panel-default>.panel-heading+.panel-collapse>.panel-body {
+        border:0px;
+    }
     .panel-default > .panel-heading + .panel-collapse > .panel-body {
 		padding:5px 0;
 

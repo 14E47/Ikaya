@@ -16,6 +16,7 @@ Use message tags to control these alerts.  Available tags include:
             <div class="alertinner {% if 'noicon' not in message.tags %}wicon{% endif %}">
                 {# Allow HTML to be embedded in messages #}
                 {% if 'safe' in message.tags %}
+
                     {{ message|safe }}
                 {% else %}
                     {{ message }}
