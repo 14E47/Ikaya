@@ -134,10 +134,11 @@
 															<div class="panel-body">
 																<div class="tab-content">
 																	<div class="tab-pane active" id="tab1">
-																		<div class="form">
-																			<div class="col-xs-5 col-sm-3">
+																		<div class="form" >
+																			<form action='/catalogue/' method='GET'>
+                                                                            <div class="col-xs-5 col-sm-3">
 																				<div class="row">
-																					<input type="text">
+																					<input name='price_min' type="text">
 																				</div>
 																			</div>
 																			<div class="col-xs-2 col-sm-1">
@@ -147,12 +148,13 @@
 																			</div>
 																			<div class="col-xs-5 col-sm-3">
 																				<div class="row">
-																					<input type="text">
+																					<input name='price_max' type="text">
 																				</div>
 																			</div>
 																			<div class="col-sm-3">
 																				<button>GO</button>
 																			</div>
+                                                                            </form>
 																		</div>
 
 																	</div>
@@ -326,10 +328,10 @@
 												</a>
 												<div class="drop">
 													<ul class="list-unstyled text-center">
-														<li><a href="#">VIEW ALL</a></li>
-														<li><a href="#">EKAYA LOVES</a></li>
-														<li><a href="#">PRICE<br>LOW TO HIGH</a></li>
-                                                        <li><a style="margin-bottom:0px" href="#">PRICE<br>HIGH TO LOW</a></li>
+														<li><a href="/catalogue/">VIEW ALL</a></li>
+														<li><a href="/catalogue/?sort=ekaya-recommends">EKAYA LOVES</a></li>
+														<li><a href="/catalogue/?sort=low-to-high">PRICE<br>LOW TO HIGH</a></li>
+                                                        <li><a style="margin-bottom:0px" href="/catalogue/?sort=high-to-low">PRICE<br>HIGH TO LOW</a></li>
 													</ul>
 												</div>
 											</li>
