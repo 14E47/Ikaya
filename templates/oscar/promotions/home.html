@@ -210,102 +210,21 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="bestseller-slider">
-                            <div class="slide">
-                                <!-- mt product1 center start here -->
-                                <div class="mt-product1">
-                                    <div class="box">
-                                        <div class="b1">
-                                            <div class="b2">
-                                                <img src="{% static "markatix/images/new/12.jpg"%}" alt="image description">
+                            {% get_instagram_feed as instagram_feeds %}
+                            {% for instagram_feed in instagram_feeds %}
+                                <div class="slide">
+                                    <!-- mt product1 center start here -->
+                                    <div class="mt-product1">
+                                        <div class="box">
+                                            <div class="b1">
+                                                <div class="b2">
+                                                    <img src="{{instagram_feed}}" alt="instagram feed">
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div><!-- mt product1 center end here -->
-                            </div>
-                            <div class="slide">
-                                <!-- mt product1 center start here -->
-                                <div class="mt-product1">
-                                    <div class="box">
-                                        <div class="b1">
-                                            <div class="b2">
-                                                <img src="{% static "markatix/images/new/11.jpg"%}" alt="image description">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div><!-- mt product1 center end here -->
-                            </div>
-                            <div class="slide">
-                                <!-- mt product1 center start here -->
-                                <div class="mt-product1">
-                                    <div class="box">
-                                        <div class="b1">
-                                            <div class="b2">
-                                                <img src="{% static "markatix/images/new/10.jpg"%}" alt="image description">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div><!-- mt product1 center end here -->
-                            </div>
-                            <div class="slide">
-                                <!-- mt product1 center start here -->
-                                <div class="mt-product1">
-                                    <div class="box">
-                                        <div class="b1">
-                                            <div class="b2">
-                                                <img src="{% static "markatix/images/new/13.jpg"%}" alt="image description">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div><!-- mt product1 center end here -->
-                            </div>
-                            <div class="slide">
-                                <!-- mt product1 center start here -->
-                                <div class="mt-product1">
-                                    <div class="box">
-                                        <div class="b1">
-                                            <div class="b2">
-                                                <img src="{% static "markatix/images/new/11.jpg"%}" alt="image description">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div><!-- mt product1 center end here -->
-                            </div>
-                            <div class="slide">
-                                <!-- mt product1 center start here -->
-                                <div class="mt-product1">
-                                    <div class="box">
-                                        <div class="b1">
-                                            <div class="b2">
-                                                <img src="{% static "markatix/images/new/12.jpg"%}" alt="image description">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div><!-- mt product1 center end here -->
-                            </div>
-                            <div class="slide">
-                                <!-- mt product1 center start here -->
-                                <div class="mt-product1">
-                                    <div class="box">
-                                        <div class="b1">
-                                            <div class="b2">
-                                                <img src="{% static "markatix/images/new/10.jpg"%}" alt="image description">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div><!-- mt product1 center end here -->
-                            </div>
-                            <div class="slide">
-                                <!-- mt product1 center start here -->
-                                <div class="mt-product1">
-                                    <div class="box">
-                                        <div class="b1">
-                                            <div class="b2">
-                                                <img src="{% static "markatix/images/new/13.jpg"%}" alt="image description">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div><!-- mt product1 center end here -->
-                            </div>
+                                    </div><!-- mt product1 center end here -->
+                                </div>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>

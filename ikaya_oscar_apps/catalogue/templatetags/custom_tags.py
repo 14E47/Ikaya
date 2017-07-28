@@ -3,7 +3,7 @@ from oscar.core.loading import get_model
 from django.utils import timezone
 from django import template
 
-import pdb
+import pdb, requests, json
 
 register = template.Library()
 
@@ -104,3 +104,14 @@ def multiply(value, arg):
     if not value == '':
         data = value*D(arg)
         return data
+
+@register.assignment_tag
+def get_instagram_feed():
+    response = requests.get("https://www.instagram.com/ekayabanaras/media/")
+    data = response.text
+    output = json.loads(data)
+    finaldata = []
+    for i in range(1,20):
+        image = output['items'][i]['images']['thumbnail']['url']
+        finaldata.append(image)
+    return finaldata
