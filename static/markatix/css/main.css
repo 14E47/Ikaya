@@ -4032,6 +4032,11 @@ a:hover {
 .mt-product1 {
   display: inline-block;
   vertical-align: top; }
+.mt-product2 {
+  display: inline-block;
+  vertical-align: top;
+  background-image: url("../markatix/images/new/frame.png");
+}
   .mt-product1.gray {
     background: #f8f8f8; }
   .mt-product1.style-1 .box:after {
@@ -9924,7 +9929,7 @@ l,btn-box li:after {
         opacity:0;
         background-color:rgba(0,0,0,0.2);
         -webkit-transition:all .4s ease-in-out;
-        transition:all .4s ease-in-out
+        transition:all .4s ease-in-out;
     }
 
     .hovereffect img {

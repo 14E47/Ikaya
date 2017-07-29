@@ -48,7 +48,6 @@
 
 {% block content %}
 
-
     <main id="mt-main">
         <!-- Mt Product Detial of the Page -->
         <section class="mt-product-detial wow fadeInUp" data-wow-delay="0.4s">
@@ -56,7 +55,7 @@
                 <div class="row">
                     <div class="mt-textbox equalhh basket">
                         <img src="{% static "markatix/images/new/about/07.png"%}" class="pro-logo" >
-                        <h4 class="vcenter2" style="margin:0px;color:#ac997d;margin-left:30px">SARIS</h4>
+                        <h4 class="vcenter2" style="margin:0px;color:#ac997d;margin-left:5px">SARIS</h4>
                     </div>
                     <br><br><br>
                 </div>
@@ -91,7 +90,9 @@
                                                     <div class="panel-heading" role="tab" id="headingOne">
                                                         <h4 class="panel-title">
                                                             <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                                                 <span style="border-bottom:1px solid #7B674F" class="pull-left">FIT</span><img src="{% static "markatix/images/new/detail/arrow.png" %}" style="width:14px;margin-left:30px"></a>
+                                                                <i class="pull-right"><img src="{% static "markatix/images/new/detail/arrow.png" %}" style="width:14px"></i>
+                                                                FIT
+                                                            </a>
                                                         </h4>
                                                     </div>
                                                     <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
@@ -105,9 +106,11 @@
                                                     <div class="panel-heading" role="tab" id="headingTwo">
 
                                                         <h4 class="panel-title">
+                                                            <a href="#" class="size-guide" data-toggle="modal" data-target="#login-modal">Size Guide</a>
                                                             <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                                                <span style="border-bottom:1px solid #7B674F" class="pull-left">SIZE</span><img src="{% static "markatix/images/new/detail/arrow.png" %}" style="width:14px;margin-left:30px"></a>
-
+                                                                <i class="pull-right"><img src="{% static "markatix/images/new/detail/arrow.png" %}" style="width:14px"></i>
+                                                                SIZE
+                                                            </a>
                                                         </h4>
                                                     </div>
                                                     <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
@@ -121,7 +124,9 @@
                                                     <div class="panel-heading" role="tab" id="headingThree">
                                                         <h4 class="panel-title">
                                                             <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                                                <span style="border-bottom:1px solid #7B674F" class="pull-left">COLOR</span><img src="{% static "markatix/images/new/detail/arrow.png" %}" style="width:14px;margin-left:30px"></a>
+                                                                <i class="pull-right"><img src="{% static "markatix/images/new/detail/arrow.png" %}" style="width:14px"></i>
+                                                                COLOR
+                                                            </a>
                                                         </h4>
                                                     </div>
                                                     <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
@@ -134,7 +139,9 @@
                                                     <div class="panel-heading" role="tab" id="headingThree">
                                                         <h4 class="panel-title">
                                                             <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                                                <span style="border-bottom:1px solid #7B674F" class="pull-left">QUANTITY</span><img src="{% static "markatix/images/new/detail/arrow.png" %}" style="width:14px;margin-left:30px"></a>
+                                                                <i class="pull-right"><img src="{% static "markatix/images/new/detail/arrow.png" %}" style="width:14px"></i>
+                                                                QUANTITY
+                                                            </a>
                                                         </h4>
                                                     </div>
 
@@ -217,7 +224,7 @@
                                                     <p>{{product.attr.approx_weight}}</p>
                                                     <hr>
                                                     <h3>Wash Instructions</h3>
-                                                    <p>{{pproduct.attr.ekaya_recommendsroduct.attr.wash_instructions.option}}</p>
+                                                    <p>{{product.attr.wash_instructions.option}}</p>
                                                     <hr>
                                                 </div>
                                                 <div class="row">
@@ -231,7 +238,7 @@
                                                <div class="row">
                                                     {% if product.attr.ekaya_recommends %}
                                                         <div class="mt-textbox equalh" style="padding:0px;">
-                                                            <img src="{% static "markatix/images/new/about/07.png"%}" style="width:15%;height:15%;float:left" class="hidden-xs"><h2 style="color:#F6B82F !important;margin-left:130px;" class="vcenter1">EKAYA RECOMMENDS</h2>
+                                                            <img src="{% static "markatix/images/new/about/07.png"%}" style="width:15%;height:15%;float:left" class="hidden-xs"><h2 style="color:#F6B82F !important;margin-left:15px;" class="vcenter1">EKAYA RECOMMENDS</h2>
                                                         </div><!-- mt-textbox end here -->
                                                         <p>
                                                             The colours you see on your device may vary due to the varying colour reproduction and temperature of individual devices. The colours you see on your device may vary due to the varying colour reproduction and temperature of individual devices
@@ -241,15 +248,15 @@
                                                         <div class="row">
                                                             <ul class="menu list-inline">
                                                                 <li>
-                                                                    <a href="#">SHIPPING</a>
+                                                                    <a href="#" data-toggle="modal" data-target="#login-modal1">SHIPPING</a>
                                                                 </li>
 
                                                                 <li>
-                                                                    <a href="#">RETURNS</a>
+                                                                    <a href="#" data-toggle="modal" data-target="#login-modal2">RETURNS</a>
                                                                 </li>
 
                                                                 <li>
-                                                                    <a href="#">TERMS</a>
+                                                                    <a href="#" data-toggle="modal" data-target="#login-modal3">TERMS</a>
                                                                 </li>
                                                             </ul>
                                                         </div>
@@ -413,6 +420,94 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="login-modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog">
+            <div class="loginmodal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="loginmodal-container">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                <h4>General</h4>
+                <p>
+                    -	Before we can dispatch your purchases, we may need to confirm your details with your card issuer. We will do our best to keep delays to a minimum
+                    -	Our delivery time starts from the moment an order is accepted Ekaya aims to ship any orders within 7 days. Goods purchased on order will take up to 3 weeks. Please note this can take longer for international shipments.
+                    -	We work closely with our shipping partner to minimize the potential impact of custom delays on our international customers
+                </p>
+                <h4>International Delivery Time and Costs </h4>
+                <p>
+                    All orders to be delivered outside of India will be notified with an estimated delivery date and will be charged for custom shipment on orders below 1,00,000; such additional charges are clearly displayed where applicable and included in the 'Total Cost'
+                </p>
+                <p>
+                    The issuer of your credit or debit card may charge currency conversion or other fees in relation to your order. You should check with the issuer of your credit or debit card for details of any such fees.
+                </p>
+                <p>
+                    <strong>Taxes and duties </strong>are calculated according to your shipping destination. Please note: additional custom duties can be charged to you once your shipment reaches your country.
+                </p>
+                <p>
+                    As the recipient, you are liable for all import duties, customs and local sales taxes levied by the country you are shipping to; payment of these is necessary to release your order from customs on arrival. As we are unable to advise the amount this may be, we will always seek your confirmation by email prior to your order. Please look out for this email to ensure timely dispatch of your order. Ekaya will have no control over those costs.
+                </p>
+                <h4>Insurance</h4>
+                <p>
+                    Ekaya provides free insurance on all products being delivered to customers, to ensure The insurance is valid only till the time the product reaches the customer will lapse as soon as the customer will sign the receiving.
+                </p>
+                <h4>Order Tracking</h4>
+                <p>
+                    Once your order has left us, you will receive an email containing the reference number to track its progress online. If you are a registered customer, you can also follow your delivery by signing into your account.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="login-modal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog">
+            <div class="loginmodal-container">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                <h4>Returns</h4>
+                <p>
+                    If you think that there is a fault with the goods you have received, please let us know straight away by contacting us at info@ekaya.in. In addition to your rights in relation to faulty goods, you can return any goods within 10 days of receipt for a refund of those goods or exchange it for a different size or colour
+                </p>
+                <p>
+                    -	The item/s must be in original condition, with the original packaging and with all tags still attached.<br>
+                    -	Item/s must not have been worn, washed or altered in any way.<br>
+                    -	Please take care when trying on garments, as we cannot accept garments that have make up stains or garments that smell of perfume.<br>
+                    -	Returns that do not meet our policy will not be accepted and will be sent back to the customer.<br>
+                    -	The item/s must be returned to us before the exchange/refund is made.<br>
+                    Once the items have been received, you will either receive your new item (for exchanges), or a full refund (excluding original shipping cost).<br>
+                </p>
+                <p>
+                    Ekaya will be taking the responsibility for the costs of returning the goods. Once you communicate your desire for a return/exchange we will be emailing you the return notes and labels.</p>
+                <p>
+                    Our delivery representatives from your country will come to pick up the goods along with the papers we will send via email once a return request is made, we insist you keep the items properly packed for the pickup. In the rare instance that we’re unable to send a representative to your assigned address, you may have to drop the package to a local post office.
+                </p>
+                <p>
+                    Please follow our return guidelines, Ekaya cannot be held liable for the loss of garments being returned independently, we recommend that you use our registered shipping method so that the order can be tracked
+                </p>
+                <p>
+                    <strong>All items need to be received into our Delhi Address: D7, Defence Colony, New Delhi 110024</strong>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="login-modal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog">
+            <div class="loginmodal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="loginmodal-container">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                <h4>Terms</h4>
+                <p>
+                    1.	By accessing this web site, you are agreeing to be bound by these web site Terms and Conditions, all its applicable laws and regulations, and agree that you are responsible for compliance with any applicable local laws<br>
+                    2.	All content is provided by Ekaya as a service to its current and prospective customers and may be used for personal use and for purchasing purposes only<br>
+                    3.	Please note that items in your shopping cart are not reserved and may be purchased by other customers. After you place your order, you will be sent an email to confirm that your credit/debit card has been charged<br>
+                    4.	Your card account is debited at the same time you submit your order on our Website. If your order has not been approved, you will be notified immediately via our Website. In the rare instance that your order is approved but any of the items you have ordered are not available, we will contact you immediately by e-mail to arrange for a full refund or a product exchange, if preferred<br>
+                    5.	Unless you cancel your order, acceptance of your order and completion of the contract between you and Ekaya will be completed when we email you to confirm that your order is in process<br>
+                    6.	We reserve the right to not accept your order in the event, for example, that we are unable to obtain authorization for payment, that shipping restrictions apply to a particular item, that the item ordered is out of stock or does not satisfy our quality control standards<br>
+                    7.	The total amount of the Purchase Price shall be payable in full by you according to the payment due date stated at ‘Checkout’<br>
+                    8.	While Ekaya makes every effort to ensure that the products are described and priced accurately, in the event that an item is deemed to be priced incorrectly, Ekaya reserves the right to refuse the sale of that item<br>
+                </p>
+            </div>
+        </div>
+    </div>
 {% endblock content %}
 {% block extrastyles  %}
     <style>
@@ -432,7 +527,7 @@
         /****** LOGIN MODAL ******/
         .loginmodal-container {
           padding: 30px;
-          max-width: 350px;
+          max-width: 800px;
           width: 100% !important;
           background-color: #F7F7F7;
           margin: 0 auto;
@@ -445,7 +540,7 @@
         .loginmodal-container h1 {
           text-align: center;
           font-size: 1.8em;
-          font-family: roboto;
+          font-nfamily: roboto;
         }
 
         .loginmodal-container input[type=submit] {
@@ -531,16 +626,6 @@
 {% endblock %}
 
 {% block extrascripts %}
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    {% for message in messages %}
-       {% if "added to your cart" in message.message %}
-           <script>
-            $(document).ready(function(){
-                $("#sidebar-wrapper").toggleClass("active");
-            });
-           </script>
-       {% endif %}
-   {% endfor %}
     <script>
         $(document).ready(function(){
             $(".dropdown-menu li a").click(function(){
