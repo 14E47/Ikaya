@@ -48,6 +48,12 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'custom_block',
     'journal',
+
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.facebook',
+    'allauth.socialaccount.providers.google',    
 ] + get_core_apps(['ikaya_oscar_apps.catalogue'])
 
 SITE_ID = 1

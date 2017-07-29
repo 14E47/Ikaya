@@ -90,7 +90,7 @@
                                                     <div class="panel-heading" role="tab" id="headingOne">
                                                         <h4 class="panel-title">
                                                             <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                                                <i class="pull-right"><img src="{% static "markatix/images/new/detail/arrow.png" %}" style="width:14px"></i>
+                                                                <!-- <i class="pull-right"><img src="{% static "markatix/images/new/detail/arrow.png" %}" style="width:14px"></i> -->
                                                                 FIT
                                                             </a>
                                                         </h4>
@@ -108,14 +108,16 @@
                                                         <h4 class="panel-title">
                                                             <a href="#" class="size-guide" data-toggle="modal" data-target="#login-modal">Size Guide</a>
                                                             <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                                                <i class="pull-right"><img src="{% static "markatix/images/new/detail/arrow.png" %}" style="width:14px"></i>
+                                                                <!-- <i class="pull-right"><img src="{% static "markatix/images/new/detail/arrow.png" %}" style="width:14px"></i> -->
                                                                 SIZE
                                                             </a>
                                                         </h4>
                                                     </div>
                                                     <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
                                                         <div class="panel-body">
-                                                            <p>{{product.attr.size.option}}</p>
+                                                            {% if not product.attr.size.option %}
+                                                                <p>NA</p>
+                                                            {% endif %}
                                                         </div>
                                                     </div>
                                                 </div>
@@ -124,17 +126,18 @@
                                                     <div class="panel-heading" role="tab" id="headingThree">
                                                         <h4 class="panel-title">
                                                             <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                                                <i class="pull-right"><img src="{% static "markatix/images/new/detail/arrow.png" %}" style="width:14px"></i>
+                                                                <!-- <i class="pull-right"><img src="{% static "markatix/images/new/detail/arrow.png" %}" style="width:14px"></i> -->
                                                                 COLOR
                                                             </a>
                                                         </h4>
                                                     </div>
                                                     <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
                                                         <div class="panel-body">
-                                                            <p>{{product.attr.colour.option}}</p>
+                                                            <p>{{product.attr.colour}}</p>
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <!-- 
                                                 <div class="panel panel-default">
                                                     <div class="panel-heading" role="tab" id="headingThree">
                                                         <h4 class="panel-title">
@@ -153,6 +156,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                                 -->
                                             </div>
 
                                         <!-- Product Form of the Page -->
@@ -266,13 +270,13 @@
                                                         <h5>SHARE</h5>
                                                         <ul class="list-inline soc">
                                                             <li>
-                                                                <a href="#" ><i class="fa fa-instagram"></i></a>
+                                                                <a href="https://twitter.com/share?url={{url}}&text={{title}}&via=Ekaya&hashtags=ekaya" ><i class="fa fa-instagram"></i></a>
                                                             </li>
                                                             <li>
-                                                                <a href="#"><i class="fa fa-facebook fa-1x"></i></a>
+                                                                <a href="http://www.facebook.com/sharer.php?u={{url}}"><i class="fa fa-facebook fa-1x"></i></a>
                                                             </li>
                                                             <li>
-                                                                <a href="#"><i class="fa fa-pinterest"></i></a>
+                                                                <a href="https://pinterest.com/pin/create/bookmarklet/?media={{img}}&url={{url}}&description={{title}}"><i class="fa fa-pinterest"></i></a>
                                                             </li>
                                                             <li>
                                                                 <a href="#"><i class="fa fa-envelope"></i></a>
