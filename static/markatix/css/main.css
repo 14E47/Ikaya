@@ -9931,7 +9931,21 @@ l,btn-box li:after {
         -webkit-transition:all .4s ease-in-out;
         transition:all .4s ease-in-out;
     }
-
+    .hovereffect .overlay1 {
+        width:100%;
+        height:100%;
+        position:absolute;
+        overflow:hidden;
+        top:0;
+        left:0;
+        opacity:1;
+        background-color:rgba(0,0,0,0.2);
+        -webkit-transition:all .4s ease-in-out;
+        transition:all .4s ease-in-out;
+        background-image: url(http://localhost:8000/static/markatix/images/new/frame.png);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+    }
     .hovereffect img {
         display:block;
         position:relative;

@@ -140,7 +140,7 @@
                     {% top_products as products %}
                     {% if products %}
                         {% for product in products %}
-                            <div class="col-sm-4 col-pad wow slideInUp" data-wow-delay="0" data-wow-duration="2s">
+                            <div class="col-sm-4 col-pad wow slideInUp"  data-wow-delay="0" data-wow-duration="2s">
                                 <!-- mt product1 center start here -->
                                 <div class="mt-product1 large">
                                     <div class="box">
@@ -149,7 +149,7 @@
                                                 {% with image=product.primary_image %}
                                                     <a href="{{ product.get_absolute_url }}"  class="hovereffect">
                                                         <img src="{{ image.original.url }}" alt="{{ product.get_title }}" style="width:100%;">
-                                                        <div class="overlay">
+                                                        <div class="overlay1">
                                                         </div>
                                                     </a>
                                                 {% endwith %}
