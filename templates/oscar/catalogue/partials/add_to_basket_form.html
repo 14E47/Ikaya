@@ -7,10 +7,6 @@
 
 {% if session.availability.is_available_to_buy %}
     {% basket_form request product as basket_form %}
-    <form action="#" >
-
-
-    </form>
     <form id="add_to_basket_form" action="{% url 'basket:add' pk=product.pk  %}" method="post" class="product-form">
         {% csrf_token %}
         {% include "partials/form_fields.html" with form=basket_form %}

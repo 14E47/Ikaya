@@ -35,10 +35,9 @@ urlpatterns = [
     url(r'^about$', TemplateView.as_view(template_name='about.html'), name="about"),
     url(r'^journal1$', TemplateView.as_view(template_name='journal.html'), name="journal"),
     url(r'^contact$', TemplateView.as_view(template_name='contact.html'), name="contact"),
-    url(r'^retailer$', TemplateView.as_view(template_name='retailer.html'), name="retailer"),
     url(r'^privacy$', TemplateView.as_view(template_name='privacy.html'), name="privacy"),
     url(r'^terms$', TemplateView.as_view(template_name='terms.html'), name="terms"),
-
+    url(r'^returns$', TemplateView.as_view(template_name='returns.html'), name="returns"),
     url(r'', include(application.urls)),
     url(r'^custom-image/', include(custom_block_urls)),
     url(r'^journal/', include(journal_urls)),

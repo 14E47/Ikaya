@@ -4087,7 +4087,7 @@ a:hover {
     display: table; }
   .mt-product1 .b2 {
     display: table-cell;
-    vertical-align: bottom; }
+    vertical-align: middle; }
   .mt-product1 .caption {
     top: 44px;
     left: 0;
@@ -5156,13 +5156,13 @@ a:hover {
       line-height: 20px;
       font-family: "MetaSerifTf-Book";
       font-weight: 700;
-      padding: 0 0 0 20px;
-      border-radius: 25px;
+      padding: 0 0 0 10px;
+      border-radius: 0px;
       outline: none;
-      border: none;
+      border: 1px solid #7b674f;
       width: 72px;
-      height: 42px;
-      color: #a9a9a9;
+      height: 33px;
+      color: #AFA389;
       background: #fff; }
     .mt-product-detial .product-form button {
 		width:100%;
@@ -9235,56 +9235,6 @@ input[type=checkbox]:checked + span:before{
 	left:2px;
 	background-color:#fff;
 }
-
-
-input#black:checked + span:before {
-		content: '\2713';
-		position:absolute;
-		top:0px;
-		color:#fff;
-		height:100%;
-		width:100%;
-		font-size:0px;
-		left:0px;
-		border-color:black;
-		background-color:#000;
-	}
-input#green:checked + span:before {
-		content: '\2713';
-		position:absolute;
-		top:0px;
-		color:#fff;
-		height:100%;
-		width:100%;
-		font-size:0px;
-		border-color:green;
-		left:0px;
-		background-color:green;
-	}
-input#pink:checked + span:before {
-		content: '\2713';
-		position:absolute;
-		top:0px;
-		color:#fff;
-		height:100%;
-		width:100%;
-		border-color:pink;
-		font-size:0px;
-		left:0px;
-		background-color:pink;
-	}
-input#red:checked + span:before {
-	content: '\2713';
-	position:absolute;
-	top:0px;
-	color:#fff;
-	height:100%;
-	width:100%;
-	border-color:red;
-	font-size:0px;
-	left:0px;
-	background-color:red;
-}
 .filter label {
 		display: inline-block;
 		width: 25%;
@@ -9400,7 +9350,7 @@ l,btn-box li:after {
 		margin-bottom: 30px;
 	}
     .panel-title > a {
-        display: block;
+        display: inline-block;
         padding:10px 0 0 0;
 		font-size:14px;
         text-decoration: none;
@@ -10145,9 +10095,9 @@ l,btn-box li:after {
     }
     .size-guide
     {
-      margin-right:-80px;
       margin-top:5px;
-      float:right;
+      margin-left:10px;
+      font-size:12px !important;
     }
     .terms {
       margin-bottom: 50px;
@@ -10508,11 +10458,35 @@ l,btn-box li:after {
       color: #AFA488;
 
     }
-
+  .text .new-text
+  {
+    margin:0px;
+    font-size:13px;
+    line-height:100%;
+    font-weight: 600;
+    color:#AFA488;
+  }
+  .about-product
+  {
+    margin-top:10px;
+  }
+  .about-product p
+  {
+    font-size:12px;
+    color:#AFA488;
+    font-weight: 600;
+  }
 /*****product detail accordion*****/
 
 @media screen and (max-width:480px)
 {
+    .price-sec
+    {
+        line-height: 1.429 !important;
+        color:#AFA389;
+        font-family: 'Gotham-XLight',sans-serif;
+        padding:10px 0px;
+    }
     .panel-group {
 		margin-bottom: 30px;
         width:100%;
