@@ -10466,6 +10466,14 @@ l,btn-box li:after {
     font-weight: 600;
     color:#AFA488;
   }
+  .new-text1
+  {
+    margin:5px 0 0 0 ;
+    font-size:13px;
+    line-height:100%;
+    font-weight: 600;
+    color:#AFA488;
+  }
   .about-product
   {
     margin-top:10px;
@@ -10476,6 +10484,20 @@ l,btn-box li:after {
     color:#AFA488;
     font-weight: 600;
   }
+
+  #thank_you h2{
+    text-transform: uppercase;
+    color:#7b674f;
+    font-family: Gotham-Bold,sans-serif;
+  }
+  #thank_you p{
+    color:#7b674f;
+    font-family: Gotham-Bold,sans-serif;
+    font-size:16px;
+    text-align: center;
+  }
+
+
 /*****product detail accordion*****/
 
 @media screen and (max-width:480px)

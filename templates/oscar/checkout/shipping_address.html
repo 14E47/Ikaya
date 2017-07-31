@@ -30,7 +30,7 @@
 					<div class="col-sm-6">
 						<p class="headding">CHECKOUT</p>
 						<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-							<div class="panel panel-default">
+							<div class="panel panel-default text">
 								<div class="panel-heading" role="tab" id="headingOne">
 									<h4 class="panel-title">
 										<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -391,6 +391,10 @@
                                             </form>
 									</div>
 								</div>
+                                <p class="new-text1">Delivery dates provided by us are estimates only.</p>
+                                <p class="new-text1">Customers ordering outside of India will be charged estimated custom fees.</p>
+                                <p class="new-text1">International shipment may be subject to additional import taxes, customs duties and fees, which are levied
+                                    once a shipment reaches the destination country</p>
 							</div>
 
 							<div class="panel panel-default">
@@ -452,7 +456,7 @@
                                             {% with image=line.product.primary_image %}
                                                 {% thumbnail image.original "100x100" upscale=False as thumb %}
                                                 <a href="{{ line.product.get_absolute_url }}">
-                                                    <img class="thumbnail" src="{{ thumb.url }}" alt="{{ line.product.get_title }}">
+                                                    <img src="{{ thumb.url }}" alt="{{ line.product.get_title }}">
                                                 </a>
                                                 {% endthumbnail %}
                                             {% endwith %}
@@ -559,7 +563,11 @@
 
                                 </div>
                             </div>
+                        <br><br><br><br>
                         </div>
+
+                        <p class="new-text1">Please note, the final purchase price may change when you select your delivery address</p>
+                        <p class="new-text1">The items in your shopping cart are not reserved and may be purchased by other customers.</p>
                     </div>
                 </div>
             </div>

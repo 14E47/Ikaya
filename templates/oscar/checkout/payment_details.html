@@ -129,7 +129,7 @@
                                             {% with image=line.product.primary_image %}
                                                 {% thumbnail image.original "100x100" upscale=False as thumb %}
                                                 <a href="{{ line.product.get_absolute_url }}">
-                                                    <img class="thumbnail" src="{{ thumb.url }}" alt="{{ line.product.get_title }}">
+                                                    <img src="{{ thumb.url }}" alt="{{ line.product.get_title }}">
                                                 </a>
                                                 {% endthumbnail %}
                                             {% endwith %}
@@ -198,7 +198,7 @@
                                     {% shipping_charge_discount shipping_method basket as shipping_discount %}
                                     {% shipping_charge_excl_discount shipping_method basket as shipping_charge_excl_discount %}
                                     <div class="row bb">
-                                        <p style="padding:0px;margin:0px">SHIIPING({{ shipping_method.name }})
+                                        <p style="padding:0px;margin:0px">SHIPPING({{ shipping_method.name }})
                                             <span class="pull-right">
                                                 {% if not show_tax_separately and shipping_charge.is_tax_known %}
                                                     {{ shipping_charge.incl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code }}
@@ -236,7 +236,11 @@
 
                                 </div>
                             </div>
+                        <br><br><br><br>
                         </div>
+
+                        <p class="new-text1">Please note, the final purchase price may change when you select your delivery address</p>
+                        <p class="new-text1">The items in your shopping cart are not reserved and may be purchased by other customers.</p>
                     </div>
                 </div>
             </div>
