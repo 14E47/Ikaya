@@ -4,76 +4,76 @@
 
 {% if field.is_hidden %}
     {{ field }}
-    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-        <div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="headingOne">
-                <h4 class="panel-title">
-                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        <i class="pull-right"><img src="{% static "markatix/images/new/detail/arrow.png" %}" style="width:14px"></i>
-                        FIT
-                    </a>
-                </h4>
+    {% if field.name == 'quantity' %}
+        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingOne">
+                    <h4 class="panel-title">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <i class="pull-right"><img src="{% static "markatix/images/new/detail/arrow.png" %}" style="width:14px"></i>
+                            FIT
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                    <div class="panel-body">
+                        <p>{{product.attr.fit.option}}</p>
+                    </div>
+                </div>
             </div>
-            <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                <div class="panel-body">
-                    <p>{{product.attr.fit.option}}</p>
+
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingTwo">
+                    <h4 class="panel-title">
+
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            <i class="pull-right"><img src="{% static "markatix/images/new/detail/arrow.png" %}" style="width:14px"></i>
+                            SIZE
+                        </a>
+                        <a href="#" class="size-guide" data-toggle="modal" data-target="#login-modal">Size Guide</a>
+                    </h4>
+                </div>
+                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                    <div class="panel-body">
+                        {% if not product.attr.size.option %}
+                            <p>NA</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingThree">
+                    <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            <i class="pull-right"><img src="{% static "markatix/images/new/detail/arrow.png" %}" style="width:14px"></i>
+                            COLOR
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                    <div class="panel-body">
+                        <p>{{product.attr.colour}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingThree">
+                    <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                            <span style="border-bottom:1px solid #7B674F" class="pull-left">QUANTITY</span>
+                            <img src="{% static "markatix/images/new/detail/arrow.png" %}" style="width:14px;margin-left:30px"></a>
+                    </h4>
+                </div>
+
+                <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                    <div class="panel-body">
+                        <input id="id_quantity" type="number" value="1" name="quantity" min="1" max="{% if product.children.first %}{{ product.children.first.stockrecords.first.num_in_stock }}{% else %}{{ product.stockrecords.first.num_in_stock }}{% endif %}">
+                    </div>
                 </div>
             </div>
         </div>
-
-        <div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="headingTwo">
-                <h4 class="panel-title">
-
-                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        <i class="pull-right"><img src="{% static "markatix/images/new/detail/arrow.png" %}" style="width:14px"></i>
-                        SIZE
-                    </a>
-                    <a href="#" class="size-guide" data-toggle="modal" data-target="#login-modal">Size Guide</a>
-                </h4>
-            </div>
-            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-                <div class="panel-body">
-                    {% if not product.attr.size.option %}
-                        <p>NA</p>
-                    {% endif %}
-                </div>
-            </div>
-        </div>
-
-        <div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="headingThree">
-                <h4 class="panel-title">
-                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                        <i class="pull-right"><img src="{% static "markatix/images/new/detail/arrow.png" %}" style="width:14px"></i>
-                        COLOR
-                    </a>
-                </h4>
-            </div>
-            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                <div class="panel-body">
-                    <p>{{product.attr.colour}}</p>
-                </div>
-            </div>
-        </div>
-        <div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="headingThree">
-                <h4 class="panel-title">
-                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                        <span style="border-bottom:1px solid #7B674F" class="pull-left">QUANTITY</span>
-                        <img src="{% static "markatix/images/new/detail/arrow.png" %}" style="width:14px;margin-left:30px"></a>
-                </h4>
-            </div>
-
-            <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                <div class="panel-body">
-                    <input id="id_quantity" type="number" value="1" name="quantity" min="1" max="{% if product.children.first %}{{ product.children.first.stockrecords.first.num_in_stock }}{% else %}{{ product.stockrecords.first.num_in_stock }}{% endif %}">
-                </div>
-            </div>
-        </div>
-    </div>
-
-    
+    {% endif %}
 {% else %}
     {% comment %}
         Make the field widget type available to templates so we can mark-up
