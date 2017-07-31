@@ -54,7 +54,10 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.facebook',
     'allauth.socialaccount.providers.google',    
-] + get_core_apps(['ikaya_oscar_apps.catalogue'])
+] + get_core_apps([
+        'ikaya_oscar_apps.catalogue',
+        'ikaya_oscar_apps.shipping',
+    ])
 
 SITE_ID = 1
 
@@ -192,4 +195,3 @@ EMAIL_HOST_PASSWORD = 'markatix@123'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 ###############################
-
