@@ -44,19 +44,21 @@ def get_product_attrib_array(product_obj):
         for item in variants:
             attribute_obj_list = item.attribute_values.all()
             for attrib in attribute_obj_list:
+                if attrib.attribute.type in ('text', 'option'):
+                    try:
+                        attrib_value_option = attrib.value.option
+                    except:
+                        attrib_value_option = attrib.value
+                    attrib_value_list.append(attrib_value_option)
+
+        attribute_obj_list = product_obj.attribute_values.all()
+        for attrib in attribute_obj_list:
+            if attrib.attribute.type in ('text', 'option'):
                 try:
                     attrib_value_option = attrib.value.option
                 except:
                     attrib_value_option = attrib.value
                 attrib_value_list.append(attrib_value_option)
-
-        attribute_obj_list = product_obj.attribute_values.all()
-        for attrib in attribute_obj_list:
-            try:
-                attrib_value_option = attrib.value.option
-            except:
-                attrib_value_option = attrib.value
-            attrib_value_list.append(attrib_value_option)
 
         attrib_value_list = list(set(attrib_value_list))
         attrib_value = ' '.join(attrib_value_list)
@@ -64,11 +66,12 @@ def get_product_attrib_array(product_obj):
         attrib_value_list = []
         attribute_obj_list = product_obj.attribute_values.all()
         for attrib in attribute_obj_list:
-            try:
-                attrib_value_option = attrib.value.option
-            except:
-                attrib_value_option = attrib.value
-            attrib_value_list.append(attrib_value_option)
+            if attrib.attribute.type in ('text', 'option'):
+                try:
+                    attrib_value_option = attrib.value.option
+                except:
+                    attrib_value_option = attrib.value
+                attrib_value_list.append(attrib_value_option)
         attrib_value_list = list(set(attrib_value_list))
         attrib_value = ' '.join(attrib_value_list)
     return attrib_value.lower()

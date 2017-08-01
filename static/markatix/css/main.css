@@ -9892,7 +9892,7 @@ l,btn-box li:after {
         background-color:rgba(0,0,0,0.2);
         -webkit-transition:all .4s ease-in-out;
         transition:all .4s ease-in-out;
-        background-image: url(http://localhost:8000/static/markatix/images/new/frame.png);
+        background-image: url(http://97.74.4.142:8000/static/markatix/images/new/frame.png);
         background-size: 100% 100%;
         background-repeat: no-repeat;
     }
