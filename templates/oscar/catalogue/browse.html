@@ -58,40 +58,40 @@
 
 {% block content %}
 
-{#    <form method="get" class="form-horizontal">#}
+    <form method="get" class="form-horizontal">
 {#         Render other search params in a hidden block#}
-{#        <div style="display:none">#}
-{#            {% for value in selected_facets %}#}
-{#                <input name="selected_facets" value="{{ value }}" />#}
-{#            {% endfor %}#}
-{#            {{ form.q }}#}
-{#        </div>#}
-{##}
-{#        {% if paginator.count %}#}
-{#            {% if paginator.num_pages > 1 %}#}
-{#                {% blocktrans with start=page_obj.start_index end=page_obj.end_index count num_results=paginator.count %}#}
-{#                    <strong>{{ num_results }}</strong> result - showing <strong>{{ start }}</strong> to <strong>{{ end }}</strong>.#}
-{#                {% plural %}#}
-{#                    <strong>{{ num_results }}</strong> results - showing <strong>{{ start }}</strong> to <strong>{{ end }}</strong>.#}
-{#                {% endblocktrans %}#}
-{#            {% else %}#}
-{#                {% blocktrans count num_results=paginator.count %}#}
-{#                    <strong>{{ num_results }}</strong> result.#}
-{#                {% plural %}#}
-{#                    <strong>{{ num_results }}</strong> results.#}
-{#                {% endblocktrans %}#}
-{#            {% endif %}#}
-{#            {% if form %}#}
-{#                <div class="pull-right">#}
-{#                    {% include "partials/form_field.html" with field=form.sort_by %}#}
-{#                </div>#}
-{#            {% endif %}#}
-{#        {% else %}#}
-{#            <p>#}
-{#                {% trans "<strong>0</strong> results." %}#}
-{#            </p>#}
-{#        {% endif %}#}
-{#    </form>#}
+        <div style="display:none">
+            {% for value in selected_facets %}
+                <input name="selected_facets" value="{{ value }}" />
+            {% endfor %}
+            {{ form.q }}
+        </div>
+
+        {% if paginator.count %}
+            {% if paginator.num_pages > 1 %}
+                {% blocktrans with start=page_obj.start_index end=page_obj.end_index count num_results=paginator.count %}
+                    <strong>{{ num_results }}</strong> result - showing <strong>{{ start }}</strong> to <strong>{{ end }}</strong>.
+                {% plural %}
+                    <strong>{{ num_results }}</strong> results - showing <strong>{{ start }}</strong> to <strong>{{ end }}</strong>.
+                {% endblocktrans %}
+            {% else %}
+                {% blocktrans count num_results=paginator.count %}
+                    <strong>{{ num_results }}</strong> result.
+                {% plural %}
+                    <strong>{{ num_results }}</strong> results.
+                {% endblocktrans %}
+            {% endif %}
+            {% if form %}
+                <div class="pull-right">
+                    {% include "partials/form_field.html" with field=form.sort_by %}
+                </div>
+            {% endif %}
+        {% else %}
+            <p>
+                {% trans "<strong>0</strong> results." %}
+            </p>
+        {% endif %}
+    </form>
 
     {% if products %}
         <main id="mt-main">
@@ -403,8 +403,11 @@
                                             {% render_product product %}
                                         </div>
                                     {% endfor %}
-
-
+                                    <div class="col-sm-12">
+                                        <div class="col-sm-6 col-sm-offset-3">
+                                            {% include "partials/pagination.html" %}
+                                        </div>
+                                    </div>
 								</div>
 							</div><!-------container----->
 

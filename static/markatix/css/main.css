@@ -5689,7 +5689,7 @@ a:hover {
 .mt-shoplist-header {
   z-index: 1;
   position: relative;
-  padding: 50px 0 100px; }
+  padding: 50px 0 0px; }
   .mt-shoplist-header .btn-box {
     float: right; }
     .mt-shoplist-header .btn-box > ul {
@@ -9871,6 +9871,7 @@ l,btn-box li:after {
 
     .hovereffect .overlay {
         width:100%;
+        cursor:pointer;
         height:100%;
         position:absolute;
         overflow:hidden;
@@ -10496,7 +10497,9 @@ l,btn-box li:after {
     font-size:16px;
     text-align: center;
   }
-
+  .pager .next>a, .pager .next>span {
+    float: none !important;
+  }
 
 /*****product detail accordion*****/
 

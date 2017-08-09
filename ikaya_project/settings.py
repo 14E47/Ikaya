@@ -105,7 +105,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'ikaya_project.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
@@ -179,7 +178,7 @@ OSCAR_DEFAULT_CURRENCY = 'INR'
 OSCAR_CURRENCY_FORMAT = u'¤ ###0'
 
 OSCAR_ALLOW_ANON_CHECKOUT = True
-OSCAR_PRODUCTS_PER_PAGE = 200
+OSCAR_PRODUCTS_PER_PAGE = 30
 # ***************************************************************************
 # ****************Shipping addresss required fields***********************************************************
 
@@ -195,3 +194,4 @@ EMAIL_HOST_PASSWORD = 'markatix@123'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 ###############################
+OSCAR_MISSING_IMAGE_URL = MEDIA_URL + 'image_not_found.jpg'
