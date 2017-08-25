@@ -58,8 +58,9 @@
 
 {% block content %}
 
+<!--
     <form method="get" class="form-horizontal">
-{#         Render other search params in a hidden block#}
+        {#Render other search params in a hidden block#}
         <div style="display:none">
             {% for value in selected_facets %}
                 <input name="selected_facets" value="{{ value }}" />
@@ -92,6 +93,7 @@
             </p>
         {% endif %}
     </form>
+-->
 
     {% if products %}
         <main id="mt-main">
@@ -110,7 +112,7 @@
 								<header class="mt-shoplist-header equalh">
                                     <div class="mt-textbox equalh hidden-xs">
 										<img src="{% static "markatix/images/new/about/07.png" %}" style="width:120px;height:120px;float:left" >
-                                        <h4 style="color:#ac997d;margin:0;margin-left: 10px;" class="vcenter1">SARIS</h4>
+                                        <h4 style="color:#ac997d;margin:0;margin-left: 10px;" class="vcenter1">{{ category.name }}</h4>
 									</div><!-- mt-textbox end here -->
 									<!-- btn-box start here -->
 									<div class="btn-box vcenter1">

@@ -55,7 +55,7 @@
                 <div class="row">
                     <div class="mt-textbox equalhh basket">
                         <img src="{% static "markatix/images/new/about/07.png"%}" class="pro-logo" >
-                        <h4 class="vcenter2" style="margin:0px;color:#ac997d;margin-left:5px">SARIS</h4>
+                        <h4 class="vcenter2" style="margin:0px;color:#ac997d;margin-left:5px">{{ product.categories.first.name }}</h4>
                     </div>
                     <br><br><br>
                 </div>
@@ -63,6 +63,7 @@
                     {% block product_gallery %}
                     <div class="col-xs-12 col-sm-5 text">
                         {% include "catalogue/partials/gallery.html" %}
+                        <br>
                         <p class="new-text">
                             Shipping in 7 Business days from order date.
                         </p>

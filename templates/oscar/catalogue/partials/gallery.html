@@ -9,10 +9,20 @@
 
         <div class="slider">
             <!-- Product Slider of the Page -->
-            <ul class="list-unstyled breadcrumbs">
-                <li><a href="#">Saree <i class="fa fa-angle-right"></i></a></li>
-                <li>Banarsi Saree</li>
-            </ul>
+            {% block breadcrumbs %}
+                <ul class="list-unstyled breadcrumbs">
+                    <li><i class="fa fa-angle-right"></i>
+                        <a href="{{ homepage_url }}">{% trans "Home" %}</a>
+                    </li>
+                    {% for category in category.get_ancestors %}
+                        <li><i class="fa fa-angle-right"></i>
+                            <a href="{{ category.get_absolute_url }}">{{ category.name }}</a>
+                        </li>
+                    {% endfor %}
+                    <li class="active">{{ category.name }}</li>
+                </ul>
+            {% endblock breadcrumbs %}
+
             <div class="product-slider">
                 {% for image in all_images %}
                     <div class="slide">

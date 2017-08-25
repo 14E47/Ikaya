@@ -78,18 +78,20 @@ class ProductCategoryView(TemplateCategoryView):
             self.context_object_name)
         ctx.update(search_context)
 
-        try:
+        dict_keys = self.request.GET.keys()
+        if 'sort' in dict_keys:
             sorttype = self.request.GET['sort']
-        except:
+        else:
             sorttype = None
 
-        try:
+        if 'price_min' in dict_keys:
             price_min = self.request.GET['price_min']
             price_max = self.request.GET['price_max']
-        except:
+        else:
             price_min = price_max = None
 
         ctx = {}
+        ctx['category'] = self.category
         ctx['summary'] = _("All products")
         search_context = self.search_handler.get_search_context_data(
             self.context_object_name)

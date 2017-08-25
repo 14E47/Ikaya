@@ -9347,7 +9347,7 @@ l,btn-box li:after {
         font-size: 14px;
     }
 	.panel-group {
-		margin-bottom: 30px;
+		margin-bottom: 20px;
 	}
     .panel-title > a {
         display: inline-block;
@@ -10882,4 +10882,18 @@ l,btn-box li:after {
 	.mt-bestseller br{
 		display:block;
 	}
+}
+ #id_child_id{
+    font-size: 14px;
+    line-height: 14px;
+    font-family: "MetaSerifTf-Book";
+    font-weight: 500;
+    padding: 0 0 0 0px;
+    border-radius: 0px;
+    outline: none;
+    border: 1px solid #7b674f;
+    width: 100px;
+    height: 26px;
+    color: #AFA389;
+    background: #fff;
 }
