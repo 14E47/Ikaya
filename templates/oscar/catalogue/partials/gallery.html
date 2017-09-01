@@ -1,6 +1,6 @@
 {% load thumbnail %}
 {% load i18n %}
-{% load staticfiles %}
+{% load staticfiles debug_tags %}
 
 {% with all_images=product.images.all %}
     {# use length rather then count as the images get queried anyways #}
@@ -10,18 +10,22 @@
         <div class="slider">
             <!-- Product Slider of the Page -->
             {% block breadcrumbs %}
-                <ul class="list-unstyled breadcrumbs">
-                    <li><i class="fa fa-angle-right"></i>
-                        <a href="{{ homepage_url }}">{% trans "Home" %}</a>
+            <ul class="list-unstyled breadcrumbs">
+                <li>
+                    <a href="{{ homepage_url }}">{% trans "Home" %}</a>
+                    <i class="fa fa-angle-right"></i>
+                </li>
+                {% with category=product.categories.all.0 %}
+                    {% for c in category.get_ancestors_and_self %}
+                    <li>
+                        <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>
+                        <i class="fa fa-angle-right"></i>
                     </li>
-                    {% for category in category.get_ancestors %}
-                        <li><i class="fa fa-angle-right"></i>
-                            <a href="{{ category.get_absolute_url }}">{{ category.name }}</a>
-                        </li>
                     {% endfor %}
-                    <li class="active">{{ category.name }}</li>
-                </ul>
-            {% endblock breadcrumbs %}
+                    <li class="active">{{ product.title }}</li>
+                {% endwith %}
+            </ul>
+            {% endblock %}
 
             <div class="product-slider">
                 {% for image in all_images %}

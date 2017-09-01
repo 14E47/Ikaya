@@ -5046,6 +5046,7 @@ a:hover {
     margin: 0 0 8px;
     font-size: 15px;
     line-height: 17px;
+    text-transform: capitalize;
     color: #a9a9a9; }
     .mt-product-detial .breadcrumbs li {
       float: left;
@@ -5062,7 +5063,7 @@ a:hover {
 		color:#AFA389;
 	}
       .mt-product-detial .breadcrumbs a:hover {
-        color: #ff8283; }
+        color: #AFA389; }
   .mt-product-detial .rank-rating {
     overflow: hidden;
     padding: 3px 0 0;

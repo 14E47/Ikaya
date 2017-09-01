@@ -1,0 +1,540 @@
+{% extends "layout.html" %}
+
+{% load history_tags %}
+{% load currency_filters %}
+{% load reviews_tags %}
+{% load staticfiles %}
+{% load product_tags %}
+{% load display_tags %}
+{% load i18n %}
+{% load purchase_info_tags %}
+{% load debug_tags %}
+
+{% block title %}
+    {{ product.title }} | {{ block.super }}
+{% endblock %}
+
+{% block description %}
+    {{ product.description|default:""|striptags }}
+{% endblock %}
+
+{#{% block breadcrumbs %}#}
+{#<ul class="breadcrumb">#}
+{#    <li>#}
+{#        <a href="{{ homepage_url }}">{% trans "Home" %}</a>#}
+{#    </li>#}
+{#    {% with category=product.categories.all.0 %}#}
+{#        {% for c in category.get_ancestors_and_self %}#}
+{#        <li>#}
+{#            <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>#}
+{#        </li>#}
+{#        {% endfor %}#}
+{#        <li class="active">{{ product.title }}</li>#}
+{##}
+{#        {% get_back_button as backbutton %}#}
+{#        {% if backbutton %}#}
+{#            <li class="pull-right">#}
+{#                <a href="{{ backbutton.url }}">#}
+{#                    <i class="icon-arrow-left"></i> {{ backbutton.title }}#}
+{#                </a>#}
+{#            </li>#}
+{#        {% endif %}#}
+{#    {% endwith %}#}
+{#</ul>#}
+{#{% endblock %}#}
+
+{% block header %}
+{% endblock header %}
+
+{% block content %}
+
+
+    <main id="mt-main">
+        <!-- Mt Product Detial of the Page -->
+        <section class="mt-product-detial wow fadeInUp" data-wow-delay="0.4s">
+            <div class="container">
+                <div class="row">
+                    <div class="mt-textbox equalhh basket">
+                        <img src="{% static "markatix/images/new/about/07.png"%}" class="pro-logo" >
+                        <h4 class="vcenter2" style="margin:0px;color:#ac997d;margin-left:30px">SARIS</h4>
+                    </div>
+                    <br><br><br>
+                </div>
+                <div class="row">
+                    {% block product_gallery %}
+                    <div class="col-xs-12 col-sm-5">
+                        {% include "catalogue/partials/gallery.html" %}
+                    </div>
+
+                    {% endblock %}
+
+                    {% block product_main %}
+                        <div class="col-xs-12 col-sm-7">
+                            <div class="row">
+                                <div class="col-sm-11">
+                                <!-- Detail Holder of the Page -->
+                                    <div class="detial-holder">
+                                    <!-- Admin Rights -->
+                                        {% if user.is_authenticated and user.is_staff %}
+                                            <a class="pull-right hidden-xs" href="{% url 'dashboard:catalogue-product' pk=product.id %}"><small><i class="icon-edit"></i> {% trans "Edit this product" %}</small></a>
+                                        {% endif %}
+                                        <!-- admin rights end-->
+                                        <h2>{{ product.get_title }}</h2>
+                                        <!-- Rank Rating of the Page -->
+                                        <div class="rank-rating">
+                                            <span class="total-price">Item Code: {{ product.upc }}</span>
+                                        </div>
+                                        <!-- Rank Rating of the Page end -->
+                                        <div class="txt-wrap">
+                                            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-heading" role="tab" id="headingOne">
+                                                        <h4 class="panel-title">
+                                                            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                                 <span style="border-bottom:1px solid #7B674F" class="pull-left">FIT</span><img src="{% static "markatix/images/new/detail/arrow.png" %}" style="width:14px;margin-left:30px"></a>
+                                                        </h4>
+                                                    </div>
+                                                    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                                                        <div class="panel-body">
+                                                            <p>{{product.attr.fit.option}}</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="panel panel-default">
+                                                    <div class="panel-heading" role="tab" id="headingTwo">
+
+                                                        <h4 class="panel-title">
+                                                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                                <span style="border-bottom:1px solid #7B674F" class="pull-left">SIZE</span><img src="{% static "markatix/images/new/detail/arrow.png" %}" style="width:14px;margin-left:30px"></a>
+
+                                                        </h4>
+                                                    </div>
+                                                    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                                        <div class="panel-body">
+                                                            <p>{{product.attr.size.option}}</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="panel panel-default">
+                                                    <div class="panel-heading" role="tab" id="headingThree">
+                                                        <h4 class="panel-title">
+                                                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                                <span style="border-bottom:1px solid #7B674F" class="pull-left">COLOR</span><img src="{% static "markatix/images/new/detail/arrow.png" %}" style="width:14px;margin-left:30px"></a>
+                                                        </h4>
+                                                    </div>
+                                                    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                                                        <div class="panel-body">
+                                                            <p>{{product.attr.colour}}</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        <!-- Product Form of the Page -->
+                                            <div class="col-sm-4 col-xs-5">
+                                                <div class="row">
+                                                    {% include "catalogue/partials/add_to_basket_form.html" %}
+        {#                                            <form action="#" class="product-form">#}
+        {#                                                <div class="row-val">#}
+        {#                                                    <button type="submit">ADD TO CART <span class="pull-right">+</span></button>#}
+        {#                                                </div>#}
+        {#                                            </form>#}
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-8 col-xs-7 price-sec">
+                                                <div class="col-xs-3">
+                                                    <div class="btn-group">
+                                                        <button class="btn dropdown-toggle" name="recordinput" data-toggle="dropdown">
+                                                            {{request.session.currency_code}}
+                                                            <span class="caret"></span>
+                                                        </button>
+                                                        <ul class="dropdown-menu">
+                                                            <li><a href="/currency_conversion/?currency_code=EUR">EURO</a></li>
+                                                            <li><a href="/currency_conversion/?currency_code=USD">DOLLOR</a></li>
+                                                            <li><a href="/currency_conversion/?currency_code=GBP">POUND</a></li>
+                                                            <li><a href="/currency_conversion/?currency_code=INR">RUPEES</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-9">
+                                                    <span class="detail_price">
+                                                        {% block product_stock_record %}
+                                                            {% include "catalogue/partials/stock_record.html" with verbose=1 %}
+                                                        {% endblock %}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        <!-- Product Form of the Page end -->
+                                            <div class="col-sm-12">
+                                                <div class="row">
+                                                    {% if user.is_authenticated %}
+                                                        {% if product.wishlists_lines.all %}
+                                                            {% for pro_wish in product.wishlists_lines.all %}
+                                                                <form action="{% url 'customer:wishlists-remove-product' key=pro_wish.wishlist.key product_pk=product.id %}" method="post">
+                                                                    {% csrf_token %}
+                                                                    <input type="hidden" name="next" value="/catalogue" />
+                                                                    <button type="submit" style="padding:0px;background-color:transparent;border:0px;font-size:18px"><i style="color:#f6b220"  class="fa fa-heart"></i> In Wishlist </button>
+                                                                </form>
+                                                            {% endfor %}
+                                                        {% else %}
+                                                            <form id="add_to_wishlist_form" action="{% url 'customer:wishlists-add-product' product_pk=product.pk %}" method="post">
+                                                                {% csrf_token %}
+                                                                <button type="submit" style="padding:0px;background-color:transparent;border:0px;font-size:18px"><i style="color:#f6b220"  class="fa fa-heart-o"></i> Add to Wishlist </button>
+                                                            </form>
+                                                        {% endif %}
+                                                    {% else %}
+                                                        <button style="outline:0px;background-color:transparent;border:0px;font-size:18px;padding:0px;color:#f6b220"><i class="fa fa-heart-o"></i></button><br/>
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12 detail">
+                                                <div class="row">
+                                                    <h3>Material Type</h3>
+                                                    <p>{{product.attr.material_type}}</p>
+                                                    <hr>
+                                                    <h3>Detail</h3>
+                                                    <p>{{ product.description|safe }}</p>
+                                                    <hr>
+                                                    <h3>Approx Weight</h3>
+                                                    <p>{{product.attr.approx_weight}}</p>
+                                                    <hr>
+                                                    <h3>Wash Instructions</h3>
+                                                    <p>{{product.attr.wash_instructions.option}}</p>
+                                                    <hr>
+                                                </div>
+                                                <div class="row">
+                                                    <p style="font-size:16px !important;font-weight:700;margin-top:20px;margin-bottom:20px!important;">
+        {#                                                <i>{{ product.description|safe }}</i>#}
+                                                        <i>If your size or colour is not available, please contact us to place an order.</i>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12 detail-about">
+                                               <div class="row">
+                                                    {% if product.attr.ekaya_recommends %}
+                                                        <div class="mt-textbox equalh" style="padding:0px;">
+                                                            <img src="{% static "markatix/images/new/about/07.png"%}" style="width:15%;height:15%;float:left" class="hidden-xs"><h2 style="color:#F6B82F !important;margin-left:130px;" class="vcenter1">EKAYA RECOMMENDS</h2>
+                                                        </div><!-- mt-textbox end here -->
+                                                        <p>
+                                                            The colours you see on your device may vary due to the varying colour reproduction and temperature of individual devices. The colours you see on your device may vary due to the varying colour reproduction and temperature of individual devices
+                                                        </p>
+                                                    {% endif %}
+                                                    <div class="col-md-7 col-sm-7 col-xs-7 text-left">
+                                                        <div class="row">
+                                                            <ul class="menu list-inline">
+                                                                <li>
+                                                                    <a href="#">SHIPPING</a>
+                                                                </li>
+
+                                                                <li>
+                                                                    <a href="#">RETURNS</a>
+                                                                </li>
+
+                                                                <li>
+                                                                    <a href="#">TERMS</a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-5 col-sm-5 col-xs-5 text-right">
+                                                        <h5>SHARE</h5>
+                                                        <ul class="list-inline soc">
+                                                            <li>
+                                                                <a href="https://twitter.com/share?url={{url}}&text={{title}}&via=Ekaya&hashtags=ekaya" ><i class="fa fa-instagram"></i></a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="http://www.facebook.com/sharer.php?u={{url}}"><i class="fa fa-facebook fa-1x"></i></a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="https://pinterest.com/pin/create/bookmarklet/?media={{img}}&url={{url}}&description={{title}}"><i class="fa fa-pinterest"></i></a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#"><i class="fa fa-envelope"></i></a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endblock %}
+                </div><!-- /row -->
+
+{#                {% block product_description %}#}
+{#                    {% if product.description %}#}
+{#                    <div id="product_description" class="sub-header">#}
+{#                        <h2>{% trans "Product Description" %}</h2>#}
+{#                    </div>#}
+{#                    <p></p>#}
+{#                    {% endif %}#}
+{#                {% endblock %}#}
+
+{#                {% block product_info %}#}
+{#                    <div class="sub-header">#}
+{#                        <h2>{% trans "Product Information" %}</h2>#}
+{#                    </div>#}
+{#                    <table class="table table-striped">#}
+{#                        {% if product.upc %}#}
+{#                        <tr>#}
+{#                            <th>{% trans "UPC" %}</th><td></td>#}
+{#                        </tr>#}
+{#                        {% endif %}#}
+{#                        <tr>#}
+{#                            <th>{% trans "Product Type" %}</th><td>{{ product.get_product_class.name }}</td>#}
+{#                        </tr>#}
+{##}
+{#                        {% purchase_info_for_product request product as session %}#}
+{#                        {% if session.price.exists %}#}
+{#                            <tr>#}
+{#                                <th>{% trans "Price (excl. tax)" %}</th><td>{{ session.price.excl_tax|currency:session.price.currency }}</td>#}
+{#                            </tr>#}
+{#                            {% if session.price.is_tax_known %}#}
+{#                                <tr>#}
+{#                                    <th>{% trans "Price (incl. tax)" %}</th><td>{{ session.price.incl_tax|currency:session.price.currency }}</td>#}
+{#                                </tr>#}
+{#                                <tr>#}
+{#                                    <th>{% trans "Tax" %}</th><td>{{ session.price.tax|currency:session.price.currency }}</td>#}
+{#                                </tr>#}
+{#                            {% endif %}#}
+{#                            <tr>#}
+{#                                <th>{% trans "Availability" %}</th>#}
+{#                                <td>{{ session.availability.message }}</td>#}
+{#                            </tr>#}
+{#                        {% endif %}#}
+{#                        {% for av in product.attribute_values.all %}#}
+{#                            <tr>#}
+{#                                <th>{{ av.attribute.name }}</th>#}
+{#                                <td>{{ av.value_as_html }}</td>#}
+{#                            </tr>#}
+{#                        {% endfor %}#}
+{#                        {% iffeature "reviews" %}#}
+{#                            <tr>#}
+{#                                <th>{% trans "Number of reviews" %}</th>#}
+{#                                <td>{{ product.num_approved_reviews }}</td>#}
+{#                            </tr>#}
+{#                        {% endiffeature %}#}
+{#                    </table>#}
+{#                {% endblock %}#}
+{##}
+{#                {% iffeature "reviews" %}#}
+{#                    {% block product_review %}#}
+{#                        <section>#}
+{#                        <div id="reviews" class="sub-header">#}
+{#                            {% if product.num_approved_reviews > 3 %}#}
+{#                                <a href="{% url 'catalogue:reviews-list' product_slug=product.slug product_pk=product.id %}" class="btn pull-right">{% trans "See all reviews" %}</a>#}
+{#                            {% endif %}#}
+{#                            <h2>{% trans "Customer Reviews" %}</h2>#}
+{#                        </div>#}
+{##}
+{#                        {% if product.num_approved_reviews == 0 %}#}
+{#                            <p>#}
+{#                                {% if product|is_review_permitted:user %}#}
+{#                                    {% url 'catalogue:reviews-add' product_slug=product.slug product_pk=product.id as add_review_url %}#}
+{#                                        {% blocktrans %}This product does not have any reviews yet -#}
+{#                                        <a href="{{ add_review_url }}#addreview">be the first to write one</a>.#}
+{#                                    {% endblocktrans %}#}
+{#                                {% else %}#}
+{#                                    {% trans "This product does not have any reviews yet" %}.#}
+{#                                {% endif %}#}
+{#                            </p>#}
+{#                        {% else %}#}
+{#                            <ol class="list-unstyled review-list">#}
+{#                                {% for review in product.reviews.approved.all|slice:":3" %}#}
+{#                                    <li>#}
+{#                                    {% include 'catalogue/partials/review.html' %}#}
+{#                                    </li>#}
+{#                                {% endfor %}#}
+{#                            </ol>#}
+{#                        {% endif %}#}
+{#                    </section>#}
+{#                    {% endblock product_review %}#}
+{#                {% endiffeature %}#}
+{#                {% recently_viewed_products current_product=product %}#}
+
+            </div><!-- End of product page -->
+        </section>
+        <div class="related-products wow fadeInUp" data-wow-delay="0.4s">
+            <div class="container">
+                <!-- BEGIN PRODUCTS -->
+                {% with recommended_products=product.recommended_products.all|slice:":4" %}
+                    {% if recommended_products %}
+                        <h2>you may also like</h2>
+                            <div class="row product_list">
+                                {% for product in recommended_products %}
+                                    <div class="col-md-3 col-sm-6 col-xs-6">
+                                        <a href="{{ product.get_absolute_url }}"  class="hovereffect">
+                                            {% block product_image %}
+                                                {% with image=product.primary_image %}
+                                                    <img src="{{ image.original.url }}" alt="{{ product.get_title }}">
+                                                {% endwith %}
+                                            {% endblock %}
+                                            <div class="overlay">
+                                            </div>
+                                        </a>
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+                        {% endwith %}
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog">
+            <div class="loginmodal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="loginmodal-container">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                <h5>Size Guide</h5>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+{% block extrastyles  %}
+    <style>
+        .alert-success
+        {
+            border-radius: 0px;
+            border:1px solid #7b674f;
+            width:70%;
+            margin:auto;
+            margin-top:10px;
+            background-color: #fff;
+            color:#7b674f;
+        }
+        .alert-info{
+            display:none;
+        }
+        /****** LOGIN MODAL ******/
+        .loginmodal-container {
+          padding: 30px;
+          max-width: 350px;
+          width: 100% !important;
+          background-color: #F7F7F7;
+          margin: 0 auto;
+          border-radius: 2px;
+          box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+          overflow: hidden;
+          font-family: roboto;
+        }
+
+        .loginmodal-container h1 {
+          text-align: center;
+          font-size: 1.8em;
+          font-family: roboto;
+        }
+
+        .loginmodal-container input[type=submit] {
+          width: 100%;
+          display: block;
+          margin-bottom: 10px;
+          position: relative;
+        }
+
+        .loginmodal-container input[type=text], input[type=password] {
+          height: 44px;
+          font-size: 16px;
+          width: 100%;
+          margin-bottom: 10px;
+          -webkit-appearance: none;
+          background: #fff;
+          border: 1px solid #d9d9d9;
+          border-top: 1px solid #c0c0c0;
+          /* border-radius: 2px; */
+          padding: 0 8px;
+          box-sizing: border-box;
+          -moz-box-sizing: border-box;
+        }
+
+        .loginmodal-container input[type=text]:hover, input[type=password]:hover {
+          border: 1px solid #b9b9b9;
+          border-top: 1px solid #a0a0a0;
+          -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+          -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+          box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .loginmodal {
+          text-align: center;
+          font-size: 14px;
+          font-family: 'Arial', sans-serif;
+          font-weight: 700;
+          height: 36px;
+          padding: 0 8px;
+        /* border-radius: 3px; */
+        /* -webkit-user-select: none;
+          user-select: none; */
+        }
+
+        .loginmodal-submit {
+          /* border: 1px solid #3079ed; */
+          border: 0px;
+          color: #fff;
+          text-shadow: 0 1px rgba(0,0,0,0.1);
+          background-color: #4d90fe;
+          padding: 17px 0px;
+          font-family: roboto;
+          font-size: 14px;
+          /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#4787ed)); */
+        }
+
+        .loginmodal-submit:hover {
+          /* border: 1px solid #2f5bb7; */
+          border: 0px;
+          text-shadow: 0 1px rgba(0,0,0,0.3);
+          background-color: #357ae8;
+          /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#357ae8)); */
+        }
+
+        .loginmodal-container a {
+          text-decoration: none;
+          color: #666;
+          font-weight: 400;
+          text-align: center;
+          display: inline-block;
+          opacity: 0.6;
+          transition: opacity ease 0.5s;
+        }
+        .mt-bottom-bar
+        {
+            border-bottom:2px solid #7b674f;
+        }
+        .mt-textbox
+        {
+            padding:50px 0 20px;
+        }
+    </style>
+{% endblock %}
+
+{% block extrascripts %}
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    {% for message in messages %}
+       {% if "added to your cart" in message.message %}
+           <script>
+            $(document).ready(function(){
+                $("#sidebar-wrapper").toggleClass("active");
+            });
+           </script>
+       {% endif %}
+   {% endfor %}
+    <script>
+        $(document).ready(function(){
+            $(".dropdown-menu li a").click(function(){
+                var selText = $(this).text();
+                $(this).parents('.btn-group').find('.dropdown-toggle').html(selText+' <span class="caret"></span>');
+            });
+        });
+        $(document).ready(function(){
+            $(".alert-success,.alert-info,.alert-warning,.alert-danger").delay("5000").fadeOut("2000");
+        });
+    </script>
+    {{ block.super }}
+{% endblock %}
