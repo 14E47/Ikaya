@@ -136,7 +136,7 @@ function initSlickSlider() {
 		]
 	});
 	jQuery('.bestseller-slider').slick({
-		slidesToShow: 6,
+		slidesToShow: 7,
 		slidesToScroll: 1,
 		responsive: [
 			{

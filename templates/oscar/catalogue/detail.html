@@ -63,8 +63,8 @@
                     {% block product_gallery %}
                     <div class="col-xs-12 col-sm-5 text">
                         {% include "catalogue/partials/gallery.html" %}
-                        <br>
-                        <p class="new-text">
+
+                        <p class="new-text mt">
                             Shipping in 7 Business days from order date.
                         </p>
                         <p class="new-text">
@@ -129,7 +129,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-sm-8 price-sec vend">
-                                                <div class="col-xs-3">
+                                                <div class="col-xs-3 text-center">
                                                     <div class="btn-group">
                                                         <button class="btn dropdown-toggle" name="recordinput" data-toggle="dropdown">
                                                             {{request.session.currency_code}}
@@ -145,9 +145,11 @@
                                                 </div>
                                                 <div class="col-xs-9">
                                                     <span class="detail_price">
-                                                        {% block product_stock_record %}
-                                                            {% include "catalogue/partials/stock_record.html" with verbose=1 %}
-                                                        {% endblock %}
+                                                        <div class="row">
+                                                            {% block product_stock_record %}
+                                                                {% include "catalogue/partials/stock_record.html" with verbose=1 %}
+                                                            {% endblock %}
+                                                        </div>
                                                     </span>
                                                 </div>
                                             </div>
@@ -166,13 +168,13 @@
                                                                 </form>
                                                             {% endfor %}
                                                         {% else %}
-                                                            <form id="add_to_wishlist_form" action="{% url 'customer:wishlists-add-product' product_pk=product.pk %}" method="post">
+                                                            <form id="add_to_wishlist_form" action="{% url 'customer:wishlists-add-product' product_pk=product.pk %}" method="post" class="mt">
                                                                 {% csrf_token %}
                                                                 <button type="submit" style="padding:0px;background-color:transparent;border:0px;font-size:18px"><i style="color:#f6b220"  class="fa fa-heart-o"></i> Add to Wishlist </button>
                                                             </form>
                                                         {% endif %}
                                                     {% else %}
-                                                        <button style="outline:0px;background-color:transparent;border:0px;font-size:18px;padding:0px;color:#f6b220"><i class="fa fa-heart-o"></i></button><br/>
+                                                        <button style="margin-top:5px;outline:0px;background-color:transparent;border:0px;font-size:18px;padding:0px;color:#f6b220"><i class="fa fa-heart-o"></i></button><br/>
                                                     {% endif %}
                                                 </div>
                                             </div>

@@ -178,7 +178,7 @@ OSCAR_DEFAULT_CURRENCY = 'INR'
 OSCAR_CURRENCY_FORMAT = u'¤ ###0'
 
 OSCAR_ALLOW_ANON_CHECKOUT = True
-OSCAR_PRODUCTS_PER_PAGE = 30
+OSCAR_PRODUCTS_PER_PAGE = 32
 # ***************************************************************************
 # ****************Shipping addresss required fields***********************************************************
 

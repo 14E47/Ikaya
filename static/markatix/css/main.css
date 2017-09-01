@@ -5755,7 +5755,7 @@ a:hover {
 
       .mt-shoplist-header .btn-box .drop a {
         display: block;
-        padding: 10px 10px;
+        padding: 10px 1px;
 		font-size:12px;
         color: #ac997d;
       }
@@ -10114,6 +10114,21 @@ l,btn-box li:after {
       color:#7B674F;
       margin-top:30px;
     }
+    .terms .state
+    {
+      font-size:14px;
+      font-weight: 600;
+      text-decoration: underline;
+    }
+    .terms .address
+    {
+      font-size:16px;
+    }
+    .terms .tel
+    {
+      font-size:12px;
+    }
+
     .terms p{
       margin:10px 0px;
       color:#7B674F;
@@ -10135,14 +10150,12 @@ l,btn-box li:after {
     .terms .address-block p
     {
       margin:15px 0px 15px 0px;
-      font-size:1em;
       font-family: 'Gotham-Bold',sans-serif;
       color:#7B674F;
     }
     .terms .address-block a
     {
       color:#7B674F;
-      font-size:1em;
       font-family: 'Gotham-Bold',sans-serif;
     }
     .terms .address-block h4
@@ -10896,4 +10909,8 @@ l,btn-box li:after {
     height: 26px;
     color: #AFA389;
     background: #fff;
+}
+.mt
+{
+  margin-top:5px;
 }
