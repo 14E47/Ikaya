@@ -31,13 +31,18 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-12">
-                    <!-- banner frame start here -->
-                    <div class="banner-frame equalh">
+
+                    <!-- banner row-3 start here -->
+
+                    <div class="banner-frame equalh" style="margin: 20px 0 20px 0">
                         {% get_home_sections 'section1' as home_sections %}
-                        <!-- banner-1 start here -->
+
+
                         <div class="col-sm-4 vcenter wow slideInUp" data-wow-duration="2s">
                             <img src="{% static "markatix/images/new/03.jpg"%}" alt="image description">
                         </div>
+
+
                         <div class="col-sm-2 vend1 hidden-xs wow slideInUp" data-wow-duration="2s">
                             <div class="text-right">
                                 <h3>
@@ -50,16 +55,19 @@
                                 <br><br>
                             </div>
                         </div>
-                        <div class="col-sm-5 wow slideInUp" data-wow-duration="2s">
+
+
+                        <div class="col-sm-4 wow slideInUp" data-wow-duration="2s">
                             <div class="row">
                                 <div class="hovereffect">
                                     <img src="{{home_sections.image.url}}" alt="image description">
-                                    <div class="overlay">
-
-                                    </div>
+{#                                    <div class="overlay">#}
+{#                                    </div>#}
                                 </div>
                             </div>
                         </div>
+
+
                         <div class="col-sm-2 vend2 hidden-lg hidden-md hidden-sm wow slideInUp" data-wow-delay="0" data-wow-duration="2s">
                             <div class="">
                                 <h3>
@@ -69,40 +77,52 @@
                                 <br><br><br>
                             </div>
                         </div>
-                        <!-- banner-4 end here -->
                     </div>
-                    <div class="banner-frame equalh">
+
+                    <!-- banner row-3 end here -->
+
+
+                    <!-- banner row-4 start here -->
+
+                    <div class="banner-frame equalh" style="margin: 20px 0 20px 0">
                         {% get_home_sections 'section2' as home_sections %}
-                        <!-- banner-1 start here -->
+
                         <div class="col-sm-8 wow slideInUp" data-wow-delay="0" data-wow-duration="2s">
                             <div class="row">
                                 <div class="hovereffect">
                                     <img src="{{home_sections.image.url}}" alt="image description">
-                                    <div class="overlay">
-                                    </div>
+{#                                    <div class="overlay">#}
+{#                                    </div>#}
                                 </div>
                             </div>
                         </div>
+
                         <div class="col-sm-2 vend2 wow slideInUp" data-wow-delay="0" data-wow-duration="2s">
                             <div>
                                 <h3>
                                     {{home_sections.text|safe}}
                                 </h3>
-                                <a href="{{home_sections.link_url}}" style="font-family: 'MetaSerifTf-Book';font-weight:bold;">{{home_sections.button}}</a>
+                                <a href="{{home_sections.link_url}}" style="font-family: 'MetaSerifTf-Book';font-weight:bold;"> {{home_sections.button}} </a>
                                 <br><br><br>
                             </div>
                         </div>
-                        <!-- banner-4 end here -->
+
                     </div>
-                    <!-- banner frame end here -->
+
+                    <!-- banner row-4 end here -->
+
                 </div>
             </div>
         </div>
-        <!-- mt bestseller start here -->
+
+        <!-- home row-5 start here -->
+
         <div class="mt-bestseller bg-grey text-center bg">
             {% get_home_sections 'section3' as home_sections %}
+
             <div class="container">
                 <div class="row vcenter">
+
                     <div class="col-sm-6 wow slideInUp" data-wow-duration="2s">
                         <h2>
                             ABOUT  EKAYA
@@ -114,8 +134,10 @@
                             <a href="{{home_sections.link_url}}" style="font-size:14px;color:#fff;font-family: 'MetaSerifTf-Book';text-decoration:underline">{{home_sections.button}}</a>
                         </p>
                     </div>
+
                     <div class="col-sm-1">
                     </div>
+
                     <div class="col-sm-3 wow slideInUp" data-wow-delay="0" data-wow-duration="2s">
                         <img src="{{home_sections.image.url}}" class="about-img" alt="image description">
                     </div>
@@ -123,25 +145,35 @@
                 </div>
             </div>
         </div>
-        <!-- mt bestseller start here -->
+
+        <!-- home row-5 end here -->
+
+        <!-- home row-6 start here -->
+
         <div class="mt-smallproducts test">
             <div class="container">
+
                 <div class="row equalh wow slideInUp" data-wow-delay="0" data-wow-duration="2s">
+
                     <div class="col-sm-11">
                         <h3>SPRING 2017 <br><span>COLLECTION</span></h3>
                     </div>
+
                     <div class="col-sm-1 vend2 wow slideInUp" data-wow-delay="0" data-wow-duration="2s">
                         <div class="row m-row">
                             <h2 style="color:#7C6752"><a href="#" style="font-family: 'MetaSerifTf-Book';font-weight:bold;">SHOP NOW</a></h2>
                         </div>
                     </div>
+
                 </div>
+
+                <!-- Spring Collection Images -->
+
                 <div class="row">
                     {% top_products as products %}
                     {% if products %}
                         {% for product in products %}
                             <div class="col-sm-4 col-pad wow slideInUp"  data-wow-delay="0" data-wow-duration="2s">
-                                <!-- mt product1 center start here -->
                                 <div class="mt-product1 large">
                                     <div class="box">
                                         <div class="b1">
@@ -149,64 +181,81 @@
                                                 {% with image=product.primary_image %}
                                                     <a href="{{ product.get_absolute_url }}"  class="hovereffect">
                                                         <img src="{{ image.original.url }}" alt="{{ product.get_title }}" style="width:100%;">
-                                                        <div class="overlay1">
-                                                        </div>
+{#                                                        <div class="overlay1">#}
+{#                                                        </div>#}
                                                     </a>
                                                 {% endwith %}
                                             </div>
                                         </div>
                                     </div>
-                                </div><!-- mt product1 center end here -->
+                                </div>
                             </div>
                         {% endfor %}
                     {% else %}
                         <p class="nonefound">{% trans "No products found." %}</p>
                     {% endif %}
                 </div>
+
             </div>
-        </div><!-- mt bestseller end here -->
+        </div>
+
+
+        <!-- home row-6 end here -->
+        <!-- home row-7 start here -->
 
         <div class="mt-productsc">
             {% get_home_sections 'section4' as home_sections %}
             <div class="container">
+
                 <div class="row wow slideInUp" data-wow-delay="0" data-wow-duration="2s">
                     <div class="col-xs-12 mt-heading text-center">
                         <p style="color:#948373;font-weight:bold;font-size:18px;letter-spacing:1;">Re-interpreting and receiving traditional weaves <br> and motifs with indian-Modern vision.</p>
                     </div>
                 </div>
+
                 <!-- mt productscrollbar start here -->
+
                 <div class="row mt-smallproducts equalh">
+
                     <div class="col-sm-2">
                     </div>
+
                     <div class="col-sm-8 wow slideInUp" data-wow-delay="0" data-wow-duration="2s">
                         <div class="row">
                             <div class="hovereffect">
                                 <img src="{{home_sections.image.url}}" alt="image description">
-                                <div class="overlay">
-                                </div>
+{#                                <div class="overlay">#}
+{#                                </div>#}
                             </div>
                         </div>
                     </div>
+
                     <div class="col-sm-2 vcenter1 wow slideInUp" data-wow-delay="0" data-wow-duration="2s">
                         <div>
                             <h3>
                                 {{home_sections.text|safe}}
                             </h3>
-                            <a href="{{home_sections.link.url}}" style="font-family: 'MetaSerifTf-Book';font-weight:bold;">{{home_sections.button}}</a>
-
+                            <a href="{{home_sections.link_url}}" style="font-family: 'MetaSerifTf-Book';font-weight:bold;">{{home_sections.button}}</a>
                         </div>
                     </div>
+
                 </div>
+
             </div>
-        </div><!-- mt productsc end here -->
+        </div>
+
+        <!-- home row-7 end here -->
+        <!-- Insta feed start here -->
 
         <div class="mt-bestseller bg-grey1 text-center wow slideInUp" data-wow-delay="0.4s" data-wow-duration="2s">
             <div class="container">
+
                 <div class="row">
                     <div class="col-xs-12">
                         <h2>We're on Instragram</h2>
                     </div>
                 </div>
+
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="bestseller-slider">
@@ -218,7 +267,7 @@
                                         <div class="box">
                                             <div class="b1">
                                                 <div class="b2">
-                                                    <img src="{{instagram_feed}}" alt="instagram feed">
+                                                    <a href={{ instagram_feed.1 }} target="_blank"> <img src="{{instagram_feed.0}}" alt="instagram feed"> </a>
                                                 </div>
                                             </div>
                                         </div>
@@ -228,9 +277,13 @@
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
 
-    </main><!-- mt main end here -->
+        <!-- Insta feed end here -->
+
+    </main>
+    <!-- mt main end here -->
 
 {% endblock content %}

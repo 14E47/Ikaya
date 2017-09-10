@@ -218,7 +218,7 @@
                                                             <img src="{% static "markatix/images/new/about/07.png"%}" style="width:15%;height:15%;float:left" class="hidden-xs"><h2 style="color:#F6B82F !important;margin-left:130px;" class="vcenter1">EKAYA RECOMMENDS</h2>
                                                         </div><!-- mt-textbox end here -->
                                                         <p>
-                                                            The colours you see on your device may vary due to the varying colour reproduction and temperature of individual devices. The colours you see on your device may vary due to the varying colour reproduction and temperature of individual devices
+                                                            The colours you see on your device may vary due to the varying colour reproduction and temperature of individual devices.
                                                         </p>
                                                     {% endif %}
                                                     <div class="col-md-7 col-sm-7 col-xs-7 text-left">
