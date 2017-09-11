@@ -1,0 +1,18 @@
+Changes that i have made.
+
+< HOME SECTION >
+1. Gap between banners.
+2. Un-responsive banner links are now responsive.
+3. Instagram thumbnails are now linked to the original image on istagram.
+4. Instagram latest feeds update automatically.
+
+< ABOUT SECTION >
+1. Embedded video available.
+
+< SHOP SECTION >
+1. Spelling corrections.
+2. Category logo removed - gallery page.
+3. Shipping txt added before general - product page.
+4.
+
+

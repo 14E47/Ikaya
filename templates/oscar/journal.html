@@ -1,233 +1,136 @@
 {% extends "layout.html" %}
 {% load i18n %}
-{% load staticfiles %}
+{% load staticfiles debug_tags %}
 {% block title %}Journal | {{ shop_name }}{% endblock %}
 
 {% block content %}
     <main id="mt-main">
-        <section class="equalh journel wow slideInUp" data-wow-delay="0.6s">
-            <div class="col-sm-8">
-                <div class="row">
-                    <a href="#"  class="hovereffect">
-                        <img src="{% static "markatix/images/new/journel/01.jpeg" %}">
-                        <div class="overlay">
-                        </div>
-                    </a>
+        {% for journal_section in journals %}
 
-                </div>
-            </div>
-            <div class="col-sm-4 vend2">
-                <div class="texts">
-                    <h3 class="title">JANUARY '17</h3>
-                    <h2 class="heading">NRITYA-THE DANCING<br>WEAVERS</h2>
-                    <a href="#" class="link">read article</a>
-                </div>
-            </div>
-        </section>
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12">
+           <section class="equalh journel wow slideInUp" data-wow-delay="0.6s">
+              <div class="col-sm-8">
+                 <div class="row">
+
+                    <a href="/journal/{{journal_section.0.slug}}" class="hovereffect">
+                       <img src="{{ journal_section.0.images.0.image.url }}">
+                       <div class="overlay">
+                       </div>
+                    </a>
+                 </div>
+              </div>
+              <div class="col-sm-4 vend2">
+                 <div class="texts">
+                    <h3 class="title mt">{{journal_section.0.posted_month|upper}}</h3>
+                    <h2 style="margin:20px 0px" class="heading">{{journal_section.0.title|safe}}</h2>
+                    <a href="/journal/{{journal_section.0.slug}}" class="link">READ THE ARTICLE</a>
+                 </div>
+              </div>
+           </section>
+
+           <div class="container">
+              <div class="row">
+                 <div class="col-xs-12">
                     <!-- banner frame start here -->
                     <div class="banner-frame toppadding-eighty">
-                        <!-- banner 5 white start here -->
-                        <div class="col-sm-6  wow slideInUp" data-wow-delay="0.6s">
-                            <div class="white widthleft">
-                                <a href="#"  class="hovereffect">
-                                    <img src="{% static "markatix/images/new/journel/02.jpg" %}"/>
+                       <!-- banner 5 white start here -->
+                        {% if journal_section.1 %}
+                           <div class="col-sm-6  wow slideInUp" data-wow-delay="0.6s">
+                              <div class="white widthleft">
+                                 <a href="/journal/{{journal_section.1.slug}}" class="hovereffect">
+                                    <img style="margin:20px 0px" src="{{journal_section.1.images.0.image.url}}"/>
                                     <div class="overlay">
                                     </div>
-                                </a>
-
-                            </div><!-- banner 5 white end here -->
-                            <div class="textsleft">
-                                <h3 class="title">JANUARY '17</h3>
-                                <h1 class="heading">Ekaya Collaborates with<br>Play Clan</h1>
-                                <p class="content">
-                                    Ekaya celebrates the Indian woman’s love for saris, authentic textiles and pure, rare craftsmanship. Rooted in Banaras’ rich textile heritage, Ekaya is a contemporary, bespoke store presenting the finest works of art by the Indian craftsman.
-                                </p>
-                                <a href="#" class="link">read article</a>
-                            </div>
-                        </div>
-
-
-                        <!-- banner 6 white start here -->
-                        <div class="col-sm-6  wow slideInUp" data-wow-delay="0.6s">
-                            <div class="white widthright">
-                                <a href="#"  class="hovereffect">
-                                    <img src="{% static "markatix/images/new/journel/02.jpg" %}"/>
+                                 </a>
+                              </div>
+                              <!-- banner 5 white end here -->
+                              <div class="textsleft">
+                                 <h3 class="title">{{journal_section.1.posted_month|upper}}</h3>
+                                 <h1 class="heading">{{journal_section.1.title|safe}}</h1>
+                                 <p style="margin:20px 0px" class="content">
+                                    {{journal_section.1.summary|safe}}
+                                 </p>
+                                 <a href="/journal/{{journal_section.1.slug}}" class="link">READ THE ARTICLE</a>
+                              </div>
+                           </div>
+                        {% endif %}
+                       <!-- banner 6 white start here -->
+                        {% if journal_section.2 %}
+                           <div class="col-sm-6  wow slideInUp" data-wow-delay="0.6s">
+                              <div class="white widthright">
+                                 <a href="/journal/{{journal_section.2.slug}}" class="hovereffect">
+                                    <img style="margin:20px 0px" src="{{journal_section.2.images.0.image.url}}"/>
                                     <div class="overlay">
                                     </div>
-                                </a>
-
-                            </div><!-- banner 5 white end here -->
-                            <div class="textsright">
-                                <h3 class="title">JANUARY '17</h3>
-                                <h1 class="heading">Ekaya Collaborates with<br>Play Clan</h1>
-                                <p class="content">
-                                    Ekaya celebrates the Indian woman’s love for saris, authentic textiles and pure, rare craftsmanship. Rooted in Banaras’ rich textile heritage, Ekaya is a contemporary, bespoke store presenting the finest works of art by the Indian craftsman.
-                                </p>
-                                <a href="#" class="link">read article</a>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 wow slideInUp" data-wow-delay="0.6s">
-                            <div class="white widthleft">
-                                <a href="#"  class="hovereffect">
-                                    <img src="{% static "markatix/images/new/journel/02.jpg" %}"/>
-                                    <div class="overlay">
-                                    </div>
-                                </a>
-
-                            </div><!-- banner 5 white end here -->
-                            <div class="textsleft">
-                                <h3 class="title">JANUARY '17</h3>
-                                <h1 class="heading">Ekaya Collaborates with<br>Play Clan</h1>
-                                <p class="content">
-                                    Ekaya celebrates the Indian woman’s love for saris, authentic textiles and pure, rare craftsmanship. Rooted in Banaras’ rich textile heritage, Ekaya is a contemporary, bespoke store presenting the finest works of art by the Indian craftsman.
-                                </p>
-                                <a href="#" class="link">read article</a>
-                            </div>
-                        </div>
-
-
-                        <!-- banner 6 white start here -->
-                        <div class="col-sm-6 wow slideInUp" data-wow-delay="0.6s">
-                            <div class="white widthright wow slideInUp" data-wow-delay="0.6s">
-                                <a href="#"  class="hovereffect">
-                                    <img src="{% static "markatix/images/new/journel/02.jpg" %}"/>
-                                    <div class="overlay">
-                                    </div>
-                                </a>
-
-                            </div><!-- banner 5 white end here -->
-                            <div class="textsright">
-                                <h3 class="title">JANUARY '17</h3>
-                                <h1 class="heading">Ekaya Collaborates with<br>Play Clan</h1>
-                                <p class="content">
-                                    Ekaya celebrates the Indian woman’s love for saris, authentic textiles and pure, rare craftsmanship. Rooted in Banaras’ rich textile heritage, Ekaya is a contemporary, bespoke store presenting the finest works of art by the Indian craftsman.
-                                </p>
-                                <a href="#" class="link">read article</a>
-                            </div>
-                        </div>
-
-                    </div><!-- banner frame end here -->
-                    <!-- banner frame start here -->
-
-                </div>
-            </div>
-        </div>
-
-
-
-        <section class="equalh journel toppadding-eighty wow slideInUp" data-wow-delay="0.6s">
-            <div class="col-sm-8">
-                <div class="row">
-                    <a href="#"  class="hovereffect">
-                        <img src="{% static "markatix/images/new/journel/01.jpg" %}"/>
-                        <div class="overlay">
-                        </div>
-                    </a>
-
-                </div>
-            </div>
-            <div class="col-sm-4 vend2">
-                <div class="texts">
-                    <h3 class="title">JANUARY '17</h3>
-                    <h1 class="heading">Ekaya Collaborates with<br>Play Clan</h1>
-                    <a href="#" class="link">read article</a>
-                </div>
-            </div>
-        </section>
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12">
-                    <!-- banner frame start here -->
+                                 </a>
+                              </div>
+                              <!-- banner 5 white end here -->
+                              <div class="textsright">
+                                 <h3 class="title">{{journal_section.2.posted_month|upper}}</h3>
+                                 <h1 class="heading">{{journal_section.2.title|safe}}</h1>
+                                 <p style="margin:20px 0px" class="content">
+                                    {{journal_section.2.summary|safe}}
+                                 </p>
+                                 <a href="/journal/{{journal_section.2.slug}}" class="link">READ THE ARTICLE</a>
+                              </div>
+                           </div>
+                        {% endif %}
+                    </div>
+                    <!-- banner frame end here -->
                     <div class="banner-frame toppadding-eighty">
-                        <!-- banner 5 white start here -->
-                        <div class="col-sm-6 wow slideInUp" data-wow-delay="0.6s">
-                            <div class="white widthleft">
-                                <a href="#"  class="hovereffect">
-                                    <img src="{% static "markatix/images/new/journel/02.jpg" %}"/>
+                       <!-- banner 5 white start here -->
+                        {% if journal_section.3 %}
+                           <div class="col-sm-6  wow slideInUp" data-wow-delay="0.6s">
+                              <div class="white widthleft">
+                                 <a href="/journal/{{journal_section.3.slug}}"  class="hovereffect">
+                                    <img style="margin:20px 0px" src="{{journal_section.3.images.0.image.url}}"/>
                                     <div class="overlay">
                                     </div>
-                                </a>
-                            </div><!-- banner 5 white end here -->
-                            <div class="textsleft">
-                                <h3 class="title">JANUARY '17</h3>
-                                <h1 class="heading">Ekaya Collaborates with<br>Play Clan</h1>
-                                <p class="content">
-                                    Ekaya celebrates the Indian woman’s love for saris, authentic textiles and pure, rare craftsmanship. Rooted in Banaras’ rich textile heritage, Ekaya is a contemporary, bespoke store presenting the finest works of art by the Indian craftsman.
-                                </p>
-                                <a href="#" class="link">read article</a>
-                            </div>
-                        </div>
-                        <!-- banner 6 white start here -->
-                        <div class="col-sm-6 wow slideInUp" data-wow-delay="0.6s">
-                            <div class="white widthright">
-                                <a href="#"  class="hovereffect">
-                                    <img src="{% static "markatix/images/new/journel/02.jpg" %}"/>
+                                 </a>
+                              </div>
+                              <!-- banner 5 white end here -->
+                              <div class="textsleft">
+                                 <h3 class="title">{{journal_section.3.posted_month|upper}}</h3>
+                                 <h1 class="heading">{{journal_section.3.title|safe}}</h1>
+                                 <p style="margin:20px 0px" class="content">
+                                    {{journal_section.3.summary|safe}}
+                                 </p>
+                                 <a href="/journal/{{journal_section.3.slug}}" class="link">READ THE ARTICLE</a>
+                              </div>
+                           </div>
+                        {% endif %}
+                       <!-- banner 6 white start here -->
+                        {% if journal_section.4 %}
+                           <div class="col-sm-6  wow slideInUp" data-wow-delay="0.6s">
+                              <div class="white widthright">
+                                 <a href="/journal/{{journal_section.4.slug}}"  class="hovereffect">
+                                    <img style="margin:20px 0px " s src="{{journal_section.4.images.0.image.url}}"/>
                                     <div class="overlay">
                                     </div>
-                                </a>
-
-                            </div><!-- banner 5 white end here -->
-                            <div class="textsright">
-                                <h3 class="title">JANUARY '17</h3>
-                                <h1 class="heading">Ekaya Collaborates with<br>Play Clan</h1>
-                                <p class="content">
-                                    Ekaya celebrates the Indian woman’s love for saris, authentic textiles and pure, rare craftsmanship. Rooted in Banaras’ rich textile heritage, Ekaya is a contemporary, bespoke store presenting the finest works of art by the Indian craftsman.
-                                </p>
-                                <a href="#" class="link">read article</a>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 wow slideInUp" data-wow-delay="0.6s">
-                            <div class="white widthleft">
-                                <a href="#"  class="hovereffect">
-                                    <img src="{% static "markatix/images/new/journel/02.jpg" %}"/>
-                                    <div class="overlay">
-                                    </div>
-                                </a>
-
-                            </div><!-- banner 5 white end here -->
-                            <div class="textsleft">
-                                <h3 class="title">JANUARY '17</h3>
-                                <h1 class="heading">Ekaya Collaborates with<br>Play Clan</h1>
-                                <p class="content">
-                                    Ekaya celebrates the Indian woman’s love for saris, authentic textiles and pure, rare craftsmanship. Rooted in Banaras’ rich textile heritage, Ekaya is a contemporary, bespoke store presenting the finest works of art by the Indian craftsman.
-                                </p>
-                                <a href="#" class="link">read article</a>
-                            </div>
-                        </div>
-
-
-                        <!-- banner 6 white start here -->
-                        <div class="col-sm-6 wow slideInUp" data-wow-delay="0.6s">
-                            <div class="white widthright wow slideInUp" data-wow-delay="0.6s">
-                                <a href="#"  class="hovereffect">
-                                    <img src="{% static "markatix/images/new/journel/02.jpg" %}"/>
-                                    <div class="overlay">
-                                    </div>
-                                </a>
-
-                            </div><!-- banner 5 white end here -->
-                            <div class="textsright">
-                                <h3 class="title">JANUARY '17</h3>
-                                <h1 class="heading">Ekaya Collaborates with<br>Play Clan</h1>
-                                <p class="content">
-                                    Ekaya celebrates the Indian woman’s love for saris, authentic textiles and pure, rare craftsmanship. Rooted in Banaras’ rich textile heritage, Ekaya is a contemporary, bespoke store presenting the finest works of art by the Indian craftsman.
-                                </p>
-                                <a href="#" class="link">read article</a>
-                            </div>
-                        </div>
-
-                    </div><!-- banner frame end here -->
+                                 </a>
+                              </div>
+                              <!-- banner 5 white end here -->
+                              <div class="textsright">
+                                 <h3 class="title">{{journal_section.4.posted_month|upper}}</h3>
+                                 <h1 class="heading">{{journal_section.4.title|safe}}</h1>
+                                 <p style="margin:20px 0px" class="content">
+                                    {{journal_section.4.summary|safe}}
+                                 </p>
+                                 <a href="/journal/{{journal_section.4.slug}}" class="link">READ THE ARTICLE</a>
+                              </div>
+                           </div>
+                        {% endif %}
+                    </div>
                     <!-- banner frame start here -->
+                 </div>
+              </div>
+           </div>
 
-                </div>
-            </div>
-        </div>
-        <div class="row text-center journel-last">
-            <a href="#">PREV.</a>
-            <a href="#">NEXT</a>
-        </div>
+        {% endfor %}
+
+       <div class="row text-center journel-last hidden">
+          <a href="#">PREV.</a>
+          <a href="#">NEXT</a>
+       </div>
+
     </main>
 {% endblock content %}

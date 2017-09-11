@@ -14,6 +14,10 @@
 {% block content %}
     {% get_home_sections 'Banner' as home_sections %}
     <article class="hidden-xs hidden-sm">
+{#        <img src="{{home_sections.image.url}}" alt="Ekaya Banner" data-parallax='{"y": 50}'/>#}
+{#        <p class="wow slideInUp" data-wow-duration="2s" style="color:{{home_sections.text_colour|safe}}">{{home_sections.text|safe}}<br><br>#}
+{#            <a style="font-size:0.5em;text-decoration:underline;font-family: 'MetaSerifTf-Book';color:#fff" href="{{home_sections.link_url}}">{{home_sections.button}}</a>#}
+{#        </p>#}
         <img src="{{home_sections.image.url}}" alt="Ekaya Banner" data-parallax='{"y": 50}'/>
         <p class="wow slideInUp" data-wow-duration="2s" style="color:{{home_sections.text_colour|safe}}">{{home_sections.text|safe}}<br><br>
             <a style="font-size:0.5em;text-decoration:underline;font-family: 'MetaSerifTf-Book';color:#fff" href="{{home_sections.link_url}}">{{home_sections.button}}</a>
@@ -61,8 +65,8 @@
                             <div class="row">
                                 <div class="hovereffect">
                                     <img src="{{home_sections.image.url}}" alt="image description">
-{#                                    <div class="overlay">#}
-{#                                    </div>#}
+                                    <div class="overlay">
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -91,8 +95,8 @@
                             <div class="row">
                                 <div class="hovereffect">
                                     <img src="{{home_sections.image.url}}" alt="image description">
-{#                                    <div class="overlay">#}
-{#                                    </div>#}
+                                    <div class="overlay">
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -181,8 +185,8 @@
                                                 {% with image=product.primary_image %}
                                                     <a href="{{ product.get_absolute_url }}"  class="hovereffect">
                                                         <img src="{{ image.original.url }}" alt="{{ product.get_title }}" style="width:100%;">
-{#                                                        <div class="overlay1">#}
-{#                                                        </div>#}
+                                                        <div class="overlay1">
+                                                        </div>
                                                     </a>
                                                 {% endwith %}
                                             </div>
@@ -224,8 +228,8 @@
                         <div class="row">
                             <div class="hovereffect">
                                 <img src="{{home_sections.image.url}}" alt="image description">
-{#                                <div class="overlay">#}
-{#                                </div>#}
+                                <div class="overlay">
+                                </div>
                             </div>
                         </div>
                     </div>
