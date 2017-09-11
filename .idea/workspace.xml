@@ -3,11 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="b5930708-064f-4edf-b492-dba294513b3e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/markatix/images/new/frame.png" afterPath="$PROJECT_DIR$/static/markatix/images/new/frame.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/oscar/catalogue/detail.html" afterPath="$PROJECT_DIR$/templates/oscar/catalogue/detail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/oscar/journal.html" afterPath="$PROJECT_DIR$/templates/oscar/journal.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/oscar/partials/nav_accounts.html" afterPath="$PROJECT_DIR$/templates/oscar/partials/nav_accounts.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/changes.txt" afterPath="$PROJECT_DIR$/changes.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/markatix/css/main.css" afterPath="$PROJECT_DIR$/static/markatix/css/main.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/oscar/catalogue/browse.html" afterPath="$PROJECT_DIR$/templates/oscar/catalogue/browse.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/oscar/promotions/home.html" afterPath="$PROJECT_DIR$/templates/oscar/promotions/home.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,17 +19,19 @@
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="home.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/oscar/promotions/home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="8" lean-forward="false" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
+            <state relative-caret-position="511">
+              <caret line="289" column="0" lean-forward="true" selection-start-line="289" selection-start-column="0" selection-end-line="289" selection-end-column="0" />
               <folding>
-                <marker date="1505129072606" expanded="false" signature="609:649" ph="..." />
-                <marker date="1505129072606" expanded="false" signature="713:797" ph="..." />
+                <element signature="n#style#0;n#div#0;n#div#0;n#main#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -39,8 +40,8 @@
       <file leaf-file-name="main.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/markatix/css/main.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="254">
-              <caret line="9888" column="26" lean-forward="true" selection-start-line="9888" selection-start-column="26" selection-end-line="9888" selection-end-column="26" />
+            <state relative-caret-position="-356">
+              <caret line="3268" column="14" lean-forward="false" selection-start-line="3268" selection-start-column="0" selection-end-line="3268" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -49,33 +50,21 @@
       <file leaf-file-name="nav_accounts.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/oscar/partials/nav_accounts.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="260" column="0" lean-forward="false" selection-start-line="260" selection-start-column="0" selection-end-line="260" selection-end-column="0" />
+            <state relative-caret-position="585">
+              <caret line="335" column="0" lean-forward="true" selection-start-line="335" selection-start-column="0" selection-end-line="335" selection-end-column="0" />
+              <folding>
+                <element signature="n#style#0;n#a#0;n#li#0;n#ul#0;n#li#1;n#ul#0;n#li#1;n#ul#0;n#div#0;n#li#2;n#ul#0;n#nav#0;n#div#0;n#div#0;n#div#0;n#div#0;n#header#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="browse.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/oscar/catalogue/browse.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="7440">
+              <caret line="604" column="0" lean-forward="true" selection-start-line="604" selection-start-column="0" selection-end-line="604" selection-end-column="0" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="about.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/oscar/about.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1125">
-              <caret line="15" column="41" lean-forward="true" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="41" />
-              <folding>
-                <element signature="e#288#366#0#HTML" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="returns.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/oscar/returns.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="78" lean-forward="false" selection-start-line="8" selection-start-column="78" selection-end-line="8" selection-end-column="78" />
-              <folding>
-                <element signature="n#style#0;n#img#0;n#section#0;n#main#0;n#!!top" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -101,7 +90,15 @@
       <find>INR</find>
       <find>COLOR</find>
       <find>frame</find>
+      <find>mt-product1</find>
       <find>frame.png</find>
+      <find>banner-frame</find>
+      <find>.mt-main</find>
+      <find>.banner-frame</find>
+      <find>.</find>
+      <find>.container</find>
+      <find />
+      <find>.banner-frame</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/ikaya_oscar_apps/catalogue/middleware</dir>
@@ -118,17 +115,18 @@
         <option value="$PROJECT_DIR$/templates/oscar/catalogue/partials/add_to_basket_form.html" />
         <option value="$PROJECT_DIR$/ikaya_oscar_apps/catalogue/templatetags/custom_tags.py" />
         <option value="$PROJECT_DIR$/templates/oscar/catalogue/detail.html.bkp" />
-        <option value="$PROJECT_DIR$/templates/oscar/catalogue/browse.html" />
         <option value="$PROJECT_DIR$/templates/oscar/about.html" />
         <option value="$PROJECT_DIR$/templates/oscar/contact.html" />
         <option value="$PROJECT_DIR$/templates/oscar/catalogue/partials/gallery.html" />
         <option value="$PROJECT_DIR$/templates/oscar/catalogue/partials/product.html" />
         <option value="$PROJECT_DIR$/templates/oscar/partials/form_field.html" />
         <option value="$PROJECT_DIR$/templates/oscar/partials/nav_accounts.html" />
-        <option value="$PROJECT_DIR$/static/markatix/css/main.css" />
         <option value="$PROJECT_DIR$/templates/oscar/catalogue/detail.html" />
         <option value="$PROJECT_DIR$/templates/oscar/journal.html" />
+        <option value="$PROJECT_DIR$/static/markatix/css/main.css" />
         <option value="$PROJECT_DIR$/templates/oscar/promotions/home.html" />
+        <option value="$PROJECT_DIR$/changes.txt" />
+        <option value="$PROJECT_DIR$/templates/oscar/catalogue/browse.html" />
       </list>
     </option>
   </component>
@@ -319,6 +317,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="js.eslint.eslintPackage" value="" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
   </component>
   <component name="RunManager" selected="Django server.Ikaya">
     <configuration default="true" type="DjangoTestsConfigurationType" factoryName="Django tests">
@@ -627,14 +626,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/oscar/partials/form_field.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="885">
-          <caret line="59" column="48" lean-forward="true" selection-start-line="59" selection-start-column="48" selection-end-line="59" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/oscar/about.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2640">
@@ -658,8 +649,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1505129072606" expanded="false" signature="609:649" ph="..." />
-            <marker date="1505129072606" expanded="false" signature="713:797" ph="..." />
+            <element signature="n#style#0;n#div#0;n#div#0;n#main#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -700,8 +690,7 @@
         <state relative-caret-position="705">
           <caret line="47" column="36" lean-forward="false" selection-start-line="47" selection-start-column="36" selection-end-line="47" selection-end-column="36" />
           <folding>
-            <marker date="1505129072606" expanded="false" signature="609:649" ph="..." />
-            <marker date="1505129072606" expanded="false" signature="713:797" ph="..." />
+            <element signature="n#style#0;n#div#0;n#div#0;n#main#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -852,14 +841,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/oscar/layout.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="430">
-          <caret line="156" column="21" lean-forward="true" selection-start-line="156" selection-start-column="21" selection-end-line="156" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/oscar/500.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -932,30 +913,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/oscar/catalogue/detail.html.bkp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="609">
-          <caret line="81" column="72" lean-forward="true" selection-start-line="81" selection-start-column="72" selection-end-line="81" selection-end-column="72" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/oscar/catalogue/browse.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1920">
-          <caret line="128" column="56" lean-forward="false" selection-start-line="128" selection-start-column="51" selection-end-line="128" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/oscar/catalogue/detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="219" column="47" lean-forward="false" selection-start-line="219" selection-start-column="47" selection-end-line="219" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/oscar/journal.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1995">
@@ -982,17 +939,53 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/static/markatix/css/main.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="9888" column="26" lean-forward="true" selection-start-line="9888" selection-start-column="26" selection-end-line="9888" selection-end-column="26" />
+        <state relative-caret-position="-356">
+          <caret line="3268" column="14" lean-forward="false" selection-start-line="3268" selection-start-column="0" selection-end-line="3268" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/oscar/partials/nav_accounts.html">
+    <entry file="file://$PROJECT_DIR$/changes.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="260" column="0" lean-forward="false" selection-start-line="260" selection-start-column="0" selection-end-line="260" selection-end-column="0" />
+        <state relative-caret-position="495">
+          <caret line="33" column="43" lean-forward="true" selection-start-line="33" selection-start-column="43" selection-end-line="33" selection-end-column="43" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/oscar/promotions/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="511">
+          <caret line="289" column="0" lean-forward="true" selection-start-line="289" selection-start-column="0" selection-end-line="289" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#main#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/oscar/layout.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1530">
+          <caret line="156" column="21" lean-forward="true" selection-start-line="156" selection-start-column="21" selection-end-line="156" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/oscar/catalogue/detail.html.bkp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4275">
+          <caret line="57" column="16" lean-forward="true" selection-start-line="57" selection-start-column="16" selection-end-line="57" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/oscar/about.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="101" column="26" lean-forward="true" selection-start-line="101" selection-start-column="26" selection-end-line="101" selection-end-column="26" />
+          <folding>
+            <element signature="e#288#366#0#HTML" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1001,29 +994,34 @@
         <state relative-caret-position="120">
           <caret line="8" column="78" lean-forward="false" selection-start-line="8" selection-start-column="78" selection-end-line="8" selection-end-column="78" />
           <folding>
-            <element signature="n#style#0;n#img#0;n#section#0;n#main#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#section#0;n#main#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/oscar/promotions/home.html">
+    <entry file="file://$PROJECT_DIR$/templates/oscar/catalogue/detail.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="8" lean-forward="false" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
+        <state relative-caret-position="-2865">
+          <caret line="219" column="47" lean-forward="false" selection-start-line="219" selection-start-column="47" selection-end-line="219" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/oscar/partials/nav_accounts.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="585">
+          <caret line="335" column="0" lean-forward="true" selection-start-line="335" selection-start-column="0" selection-end-line="335" selection-end-column="0" />
           <folding>
-            <marker date="1505129072606" expanded="false" signature="609:649" ph="..." />
-            <marker date="1505129072606" expanded="false" signature="713:797" ph="..." />
+            <element signature="n#style#0;n#a#0;n#li#0;n#ul#0;n#li#1;n#ul#0;n#li#1;n#ul#0;n#div#0;n#li#2;n#ul#0;n#nav#0;n#div#0;n#div#0;n#div#0;n#div#0;n#header#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/oscar/about.html">
+    <entry file="file://$PROJECT_DIR$/templates/oscar/catalogue/browse.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1125">
-          <caret line="15" column="41" lean-forward="true" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="41" />
-          <folding>
-            <element signature="e#288#366#0#HTML" expanded="true" />
-          </folding>
+        <state relative-caret-position="7440">
+          <caret line="604" column="0" lean-forward="true" selection-start-line="604" selection-start-column="0" selection-end-line="604" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

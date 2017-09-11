@@ -1,18 +1,34 @@
-Changes that i have made.
+DEBUG
 
-< HOME SECTION >
-1. Gap between banners.
-2. Un-responsive banner links are now responsive.
-3. Instagram thumbnails are now linked to the original image on istagram.
-4. Instagram latest feeds update automatically.
+<HOME SECTION>
 
-< ABOUT SECTION >
-1. Embedded video available.
+1. Gap b/w banners resolved.
+2. Frame changed.
+3. Banner link working.
+4. Blue outline around Instagram thumbnails resolved.
+5. Instagram thumbnails are now linked to the original image on Instagram.
+6. Instagram latest feeds update automatically.
 
-< SHOP SECTION >
-1. Spelling corrections.
-2. Category logo removed - gallery page.
-3. Shipping txt added before general - product page.
-4.
+<ABOUT SECTION>
 
+7. Embedded video plays on page itself.
 
+<JOURNAL SECTION>
+
+8. Spacing of image and text.
+9. Static to dynamic image change.
+10. Text "read the article" in CAPS.
+
+<SHOP SECTION>
+
+11. Spelling corrections.
+12. category logo removed - gallery page.
+13. "Shipping" text added before general - product page.
+14. "Notify Me" changed.
+
+<CART>
+
+15. Number before "MY CART" removed.
+16. No. of articles line introduced.
+17. Background color changed.
+18. Close text removed just icon available.
