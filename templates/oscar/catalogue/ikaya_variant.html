@@ -1,0 +1,52 @@
+{% load form_tags %}
+{% load widget_tweaks %}
+{% load debug_tags staticfiles %}
+
+{% block control_group %}
+<div class="form-group {% if field.errors %}has-error{% endif %}">
+   <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+      <div class="panel panel-default">
+         <div class="panel-heading" role="tab" id="headingTwo">
+            <h4 class="panel-title">
+               <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+               <i class="pull-right"><img src="{% static "markatix/images/new/detail/arrow.png" %}" style="width:14px"></i>
+               SIZE
+               </a>
+               <a href="#" class="size-guide" data-toggle="modal" data-target="#login-modal">Size Guide</a>
+            </h4>
+         </div>
+         <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+            <div class="panel-body">
+               {% block controls %}
+               <div class="{% if style|default:"stacked" != 'stacked' %}col-sm-7{% endif %}">
+               {% block widget %}
+               {% if field.widget_type == 'CheckboxInput' %}
+               <label for="{{ field.auto_id }}" class="checkbox {% if field.field.required %}required{% endif %}">
+               {{ field.label|safe }}
+               {% render_field field class+="form-control" %}
+               </label>
+               {% else %}
+               {% render_field field class+="form-control" %}
+               {% endif %}
+               {% endblock %}
+               {% block errors %}
+               {% for error in field.errors %}
+               <span class="error-block"><i class="icon-exclamation-sign"></i> {{ error }}</span>
+               {% endfor %}
+               {% endblock %}
+               {% block help_text %}
+               {% if field.help_text %}
+               <span class='help-block'>
+               {# We allow HTML within form help fields #}
+               {{ field.help_text|safe }}
+               </span>
+               {% endif %}
+               {% endblock %}
+            </div>
+            {% endblock %}
+         </div>
+      </div>
+   </div>
+</div>
+</div>   
+{% endblock %}

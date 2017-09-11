@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b5930708-064f-4edf-b492-dba294513b3e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/oscar/catalogue/ikaya_variant.html" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/oscar/catalogue/detail.html.bkp" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/changes.txt" afterPath="$PROJECT_DIR$/changes.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/markatix/css/main.css" afterPath="$PROJECT_DIR$/static/markatix/css/main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/oscar/catalogue/browse.html" afterPath="$PROJECT_DIR$/templates/oscar/catalogue/browse.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/oscar/promotions/home.html" afterPath="$PROJECT_DIR$/templates/oscar/promotions/home.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/oscar/partials/form_field.html" afterPath="$PROJECT_DIR$/templates/oscar/partials/form_field.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -29,7 +27,7 @@
         <entry file="file://$PROJECT_DIR$/templates/oscar/promotions/home.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="511">
-              <caret line="289" column="0" lean-forward="true" selection-start-line="289" selection-start-column="0" selection-end-line="289" selection-end-column="0" />
+              <caret line="289" column="0" lean-forward="false" selection-start-line="289" selection-start-column="0" selection-end-line="289" selection-end-column="0" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#main#0;n#!!top" expanded="true" />
               </folding>
@@ -47,11 +45,25 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="form_field.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/oscar/partials/form_field.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1110">
+              <caret line="110" column="11" lean-forward="false" selection-start-line="110" selection-start-column="11" selection-end-line="110" selection-end-column="11" />
+              <folding>
+                <element signature="e#686#704#0#HTML" expanded="true" />
+                <element signature="e#1568#1586#0#HTML" expanded="true" />
+                <element signature="e#2450#2468#0#HTML" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="nav_accounts.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/oscar/partials/nav_accounts.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="585">
-              <caret line="335" column="0" lean-forward="true" selection-start-line="335" selection-start-column="0" selection-end-line="335" selection-end-column="0" />
+              <caret line="335" column="0" lean-forward="false" selection-start-line="335" selection-start-column="0" selection-end-line="335" selection-end-column="0" />
               <folding>
                 <element signature="n#style#0;n#a#0;n#li#0;n#ul#0;n#li#1;n#ul#0;n#li#1;n#ul#0;n#div#0;n#li#2;n#ul#0;n#nav#0;n#div#0;n#div#0;n#div#0;n#div#0;n#header#0;n#!!top" expanded="true" />
               </folding>
@@ -62,14 +74,22 @@
       <file leaf-file-name="browse.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/oscar/catalogue/browse.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7440">
-              <caret line="604" column="0" lean-forward="true" selection-start-line="604" selection-start-column="0" selection-end-line="604" selection-end-column="0" />
+            <state relative-caret-position="2265">
+              <caret line="604" column="0" lean-forward="false" selection-start-line="604" selection-start-column="0" selection-end-line="604" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="HTML File" />
+      </list>
+    </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -119,7 +139,6 @@
         <option value="$PROJECT_DIR$/templates/oscar/contact.html" />
         <option value="$PROJECT_DIR$/templates/oscar/catalogue/partials/gallery.html" />
         <option value="$PROJECT_DIR$/templates/oscar/catalogue/partials/product.html" />
-        <option value="$PROJECT_DIR$/templates/oscar/partials/form_field.html" />
         <option value="$PROJECT_DIR$/templates/oscar/partials/nav_accounts.html" />
         <option value="$PROJECT_DIR$/templates/oscar/catalogue/detail.html" />
         <option value="$PROJECT_DIR$/templates/oscar/journal.html" />
@@ -127,6 +146,11 @@
         <option value="$PROJECT_DIR$/templates/oscar/promotions/home.html" />
         <option value="$PROJECT_DIR$/changes.txt" />
         <option value="$PROJECT_DIR$/templates/oscar/catalogue/browse.html" />
+        <option value="$PROJECT_DIR$/../../../Personal/Github/14E47.github.io/index.html" />
+        <option value="$PROJECT_DIR$/../../../Personal/Github/14E47.github.io/wsk.html" />
+        <option value="$PROJECT_DIR$/templates/oscar/catalogue/ikaya_variant.py" />
+        <option value="$PROJECT_DIR$/templates/oscar/catalogue/ikaya_variant.html" />
+        <option value="$PROJECT_DIR$/templates/oscar/partials/form_field.html" />
       </list>
     </option>
   </component>
@@ -315,9 +339,10 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Personal/Github/14E47.github.io" />
     <property name="js.eslint.eslintPackage" value="" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
   </component>
   <component name="RunManager" selected="Django server.Ikaya">
     <configuration default="true" type="DjangoTestsConfigurationType" factoryName="Django tests">
@@ -626,42 +651,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/oscar/about.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2640">
-          <caret line="176" column="0" lean-forward="false" selection-start-line="176" selection-start-column="0" selection-end-line="176" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/oscar/partials/nav_accounts.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1260">
-          <caret line="84" column="125" lean-forward="false" selection-start-line="84" selection-start-column="125" selection-end-line="84" selection-end-column="125" />
-          <folding>
-            <element signature="n#style#0;n#a#0;n#li#3;n#ul#0;n#div#0;n#li#2;n#ul#0;n#nav#0;n#div#0;n#div#0;n#div#0;n#div#0;n#header#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/oscar/promotions/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#main#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/markatix/css/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60705">
-          <caret line="4047" column="16" lean-forward="true" selection-start-line="4047" selection-start-column="16" selection-end-line="4047" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/oscar/catalogue/partials/add_to_basket_form.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
@@ -921,14 +910,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/oscar/partials/form_field.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="59" column="48" lean-forward="false" selection-start-line="59" selection-start-column="48" selection-end-line="59" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/oscar/catalogue/partials/product.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -956,7 +937,7 @@
     <entry file="file://$PROJECT_DIR$/templates/oscar/promotions/home.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="511">
-          <caret line="289" column="0" lean-forward="true" selection-start-line="289" selection-start-column="0" selection-end-line="289" selection-end-column="0" />
+          <caret line="289" column="0" lean-forward="false" selection-start-line="289" selection-start-column="0" selection-end-line="289" selection-end-column="0" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#main#0;n#!!top" expanded="true" />
           </folding>
@@ -967,14 +948,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1530">
           <caret line="156" column="21" lean-forward="true" selection-start-line="156" selection-start-column="21" selection-end-line="156" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/oscar/catalogue/detail.html.bkp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4275">
-          <caret line="57" column="16" lean-forward="true" selection-start-line="57" selection-start-column="16" selection-end-line="57" selection-end-column="16" />
           <folding />
         </state>
       </provider>
@@ -1010,17 +983,71 @@
     <entry file="file://$PROJECT_DIR$/templates/oscar/partials/nav_accounts.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="585">
-          <caret line="335" column="0" lean-forward="true" selection-start-line="335" selection-start-column="0" selection-end-line="335" selection-end-column="0" />
+          <caret line="335" column="0" lean-forward="false" selection-start-line="335" selection-start-column="0" selection-end-line="335" selection-end-column="0" />
           <folding>
             <element signature="n#style#0;n#a#0;n#li#0;n#ul#0;n#li#1;n#ul#0;n#li#1;n#ul#0;n#div#0;n#li#2;n#ul#0;n#nav#0;n#div#0;n#div#0;n#div#0;n#div#0;n#header#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/oscar/catalogue/detail.html.bkp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="585">
+          <caret line="267" column="0" lean-forward="true" selection-start-line="267" selection-start-column="0" selection-end-line="267" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../Personal/Github/14E47.github.io/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="20" column="31" lean-forward="true" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../Personal/Github/14E47.github.io/wsk.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="38" lean-forward="false" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/oscar/catalogue/ikaya_variant.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/oscar/partials/form_field.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1110">
+          <caret line="110" column="11" lean-forward="false" selection-start-line="110" selection-start-column="11" selection-end-line="110" selection-end-column="11" />
+          <folding>
+            <element signature="e#686#704#0#HTML" expanded="true" />
+            <element signature="e#1568#1586#0#HTML" expanded="true" />
+            <element signature="e#2450#2468#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/oscar/catalogue/ikaya_variant.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="51" column="14" lean-forward="false" selection-start-line="51" selection-start-column="14" selection-end-line="51" selection-end-column="14" />
+          <folding>
+            <element signature="e#671#689#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/oscar/catalogue/browse.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7440">
-          <caret line="604" column="0" lean-forward="true" selection-start-line="604" selection-start-column="0" selection-end-line="604" selection-end-column="0" />
+        <state relative-caret-position="2265">
+          <caret line="604" column="0" lean-forward="false" selection-start-line="604" selection-start-column="0" selection-end-line="604" selection-end-column="0" />
           <folding />
         </state>
       </provider>
