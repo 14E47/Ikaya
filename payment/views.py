@@ -10,7 +10,7 @@ from datetime import datetime
 from pytz import timezone 
 from oscar.apps.payment.models import Source
 from decimal import Decimal as D
-import logging
+import logging, pdb
 
 from django.views.generic import RedirectView, View
 from django.conf import settings
@@ -103,21 +103,9 @@ def fail(request):
     return render(request,'response_fail.html') 
 
 
-
-def banktrasfer(request):
-    try:
-        partner_diplay_name = (request.get_host()).split('.')[0]
-        partner_obj = Partner.objects.filter(name=partner_diplay_name)
-        partner_shop_obj = PartnerShop.objects.filter(partner_id=partner_obj)[0]
-    except:
-        partner_shop_obj = None
-    return render_to_response('checkout/bt_popup.html', context_instance=RequestContext(request,{'partner_shop_obj': partner_shop_obj}))
-
-
 class SuccessResponseView(PaymentDetailsView):
     template_name = 'checkout/payment_details.html'
     template_name_preview = 'checkout/preview.html'
-    # preview = True
     preview = False
 
     @property
@@ -199,15 +187,8 @@ class SuccessResponseView(PaymentDetailsView):
             amount = float(request.POST['chargetotal'])
             currency = request.basket.currency
             basket_id = request.basket.id
-
-            # razorpay_api_key = settings.RAZORPAY_API_KEY
-            # razorpay_api_secret = settings.RAZORPAY_API_SECRET
-
-            # razor = razorpay.Client(auth=(razorpay_api_key, razorpay_api_secret))
-            # razorpay_data = razor.payment.fetch(payment_id)
-            # razorpay_amount = (float(razorpay_data['amount'])/100)
-            # razorpay_details = {'payment_id':payment_id, 'amount':razorpay_amount, 'currency':currency, 
-            #         'email':razorpay_data['email'], 'contact':razorpay_data['contact']}
+            razorpay_details = {'payment_id':payment_id, 'amount':amount, 'currency':currency, 
+                    'email': 'test@yopmail.com', 'contact': '7568373724'}
 
             if payment_id:
                 pass
@@ -221,42 +202,30 @@ class SuccessResponseView(PaymentDetailsView):
             return HttpResponseRedirect(reverse('basket:summary'))
 
         # Reload frozen basket which is specified in the URL
-        # basket = self.load_frozen_basket(kwargs['basket_id'])
-        basket = request.basket
-        print(request.POST)
+        basket = self.load_frozen_basket(kwargs['basket_id'])
+        order_number = self.generate_order_number(basket)
+        self.checkout_session.set_order_number(order_number)
+
         if not basket:
             messages.error(self.request, error_msg)
             return HttpResponseRedirect(reverse('basket:summary'))
 
-        #submission = self.build_submission(basket=basket)
-        submission = self.build_submission(basket=basket)
-        order_number = self.generate_order_number(basket)
-
-        self.checkout_session.set_order_number(order_number)
-
-        source_type, is_created = SourceType.objects.get_or_create(
-            name='Ikaya')
-        source = Source(source_type=source_type,
-				currency=currency,
-                        amount_allocated=amount,
-                        amount_debited=amount)
-        self.add_payment_source(source)
-        self.add_payment_event('complete', amount ,
-                               reference=payment_id)
+        submission = self.build_submission(basket=basket, context={'payment_id': payment_id, 'email': 'test@yopmail.com', 'payment_amount': amount})
         return self.submit(**submission)
 
     def build_submission(self, **kwargs):
-        # email = kwargs['context']['email']
-        #pay = kwargs['payment_id']
-        #amounts = kwargs['amount']
-#        kwargs.pop('context')
+        email = kwargs['context']['email']
+        payment_id = kwargs['context']['payment_id']
+        payment_amount = kwargs['context']['payment_amount']
+        kwargs.pop('context')
         
         submission = super(
             SuccessResponseView, self).build_submission(**kwargs)
 
-        #submission['order_kwargs']['email'] = email
-        #submission['payment_kwargs']['payment_id'] = pay
-        #submission['payment_kwargs']['amount'] = amounts         
+        submission['order_kwargs']['email'] = email
+        submission['payment_kwargs']['payment_id'] = payment_id
+        submission['payment_kwargs']['payment_amount'] = payment_amount    
+
         return submission
 
     def handle_payment(self, order_number, total, **kwargs):
@@ -272,8 +241,11 @@ class SuccessResponseView(PaymentDetailsView):
 
         # Record payment source and event
         source_type, is_created = SourceType.objects.get_or_create(
-            name='Razorpay')
-        source = Source(source_type=source_type)
+            name='ICICI')
+        source = Source(source_type=source_type,
+                        currency=total.currency,
+                        amount_allocated=kwargs['payment_amount'],
+                        amount_debited=kwargs['payment_amount'])
         self.add_payment_source(source)
-        self.add_payment_event('complete')
-	
+        self.add_payment_event('complete', kwargs['payment_amount'] ,
+                               reference=kwargs['payment_id'])
