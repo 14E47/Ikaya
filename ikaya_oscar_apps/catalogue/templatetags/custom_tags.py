@@ -128,5 +128,7 @@ def get_instagram_feed():
     finaldata = []
     for i in range(1,20):
         image = output['items'][i]['images']['thumbnail']['url']
-        finaldata.append(image)
+        link=output['items'][i]['link']
+        new=[image,link]
+        finaldata.append(new)
     return finaldata

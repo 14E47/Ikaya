@@ -9895,6 +9895,7 @@ l,btn-box li:after {
         -webkit-transition:all .4s ease-in-out;
         transition:all .4s ease-in-out;
         background-image: url(http://97.74.4.142:8000/static/markatix/images/new/frame.png);
+        /*background-image: url(http://localhost:8000/static/markatix/images/new/frame.png);*/
         background-size: 100% 100%;
         background-repeat: no-repeat;
     }
@@ -10134,7 +10135,7 @@ l,btn-box li:after {
       margin:10px 0px;
       color:#7B674F;
     }
-    .terms .sub-heading
+    .terms .sub-heading h2
     {
       padding-top:0px;
       line-height:0.9;

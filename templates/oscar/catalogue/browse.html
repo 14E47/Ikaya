@@ -58,7 +58,7 @@
 
 {% block content %}
 
-<!--
+
     <form method="get" class="form-horizontal">
         {#Render other search params in a hidden block#}
         <div style="display:none">
@@ -93,30 +93,50 @@
             </p>
         {% endif %}
     </form>
--->
+
 
     {% if products %}
+
+        <!-- mt main starts here -->
+
         <main id="mt-main">
 				<!-- Mt Contact Banner of the Page -->
+
+                <div>
+
+                    <!-- sec 1 -->
+
 					<article class="hidden-xs hidden-sm">
 						<img src="{% static "markatix/images/new/product/01.jpg"%}" alt="Paris" data-parallax='{"y": 200}'/>
 					</article>
 					<article class="hidden-lg hidden-md">
 						<img src="{% static "markatix/images/new/product/01.jpg"%}"/>
 					</article>
+
+                    <!-- end sec 1 -->
+                    <!-- sec 2 -->
+
 					<div class="container">
 						<div class="row">
 							<!-- sidebar of the Page start here -->
 							<div class="wow fadeInRight" data-wow-delay="0.4s">
+
 								<!-- mt shoplist header start here -->
+
 								<header class="mt-shoplist-header equalh">
                                     <div class="mt-textbox equalh hidden-xs">
-										<img src="{% static "markatix/images/new/about/07.png" %}" style="width:120px;height:120px;float:left" >
+{#										<img src="{% static "markatix/images/new/about/07.png" %}" style="width:120px;height:120px;float:left" >#}
                                         <h4 style="color:#ac997d;margin:0;margin-left: 10px;" class="vcenter1">{{ category.name }}</h4>
-									</div><!-- mt-textbox end here -->
+									</div>
+
+                                    <!-- mt-textbox end here -->
 									<!-- btn-box start here -->
+
 									<div class="btn-box vcenter1">
 										<ul class="list-inline">
+
+                                            <!-- REFINE SEARCH STARTS -->
+
 											<li class="fil">
 												<a href="#" class="drop-link">
 													REFINE YOUR SEARCH <i aria-hidden="true" class="fa fa-angle-down"></i>
@@ -124,254 +144,314 @@
 												<div class="drop filter-width">
 													<div>
 														<div class="panel">
+
 															<div class="panel-heading">
-																	<!-- Tabs -->
+                                                                <!-- Tabs -->
 																<ul class="nav panel-tabs">
 																	<li class="active tab-li"><a href="#tab1" data-toggle="tab">PRICE</a></li>
 																	<li class="tab-li"><a href="#tab2" data-toggle="tab">CRAFT</a></li>
 																	<li class="tab-li"><a href="#tab3" data-toggle="tab">FABRIC</a></li>
 																	<li class="tab-li"><a href="#tab4" data-toggle="tab">COLOR</a></li>
 																</ul>
+                                                                <!-- Tabs end -->
 															</div>
+
 															<div class="panel-body">
 																<div class="tab-content">
+
+
 																	<div class="tab-pane active" id="tab1">
 																		<div class="form" >
+
 																			<form action='/catalogue/' method='GET'>
+
                                                                             <div class="col-xs-5 col-sm-3">
 																				<div class="row">
 																					<input name='price_min' type="text">
 																				</div>
 																			</div>
+
 																			<div class="col-xs-2 col-sm-1">
 																				<div class="row text-center vend fp">
 																					<span>TO</span>
 																				</div>
 																			</div>
+
 																			<div class="col-xs-5 col-sm-3">
 																				<div class="row">
 																					<input name='price_max' type="text">
 																				</div>
 																			</div>
+
 																			<div class="col-sm-3">
 																				<button>GO</button>
 																			</div>
-                                                                            </form>
-																		</div>
 
+                                                                            </form>
+
+																		</div>
 																	</div>
+
+
                                                                     <div class="tab-pane filter" id="tab2">
                                                                         <div class="continents" style="font-size:12px;width:100%;">
+
                                                                             <label>
                                                                                 <input type="checkbox" name="fl-cont" value="kadwa" id="kadwa"/>
                                                                                 <span></span>
                                                                                 <p>Kadwa</p>
                                                                             </label>
+
                                                                             <label>
                                                                                 <input type="checkbox" name="fl-cont" value="cutwork" id="cutwork"/>
                                                                                 <span></span>
                                                                                 <p>Cutwork</p>
                                                                             </label>
+
                                                                             <label>
                                                                                 <input type="checkbox" name="fl-cont" value="khimkab" id="khimkab"/>
                                                                                 <span></span>
-                                                                                <p>Khimkab</p>
+                                                                                <p>Khinkhab</p>
                                                                             </label>
+
                                                                             <label>
                                                                                 <input type="checkbox" name="fl-cont" value="utchint" id="utchint"/>
                                                                                 <span></span>
                                                                                 <p>Utchint</p>
                                                                             </label>
+
                                                                             <label>
                                                                                 <input type="checkbox" name="fl-cont" value="tanchoi" id="tanchoi"/>
                                                                                 <span></span>
                                                                                 <p style="margin-top:2px;">Tanchoi</p>
                                                                             </label>
+
                                                                             <label>
                                                                                 <input type="checkbox" name="fl-cont" value="ajrakprinting" id="ajrakprinting"/>
                                                                                 <span></span>
                                                                                 <p>Ajrak Printing</p>
                                                                             </label>
+
                                                                             <label>
                                                                                 <input type="checkbox" name="fl-cont" value="digitalprint" id="digitalprint"/>
                                                                                 <span></span>
                                                                                 <p>Digital Print</p>
                                                                             </label>
+
                                                                             <label>
                                                                                 <input type="checkbox" name="fl-cont" value="blockprint" id="blockprint"/>
                                                                                 <span></span>
                                                                                 <p style="margin-top:2px;">Block Print</p>
                                                                             </label>
+
                                                                             <label>
                                                                                 <input type="checkbox" name="fl-cont" value="kantha" id="kantha"/>
                                                                                 <span></span>
                                                                                 <p>Kantha</p>
                                                                             </label>
+
                                                                        </div>
                                                                     </div>
+
+
                                                                     <div class="tab-pane filter" id="tab3">
                                                                         <form>
+
                                                                             <label>
                                                                                 <input type='checkbox' name="fl-size" value="silk" id="silk">
                                                                                 <span></span>
                                                                                 <p>Silk</p>
                                                                             </label>
+
                                                                             <label>
                                                                                 <input type='checkbox' name="fl-size" value="silkgeorgette" id="silkgeorgette">
                                                                                 <span></span>
                                                                                 <p>Silk Georgette</p>
                                                                             </label>
+
                                                                             <label>
                                                                                 <input type='checkbox' name="fl-size" value="silktassur" id="silktassur">
                                                                                 <span></span>
-                                                                                <p>Silk Tassur</p>
+                                                                                <p>Silk Tusser</p>
                                                                             </label>
+
                                                                             <label>
                                                                                 <input type='checkbox' name="fl-size" value="georgette" id="georgette">
                                                                                 <span></span>
                                                                                 <p>Georgette</p>
                                                                             </label>
+
                                                                             <label>
                                                                                 <input type='checkbox' name="fl-size" value="cotton" id="cotton">
                                                                                 <span></span>
                                                                                 <p>Cotton</p>
                                                                             </label>
+
                                                                             <label>
                                                                                 <input type='checkbox' name="fl-size" value="linen" id="linen">
                                                                                 <span></span>
                                                                                 <p>Linen</p>
                                                                             </label>
+
                                                                             <label>
                                                                                 <input type='checkbox' name="fl-size" value="kora" id="kora">
                                                                                 <span></span>
                                                                                 <p>Kora</p>
                                                                             </label>
+
                                                                             <label>
                                                                                 <input type='checkbox' name="fl-size" value="organza" id="organza">
                                                                                 <span></span>
                                                                                 <p>Organza</p>
                                                                             </label>
+
                                                                             <label>
                                                                                 <input type='checkbox' name="fl-size" value="chanderi" id="chanderi">
                                                                                 <span></span>
                                                                                 <p>Chanderi</p>
                                                                             </label>
+
                                                                             <label>
                                                                                 <input type='checkbox' name="fl-size" value="tassur" id="tassur">
                                                                                 <span></span>
-                                                                                <p>Tassur</p>
+                                                                                <p>Tusser</p>
                                                                             </label>
+
                                                                             <label>
                                                                                 <input type='checkbox' name="fl-size" value="benarasinet" id="benarasinet">
                                                                                 <span></span>
-                                                                                <p>Benarasi Net</p>
+                                                                                <p>Banarasi Net</p>
                                                                             </label>
+
                                                                             <label>
                                                                                 <input type='checkbox' name="fl-size" value="crepe" id="crepe">
                                                                                 <span></span>
                                                                                 <p>Crepe</p>
                                                                             </label>
+
                                                                             <label>
                                                                                 <input type='checkbox' name="fl-size" value="chiffon" id="chiffon">
                                                                                 <span></span>
                                                                                 <p>Chiffon</p>
                                                                             </label>
+
                                                                             <label>
                                                                                 <input type='checkbox' name="fl-size" value="mushroo" id="mushroo">
                                                                                 <span></span>
                                                                                 <p>Mushroo</p>
                                                                             </label>
+
                                                                             <label>
                                                                                 <input type='checkbox' name="fl-size" value="tissue" id="tissue">
                                                                                 <span></span>
                                                                                 <p>Tissue</p>
                                                                             </label>
+
                                                                             <label>
                                                                                 <input type='checkbox' name="fl-size" value="tissuenet" id="tissuenet">
                                                                                 <span></span>
                                                                                 <p>Tissue Net</p>
                                                                             </label>
+
                                                                         </form>
                                                                     </div>
+
 																	<div class="tab-pane filter" id="tab4">
 																		<form>
+
 																			<label>
 																				<input type='checkbox' name="fl-colour" value="pink" id="pink">
 																				<span></span>
 																				<p>Pink</p>
 																			</label>
+
 																			<label>
 																				<input type='checkbox' name="fl-colour" value="blue" id="blue">
 																				<span></span>
 																				<p>Blue</p>
 																			</label>
+
 																			<label>
 																				<input type='checkbox' name="fl-colour" value="green" id="green">
 																				<span></span>
 																				<p>Green</p>
 																			</label>
+
 																			<label>
 																				<input type='checkbox' name="fl-colour" value="orange" id="orange">
 																				<span></span>
 																				<p>Orange</p>
 																			</label>
+
                                                                             <label>
 																				<input type='checkbox' name="fl-colour" value="Yellow" id="Yellow">
 																				<span></span>
 																				<p>Yellow</p>
 																			</label>
+
                                                                             <label>
 																				<input type='checkbox' name="fl-colour" value="copper" id="copper">
 																				<span></span>
 																				<p>Copper</p>
 																			</label>
+
                                                                             <label>
 																				<input type='checkbox' name="fl-colour" value="purple" id="purple">
 																				<span></span>
 																				<p>Purple</p>
 																			</label>
+
                                                                             <label>
 																				<input type='checkbox' name="fl-colour" value="red" id="red">
 																				<span></span>
 																				<p>Red</p>
 																			</label>
+
                                                                             <label>
 																				<input type='checkbox' name="fl-colour" value="peach" id="peach">
 																				<span></span>
 																				<p>Peach</p>
 																			</label>
+
                                                                             <label>
 																				<input type='checkbox' name="fl-colour" value="mint" id="mint">
 																				<span></span>
 																				<p>Mint</p>
 																			</label>
+
                                                                             <label>
 																				<input type='checkbox' name="fl-colour" value="black" id="black">
 																				<span></span>
 																				<p>Black</p>
 																			</label>
+
                                                                             <label>
 																				<input type='checkbox' name="fl-colour" value="grey" id="grey">
 																				<span></span>
 																				<p>Grey</p>
 																			</label>
+
                                                                             <label>
 																				<input type='checkbox' name="fl-colour" value="beige" id="beige">
 																				<span></span>
 																				<p>Beige</p>
 																			</label>
+
                                                                             <label>
 																				<input type='checkbox' name="fl-colour" value="ivory" id="ivory">
 																				<span></span>
 																				<p>Ivory</p>
 																			</label>
+
                                                                             <label>
 																				<input type='checkbox' name="fl-colour" value="teal" id="teal">
 																				<span></span>
 																				<p>Teal</p>
 																			</label>
+
 																		</form>
 																	</div>
+
 																</div>
 															</div>
 
@@ -379,6 +459,10 @@
 													</div>
 												</div>
 											</li>
+
+                                            <!-- REFINE SEARCH ENDS -->
+                                            <!-- SORT BY STARTS -->
+
 											<li class="srt">
 												<a href="#" class="drop-link" style="border-right:0px;">
 													SORT BY <i aria-hidden="true" class="fa fa-angle-down"></i>
@@ -393,11 +477,14 @@
 												</div>
 											</li>
 
-										</ul>
-									</div><!-- btn-box end here -->
-									<!-- mt-textbox start here -->
+                                            <!-- SORT BY ENDS -->
 
-								</header><!-- mt shoplist header end here -->
+										</ul>
+									</div>
+								</header>
+
+
+                                <!-- mt shoplist header end here -->
 								<div class="row product_list">
 									<!-- BEGIN PRODUCTS -->
                                     {% for product in products %}
@@ -415,8 +502,13 @@
 
 						</div>
 					</div>
+
+                    <!-- end sec 2 -->
+
 				</div>
-			</main><!-- mt main end here -->
+        </main>
+
+        <!-- mt main end here -->
 
 
 {#        <section>#}
@@ -434,6 +526,8 @@
     {% endif %}
 
 {% endblock content %}
+
+
 {% block extrastyles  %}
     <style>
         .alert-warning,.alert-success
@@ -442,53 +536,57 @@
         }
     </style>
 {% endblock %}
+
+
 {% block extrascripts  %}
 
-    <script src="{% static "markatix/js/main.js" %}"  type="text/javascript"></script>
+    <script src="{% static "markatix/js/main.js" %}"  type="text/javascript"> </script>
     <script>
         var $filterCheckboxes = $('input[type="checkbox"]');
-        $filterCheckboxes.on('change', function() {
-
+        $filterCheckboxes.on('change', function()
+        {
         var selectedFilters = {};
 
-        $filterCheckboxes.filter(':checked').each(function() {
-
-        if (!selectedFilters.hasOwnProperty(this.name)) {
-            selectedFilters[this.name] = [];
+        $filterCheckboxes.filter(':checked').each(function()
+            {
+            if (!selectedFilters.hasOwnProperty(this.name))
+            {
+                selectedFilters[this.name] = [];
             }
-
-            selectedFilters[this.name].push(this.value);
-
-            });
+                selectedFilters[this.name].push(this.value);
+            }
+        );
 
         // create a collection containing all of the filterable elements
+
         var $filteredResults = $('.pro-grid');
         // loop over the selected filter name -> (array) values pairs
-        $.each(selectedFilters, function(name, filterValues) {
-
+        $.each(selectedFilters, function(name, filterValues)
+        {
         // filter each .flower element
-        $filteredResults = $filteredResults.filter(function() {
-
+        $filteredResults = $filteredResults.filter(function()
+        {
         var matched = false,
         currentFilterValues = $(this).data('category').split(' ');
 
         // loop over each category value in the current .flower's data-category
-        $.each(currentFilterValues, function(_, currentFilterValue) {
-
+        $.each(currentFilterValues, function(_, currentFilterValue)
+        {
         // if the current category exists in the selected filters array
         // set matched to true, and stop looping. as we're ORing in each
         // set of filters, we only need to match once
 
-        if ($.inArray(currentFilterValue, filterValues) != -1) {
-            matched = true;
-            return false;
-            }
-            });
+            if ($.inArray(currentFilterValue, filterValues) != -1)
+                {
+                    matched = true;
+                    return false;
+                }
+        });
 
             // if matched is true the current .flower element is returned
             return matched;
 
-            });
+        });
         });
 
         $('.pro-grid').hide().filter($filteredResults).show();
@@ -498,6 +596,8 @@
     </script>
 
 {% endblock %}
+
+
 {% block onbodyload %}
     {{ block.super }}
     oscar.search.init();
