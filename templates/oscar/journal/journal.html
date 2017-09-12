@@ -6,10 +6,9 @@
 {% block content %}
     <main id="mt-main">
         {% for journal_section in journals %}
-           <section class="equalh journel wow slideInUp" data-wow-delay="0.6s">
+           <section class="equalh journel wow slideInUp" data-wow-delay="0.6s" style="padding: 20px 20px 20px 20px">
               <div class="col-sm-8">
                  <div class="row">
-
                     <a href="/journal/{{journal_section.0.slug}}" class="hovereffect">
                        <img src="{{ journal_section.0.images.0.image.url }}">
                        <div class="overlay">
@@ -20,11 +19,12 @@
               <div class="col-sm-4 vend2">
                  <div class="texts">
                     <h3 class="title mt">{{journal_section.0.posted_month|upper}}</h3>
-                    <h2 class="heading">{{journal_section.0.title|safe}}</h2>
-                    <a href="/journal/{{journal_section.0.slug}}" class="link">read article</a>
+                    <h2 style="margin:20px 0px" class="heading">{{journal_section.0.title|safe}}</h2>
+                    <a href="/journal/{{journal_section.0.slug}}" class="link">READ THE ARTICLE</a>
                  </div>
               </div>
            </section>
+
            <div class="container">
               <div class="row">
                  <div class="col-xs-12">
@@ -35,7 +35,7 @@
                            <div class="col-sm-6  wow slideInUp" data-wow-delay="0.6s">
                               <div class="white widthleft">
                                  <a href="/journal/{{journal_section.1.slug}}" class="hovereffect">
-                                    <img src="{% static "markatix/images/new/journel/02.jpg" %}"/>
+                                    <img style="margin:20px 0px" src="{{journal_section.1.images.0.image.url}}"/>
                                     <div class="overlay">
                                     </div>
                                  </a>
@@ -44,10 +44,10 @@
                               <div class="textsleft">
                                  <h3 class="title">{{journal_section.1.posted_month|upper}}</h3>
                                  <h1 class="heading">{{journal_section.1.title|safe}}</h1>
-                                 <p class="content">
+                                 <p style="margin:20px 0px" class="content">
                                     {{journal_section.1.summary|safe}}
                                  </p>
-                                 <a href="/journal/{{journal_section.1.slug}}" class="link">read article</a>
+                                 <a href="/journal/{{journal_section.1.slug}}" class="link">READ THE ARTICLE</a>
                               </div>
                            </div>
                         {% endif %}
@@ -56,7 +56,7 @@
                            <div class="col-sm-6  wow slideInUp" data-wow-delay="0.6s">
                               <div class="white widthright">
                                  <a href="/journal/{{journal_section.2.slug}}" class="hovereffect">
-                                    <img src="{% static "markatix/images/new/journel/02.jpg" %}"/>
+                                    <img style="margin:20px 0px" src="{{journal_section.2.images.0.image.url}}"/>
                                     <div class="overlay">
                                     </div>
                                  </a>
@@ -65,10 +65,10 @@
                               <div class="textsright">
                                  <h3 class="title">{{journal_section.2.posted_month|upper}}</h3>
                                  <h1 class="heading">{{journal_section.2.title|safe}}</h1>
-                                 <p class="content">
+                                 <p style="margin:20px 0px" class="content">
                                     {{journal_section.2.summary|safe}}
                                  </p>
-                                 <a href="/journal/{{journal_section.2.slug}}" class="link">read article</a>
+                                 <a href="/journal/{{journal_section.2.slug}}" class="link">READ THE ARTICLE</a>
                               </div>
                            </div>
                         {% endif %}
@@ -80,7 +80,7 @@
                            <div class="col-sm-6  wow slideInUp" data-wow-delay="0.6s">
                               <div class="white widthleft">
                                  <a href="/journal/{{journal_section.3.slug}}"  class="hovereffect">
-                                    <img src="{% static "markatix/images/new/journel/02.jpg" %}"/>
+                                    <img style="margin:20px 0px" src="{{journal_section.3.images.0.image.url}}"/>
                                     <div class="overlay">
                                     </div>
                                  </a>
@@ -89,10 +89,10 @@
                               <div class="textsleft">
                                  <h3 class="title">{{journal_section.3.posted_month|upper}}</h3>
                                  <h1 class="heading">{{journal_section.3.title|safe}}</h1>
-                                 <p class="content">
+                                 <p style="margin:20px 0px" class="content">
                                     {{journal_section.3.summary|safe}}
                                  </p>
-                                 <a href="/journal/{{journal_section.3.slug}}" class="link">read article</a>
+                                 <a href="/journal/{{journal_section.3.slug}}" class="link">READ THE ARTICLE</a>
                               </div>
                            </div>
                         {% endif %}
@@ -101,7 +101,7 @@
                            <div class="col-sm-6  wow slideInUp" data-wow-delay="0.6s">
                               <div class="white widthright">
                                  <a href="/journal/{{journal_section.4.slug}}"  class="hovereffect">
-                                    <img src="{% static "markatix/images/new/journel/02.jpg" %}"/>
+                                    <img style="margin:20px 0px " src="{{journal_section.4.images.0.image.url}}"/>
                                     <div class="overlay">
                                     </div>
                                  </a>
@@ -110,10 +110,10 @@
                               <div class="textsright">
                                  <h3 class="title">{{journal_section.4.posted_month|upper}}</h3>
                                  <h1 class="heading">{{journal_section.4.title|safe}}</h1>
-                                 <p class="content">
+                                 <p style="margin:20px 0px" class="content">
                                     {{journal_section.4.summary|safe}}
                                  </p>
-                                 <a href="/journal/{{journal_section.4.slug}}" class="link">read article</a>
+                                 <a href="/journal/{{journal_section.4.slug}}" class="link">READ THE ARTICLE</a>
                               </div>
                            </div>
                         {% endif %}
