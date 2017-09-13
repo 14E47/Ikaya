@@ -27,9 +27,10 @@
             {% csrf_token %}
             <p>{% trans "You can get an email alert when this product is back in stock." %}</p>
             {% include "partials/form_fields.html" with form=alert_form %}
-            <button type="submit" class="btn btn-lg btn-info btn-add-to-basket" data-loading-text="{% trans 'Submitting...' %}">{% trans "NOTIFY ME" %}</button>
+            <button style="background-color: #7B674F; border: hidden" type="submit" class="btn btn-lg btn-info btn-add-to-basket" data-loading-text="{% trans 'Submitting...' %}">{% trans "Notify Me" %}</button>
         </form>
     {% endif %}
+    <br>
     {% iffeature "wishlists" %}
         {% include "catalogue/partials/add_to_wishlist.html" %}
     {% endiffeature %}

@@ -57,10 +57,11 @@
                         </div>
 
 
-                        <div class="col-sm-4 wow slideInUp" data-wow-duration="2s">
+                        <div class="col-sm-4 wow slideInUp" data-wow-duration="2s" style="padding: 0 0 30px 0">
                             <div class="row">
                                 <div class="hovereffect">
                                     <img src="{{home_sections.image.url}}" alt="image description">
+{#                                    <img src="{% static "markatix/images/new/04.jpeg"%}" alt="image description">#}
                                     <div class="overlay">
                                     </div>
                                 </div>
@@ -91,6 +92,7 @@
                             <div class="row">
                                 <div class="hovereffect">
                                     <img src="{{home_sections.image.url}}" alt="image description">
+{#                                    <img src="{% static "markatix/images/new/04.jpeg"%}" alt="image description">#}
                                     <div class="overlay">
                                     </div>
                                 </div>
@@ -223,9 +225,11 @@
                     <div class="col-sm-8 wow slideInUp" data-wow-delay="0" data-wow-duration="2s">
                         <div class="row">
                             <div class="hovereffect">
+                                <a href="{{home_sections.link_url}}" style="font-family: 'MetaSerifTf-Book';font-weight:bold;">
                                 <img src="{{home_sections.image.url}}" alt="image description">
                                 <div class="overlay">
                                 </div>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -248,16 +252,19 @@
         <!-- Insta feed start here -->
 
         <div class="mt-bestseller bg-grey1 text-center wow slideInUp" data-wow-delay="0.4s" data-wow-duration="2s">
+{#        <div class=" bg-grey1 text-center wow slideInUp" data-wow-delay="0.4s" data-wow-duration="2s">#}
             <div class="container">
 
-                <div class="row">
-                    <div class="col-xs-12">
-                        <h2>We're on Instragram</h2>
-                    </div>
-                </div>
+{#                <div class="row">#}
+{#                    <div class="col-xs-12">#}
+{#                        <br>#}
+{#                    </div>#}
+{#                </div>#}
 
                 <div class="row">
                     <div class="col-xs-12">
+                        <h3>We're on Instragram</h3>
+                        <br>
                         <div class="bestseller-slider">
                             {% get_instagram_feed as instagram_feeds %}
                             {% for instagram_feed in instagram_feeds %}

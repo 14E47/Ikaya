@@ -1,5 +1,5 @@
 {% load reviews_tags %}
-{% wishlist_tags %}
+{% load wishlist_tags %}
 {% load thumbnail %}
 {% load i18n %}
 {% load display_tags %}
@@ -38,6 +38,7 @@
                     <button type="submit" style="outline:0;padding:5px 2px;text-align:right;background-color:transparent;border:0px;font-size:18px"><i style="color:#f6b220" class="fa fa-heart-o"></i></button>
                 </form>
             {% endif %}
+
         {% else %}
             <button style="outline:0;color:#f6b220;width:12%;padding:5px 2px;text-align:right;background-color:transparent;border:0px;font-size:18px"><i class="fa fa-heart-o"></i></button><br/>
         {% endif %}

@@ -298,18 +298,29 @@
                             </div>
                             <div class="col-sm-6">
                                 <p class="mt-total-txt">
+{#                                    {% if request.basket.is_tax_known %}#}
+{#                                        <small>{% trans "Total:" %} {{ request.basket.total_incl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code }}</small>#}
+{#                                    {% else %}#}
+{#                                        <small>{% trans "Total:" %} {{ request.basket.total_excl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code }}</small>#}
+{#                                    {% endif %}#}
                                     {% if request.basket.is_tax_known %}
-                                        <small>{% trans "Total:" %} {{ request.basket.total_incl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code }}</small>
+                                        {{ request.basket.total_incl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code }}
                                     {% else %}
-                                        <small>{% trans "Total:" %} {{ request.basket.total_excl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code }}</small>
+                                        {{ request.basket.total_excl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code }}
                                     {% endif %}
+
                                 </p>
                             </div>
                         </div>
                     </div>
                     <div class="col-xs-12 text-center">
                         <br><br>
-                        <a href="{% url 'checkout:index' %}" class="btn-type3">{% trans "Proceed to checkout" %}</a>
+                        {% if user.is_authenticated %}
+                            <a href="{% url 'checkout:index' %}" class="btn-type3">{% trans "Proceed to checkout" %}</a>
+                        {% else %}
+                            <a href="{% url 'login' %}" class="btn-type3">{% trans "Proceed to checkout" %}</a>
+                        {% endif %}
+{#                        <a href="{% url 'checkout:index' %}" class="btn-type3">{% trans "Proceed to checkout" %}</a>#}
                     </div>
             {% else %}
                 <p>{% trans "Your basket is empty." %}</p>
