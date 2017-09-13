@@ -233,7 +233,7 @@
                                     <div class="col-sm-9 col-xs-9 vcenter2">
                                         <h4 class="name"><a href="{{ line.product.get_absolute_url }}">{{ line.description }}</a></h4>
                                         <p class="qty">QTY:<span>{{ line.quantity }}</span></p>
-                                        <h4 class="basket-price">PRICE:<br><span>{{ line.unit_price_excl_tax  }}</span></h4>
+                                        <h4 class="basket-price">PRICE:<br><span>{{ line.unit_price_excl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code  }}</span></h4>
                                     </div>
                                     <hr>
                                 </div>
@@ -244,9 +244,9 @@
                                         <p style="padding:0px;margin:0px">SUBTOTAL
                                             <span class="pull-right">
                                                 {% if basket.is_tax_known and not show_tax_separately %}
-                                                    {{ basket.total_incl_tax_excl_discounts  }}
+                                                    {{ basket.total_incl_tax_excl_discounts|multiply:request.session.currency_factor|currency:request.session.currency_code }}
                                                 {% else %}
-                                                    {{ basket.total_excl_tax_excl_discounts  }}
+                                                    {{ basket.total_excl_tax_excl_discounts|multiply:request.session.currency_factor|currency:request.session.currency_code  }}
                                                 {% endif %}
                                             </span>
                                         </p>
@@ -257,7 +257,7 @@
                                                 <div class="row bb">
                                                     <p style="padding:0px;margin:0px">DISCOUNT({{ discount.description }})
                                                         <span class="pull-right">
-                                                            -{{ discount.discount  }}
+                                                            -{{ discount.discount|multiply:request.session.currency_factor|currency:request.session.currency_code  }}
                                                         </span>
                                                     </p>
                                                 </div>
@@ -269,7 +269,7 @@
                                                 <div class="row bb">
                                                     <p style="padding:0px;margin:0px">COUPON({{ discount.voucher.name }} ({{ discount.voucher.code }}))
                                                         <span class="pull-right">
-                                                            -{{ discount.discount  }}
+                                                            -{{ discount.discount|multiply:request.session.currency_factor|currency:request.session.currency_code  }}
                                                         </span>
                                                     </p>
                                                 </div>
@@ -282,9 +282,9 @@
                                         <p style="padding:0px;margin:0px">SHIPING({{ shipping_method.name }})
                                             <span class="pull-right">
                                                 {% if not show_tax_separately and shipping_charge.is_tax_known %}
-                                                    {{ shipping_charge.incl_tax  }}
+                                                    {{ shipping_charge.incl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code  }}
                                                 {% else %}
-                                                    {{ shipping_charge.excl_tax  }}
+                                                    {{ shipping_charge.excl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code  }}
                                                 {% endif %}
                                             </span>
                                         </p>
@@ -296,9 +296,9 @@
                                         <p style="padding:0px;margin:0px">SHIPPING({{ shipping_method.name }})
                                             <span class="pull-right">
                                                 {% if not show_tax_separately and shipping_charge.is_tax_known %}
-                                                    {{ shipping_charge.incl_tax  }}
+                                                    {{ shipping_charge.incl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code  }}
                                                 {% else %}
-                                                    {{ shipping_charge.excl_tax  }}
+                                                    {{ shipping_charge.excl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code  }}
                                                 {% endif %}
                                             </span>
                                         </p>
@@ -309,14 +309,14 @@
                                         <div class="row bb">
                                             <p style="padding:0px;margin:0px">TAXES (On Products)
                                                 <span class="pull-right">
-                                                    {{ basket.total_tax  }}
+                                                    {{ basket.total_tax|multiply:request.session.currency_factor|currency:request.session.currency_code  }}
                                                 </span>
                                             </p>
                                         </div>
                                         <div class="row bb">
                                             <p style="padding:0px;margin:0px">TAXES (On Shipping)
                                                 <span class="pull-right">
-                                                    {{ shipping_charge.tax  }}
+                                                    {{ shipping_charge.tax|multiply:request.session.currency_factor|currency:request.session.currency_code  }}
                                                 </span>
                                             </p>
                                         </div>
@@ -324,9 +324,9 @@
                                 {% endblock %}
                                 <div class="row bb">
                                     {% if request.basket.is_tax_known %}
-                                        <p style="padding:0px;margin:0px">TOTAL<span class="pull-right">{{ request.basket.total_incl_tax  }}</span></p>
+                                        <p style="padding:0px;margin:0px">TOTAL<span class="pull-right">{{ request.basket.total_incl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code  }}</span></p>
                                     {% else %}
-                                            <p style="padding:0px;margin:0px">TOTAL<span class="pull-right">{{ request.basket.total_excl_tax  }}</span></p>
+                                            <p style="padding:0px;margin:0px">TOTAL<span class="pull-right">{{ request.basket.total_excl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code  }}</span></p>
                                     {% endif %}
 
                                 </div>

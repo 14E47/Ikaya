@@ -187,8 +187,9 @@ class SuccessResponseView(PaymentDetailsView):
             amount = float(request.POST['chargetotal'])
             currency = request.basket.currency
             basket_id = request.basket.id
-            razorpay_details = {'payment_id':payment_id, 'amount':amount, 'currency':currency, 
-                    'email': 'test@yopmail.com', 'contact': '7568373724'}
+#            email = request.user.email
+ #           razorpay_details = {'payment_id':payment_id, 'amount':amount, 'currency':currency, 
+  #                  'email': request.user.email, 'contact': '7568373724'}
 
             if payment_id:
                 pass
@@ -210,11 +211,11 @@ class SuccessResponseView(PaymentDetailsView):
             messages.error(self.request, error_msg)
             return HttpResponseRedirect(reverse('basket:summary'))
 
-        submission = self.build_submission(basket=basket, context={'payment_id': payment_id, 'email': 'test@yopmail.com', 'payment_amount': amount})
+        submission = self.build_submission(basket=basket, context={'payment_id': payment_id, 'payment_amount': amount})
         return self.submit(**submission)
 
     def build_submission(self, **kwargs):
-        email = kwargs['context']['email']
+#        email = kwargs['context']['email']
         payment_id = kwargs['context']['payment_id']
         payment_amount = kwargs['context']['payment_amount']
         kwargs.pop('context')
@@ -222,7 +223,7 @@ class SuccessResponseView(PaymentDetailsView):
         submission = super(
             SuccessResponseView, self).build_submission(**kwargs)
 
-        submission['order_kwargs']['email'] = email
+ #       submission['order_kwargs']['email'] = email
         submission['payment_kwargs']['payment_id'] = payment_id
         submission['payment_kwargs']['payment_amount'] = payment_amount    
 
