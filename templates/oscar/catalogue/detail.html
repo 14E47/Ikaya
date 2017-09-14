@@ -119,47 +119,47 @@
                                         <!-- Rank Rating of the Page end -->
                                         <div class="txt-wrap">
 
-                                        <div class="col-sm-12">
-                                            <div class="row equalh">
-                                        <!-- Product Form of the Page -->
-                                                <div class="col-sm-4">
-                                                    <div class="row">
-                                                        {% include "catalogue/partials/add_to_basket_form.html" %}
-            {#                                            <form action="#" class="product-form">#}
-            {#                                                <div class="row-val">#}
-            {#                                                    <button type="submit">ADD TO CART <span class="pull-right">+</span></button>#}
-            {#                                                </div>#}
-            {#                                            </form>#}
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-8 price-sec vend">
-                                                    <div class="col-xs-3 text-center">
-                                                        <div class="btn-group">
-                                                            <button class="btn dropdown-toggle" name="recordinput" data-toggle="dropdown">
-                                                                {{request.session.currency_code}}
-                                                                <span class="caret"></span>
-                                                            </button>
-                                                            <ul class="dropdown-menu">
-                                                                <li><a href="/currency_conversion/?currency_code=EUR">EURO</a></li>
-                                                                <li><a href="/currency_conversion/?currency_code=USD">DOLLOR</a></li>
-                                                                <li><a href="/currency_conversion/?currency_code=GBP">POUND</a></li>
-                                                                <li><a href="/currency_conversion/?currency_code=INR">RUPEES</a></li>
-                                                            </ul>
+                                            <div class="col-sm-12">
+                                                <div class="row equalh">
+                                            <!-- Product Form of the Page -->
+                                                    <div class="col-sm-4">
+                                                        <div class="row">
+                                                            {% include "catalogue/partials/add_to_basket_form.html" %}
+                {#                                            <form action="#" class="product-form">#}
+                {#                                                <div class="row-val">#}
+                {#                                                    <button type="submit">ADD TO CART <span class="pull-right">+</span></button>#}
+                {#                                                </div>#}
+                {#                                            </form>#}
                                                         </div>
                                                     </div>
-                                                    <div class="col-xs-9">
-                                                        <div class="detail_price">
-                                                            <div class="row">
-                                                                {% block product_stock_record %}
-                                                                    {% include "catalogue/partials/stock_record.html" with verbose=1 %}
-                                                                {% endblock %}
+                                                    <div class="col-sm-8 price-sec vend">
+                                                        <div class="col-xs-3 text-center">
+                                                            <div class="btn-group">
+                                                                <button class="btn dropdown-toggle" name="recordinput" data-toggle="dropdown">
+                                                                    {{request.session.currency_code}}
+                                                                    <span class="caret"></span>
+                                                                </button>
+                                                                <ul class="dropdown-menu">
+                                                                    <li><a href="/currency_conversion/?currency_code=EUR">EURO</a></li>
+                                                                    <li><a href="/currency_conversion/?currency_code=USD">DOLLOR</a></li>
+                                                                    <li><a href="/currency_conversion/?currency_code=GBP">POUND</a></li>
+                                                                    <li><a href="/currency_conversion/?currency_code=INR">RUPEES</a></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xs-9">
+                                                            <div class="detail_price">
+                                                                <div class="row">
+                                                                    {% block product_stock_record %}
+                                                                        {% include "catalogue/partials/stock_record.html" with verbose=1 %}
+                                                                    {% endblock %}
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
+                                            <!-- Product Form of the Page end -->
                                                 </div>
-                                        <!-- Product Form of the Page end -->
                                             </div>
-                                        </div>
                                             <div class="col-sm-12">
                                                 <div class="row">
                                                 <br>
