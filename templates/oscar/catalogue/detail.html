@@ -60,20 +60,23 @@
 {#                    </div>#}
 {#                    <br><br><br>#}
 {#                </div>#}
-                <br>
+
 
                 <div class="row">
 
                     {% block product_gallery %}
                     <div class="col-xs-12 col-sm-5 text">
-                        {% include "catalogue/partials/gallery.html" %}
-
+                        <div class="row">
+                            {% include "catalogue/partials/gallery.html" %}
+                        </div>
+                        <br>
                         <p class="new-text mt">
                             Shipping in 7 Business days from order date.
                         </p>
                         <p class="new-text">
                             Import duties and levies if any, to be borne by customer.
                         </p>
+
                         <div class="about-product">
                             <div class="col-sm-3">
                                 <div class="row">
@@ -111,6 +114,8 @@
                                             <a class="pull-right hidden-xs" href="{% url 'dashboard:catalogue-product' pk=product.id %}"><small><i class="icon-edit"></i> {% trans "Edit this product" %}</small></a>
                                         {% endif %}
                                         <!-- admin rights end-->
+                                        <br>
+                                        <br>
                                         <h2>{{ product.get_title }}</h2>
                                         <!-- Rank Rating of the Page -->
                                         <div class="rank-rating">
@@ -179,7 +184,7 @@
                                                             </form>
                                                         {% endif %}
                                                     {% else %}
-                                                        <button style="margin-top:5px;outline:0px;background-color:transparent;border:0px;font-size:18px;padding:0px;color:#f6b220"><i class="fa fa-heart-o"></i></button>
+                                                        <button style="margin-top:5px;outline:0px;background-color:transparent;border:0px;font-size:18px;padding:0px;color:#f6b220"><i class="fa fa-heart-o"></i>ADD TO WISHLIST</button>
                                                     {% endif %}
                                                 </div>
                                             </div>

@@ -8,6 +8,7 @@
     {% if all_images|length > 1 %}
 
         <div class="slider">
+            <br>
             <!-- Product Slider of the Page -->
             {% block breadcrumbs %}
             <ul class="list-unstyled breadcrumbs">
@@ -22,7 +23,7 @@
                         <i class="fa fa-angle-right"></i>
                     </li>
                     {% endfor %}
-                    <li class="active">{{ product.title }}</li>
+{#                    <li class="active">{{ product.title }}</li>#}
                 {% endwith %}
             </ul>
             {% endblock %}

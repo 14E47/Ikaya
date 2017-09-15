@@ -325,7 +325,7 @@
                         {% if user.is_authenticated %}
                             <a href="{% url 'checkout:index' %}" class="btn-type3">{% trans "Proceed to checkout" %}</a>
                         {% else %}
-                            <a href="{% url 'login_registration' %}" class="btn-type3">{% trans "Proceed to checkout" %}</a>
+                            <a href="{% url 'login_registration:index' %}" class="btn-type3">{% trans "Proceed to checkout" %}</a>
                         {% endif %}
 {#                        <a href="{% url 'checkout:index' %}" class="btn-type3">{% trans "Proceed to checkout" %}</a>#}
                     </div>
