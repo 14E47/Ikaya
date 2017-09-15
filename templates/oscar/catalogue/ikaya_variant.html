@@ -8,7 +8,7 @@
       <div class="panel panel-default">
          <div class="panel-heading" role="tab" id="headingTwo">
             <h4 class="panel-title">
-               <a class="dropdown" role="button" data-toggle="dropdown" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+               <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                <i class="pull-right"><img src="{% static "markatix/images/new/detail/arrow.png" %}" style="width:14px"></i>
                SIZE
                </a>
@@ -16,7 +16,7 @@
             </h4>
          </div>
 
-         <div id="collapseTwo" class="dropdown-menu" role="tabpanel" aria-labelledby="headingTwo">
+         <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
             <div class="panel-body">
                {% block controls %}
                <div class="{% if style|default:"stacked" != 'stacked' %}col-sm-7{% endif %}">
