@@ -4977,6 +4977,7 @@ a:hover {
       .mt-product-detial .comment-list a:hover {
         color: #ff8283; }
   .mt-product-detial .product-slider {
+    border-color: #FFF;
     margin: 0 0 10px; }
   .mt-product-detial .pagg-slider {
     margin: 0 auto;
