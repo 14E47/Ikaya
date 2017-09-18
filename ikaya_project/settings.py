@@ -195,3 +195,7 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 ###############################
 OSCAR_MISSING_IMAGE_URL = MEDIA_URL + 'image_not_found.jpg'
+
+STORE_ID = '3387000704'
+SECRET_ID = 'Et25zcXlXf'
+CURRENCY = '356'
