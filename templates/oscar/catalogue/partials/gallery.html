@@ -31,7 +31,7 @@
             <div class="product-slider">
                 {% for image in all_images %}
                     <div class="slide">
-                        <a class="fancybox" rel="ligthbox" href="{{ image.original.url }}">
+                        <a class="fancybox" style="background-color: #FFF" rel="ligthbox" href="{{ image.original.url }}">
                             <img style="border-color: transparent" src="{{ image.original.url }}" alt="{{ product.get_title }}" />
                         </a>
                     </div>
