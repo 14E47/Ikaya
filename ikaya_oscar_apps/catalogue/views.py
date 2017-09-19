@@ -58,8 +58,8 @@ class CatalogueView(TemplateView):
             ctx['products'] = temp
         elif price_min:
             from decimal import Decimal as D
-            price_min = int(price_min)
-            price_max = int(price_max)
+            price_min = D(price_min)
+            price_max = D(price_max)
             stockrecords = StockRecord.objects.filter(price_excl_tax__gte=price_min, price_excl_tax__lte=price_max,)
             temp = []
             for stockrecord in stockrecords:
