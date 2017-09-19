@@ -7,4 +7,4 @@ class VariableSetMiddleware(object):
 
     def process_request(self, request):
         request.session['currency_code'] = 'INR'
-        request.session['currency_factor'] = '1.00'
+        request.session['currency_factor'] ='1.00'
