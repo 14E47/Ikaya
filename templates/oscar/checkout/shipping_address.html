@@ -466,7 +466,7 @@
                                         <h4 class="name"><a href="{{ line.product.get_absolute_url }}">{{ line.description }}</a></h4>
                                         <p class="qty">QTY:<span>{{ line.quantity }}</span></p>
                                         <h4 class="basket-price">PRICE:<br><span>{{ line.unit_price_excl_tax|multiply:request.session.currency_factor|floatformat:0|currency:request.session.currency_code }}</span></h4>
-                                        <a href="#" class="remove-item">REMOVE</a>
+                                        <a href="#" class="button remove-item">REMOVE</a>
                                     </div>
                                     <hr>
                                 </div>
