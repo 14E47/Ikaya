@@ -396,6 +396,7 @@
                                 <p class="new-text1">Customers ordering outside of India will be charged estimated custom fees.</p>
                                 <p class="new-text1">International shipment may be subject to additional import taxes, customs duties and fees, which are levied
                                     once a shipment reaches the destination country.</p>
+
 							</div>
 
 {#							<div class="panel panel-default">#}
@@ -465,6 +466,7 @@
                                         <h4 class="name"><a href="{{ line.product.get_absolute_url }}">{{ line.description }}</a></h4>
                                         <p class="qty">QTY:<span>{{ line.quantity }}</span></p>
                                         <h4 class="basket-price">PRICE:<br><span>{{ line.unit_price_excl_tax|multiply:request.session.currency_factor|floatformat:0|currency:request.session.currency_code }}</span></h4>
+                                        <a href="#" class="remove-item">REMOVE</a>
                                     </div>
                                     <hr>
                                 </div>

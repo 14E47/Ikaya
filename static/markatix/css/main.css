@@ -9733,7 +9733,17 @@ l,btn-box li:after {
 		padding-bottom:5px;
 		border-bottom:1px solid #847272;
 	}
-
+    .remove-item
+    {
+        background-color: #847272;
+        padding: 5px 5px 5px 5px;
+        color: #FFFFFF;
+        border: none;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 20px;
+    }
 	.basket .name a
 	{
 		color:#847272 !important;
