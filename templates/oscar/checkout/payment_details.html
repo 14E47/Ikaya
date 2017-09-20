@@ -23,198 +23,103 @@
 {% block payment_details %}
     {% block payment_details_content %}
         <main id="mt-main">
-            <div class="container checkout">
-                <div class="row">
+			<div class="container checkout">
+				<div class="row">
 
-                </div>
-                <div class="row">
+				</div>
+				<div class="row">
 
-                    <div class="col-sm-6">
-                        <p class="headding">CHECKOUT</p>
-                        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                            <div class="panel panel-default">
-                                <div class="panel-heading" role="tab" id="headingOne">
-                                    <h4 class="panel-title">
-                                        <a href="{% url 'checkout:shipping-address' %}" aria-expanded="true" aria-controls="collapseOne">
-                                            <i class="more-less glyphicon glyphicon-plus"></i>
-                                            1. ADDRESS
-                                        </a>
-                                    </h4>
-                                </div>
-                            </div>
+					<div class="col-sm-6 basket">
+						<p class="headding">CHECKOUT</p>
+						<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+							<div class="panel panel-default bb">
+								<div class="panel-heading" role="tab" id="headingOne">
+									<h4 class="panel-title">
+										<a href="{% url 'checkout:shipping-address' %}" aria-expanded="true" aria-controls="collapseOne">
+											<i class="more-less glyphicon glyphicon-plus"></i>
+											1. ADDRESS
+										</a>
+									</h4>
+								</div>
+							</div>
 
-                            <div class="panel panel-default">
-                                <div class="panel-heading" role="tab" id="headingTwo">
-                                    <h4 class="panel-title">
-                                        <a href="{% url 'checkout:shipping-method' %}">
-                                            <i class="more-less glyphicon glyphicon-plus"></i>
-                                            2. DELIVERY
-                                        </a>
-                                    </h4>
-                                </div>
-                            </div>
+{#							<div class="panel panel-default">#}
+{#								<div class="panel-heading" role="tab" id="headingTwo">#}
+{#									<h4 class="panel-title">#}
+{#										<a href="{% url 'checkout:shipping-method' %}">#}
+{#											<i class="more-less glyphicon glyphicon-plus"></i>#}
+{#											2. DELIVERY#}
+{#										</a>#}
+{#									</h4>#}
+{#								</div>#}
+{#							</div>#}
+{##}
+{#							<div class="panel panel-default">#}
+{#								<div class="panel-heading" role="tab" id="headingThree">#}
+{#									<h4 class="panel-title">#}
+{#										<a href="{% url 'checkout:shipping-method' %}">#}
+{#											<i class="more-less glyphicon glyphicon-plus"></i>#}
+{#											3. ADDRESS DETAILS GIVEN#}
+{#										</a>#}
+{#									</h4>#}
+{#								</div>#}
+{#							</div>#}
 
-                            <div class="panel panel-default">
-                                <div class="panel-heading" role="tab" id="headingThree">
-                                    <h4 class="panel-title">
-                                        <a href="{% url 'checkout:shipping-method' %}">
-                                            <i class="more-less glyphicon glyphicon-plus"></i>
-                                            3. ADDRESS DETAILS GIVEN
-                                        </a>
-                                    </h4>
-                                </div>
-                            </div>
+							<div class="panel panel-default bb">
+								<div class="panel-heading" role="tab" id="headingfour">
+									<h4 class="panel-title">
+										<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
+											<i class="more-less glyphicon glyphicon-plus"></i>
+											2. PAYMENT
+										</a>
+									</h4>
+								</div>
+								<div id="collapseFour" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingFour">
+									<div class="panel-body">
+										<div class="radio radio-primary">
+											<input type="radio" name="radio1" id="radio1" value="option1">
+											<label for="radio1">
+												COD
+											</label>
+										</div>
+										<div class="radio radio-primary">
+											<input type="radio" name="radio1" id="radio2" value="option2">
+											<label for="radio2">
+												DEBIT/CREDIT CARDS
+											</label>
+										</div>
+										<div class="radio radio-primary">
+											<input type="radio" name="radio1" id="radio3" value="option3">
+											<label for="radio3">
+												WALLET
+											</label>
+										</div>
+										<div class="col-sm-12">
+											<div class="row">
+												<a href="{% url 'checkout:preview' %}" class="pull-right save">PAY</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
 
-                            <div class="panel panel-default">
-                                <div class="panel-heading" role="tab" id="headingfour">
-                                    <h4 class="panel-title">
-                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
-                                            <i class="more-less glyphicon glyphicon-plus"></i>
-                                            4. PAYMENT
-                                        </a>
-                                    </h4>
-                                </div>
-                                <div id="collapseFour" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingFour">
-                                    <div class="panel-body">
-                                        <div class="radio radio-primary">
-                                            <input type="radio" name="radio1" id="radio1" value="option1">
-                                            <label for="radio1">
-                                                COD
-                                            </label>
-                                        </div>
-                                        <div class="radio radio-primary">
-                                                 <input type="radio" name="radio1" id="radio2" value="option2"onclick="window.location='/payment/payment_page';">
-                                            <label for="radio2">
-                                                CCAVENUE
-                                            </label>
+                            <div class="panel panel-default bb">
+								<div class="panel-heading" role="tab" id="headingThree">
+									<h4 class="panel-title">
+										<a href="#">
+											<i class="more-less glyphicon glyphicon-plus"></i>
+											3. CONFIRMATION
+										</a>
+									</h4>
+								</div>
+							</div>
 
-                                        </div>
-                                        <div class="radio radio-primary">
-                                            <input type="radio" name="radio1" id="radio3" value="option3">
-                                            <label for="radio3">
-                                                WALLET
-                                            </label>
-                                        </div>
-                                        <div class="col-sm-12">
-    <form method="post"
-            action="https://www4.ipg-online.com/connect/gateway/processing"> 
-            {% csrf_token %}
-        <input type="hidden" name="timezone" value="IST" />
-        <input type="hidden" name="authenticateTransaction" value="true" />  
-        <input type="hidden" name="responseSuccessURL" value="http://35.187.230.93:8000/payment/place-order/{{basket}}/"/>         
-        <input type="hidden" name="responseFailURL" value="http://35.187.230.93:8000/payment/place-order/{{basket}}/"/>
-        <input type="hidden" name="hash_algorithm" value="SHA1"/>
-        <table style="display:none">
-                    <tr>
-                <td>
-                        Transaction Type
-                    </td>
-                    <td>
-                        <input size="50" type="text" name="txntype" value="sale"/>
-                    </td>
-                </tr>
-                   <tr>
-                    <td>
-                        Transaction Date Time
-                    </td>
-                    <td>
-                        <input size="50" type="text" name="txndatetime" value ="{{time}}"  />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Calculated HASH
-                    </td>
-                    <td>
-                        <input size="50" type="text" name="hash" value="{{hex_dig}}" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Currency
-                    </td>
-                    <td>
-                        <input size="50" type="text" name="currency" value="356" />
+						</div>
+					</div>
 
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Payment Mode
-                    </td>
-                    <td>
-                        <input size="50" type="text" name="mode" value="payonly" />
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td>
-                        Full Bypass
-                    </td>
-                    <td>
-                        <input size="50" type="text" name="full_bypass" value="false" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Store Id
-                    </td>
-                    <td>
-                        <input size="50" type="text" name="storename" value="{{storeId}}" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Chargetotal
-                    </td>
-                    <td>
-                        <input size="50" type="text" name="chargetotal" value={{chargetotal}} />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Shared Secret
-                    </td>
-                    <td>
-                        <input size="50" type="text" name="sharedsecret" value="Et25zcXlXf" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Language
-                    </td>
-                    <td>
-                        <select name="language">
-                            <option value="de_DE">Deutsch</option>
-                            <option value="en_EN" selected>English</option>
-                        </select>
-                    </td>
-                </tr>
-                </table>
-                   <input type="submit" name ="submitBtn" value="pay">
-        </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="panel panel-default">
-                                <div class="panel-heading" role="tab" id="headingThree">
-                                    <h4 class="panel-title">
-                                        <a href="#">
-                                            <i class="more-less glyphicon glyphicon-plus"></i>
-                                            5. CONFIRMATION
-                                        </a>
-                                    </h4>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div class="col-sm-1">
-                    </div>
-                    <div class="col-sm-5 basket">
+					<div class="col-sm-1">
+					</div>
+					<div class="col-sm-5 basket">
                         <p class="headding">MY ORDER</p>
                         <div class="col-sm-12">
                             {% for line in request.basket.all_lines %}
@@ -334,7 +239,7 @@
                         <br><br><br><br>
                         </div>
 
-                        <p class="new-text1">Please note, the final purchase price may change when you select your delivery address</p>
+                        <p class="new-text1">Please note, the final purchase price may change when you select your delivery address.</p>
                         <p class="new-text1">The items in your shopping cart are not reserved and may be purchased by other customers.</p>
                     </div>
                 </div>

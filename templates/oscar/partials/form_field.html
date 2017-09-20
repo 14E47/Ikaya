@@ -41,14 +41,14 @@
                     <h4 class="panel-title">
                         <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
                             <i class="pull-right"><img src="{% static "markatix/images/new/detail/arrow.png" %}" style="width:14px"></i>
-                            QUANTITY    
+                            QUANTITY
                         </a>
                     </h4>
                 </div>
 
                 <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
                     <div class="panel-body">
-                        <input id="id_quantity" type="number" value="1" name="quantity" min="1" max="{% if product.children.first %}{{ product.children.first.stockrecords.first.num_in_stock }}{% else %}{{ product.stockrecords.first.num_in_stock }}{% endif %}">
+                        <input id="id_quantity" type="number" onkeydown="return false" value="1" name="quantity" min="1" max="{% if product.children.first %}{{ product.children.first.stockrecords.first.num_in_stock }}{% else %}{{ product.stockrecords.last.num_in_stock }}{% endif %}">
                     </div>
                 </div>
             </div>
@@ -107,5 +107,5 @@
                 {% endblock %}
             </div>
         {% endif %}
-    {% endblock %}    
+    {% endblock %}
 {% endif %}

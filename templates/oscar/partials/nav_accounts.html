@@ -65,24 +65,24 @@
                                             <li class="dropdown-submenu">
                                                 <a tabindex="-1" href="/catalogue/category/suit_7/">SUIT</a>
                                                 <ul class="dropdown-menu">
-                                                    <li><a tabindex="-1" href="/catalogue/category/suit/unstiched_11/">UNSTICHED</a></li>
+                                                    <li><a tabindex="-1" href="/catalogue/category/suit/unstiched_11/">UN-STITCHED</a></li>
                                                     <li class="dropdown-submenu">
-                                                        <a href="/catalogue/category/suit/stiched_12/">STICHED</a>
+                                                        <a href="/catalogue/category/suit/stiched_12/">STITCHED</a>
                                                         <ul class="dropdown-menu">
-                                                            <li><a style="background-color:#fff" href="/catalogue/category/suit/stiched/embroiderede_13/">EMBROIDEREDE</a></li>
+                                                            <li><a style="background-color:#fff" href="/catalogue/category/suit/stiched/embroiderede_13/">EMBROIDERED</a></li>
                                                             <li><a style="background-color:#fff" href="/catalogue/category/suit/stiched/woven_14/">WOVEN</a></li>
                                                         </ul>
                                                     </li>
                                                 </ul>
                                             </li>
                                             <li class="dropdown-submenu">
-                                                <a tabindex="-1" href="/catalogue/category/lenghas_8/">LENGHAS</a>
+                                                <a tabindex="-1" href="/catalogue/category/lenghas_8/">LEHENGAS</a>
                                                 <ul class="dropdown-menu">
-                                                    <li><a style="background-color:#fff" tabindex="-1" href="/catalogue/category/lenghas/embroiderede_15/">EMBROIDEREDE</a></li>
+                                                    <li><a style="background-color:#fff" tabindex="-1" href="/catalogue/category/lenghas/embroiderede_15/">EMBROIDERED</a></li>
                                                     <li><a style="background-color:#fff" href="/catalogue/category/lenghas/woven_16/">WOVEN</a></li>
                                                 </ul>
                                             </li>
-                                            <li><a style="background-color:#fff" href="/catalogue/category/duppatas_9/">DUPPATAS</a></li>
+                                            <li><a style="background-color:#fff" href="/catalogue/category/duppatas_9/">DUPATTAS</a></li>
                                             <li class="dropdown-submenu">
                                                 <a style="background-color:#fff" tabindex="-1" href="/catalogue/category/jackets_10/">READY TO WEAR</a>
                                                 <ul class="dropdown-menu">
@@ -258,15 +258,20 @@
 {#            {% endif %}#}
 {#        </div>#}
 {#    </div>#}
-    <div id="sidebar-wrapper">
-        <a id="menu-close" href="#" class="pull-right toggle1"><i class="glyphicon glyphicon-remove"></i>&nbsp;Close</a>
+    <div id="sidebar-wrapper" style="background-color:#E8E5D4">
+{#        <a id="menu-close" href="#" class="pull-right toggle1"><i class="glyphicon glyphicon-remove"></i>&nbsp;<!--Close--></a>#}
         <div class="col-sm-12">
-            <h3 class="cart">{{ request.basket.num_items }}&nbsp;&nbsp;MY CART</h3>
+{#            <h3 class="cart">{{ request.basket.num_items }}&nbsp;&nbsp;MY CART</h3>#}
+            <br>
+            <h3 class="cart">&nbsp;&nbsp;MY CART
+                <a id="menu-close" href="#" class="pull-right toggle1"><i class="glyphicon glyphicon-remove"></i>&nbsp;</a>
+            </h3>
+            <h4 class="cart">{{ request.basket.num_items }}&nbsp;&nbsp;ARTICLE ADDED</h4>
             {% if request.basket.num_lines %}
                 {% for line in request.basket.all_lines %}
                     <div class="basket-items" style="margin-bottom:8px;">
-                        <div class="row">
-                            <div class="col-sm-4 col-xs-4">
+                          <div class="row">
+                            <div class="col-sm-4 col-xs-4" id="menu-close">
                                 {% with image=line.product.primary_image %}
                                     {% thumbnail image.original "60x100" upscale=False as thumb %}
                                     <a href="{{ line.product.get_absolute_url }}">
@@ -276,11 +281,15 @@
                                 {% endwith %}
                             </div>
 
-                            <div class="col-sm-8 col-xs-8">
+                            <div class="col-sm-7 col-xs-7">
                                 <div class="row">
                                     <p class="name">{{ line.description }}</p>
                                     <span class="price">{{ line.quantity }} x {{ line.unit_price_excl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code }}</span>
                                 </div>
+                            </div>
+
+                            <div class="col-sm-1 col-xs-1">
+                                <a id="menu-close" href="#" class="pull-right toggle1"><small><i class="glyphicon glyphicon-minus"></i></small>&nbsp;</a>
                             </div>
                         </div>
 
@@ -296,18 +305,29 @@
                             </div>
                             <div class="col-sm-6">
                                 <p class="mt-total-txt">
+{#                                    {% if request.basket.is_tax_known %}#}
+{#                                        <small>{% trans "Total:" %} {{ request.basket.total_incl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code }}</small>#}
+{#                                    {% else %}#}
+{#                                        <small>{% trans "Total:" %} {{ request.basket.total_excl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code }}</small>#}
+{#                                    {% endif %}#}
                                     {% if request.basket.is_tax_known %}
-                                        <small>{% trans "Total:" %} {{ request.basket.total_incl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code }}</small>
+                                        {{ request.basket.total_incl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code }}
                                     {% else %}
-                                        <small>{% trans "Total:" %} {{ request.basket.total_excl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code }}</small>
+                                        {{ request.basket.total_excl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code }}
                                     {% endif %}
+
                                 </p>
                             </div>
                         </div>
                     </div>
                     <div class="col-xs-12 text-center">
                         <br><br>
-                        <a href="{% url 'checkout:index' %}" class="btn-type3">{% trans "Proceed to checkout" %}</a>
+                        {% if user.is_authenticated %}
+                            <a href="{% url 'checkout:index' %}" class="btn-type3">{% trans "Proceed to checkout" %}</a>
+                        {% else %}
+                            <a href="http://ekayaonline.com/accounts/login/" class="btn-type3">{% trans "Proceed to checkout" %}</a>
+                        {% endif %}
+{#                        <a href="{% url 'checkout:index' %}" class="btn-type3">{% trans "Proceed to checkout" %}</a>#}
                     </div>
             {% else %}
                 <p>{% trans "Your basket is empty." %}</p>

@@ -1881,7 +1881,7 @@ a:hover {
   .btn-type3:focus, .btn-type3:hover {
     color: #7b674f;
     background: transparent;
-    border: 1px solid #8D7D57; }
+    border: 1px solid #7b674f; }
 
 .btn-type4 {
   color: #aaa;
@@ -4825,7 +4825,7 @@ a:hover {
 29. Mt Bestseller / .mt-bestseller
 -------------------------------------------------------------------*/
 .mt-bestseller {
-  padding: 69px 0 100px; }
+  padding: 69px 0 50px; }
   .mt-bestseller .slick-prev,
   .mt-bestseller .slick-next {
     z-index: 3;
@@ -4977,6 +4977,7 @@ a:hover {
       .mt-product-detial .comment-list a:hover {
         color: #ff8283; }
   .mt-product-detial .product-slider {
+
     margin: 0 0 10px; }
   .mt-product-detial .pagg-slider {
     margin: 0 auto;
@@ -5108,6 +5109,9 @@ a:hover {
       font-size: 16px;
       line-height: 18px;
       margin: 0 10px 0 0; }
+
+ /* Material,Detail,Weight,Wash */
+
   .mt-product-detial .txt-wrap {
     margin: 0 0 22px;
     font-size: 16px;
@@ -5180,10 +5184,10 @@ a:hover {
       border-radius: 0px;
       -webkit-transition: all 0.25s linear;
       transition: all 0.25s linear;
-      background: #AFA389;
+      background: #7B674f;
       color: #fff; }
       .mt-product-detial .product-form button:hover {
-        background: #AFA389; }
+        background: #7B674f; }
 
 .lightbox .mt-product-detial {
   padding: 0; }
@@ -10134,7 +10138,7 @@ l,btn-box li:after {
       margin:10px 0px;
       color:#7B674F;
     }
-    .terms .sub-heading
+    .terms .sub-heading h2
     {
       padding-top:0px;
       line-height:0.9;

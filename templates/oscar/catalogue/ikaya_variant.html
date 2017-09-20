@@ -15,10 +15,12 @@
                <a href="#" class="size-guide" data-toggle="modal" data-target="#login-modal">Size Guide</a>
             </h4>
          </div>
+
          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
             <div class="panel-body">
                {% block controls %}
                <div class="{% if style|default:"stacked" != 'stacked' %}col-sm-7{% endif %}">
+
                {% block widget %}
                {% if field.widget_type == 'CheckboxInput' %}
                <label for="{{ field.auto_id }}" class="checkbox {% if field.field.required %}required{% endif %}">
@@ -29,11 +31,13 @@
                {% render_field field class+="form-control" %}
                {% endif %}
                {% endblock %}
+
                {% block errors %}
                {% for error in field.errors %}
                <span class="error-block"><i class="icon-exclamation-sign"></i> {{ error }}</span>
                {% endfor %}
                {% endblock %}
+
                {% block help_text %}
                {% if field.help_text %}
                <span class='help-block'>
