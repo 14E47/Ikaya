@@ -91,9 +91,9 @@
                             <div class="col-sm-1">
                                 <p class="price_color align-right">
                                     {% if line.is_tax_known %}
-                                        {{ line.unit_price_incl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code }}
+                                        {{ line.unit_price_incl_tax|multiply:request.session.currency_factor|floatformat:"0"|currency:request.session.currency_code }}
                                     {% else %}
-                                        {{ line.unit_price_excl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code }}
+                                        {{ line.unit_price_excl_tax|multiply:request.session.currency_factor|floatformat:"0"|currency:request.session.currency_code }}
                                     {% endif %}
                                 </p>
                             </div>

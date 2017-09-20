@@ -8,9 +8,9 @@
     {% if session.price.excl_tax == 0 %}
 {#        <p class="price_color">{% trans "Free" %}</p>#}
     {% elif session.price.is_tax_known %}
-        {{ session.price.incl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code }}
+        {{ session.price.incl_tax|multiply:request.session.currency_factor|floatformat:0|currency:request.session.currency_code }}
     {% else %}
-        {{ session.price.excl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code }}
+        {{ session.price.excl_tax|multiply:request.session.currency_factor|floatformat:0|currency:request.session.currency_code }}
     {% endif %}
 {% else %}
     <p class="price_color">&nbsp;</p>

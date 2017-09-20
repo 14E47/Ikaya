@@ -289,7 +289,7 @@
                             </div>
 
                             <div class="col-sm-1 col-xs-1">
-                                <a id="menu-close" href="{{ line.product.get_absolute_url }}" class="pull-right toggle1"><small><i class="glyphicon glyphicon-remove"></i></small>&nbsp;</a>
+                                <a id="menu-close" href="#" class="pull-right toggle1"><small><i class="glyphicon glyphicon-minus"></i></small>&nbsp;</a>
                             </div>
                         </div>
 
@@ -325,7 +325,7 @@
                         {% if user.is_authenticated %}
                             <a href="{% url 'checkout:index' %}" class="btn-type3">{% trans "Proceed to checkout" %}</a>
                         {% else %}
-                            <a href="{% url 'login_registration:index' %}" class="btn-type3">{% trans "Proceed to checkout" %}</a>
+                            <a href="http://ekayaonline.com/accounts/login/" class="btn-type3">{% trans "Proceed to checkout" %}</a>
                         {% endif %}
 {#                        <a href="{% url 'checkout:index' %}" class="btn-type3">{% trans "Proceed to checkout" %}</a>#}
                     </div>
