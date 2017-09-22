@@ -281,16 +281,16 @@
                                 {% endwith %}
                             </div>
 
-                            <div class="col-sm-7 col-xs-7">
+                            <div class="col-sm-8 col-xs-8">
                                 <div class="row">
                                     <p class="name">{{ line.description }}</p>
                                     <span class="price">{{ line.quantity }} x {{ line.unit_price_excl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code }}</span>
                                 </div>
-                            </div>
 
-                            <div class="col-sm-1 col-xs-1">
-{#                                <a id="menu-close" href="#" class="pull-right toggle1"><small><i class="glyphicon glyphicon-minus"></i></small>&nbsp;</a>#}
-                                <a href="#" data-id="{{ forloop.counter0 }}" data-behaviours="remove" class="inline"><small><i class="glyphicon glyphicon-minus"></i></small></a>
+                                <div class="checkout-quantity">
+    {#                                <a id="menu-close" href="#" class="pull-right toggle1"><small><i class="glyphicon glyphicon-minus"></i></small>&nbsp;</a>#}
+                                    <a href="#" data-id="{{ forloop.counter0 }}" data-behaviours="remove" class="inline">{% trans "REMOVE" %}</a>
+                                </div>
                             </div>
                         </div>
 
