@@ -161,6 +161,9 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 AUTHENTICATION_BACKENDS = (
     'oscar.apps.customer.auth_backends.EmailBackend',
     'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
 )
 
 HAYSTACK_CONNECTIONS = {
@@ -199,3 +202,44 @@ OSCAR_MISSING_IMAGE_URL = MEDIA_URL + 'image_not_found.jpg'
 STORE_ID = '3387000704'
 SECRET_ID = 'Et25zcXlXf'
 CURRENCY = '356'
+
+
+###############################
+### Social Login
+###############################
+SOCIALACCOUNT_PROVIDERS = {
+    'facebook': {
+        'METHOD': 'oauth2',
+        'SCOPE': ['email', 'public_profile', 'user_friends'],
+        'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
+        'FIELDS': [
+            'id',
+            'email',
+            'name',
+            'first_name',
+            'last_name',
+            'verified',
+            'locale',
+            'timezone',
+            'link',
+            'gender',
+            'updated_time',
+        ],
+        'EXCHANGE_TOKEN': True,
+        'LOCALE_FUNC': 'path.to.callable',
+        'VERIFIED_EMAIL': False,
+        'VERSION': 'v2.4',
+    },
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        }
+    }
+}
+###############################
+
+LOGIN_REDIRECT_URL = '/'

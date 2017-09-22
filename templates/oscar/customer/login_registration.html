@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% load i18n %}
-{% load staticfiles %}
+{% load staticfiles socialaccount %}
 
 {% block title %}
     {% trans 'Login/Register/Guest' %} | {{ block.super }}
@@ -55,7 +55,7 @@
             <div class="row" style="margin-top:50px;">
                 <div class="col-sm-8 col-sm-offset-2 text-center">
                     <a href="#" class="btn btn-lg facebook">Login with Facebook</a>
-                    <a href="#" class="btn btn-lg facebook">Login with Google Plus</a>
+                    <a href="{% provider_login_url "google" method="oauth2" %}" class="btn btn-lg facebook">Login with Google Plus</a>
                 </div>
             </div>
         </div>

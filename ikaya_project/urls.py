@@ -44,4 +44,5 @@ urlpatterns = [
     url(r'^journal/', include(journal_urls)),
     url(r'^payment/', include(payment_urls)),
     url(r'^currency_conversion/$', ikaya_oscar_catalogue_app_view.currency_conv_view),
+    url(r'^accounts/', include('allauth.urls')),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
