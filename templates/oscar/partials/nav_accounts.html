@@ -284,7 +284,7 @@
                             <div class="col-sm-7 col-xs-7">
                                 <div class="row">
                                     <p class="name">{{ line.description }}</p>
-                                    <span class="price">{{ line.quantity }} x {{ line.unit_price_excl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code }}</span>
+                                    <span class="price">{{ line.quantity }} x {{ line.unit_price_excl_tax  }}</span>
                                 </div>
                             </div>
 
@@ -307,14 +307,14 @@
                             <div class="col-sm-6">
                                 <p class="mt-total-txt">
 {#                                    {% if request.basket.is_tax_known %}#}
-{#                                        <small>{% trans "Total:" %} {{ request.basket.total_incl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code }}</small>#}
+{#                                        <small>{% trans "Total:" %} {{ request.basket.total_incl_tax  }}</small>#}
 {#                                    {% else %}#}
-{#                                        <small>{% trans "Total:" %} {{ request.basket.total_excl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code }}</small>#}
+{#                                        <small>{% trans "Total:" %} {{ request.basket.total_excl_tax  }}</small>#}
 {#                                    {% endif %}#}
                                     {% if request.basket.is_tax_known %}
-                                        {{ request.basket.total_incl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code }}
+                                        {{ request.basket.total_incl_tax  }}
                                     {% else %}
-                                        {{ request.basket.total_excl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code }}
+                                        {{ request.basket.total_excl_tax  }}
                                     {% endif %}
 
                                 </p>
@@ -324,7 +324,7 @@
                     <div class="col-xs-12 text-center">
                         <br><br>
                         {% if user.is_authenticated %}
-                            <a href="{% url 'checkout:index' %}" class="btn-type3">{% trans "Proceed to checkout" %}</a>
+                            <a href="/basket" class="btn-type3">{% trans "Proceed to checkout" %}</a>
                         {% else %}
                             <a href="http://ekayaonline.com/accounts/login/" class="btn-type3">{% trans "Proceed to checkout" %}</a>
                         {% endif %}

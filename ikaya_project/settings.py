@@ -193,7 +193,7 @@ OSCAR_REQUIRED_ADDRESS_FIELDS = ('first_name', 'last_name', 'line1', 'postcode',
 ###########################
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'markatixcontact@gmail.com'
-EMAIL_HOST_PASSWORD = 'markatix@1234'
+EMAIL_HOST_PASSWORD = 'markatix@123'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 ###############################
