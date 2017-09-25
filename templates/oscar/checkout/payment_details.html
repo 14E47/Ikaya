@@ -66,43 +66,104 @@
 {#							</div>#}
 
 							<div class="panel panel-default bb">
-								<div class="panel-heading" role="tab" id="headingfour">
-									<h4 class="panel-title">
-										<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
-											<i class="more-less glyphicon glyphicon-plus"></i>
-											2. PAYMENT
-										</a>
-									</h4>
-								</div>
-								<div id="collapseFour" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingFour">
-									<div class="panel-body">
-										<div class="radio radio-primary">
-											<input type="radio" name="radio1" id="radio1" value="option1">
-											<label for="radio1">
-												COD
-											</label>
-										</div>
-										<div class="radio radio-primary">
-											<input type="radio" name="radio1" id="radio2" value="option2">
-											<label for="radio2">
-												DEBIT/CREDIT CARDS
-											</label>
-										</div>
-										<div class="radio radio-primary">
-											<input type="radio" name="radio1" id="radio3" value="option3">
-											<label for="radio3">
-												WALLET
-											</label>
-										</div>
-										<div class="col-sm-12">
-											<div class="row">
-												<a href="{% url 'checkout:preview' %}" class="pull-right save">PAY</a>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
+								 <form method="post"
+            action="https://www4.ipg-online.com/connect/gateway/processing"> 
+            {% csrf_token %}
+        <input type="hidden" name="timezone" value="IST" />
+        <input type="hidden" name="authenticateTransaction" value="true" />  
+        <input type="hidden" name="responseSuccessURL" value="http://ekayaonline.com/payment/place-order/{{basket}}/"/>         
+        <input type="hidden" name="responseFailURL" value="http://ekayaonline.com/payment/place-order/{{basket}}/"/>
+        <input type="hidden" name="hash_algorithm" value="SHA1"/>
+        <table style="display:none">
+                    <tr>
+                <td>
+                        Transaction Type
+                    </td>
+                    <td>
+                        <input size="50" type="text" name="txntype" value="sale"/>
+                    </td>
+                </tr>
+                   <tr>
+                    <td>
+                        Transaction Date Time
+                    </td>
+                    <td>
+                        <input size="50" type="text" name="txndatetime" value ="{{time}}"  />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Calculated HASH
+                    </td>
+                    <td>
+                        <input size="50" type="text" name="hash" value="{{hex_dig}}" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Currency
+                    </td>
+                    <td>
+                        <input size="50" type="text" name="currency" value="356" />
 
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Payment Mode
+                    </td>
+                    <td>
+                        <input size="50" type="text" name="mode" value="payonly" />
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>
+                        Full Bypass
+                    </td>
+                    <td>
+                        <input size="50" type="text" name="full_bypass" value="false" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Store Id
+                    </td>
+                    <td>
+                        <input size="50" type="text" name="storename" value="{{storeId}}" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Chargetotal
+                    </td>
+                    <td>
+                        <input size="50" type="text" name="chargetotal" value={{chargetotal}} />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Shared Secret
+                    </td>
+                    <td>
+                        <input size="50" type="text" name="sharedsecret" value="{{sharedSecret}}" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Language
+                    </td>
+                    <td>
+                        <select name="language">
+                            <option value="de_DE">Deutsch</option>
+                            <option value="en_EN" selected>English</option>
+                        </select>
+                    </td>
+                </tr>
+                </table>
+                   <input type="submit" name ="submitBtn" class="save" value="Pay with ICICI">
+        </form>
+  
                             <div class="panel panel-default bb">
 								<div class="panel-heading" role="tab" id="headingThree">
 									<h4 class="panel-title">
@@ -150,9 +211,9 @@
                                         <p style="padding:0px;margin:0px">SUBTOTAL
                                             <span class="pull-right">
                                                 {% if basket.is_tax_known and not show_tax_separately %}
-                                                    {{ basket.total_incl_tax_excl_discounts|multiply:request.session.currency_factor|currency:request.session.currency_code }}
+                                                    {{ basket.total_incl_tax_excl_discounts  }}
                                                 {% else %}
-                                                    {{ basket.total_excl_tax_excl_discounts|multiply:request.session.currency_factor|currency:request.session.currency_code  }}
+                                                    {{ basket.total_excl_tax_excl_discounts   }}
                                                 {% endif %}
                                             </span>
                                         </p>
@@ -163,7 +224,7 @@
                                                 <div class="row bb">
                                                     <p style="padding:0px;margin:0px">DISCOUNT({{ discount.description }})
                                                         <span class="pull-right">
-                                                            -{{ discount.discount|multiply:request.session.currency_factor|currency:request.session.currency_code  }}
+                                                            -{{ discount.discount   }}
                                                         </span>
                                                     </p>
                                                 </div>
@@ -175,7 +236,7 @@
                                                 <div class="row bb">
                                                     <p style="padding:0px;margin:0px">COUPON({{ discount.voucher.name }} ({{ discount.voucher.code }}))
                                                         <span class="pull-right">
-                                                            -{{ discount.discount|multiply:request.session.currency_factor|currency:request.session.currency_code  }}
+                                                            -{{ discount.discount   }}
                                                         </span>
                                                     </p>
                                                 </div>
@@ -188,9 +249,9 @@
                                         <p style="padding:0px;margin:0px">SHIPING({{ shipping_method.name }})
                                             <span class="pull-right">
                                                 {% if not show_tax_separately and shipping_charge.is_tax_known %}
-                                                    {{ shipping_charge.incl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code  }}
+                                                    {{ shipping_charge.incl_tax   }}
                                                 {% else %}
-                                                    {{ shipping_charge.excl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code  }}
+                                                    {{ shipping_charge.excl_tax   }}
                                                 {% endif %}
                                             </span>
                                         </p>
@@ -202,9 +263,9 @@
                                         <p style="padding:0px;margin:0px">SHIPPING({{ shipping_method.name }})
                                             <span class="pull-right">
                                                 {% if not show_tax_separately and shipping_charge.is_tax_known %}
-                                                    {{ shipping_charge.incl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code  }}
+                                                    {{ shipping_charge.incl_tax   }}
                                                 {% else %}
-                                                    {{ shipping_charge.excl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code  }}
+                                                    {{ shipping_charge.excl_tax   }}
                                                 {% endif %}
                                             </span>
                                         </p>
@@ -215,14 +276,14 @@
                                         <div class="row bb">
                                             <p style="padding:0px;margin:0px">TAXES (On Products)
                                                 <span class="pull-right">
-                                                    {{ basket.total_tax|multiply:request.session.currency_factor|currency:request.session.currency_code  }}
+                                                    {{ basket.total_tax   }}
                                                 </span>
                                             </p>
                                         </div>
                                         <div class="row bb">
                                             <p style="padding:0px;margin:0px">TAXES (On Shipping)
                                                 <span class="pull-right">
-                                                    {{ shipping_charge.tax|multiply:request.session.currency_factor|currency:request.session.currency_code  }}
+                                                    {{ shipping_charge.tax   }}
                                                 </span>
                                             </p>
                                         </div>
@@ -230,9 +291,9 @@
                                 {% endblock %}
                                 <div class="row bb">
                                     {% if request.basket.is_tax_known %}
-                                        <p style="padding:0px;margin:0px">TOTAL<span class="pull-right">{{ request.basket.total_incl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code  }}</span></p>
+                                        <p style="padding:0px;margin:0px">TOTAL<span class="pull-right">{{ request.basket.total_incl_tax   }}</span></p>
                                     {% else %}
-                                            <p style="padding:0px;margin:0px">TOTAL<span class="pull-right">{{ request.basket.total_excl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code  }}</span></p>
+                                            <p style="padding:0px;margin:0px">TOTAL<span class="pull-right">{{ request.basket.total_excl_tax   }}</span></p>
                                     {% endif %}
 
                                 </div>
