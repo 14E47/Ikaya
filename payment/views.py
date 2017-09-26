@@ -59,20 +59,26 @@ from oscar.core import prices
 storeId = getattr(settings, "STORE_ID", None)
 sharedSecret = getattr(settings, "SECRET_ID", None)
 currency = getattr(settings, "CURRENCY", None)
-
+# from .forms import MyModelForm
+ 
+#disabling csrf (cross site request forgery)
 
 def payment_icici(request):
-
+    storeId = "3387000704"
+    sharedSecret = "Et25zcXlXf"
     time = getDateTime()
     total = request.basket.total_incl_tax
     chargetotal = str(int(total))
     basket = request.basket.id
+    print(chargetotal) 
+    print(basket)
+    currency = "356"
     string = (storeId + time + chargetotal + currency + sharedSecret)
     stringToHash = string.encode()
     ascii = binascii.b2a_hex(bytes(stringToHash))
     hash_object = hashlib.sha1(ascii)
     hex_dig = hash_object.hexdigest()
-    print(basket)
+    print(hex_dig)
     return render(request, 'checkout/payment_details.html', {"sharedSecret":sharedSecret, "chargetotal":chargetotal,"storeId":storeId, "time":time,"hex_dig":hex_dig, "basket":basket })
 
 
@@ -81,7 +87,20 @@ def getDateTime():
     india = timezone('Asia/Kolkata')
     sa_time = datetime.now(india)
     now = sa_time.strftime("%Y:%m:%d-%H:%M:%S")
+    print(now)
     return now
+
+def success(request):
+    reponse = request.GET.get('responseSuccessURL')
+    print(reponse)
+    
+    return render(request,'response_success.html')    
+
+def fail(request):
+    reponse = request.GET.get('responseFailURL')
+    print(reponse)
+    
+    return render(request,'response_fail.html') 
 
 
 class SuccessResponseView(PaymentDetailsView):
@@ -155,7 +174,6 @@ class SuccessResponseView(PaymentDetailsView):
     def post(self, request, *args, **kwargs):
         """
         Place an order.
-
         We fetch the txn details again and then proceed with oscar's standard
         payment details view for placing the order.
         """
@@ -168,6 +186,8 @@ class SuccessResponseView(PaymentDetailsView):
             amount = float(request.POST['chargetotal'])
             currency = request.basket.currency
             basket_id = request.basket.id
+            razorpay_details = {'payment_id':payment_id, 'amount':amount, 'currency':currency, 
+                    'email': 'test@yopmail.com', 'contact': '7568373724'}
 
             if payment_id:
                 pass
@@ -180,7 +200,7 @@ class SuccessResponseView(PaymentDetailsView):
             messages.error(self.request, error_msg)
             return HttpResponseRedirect(reverse('basket:summary'))
 
-        self._check_amount(amount)
+        # Reload frozen basket which is specified in the URL
         basket = self.load_frozen_basket(kwargs['basket_id'])
         order_number = self.generate_order_number(basket)
         self.checkout_session.set_order_number(order_number)
@@ -189,15 +209,11 @@ class SuccessResponseView(PaymentDetailsView):
             messages.error(self.request, error_msg)
             return HttpResponseRedirect(reverse('basket:summary'))
 
-        submission = self.build_submission(basket=basket, context={'payment_id': payment_id, 'payment_amount': amount})
+        submission = self.build_submission(basket=basket, context={'payment_id': payment_id, 'email': 'test@yopmail.com', 'payment_amount': amount})
         return self.submit(**submission)
 
-    def _check_amount(self, amount):
-        if amount == 0 or amount is None:
-            raise UnableToTakePayment("Order amount must be non-zero")
-
     def build_submission(self, **kwargs):
-#        email = kwargs['context']['email']
+        #email = kwargs['context']['email']
         payment_id = kwargs['context']['payment_id']
         payment_amount = kwargs['context']['payment_amount']
         kwargs.pop('context')
@@ -205,7 +221,7 @@ class SuccessResponseView(PaymentDetailsView):
         submission = super(
             SuccessResponseView, self).build_submission(**kwargs)
 
- #       submission['order_kwargs']['email'] = email
+        #submission['order_kwargs']['email'] = email
         submission['payment_kwargs']['payment_id'] = payment_id
         submission['payment_kwargs']['payment_amount'] = payment_amount    
 
