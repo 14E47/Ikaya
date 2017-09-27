@@ -18,6 +18,13 @@ def currency_conv_view(request):
     currency_code = request.GET['currency_code']
     factor = {}
     factor = {'INR':1.00, 'USD':0.015, 'GBP':0.011, 'EUR':0.014}
+    try: 
+        req = urllib2.urlopen('http://finance.yahoo.com/d/quotes.csv?e=.csv&f=sl1d1t1&s=INR'+currency_code+'=X') 
+        result = req.read() 
+        factor.update({currency_out:result.split(',')[1]}) 
+    except:
+        factor = {'INR':1.00, 'USD':0.0155, 'GBP':0.0115, 'EUR':0.0134}
+
     request.session['currency_code'] = currency_code 
     request.session['currency_factor'] = factor[currency_code]
     return HttpResponseRedirect(request.META['HTTP_REFERER'])

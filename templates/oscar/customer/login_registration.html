@@ -54,7 +54,7 @@
             </div>
             <div class="row" style="margin-top:50px;">
                 <div class="col-sm-8 col-sm-offset-2 text-center">
-                    <a href="#" class="btn btn-lg facebook">Login with Facebook</a>
+                    <a href="{% provider_login_url "facebook" method="oauth2" %}" class="btn btn-lg facebook">Login with Facebook</a>
                     <a href="{% provider_login_url "google" method="oauth2" %}" class="btn btn-lg facebook">Login with Google Plus</a>
                 </div>
             </div>
