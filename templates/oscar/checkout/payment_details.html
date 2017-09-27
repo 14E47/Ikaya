@@ -67,7 +67,7 @@
               <div class="radio radio-primary">
                <a href="/checkout/thank-you/"> <input type="radio" name="radio1" id="radio2" value="option2"> COD</a>
                                         </div>
-<a href="/payment/payment_page">CCAVENUE</a>
+<a href="/payment/payment_page">CCAVENUE</a>    
 							<div class="panel panel-default bb">
 								 <form method="post"
             action="https://www4.ipg-online.com/connect/gateway/processing"> 
@@ -199,6 +199,7 @@
                                             {% endwith %}
                                         </div>
                                     </div>
+                                    
                                     <div class="col-sm-9 col-xs-9 vcenter2">
                                         <h4 class="name"><a href="{{ line.product.get_absolute_url }}">{{ line.description }}</a></h4>
                                         <p class="qty">QTY:<span>{{ line.quantity }}</span></p>
