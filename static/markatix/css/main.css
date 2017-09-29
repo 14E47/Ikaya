@@ -9636,7 +9636,7 @@ l,btn-box li:after {
 
     .checkout .panel-title > a {
         display: block;
-        padding: 15px;
+        padding: 15px 0px;
 		padding-left:0px;
         text-decoration: none;
 		font-family: "MetaSerifTf-Book";
@@ -9654,7 +9654,7 @@ l,btn-box li:after {
 		color: #999;
 		width:100%;
 		font-family: "MetaSerifTf-Book";
-		margin-bottom:15px;
+		margin-bottom:0px;
 		background-color:#eee;
 		outline:0;
         box-shadow:0px;
@@ -9666,7 +9666,7 @@ l,btn-box li:after {
 		padding:10px 15px;
 		font-family: "MetaSerifTf-Book";
 		background-color:#827272;
-		color:#fff;
+		color:#fff !important;
 	}
 
 	.checkout .main-head
@@ -10107,7 +10107,8 @@ l,btn-box li:after {
     #id_title
     {
       width:48.5%;
-      margin-bottom:15px;
+      margin-bottom:0px;
+      border-radius:0px;
     }
     .size-guide
     {

@@ -5,35 +5,30 @@
 {% load currency_filters %}
 {% load shipping_tags %}
 {% load debug_tags custom_tags %}
-
 {% block title %}
-    {% trans "Shipping address" %} | {{ block.super }}
+{% trans "Shipping address" %} | {{ block.super }}
 {% endblock %}
-
 {% block checkout_nav %}
-    {% include 'checkout/nav.html' with step=1 %}
+{% include 'checkout/nav.html' with step=1 %}
 {% endblock %}
-
 {% block checkout_title %}{% trans "Shipping address" %}{% endblock %}
-
 {% block order_contents %}{% endblock %}
-
 {% block shipping_address %}
-    {% block new_address_form %}
-        <main id="mt-main">
-			<div class="container checkout">
-				<div class="row">
-
-				</div>
-
-				<div class="row">
-
-					<div class="col-sm-6 basket">
-						<p class="headding">CHECKOUT</p>
-						<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-							<div class="panel panel-default text bb">
-								<div class="panel-heading" role="tab" id="headingOne">
-{% if user.is_authenticated %}
+{% block new_address_form %}
+<main id="mt-main">
+   <div class="container checkout">
+      <div class="row">
+      </div>
+      <div class="row">
+         <div class="col-sm-6 basket">
+            <div class="row">
+                <p class="headding">CHECKOUT</p>
+            </div>
+            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+               <div class="panel panel-default text bb">
+                  <div class="panel-heading" role="tab" id="headingOne">
+                      <div class="row">
+                      {% if user.is_authenticated %}
         {% if addresses %}
             <h3>{% trans "An address from your address book?" %}</h3>
             <div class="choose-block">
@@ -56,7 +51,7 @@
                                         {% if address.is_default_for_shipping %}
                                             <button type="submit" class="btn btn-success btn-large ship-address" data-loading-text="{% trans 'Saving...' %}"><i class="icon-ok"></i> {% trans "Ship to your default shipping address" %}</button>
                                         {% else %}
-                                            <button type="submit" class="btn save pull-left btn-primary btn-large ship-address" data-loading-text="{% trans 'Saving...' %}">{% trans "Ship to this address" %}</button>
+                                            <button type="submit" class="btn btn-lg btn-primary" data-loading-text="{% trans 'Saving...' %}">{% trans "Ship to this address" %}</button>
                                         {% endif %}
 
                                         <div class="btn-group address-controls">
@@ -66,6 +61,7 @@
                                             </button>
                                             <ul class="dropdown-menu">
                                                 <li><a href="{% url 'checkout:user-address-delete' pk=address.id %}" class="btn-remove-address">{% trans "Delete" %}</a></li>
+
                                             </ul>
                                         </div>
                                     </form>
@@ -80,17 +76,40 @@
             </div>
             <h3>{% trans "Or a new address?" %}</h3>
         {% endif %}
-{% endif %}
-									<h4 class="panel-title">
-										<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-											<i class="more-less glyphicon glyphicon-plus"></i>
-											1. ADDRESS
-										</a>
-									</h4>
-								</div>
-								<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-									<div class="panel-body">
-<form action="/checkout/shipping-address/" method="post" id="new_shipping_address" class="form form-horizontal"> 
+    {% endif %}
+                         <h4 class="panel-title">
+                            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <i class="more-less glyphicon glyphicon-plus"></i>
+                            1. ADDRESS
+                            </a>
+                         </h4>
+                      </div>
+
+                  </div>
+                  <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                     <div class="panel-body">
+                         <div class="row">
+                         <div class="form-group">
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <h4>Email</h4>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <input type="text" name="email_address" placeholder="EMAIL" class="form-control" value="" />
+                                </div>
+                            </div>
+                            </div>
+                         <div class="form-group">
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <h4 class="main-head">Shipping Address</h4>
+                                </div>
+                            </div>
+                         </div>
+                     </div>
+                        <form action="{% url 'checkout:shipping-address' %}" method="post" id="new_shipping_address" class="form form-horizontal">
 {% csrf_token %}
    <div class="form-group ">
       <label for="id_title" class="col-sm-4 control-label">
@@ -459,191 +478,164 @@
       </div>
    </div>
 </form>
-									</div>
-								</div>
-                                <p class="new-text1">Delivery dates provided by us are estimates only.</p>
-                                <p class="new-text1">Customers ordering outside of India will be charged estimated custom fees.</p>
-                                <p class="new-text1">International shipment may be subject to additional import taxes, customs duties and fees, which are levied
-                                    once a shipment reaches the destination country.</p>
 
-							</div>
 
-{#							<div class="panel panel-default">#}
-{#								<div class="panel-heading" role="tab" id="headingTwo">#}
-{#									<h4 class="panel-title">#}
-{#										<a href="#">#}
-{#											<i class="more-less glyphicon glyphicon-plus"></i>#}
-{#											2. DELIVERY#}
-{#										</a>#}
-{#									</h4>#}
-{#								</div>#}
-{#							</div>#}
-{##}
-{#							<div class="panel panel-default">#}
-{#								<div class="panel-heading" role="tab" id="headingThree">#}
-{#									<h4 class="panel-title">#}
-{#										<a href="#">#}
-{#											<i class="more-less glyphicon glyphicon-plus"></i>#}
-{#											3. ADDRESS DETAILS GIVEN#}
-{#										</a>#}
-{#									</h4>#}
-{#								</div>#}
-{#							</div>#}
-							<div class="panel panel-default bb">
-								<div class="panel-heading" role="tab" id="headingThree">
-									<h4 class="panel-title">
-										<a href="#">
-											<i class="more-less glyphicon glyphicon-plus"></i>
-											2. PAYMENT
-										</a>
-									</h4>
-								</div>
-							</div>
-
-							<div class="panel panel-default bb">
-								<div class="panel-heading" role="tab" id="headingThree">
-									<h4 class="panel-title">
-										<a href="#">
-											<i class="more-less glyphicon glyphicon-plus"></i>
-											3. CONFIRMATION
-										</a>
-									</h4>
-								</div>
-							</div>
-
-						</div>
-					</div>
-
-					<div class="col-sm-1">
-					</div>
-
-					<div class="col-sm-5 basket">
-                        <p class="headding">MY ORDER</p>
-                        <div class="col-sm-12">
-                            {% for line in request.basket.all_lines %}
-                                <div class="row equalh bb">
-                                    <div class="col-sm-3 col-xs-3">
-                                        <div class="row">
-                                            {% with image=line.product.primary_image %}
-                                                <a href="{{ line.product.get_absolute_url }}">
-                                                    <img src="{{ image.original.url }}" alt="{{ line.product.get_title }}">
-                                                </a>
-                                            {% endwith %}
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-9 col-xs-9 vcenter2">
-                                        <h4 class="name"><a href="{{ line.product.get_absolute_url }}">{{ line.description }}</a></h4>
-                                        <p class="qty">QTY:<span>{{ line.quantity }}</span></p>
-                                        <h4 class="basket-price">PRICE:<br><span>{{ line.unit_price_excl_tax|multiply:request.session.currency_factor|floatformat:0|currency:request.session.currency_code }}</span></h4>
-{#                                        <button class="remove-item">REMOVE</button>#}
-                                    </div>
-                                    <hr>
-                                </div>
-                            {% endfor %}
-                            <div class="total">
-                                {% with offer_discounts=basket.offer_discounts voucher_discounts=basket.grouped_voucher_discounts %}
-                                    <div class="row bb">
-                                        <p style="padding:0px;margin:0px">SUBTOTAL
-                                            <span class="pull-right">
-                                                {% if basket.is_tax_known and not show_tax_separately %}
-                                                    {{ basket.total_incl_tax_excl_discounts  }}
-                                                {% else %}
-                                                    {{ basket.total_excl_tax_excl_discounts  }}
-                                                {% endif %}
-                                            </span>
-                                        </p>
-                                    </div>
-                                    {% if offer_discounts or voucher_discounts %}
-                                        {% for discount in offer_discounts %}
-                                            {% if discount.description %}
-                                                <div class="row bb">
-                                                    <p style="padding:0px;margin:0px">DISCOUNT({{ discount.description }})
-                                                        <span class="pull-right">
-                                                            -{{ discount.discount  }}
-                                                        </span>
-                                                    </p>
-                                                </div>
-                                            {% endif %}
-                                        {% endfor %}
-
-                                        {% if voucher_discounts %}
-                                            {% for discount in voucher_discounts %}
-                                                <div class="row bb">
-                                                    <p style="padding:0px;margin:0px">COUPON({{ discount.voucher.name }} ({{ discount.voucher.code }}))
-                                                        <span class="pull-right">
-                                                            -{{ discount.discount  }}
-                                                        </span>
-                                                    </p>
-                                                </div>
-                                            {% endfor %}
-                                        {% endif %}
-                                    {% endif %}
-                                {% endwith %}
-                                {% if not shipping_method.is_discounted %}
-                                    <div class="row bb">
-                                        <p style="padding:0px;margin:0px">SHIPING({{ shipping_method.name }})
-                                            <span class="pull-right">
-                                                {% if not show_tax_separately and shipping_charge.is_tax_known %}
-                                                    {{ shipping_charge.incl_tax  }}
-                                                {% else %}
-                                                    {{ shipping_charge.excl_tax  }}
-                                                {% endif %}
-                                            </span>
-                                        </p>
-                                    </div>
-                                {% else %}
-                                    {% shipping_charge_discount shipping_method basket as shipping_discount %}
-                                    {% shipping_charge_excl_discount shipping_method basket as shipping_charge_excl_discount %}
-                                    <div class="row bb">
-                                        <p style="padding:0px;margin:0px">SHIIPING({{ shipping_method.name }})
-                                            <span class="pull-right">
-                                                {% if not show_tax_separately and shipping_charge.is_tax_known %}
-                                                    {{ shipping_charge.incl_tax  }}
-                                                {% else %}
-                                                    {{ shipping_charge.excl_tax  }}
-                                                {% endif %}
-                                            </span>
-                                        </p>
-                                    </div>
-                                {% endif %}
-                                {% block tax_totals %}
-                                    {% if show_tax_separately %}
-                                        <div class="row bb">
-                                            <p style="padding:0px;margin:0px">TAXES (On Products)
-                                                <span class="pull-right">
-                                                    {{ basket.total_tax  }}
-                                                </span>
-                                            </p>
-                                        </div>
-                                        <div class="row bb">
-                                            <p style="padding:0px;margin:0px">TAXES (On Shipping)
-                                                <span class="pull-right">
-                                                    {{ shipping_charge.tax  }}
-                                                </span>
-                                            </p>
-                                        </div>
-                                    {% endif %}
-                                {% endblock %}
-                                <div class="row bb">
-                                    {% if request.basket.is_tax_known %}
-                                        <p style="padding:0px;margin:0px">TOTAL<span class="pull-right">{{ request.basket.total_incl_tax  }}</span></p>
-                                    {% else %}
-                                            <p style="padding:0px;margin:0px">TOTAL<span class="pull-right">{{ request.basket.total_excl_tax  }}</span></p>
-                                    {% endif %}
-
-                                </div>
-                            </div>
-                        <br><br><br><br>
-                        </div>
-
-                        <p class="new-text1">Please note, the final purchase price may change when you select your delivery address</p>
-                        <p class="new-text1">The items in your shopping cart are not reserved and may be purchased by other customers.</p>
-                    </div>
-                </div>
+                     </div>
+                  </div>
+                  <p class="new-text1">Delivery dates provided by us are estimates only.</p>
+                  <p class="new-text1">Customers ordering outside of India will be charged estimated custom fees.</p>
+                  <p class="new-text1">International shipment may be subject to additional import taxes, customs duties and fees, which are levied
+                     once a shipment reaches the destination country.
+                  </p>
+               </div>
+                <div class="panel panel-default bb">
+                  <div class="panel-heading" role="tab" id="headingThree">
+                     <h4 class="panel-title">
+                        <a href="#">
+                        <i class="more-less glyphicon glyphicon-plus"></i>
+                        2. PAYMENT
+                        </a>
+                     </h4>
+                  </div>
+               </div>
+               <div class="panel panel-default bb">
+                  <div class="panel-heading" role="tab" id="headingThree">
+                     <h4 class="panel-title">
+                        <a href="#">
+                        <i class="more-less glyphicon glyphicon-plus"></i>
+                        3. CONFIRMATION
+                        </a>
+                     </h4>
+                  </div>
+               </div>
             </div>
-		</main><!-- Main of the Page end here -->
-    {% endblock %}
+         </div>
+         <div class="col-sm-1">
+         </div>
+         <div class="col-sm-5 basket">
+            <p class="headding">MY ORDER</p>
+            <div class="col-sm-12">
+               {% for line in request.basket.all_lines %}
+               <div class="row equalh bb">
+                  <div class="col-sm-3 col-xs-3">
+                     <div class="row">
+                        {% with image=line.product.primary_image %}
+                        <a href="{{ line.product.get_absolute_url }}">
+                        <img src="{{ image.original.url }}" alt="{{ line.product.get_title }}">
+                        </a>
+                        {% endwith %}
+                     </div>
+                  </div>
+                  <div class="col-sm-9 col-xs-9 vcenter2">
+                     <h4 class="name"><a href="{{ line.product.get_absolute_url }}">{{ line.description }}</a></h4>
+                     <p class="qty">QTY:<span>{{ line.quantity }}</span></p>
+                     <h4 class="basket-price">PRICE:<br><span>{{ line.unit_price_excl_tax }}</span></h4>
+                     {#                                        <button class="remove-item">REMOVE</button>#}
+                  </div>
+                  <hr>
+               </div>
+               {% endfor %}
+               <div class="total">
+                  {% with offer_discounts=basket.offer_discounts voucher_discounts=basket.grouped_voucher_discounts %}
+                  <div class="row bb">
+                     <p style="padding:0px;margin:0px">SUBTOTAL
+                        <span class="pull-right">
+                        {% if basket.is_tax_known and not show_tax_separately %}
+                        {{ basket.total_incl_tax_excl_discounts  }}
+                        {% else %}
+                        {{ basket.total_excl_tax_excl_discounts  }}
+                        {% endif %}
+                        </span>
+                     </p>
+                  </div>
+                  {% if offer_discounts or voucher_discounts %}
+                  {% for discount in offer_discounts %}
+                  {% if discount.description %}
+                  <div class="row bb">
+                     <p style="padding:0px;margin:0px">DISCOUNT({{ discount.description }})
+                        <span class="pull-right">
+                        -{{ discount.discount  }}
+                        </span>
+                     </p>
+                  </div>
+                  {% endif %}
+                  {% endfor %}
+                  {% if voucher_discounts %}
+                  {% for discount in voucher_discounts %}
+                  <div class="row bb">
+                     <p style="padding:0px;margin:0px">COUPON({{ discount.voucher.name }} ({{ discount.voucher.code }}))
+                        <span class="pull-right">
+                        -{{ discount.discount  }}
+                        </span>
+                     </p>
+                  </div>
+                  {% endfor %}
+                  {% endif %}
+                  {% endif %}
+                  {% endwith %}
+                  {% if not shipping_method.is_discounted %}
+                  <div class="row bb">
+                     <p style="padding:0px;margin:0px">SHIPING({{ shipping_method.name }})
+                        <span class="pull-right">
+                        {% if not show_tax_separately and shipping_charge.is_tax_known %}
+                        {{ shipping_charge.incl_tax  }}
+                        {% else %}
+                        {{ shipping_charge.excl_tax  }}
+                        {% endif %}
+                        </span>
+                     </p>
+                  </div>
+                  {% else %}
+                  {% shipping_charge_discount shipping_method basket as shipping_discount %}
+                  {% shipping_charge_excl_discount shipping_method basket as shipping_charge_excl_discount %}
+                  <div class="row bb">
+                     <p style="padding:0px;margin:0px">SHIIPING({{ shipping_method.name }})
+                        <span class="pull-right">
+                        {% if not show_tax_separately and shipping_charge.is_tax_known %}
+                        {{ shipping_charge.incl_tax  }}
+                        {% else %}
+                        {{ shipping_charge.excl_tax  }}
+                        {% endif %}
+                        </span>
+                     </p>
+                  </div>
+                  {% endif %}
+                  {% block tax_totals %}
+                  {% if show_tax_separately %}
+                  <div class="row bb">
+                     <p style="padding:0px;margin:0px">TAXES (On Products)
+                        <span class="pull-right">
+                        {{ basket.total_tax  }}
+                        </span>
+                     </p>
+                  </div>
+                  <div class="row bb">
+                     <p style="padding:0px;margin:0px">TAXES (On Shipping)
+                        <span class="pull-right">
+                        {{ shipping_charge.tax  }}
+                        </span>
+                     </p>
+                  </div>
+                  {% endif %}
+                  {% endblock %}
+                  <div class="row bb">
+                     {% if request.basket.is_tax_known %}
+                     <p style="padding:0px;margin:0px">TOTAL<span class="pull-right">{{ request.basket.total_incl_tax  }}</span></p>
+                     {% else %}
+                     <p style="padding:0px;margin:0px">TOTAL<span class="pull-right">{{ request.basket.total_excl_tax  }}</span></p>
+                     {% endif %}
+                  </div>
+               </div>
+               <br><br><br><br>
+            </div>
+            <p class="new-text1">Please note, the final purchase price may change when you select your delivery address</p>
+            <p class="new-text1">The items in your shopping cart are not reserved and may be purchased by other customers.</p>
+         </div>
+      </div>
+   </div>
+</main>
+<!-- Main of the Page end here -->
+{% endblock %}
 {% endblock shipping_address %}
-
 {% block shipping_method %}{% endblock %}
 {% block payment_method %}{% endblock %}

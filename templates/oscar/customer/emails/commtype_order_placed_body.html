@@ -1,28 +1,159 @@
 {% extends "customer/emails/base.html" %}
 {% load currency_filters i18n %}
+{% block title %}
+    {% blocktrans with number=order.number %}Order {{ number }}{% endblocktrans %} | {{ block.super }}
+{% endblock %}
 
-{% block body %}<p xmlns="http://www.w3.org/1999/html">{% trans 'Hello,' %}</p>
+{% block body %}<p xmlns="http://www.w3.org/1999/html"></p>
+<table width="101%" border="0" cellpadding="0" cellspacing="0" style="width: 100% !important; table-layout:fixed;" bgcolor="#ffffff">
+      <tr>
+        <td valign="top" align="center">
+          <div class="wrapper" style="min-width: 670px;" align="center">
 
-<p>{% blocktrans with order_number=order.number %}We are pleased to confirm your order {{ order_number }} has been received and
-will be processed shortly.{% endblocktrans %}</p>
+          <table width="650" bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" class="full-width" style="width:650px; margin:0 auto;">
+            <tr>
+              <td align="center" style="padding:25px 10px 25px 10px;">
+                <img src="http://ekayaonline.com/static/markatix/images/new/mt-logo.png">
+              </td>
+            </tr>
+                
+            <tr>
+                <td align="center" style="padding:20px">
+                    <strong>Order {% blocktrans with order_number=order.number %}{{ order_number }} {% endblocktrans %}</strong>
 
-<p>{% trans 'Your order contains:' %}</p>
+                </td>
+            </tr>
+                <td align="center" style="padding:20px">
+                    {% with notes=order.notes.all %}
+                                {% for note in notes %}
+ 					Date:
+                    				{{ note.date_created }}
+                    			{% endfor %}
+                    {% endwith %}
 
-<ul>
-    {% for line in order.lines.all %}
-    <li>{{ line.title }} - {%  trans 'quantity:' %} {{ line.quantity }} - {% trans 'price:' %} {{ line.line_price_incl_tax|currency:order.currency }}</li>
-    {% endfor %}
-</ul>
-<p>
-{% trans 'Basket total:' %} {{ order.basket_total_incl_tax|currency:order.currency }}<br/>
-{% trans 'Shipping:' %} {{ order.shipping_incl_tax|currency:order.currency }}<br/>
-{% trans 'Order Total:' %} {{ order.total_incl_tax|currency:order.currency }}
-</p>
+                </td>
+            </tr>
+            <tr>
+                <td style="border-top-width:1px;border-top-style:solid;border-top-color:rgb(0,0,0);border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:rgb(0,0,0);margin:30px 0px 0px;width:100%;padding:10px 0px">
 
-<p>{% trans 'Shipping address:' %}</p>
-<p>{% for field in order.shipping_address.active_address_fields %}  {{ field }}<br/>
-{% endfor %}</p>
+                    Dear {{order.shipping_address.first_name}} ,<br>
+                    Thank you for ordering Ekaya, we hope you enjoyed shopping with us. Please find below the details of the order placed. 
 
-{% if status_url %}
-<p>{% blocktrans %}You can view the status of this order by clicking <a href="{{ status_url }}" title="order status">here</a>{% endblocktrans %}</p>
-{% endif %}{% endblock %}
+
+                </td>
+            </tr>
+            <tr>
+                <td style="border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:rgb(0,0,0)"><p style="font-size:16px;font-weight:bold;letter-spacing:2px;margin:16px 0px">SHIPPING ADDRESS</p><p style="font-size:13px;line-height:20px"> {{order}}
+    					{% for field in order.shipping_address.active_address_fields %}
+    		
+
+    					 {{ field }}<br/>
+    					
+					{% endfor %}
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td style="border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:rgb(0,0,0);padding-bottom:10px;vertical-align:top">
+                    <p style="font-size:16px;font-weight:bold;letter-spacing:2px;margin:16px 0px;white-space:nowrap">
+                        PAYMENT METHOD
+                    </p>
+                    <p style="font-size:13px;line-height:25px"></p>
+                    <p>Pay Online (Credit/Debit Cards, Online Transfer)
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <table cellspacing="0" cellpadding="0" border="0" width="100%" style="padding:10px 0px;border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:rgb(0,0,0)">
+                        <thead style="font-weight:bold;text-transform:uppercase;letter-spacing:1px">
+                            <tr>
+                                <th colspan="2" align="left" style="font-size:13px;padding:5px 9px 5px 0px">Style</th>
+                                <th align="right" style="font-size:13px;padding:5px 9px">Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                {% for line in order.lines.all %}
+
+                            <tr>
+                                <td width="25%" valign="middle" style="padding-top:20px">
+                                   {% with image=line.product.primary_image %}
+                                        <img src="http://ekayaonline.com{{ image.original.url }} " width="114" height="188" style="margin-right:0px" class="CToWUd" >
+
+                                    {% endwith %}
+                                </td>
+                                <td width="50%" valign="top" style="padding:20px 5px 0px">
+                                    <p style="margin:0px;font-size:13px;line-height:normal;font-family:Times;color:rgb(18,85,204)"><b><a href="http://ekayaonline.com/catalogue/handwoven-yellow-and-blue-tanchoi-silk-sari_208/" target="_blank" data-saferedirecturl="https://www.google.com/url?hl=en&amp;q=http://ekayaonline.com/catalogue/handwoven-yellow-and-blue-tanchoi-silk-sari_208/&amp;source=gmail&amp;ust=1506539886999000&amp;usg=AFQjCNEAEfBvr6eKaEGEGDSGxjlitN--iQ">{{ line.title }}</a></b></p>
+                                    <p style="margin:0px;font-size:13px;line-height:normal;font-family:Times;color:rgb(18,85,204)"><br></p>
+                                    <p style="margin:0px">Qty: {{ line.quantity }}|<span style="text-transform:capitalize"> size</span>&nbsp;M</p>
+                                    <p style="margin:0px"><em>(Delivery <span class="aBn" data-term="goog_1596949641" tabindex="0"><span class="aQJ">in one week</span></span> )</em></p>
+                                </td>
+                                <td width="25%" valign="top" style="padding:20px 9px 0px 0px;text-align:right">₹&nbsp;<b style="color:rgb(35,35,35);font-family:Times;font-size:13px">{{ line.line_price_incl_tax|currency:order.currency }}</b>
+                                </td>
+                            </tr>
+                             {% endfor %}
+                        </tbody>
+            {% block order_total %}
+                        <tfoot>
+                            <tr>
+                                <td colspan="2" align="left" style="padding:5px 9px 5px 0px;text-transform:uppercase">
+                                Subtotal                 
+                                </td>
+				<td align="right" style="padding:5px 9px">{{ order.toil_excl_tax  }}</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" align="left" style="padding:5px 9px 5px 0px;text-transform:uppercase"><strong>Grand Total</strong></td>
+				<td align="right" style="padding:5px 9px"><strong>{{  order.total_excl_tax }}</strong></td>
+                            </tr>
+                        </tfoot>
+            {% endblock %}
+                    </table>
+                    <p style="font-size:13px;margin:0px 0px 10px"></p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p style="font-size:16px;font-weight:bold;letter-spacing:2px">IMPORTANT</p>
+                    <p style="font-size:16px;font-weight:bold;letter-spacing:2px">
+                        <b style="letter-spacing:normal;text-align:-webkit-center">
+                            <font color="#222222">
+                                Please Note: We will update via another email once the products are ready to be shipped&nbsp;along with tracking details. Please look out for this email&nbsp;in order to track your order.&nbsp;</font>
+                        </b>
+                        <br>
+                    </p>
+                    <p style="line-height:25px;font-size:13px"><span style="font-weight:bold">COD:</span> If the order is not verified/confirmed, we will not hold stock or ship the order.<br><span style="font-weight:bold">SHIPPING:</span> All products are normally dispatched as per the timeline given. Custom orders can take upto 3 weeks. Please read our <u>shipping details carefully.</u>&nbsp;Contact us at +91 956067124 for urgent deliveries. (<span class="aBn" data-term="goog_1596949643" tabindex="0"><span class="aQJ">Monday</span></span>-<span class="aBn" data-term="goog_1596949644" tabindex="0"><span class="aQJ">Sunday</span></span>, <span class="aBn" data-term="goog_1596949645" tabindex="0"><span class="aQJ">11am-8pm IST</span></span>)<br><span style="font-weight:bold">RETURNS:</span> Click <u>here</u> to read our Returns policy
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p style="font-size:16px;font-weight:bold;letter-spacing:2px">NEED HELP?</p>
+                    <p style="line-height:25px;font-size:13px">Email:<span style="color:rgb(35,35,35);font-family:Arial;font-size:16px">&nbsp;</span><span style="font-family:Arial;font-size:16px;color:rgb(18,85,204)"><a href="mailto:orders@ekaya.in" target="_blank">orders@ekaya.in</a></span>
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p style="font-size:16px;font-weight:bold;letter-spacing:2px;text-transform:uppercase;display:inline-block;vertical-align:middle">Follow Us</p>
+                    <div style="display:inline-block;vertical-align:middle;padding-left:10px">
+                        <img src="https://ci6.googleusercontent.com/proxy/wsMZxSO-WJnqvDkZphbfFvwDqkEFi0Lkiq77hDw1LDrtAgY6EPq8naMeOzPwdUbDecXa7yWLAAoRb1KHEmEKttdcWKUFIx5iE9lJty_A3kPx4-kMjegmQp5wrYHvPfwW9JiHcKk7gOfi3ND6irk=s0-d-e1-ft#http://www.thelabellife.com/skin/frontend/default/thelabellife/images/sprite/insta-f.png" class="CToWUd">
+                        <img src="https://ci3.googleusercontent.com/proxy/P5ScHXvu1hjdGN85FV1Fecu9RZh0SFto-iU9QZxCjko685nQCD1Qa9h7q-PDGIqAiR93wOUO2ibHpYDerm9CTZrmnqm2FJ_G6Rj9MhGQaG-Wg-RWqiDGzQf2ZS0FGunP-9HUYEWxncvc-OtmswM-ZM4=s0-d-e1-ft#http://www.thelabellife.com/skin/frontend/default/thelabellife/images/sprite/facebook-f.png" class="CToWUd">
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+                    </div>
+               </td>
+            </tr>
+            <tr>
+                <td style="padding-top:20px">
+                    <div>
+                        <font color="#888888">&nbsp;&nbsp;
+                            <img src="http://ekayaonline.com/media/images/promotions/140.jpeg" alt="Inline image 1" width="467" height="200" style="margin-right:0px" class="CToWUd a6T" tabindex="0">
+                        </font>
+                    </div>
+                </td>
+            </tr>
+          </table>
+          </div>
+<p>{% endblock %}
+
+
+
