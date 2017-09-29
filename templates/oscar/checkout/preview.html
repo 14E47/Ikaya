@@ -1,13 +1,13 @@
-{% extends "checkout/checkout.html" %}
+{% extends "checkout/preview_layout.html" %}
 {% load i18n %}
 
 {% block title %}
     {% trans "Order preview" %} | {{ block.super }}
 {% endblock %}
 
-{% block checkout_nav %}
-    {% include 'checkout/nav.html' with step=4 %}
-{% endblock %}
+{#{% block checkout_nav %}#}
+{#    {% include 'checkout/nav.html' with step=4 %}#}
+{#{% endblock %}#}
 
 {% block checkout_title %}
     {% trans "Preview order" %}
@@ -31,9 +31,18 @@
         <div class="form-group clearfix">
             <div class="row">
                 <div class="col-sm-3 col-sm-offset-9">
-                     <button id='place-order' type="submit" class="btn btn-primary btn-lg btn-block" data-loading-text="{% trans 'Submitting...' %}">{% trans "Place order" %}</button>
+                     <button id='place-order' type="submit" class="btn btn-primary btn-lg btn-block save" style="background-color:#7b674f;border-radius:0px;outline:0px;border:0px;" data-loading-text="{% trans 'Submitting...' %}">{% trans "Place order" %}</button>
                 </div>
             </div>
         </div>
     </form>
 {% endblock place_order %}
+
+{% block extrastyles %}
+    <style>
+        .page
+        {
+            padding-top:60px;
+        }
+    </style>
+{% endblock %}
