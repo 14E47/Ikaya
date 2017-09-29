@@ -186,6 +186,7 @@ class SuccessResponseView(PaymentDetailsView):
             amount = float(request.POST['chargetotal'])
             currency = request.basket.currency
             basket_id = request.basket.id
+
             razorpay_details = {'payment_id':payment_id, 'amount':amount, 'currency':currency, 
                     'email': 'test@yopmail.com', 'contact': '7568373724'}
 
