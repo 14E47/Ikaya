@@ -70,15 +70,12 @@ def payment_icici(request):
     total = request.basket.total_incl_tax
     chargetotal = str(int(total))
     basket = request.basket.id
-    print(chargetotal) 
-    print(basket)
     currency = "356"
     string = (storeId + time + chargetotal + currency + sharedSecret)
     stringToHash = string.encode()
     ascii = binascii.b2a_hex(bytes(stringToHash))
     hash_object = hashlib.sha1(ascii)
     hex_dig = hash_object.hexdigest()
-    print(hex_dig)
     data = {"sharedSecret":sharedSecret, "chargetotal":chargetotal,"storeId":storeId, "time":time,"hex_dig":hex_dig, "basket":basket,"currency":currency }
     return JsonResponse(data)
 
@@ -88,7 +85,6 @@ def getDateTime():
     india = timezone('Asia/Kolkata')
     sa_time = datetime.now(india)
     now = sa_time.strftime("%Y:%m:%d-%H:%M:%S")
-    print(now)
     return now
 
 def success(request):
