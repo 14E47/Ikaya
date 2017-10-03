@@ -9654,6 +9654,7 @@ l,btn-box li:after {
 		font-family: "MetaSerifTf-Book";
 		margin-bottom:20px;
 		outline:0;
+        background-color: #eeeeee;
         box-shadow:0px;
 	}
 	.checkout .save
@@ -9662,7 +9663,7 @@ l,btn-box li:after {
         margin-bottom:20px;
 		padding:10px 15px;
 		font-family: "MetaSerifTf-Book";
-		background-color:#827272;
+		background-color:#827272 !important;
 		color:#fff !important;
 	}
     .save
@@ -9671,7 +9672,7 @@ l,btn-box li:after {
         margin-bottom:20px;
 		padding:10px 15px;
 		font-family: "MetaSerifTf-Book";
-		background-color:#827272;
+		background-color:#827272 !important;
 		color:#fff !important;
         border-radius:0px;
 	}

@@ -32,14 +32,14 @@
                         <div class="col-sm-6">
                             <div class="basket-items">
                                 <div class="row">
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-5">
                                         <div class="image_container">
                                             {% with image=line.product.primary_image %}
                                                 <a href="{{ line.product.get_absolute_url }}"><img src="{{ image.original.url }}" alt="{{ product.get_title }}"></a>
                                             {% endwith %}
                                         </div>
                                     </div>
-                                    <div class="col-sm-6 text-left">
+                                    <div class="col-sm-7 text-left">
                                         <h5><a style="color:#000;text-decoration: none;" href="{{ line.product.get_absolute_url }}">{{ line.description }}</a></h5>
                                         <p>
                                         {% if line.upc %}{{ line.upc }}<br/>{% endif %}
