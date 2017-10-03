@@ -65,14 +65,15 @@
 {#								</div>#}
 {#							</div>#}
 <div class="radio radio-primary">
-              <a href="/checkout/preview/"> <input type="radio" name="radio1" id="radio2" value="option2"> COD</a>
+<label for="radio1_A">A:</label> <input type="radio" name="radio1" id="radio1_A" value="cod"><br />
+<label for="radio1_B">B:</label> <input type="radio" name="radio1" id="radio1_B" value="icici">
+<a id="cod" href="/checkout/preview/" style="display:none">Pay</a>
                                          </div>
 
 
-<a href="/payment/payment_page">CCAVENUE</a>
 
-							<div class="panel panel-default bb">
-								 <form method="post"
+                            <div class="panel panel-default bb">
+                                 <form method="post"
             action="https://www4.ipg-online.com/connect/gateway/processing"> 
             {% csrf_token %}
         <input type="hidden" name="timezone" value="IST" />
@@ -167,26 +168,26 @@
                     </td>
                 </tr>
                 </table>
-                   <input type="submit" name ="submitBtn" class="save" value="Pay with ICICI">
+            <input type="submit" name="submitBtn" style="display:none" id="icici" class="save" value="Pay with ICICI">
         </form>
   
                             <div class="panel panel-default bb">
-								<div class="panel-heading" role="tab" id="headingThree">
-									<h4 class="panel-title">
-										<a href="#">
-											<i class="more-less glyphicon glyphicon-plus"></i>
-											3. CONFIRMATION
-										</a>
-									</h4>
-								</div>
-							</div>
+                                <div class="panel-heading" role="tab" id="headingThree">
+                                    <h4 class="panel-title">
+                                        <a href="#">
+                                            <i class="more-less glyphicon glyphicon-plus"></i>
+                                            3. CONFIRMATION
+                                        </a>
+                                    </h4>
+                                </div>
+                            </div>
 
-						</div>
-					</div>
+                        </div>
+                    </div>
 
-					<div class="col-sm-1">
-					</div>
-					<div class="col-sm-5 basket">
+                    <div class="col-sm-1">
+                    </div>
+                    <div class="col-sm-5 basket">
                         <p class="headding">MY ORDER</p>
                         <div class="col-sm-12">
                             {% for line in request.basket.all_lines %}
@@ -317,3 +318,34 @@
 {#        <a id="view_preview" href="{% url 'checkout:preview' %}" class="btn btn-primary btn-lg">{% trans "Continue" %}</a>#}
     {% endblock payment_details_content %}
 {% endblock payment_details %}
+
+
+
+{% block extrascript %}
+<script>
+$(document).ready(function(){
+$('input[type=radio]').change(function(){
+
+if($(this).val()=='cod')
+{
+$("#cod").css("display", "block");
+$("#icici").css("display", "none");
+$("#cod").attr("href", "/checkout/preview");
+}
+
+else
+{
+$.ajax({
+type: "GET",
+url: "/payment/payment_page",
+cache: false,
+success: function(data){}
+});
+$("#cod").css("display", "none");
+$("#icici").css("display", "block");
+}
+})
+
+})
+</script>
+{% endblock%}
