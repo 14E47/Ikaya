@@ -19,62 +19,135 @@
         Order {{ number }}: confirmation
     {% endblocktrans %}
 {% endblock %}
-
 {% block content %}
+    <div class="container" id="thankyou" >
+        <div class="col-sm-offset-2 col-sm-8">
+            <p class="lead text-center">
+                <h3 class="text-center">THANK YOU FOR PLACING THE ORDER WITH US.</h3>
+            </p><br>
+            <div class="row text-center">
+                <div class="col-sm-10 col-sm-offset-1">
 
-    <div class="container" id="thank_you">
-        <h2 class="text-center">Thank you for placing order with us.</h2>
-        <p class="lead">
-            {% blocktrans with number=order.number %}
-            Your order has been placed and a confirmation email has been sent - your order number is
-            <strong>{{ number }}</strong>.
-            {% endblocktrans %}
-        </p>
-        <div class="col-sm-8 col-sm-offset-2 basket">
-            <div class="col-sm-12">
-                {% for line in order.lines.all %}
-                    <div class="col-sm-6">
-                        <div class="row equalh bb">
-                            <div class="col-sm-3 col-xs-3">
+                    {% for line in order.lines.all %}
+                        <div class="col-sm-6">
+                            <div class="basket-items">
                                 <div class="row">
-                                    {% with image=line.product.primary_image %}
-                                        <a href="{{ line.product.get_absolute_url }}"><img src="{{ image.original.url }}" alt="{{ product.get_title }}"></a>
-                                    {% endwith %}
+                                    <div class="col-sm-6">
+                                        <div class="image_container">
+                                            {% with image=line.product.primary_image %}
+                                                <a href="{{ line.product.get_absolute_url }}"><img src="{{ image.original.url }}" alt="{{ product.get_title }}"></a>
+                                            {% endwith %}
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 text-left">
+                                        <h5><a style="color:#000;text-decoration: none;" href="{{ line.product.get_absolute_url }}">{{ line.description }}</a></h5>
+                                        <p>
+                                        {% if line.upc %}{{ line.upc }}<br/>{% endif %}
+                                        {% if line.est_dispatch_date %}
+                                            {% blocktrans with date=line.est_dispatch_date %}
+                                                Estimated dispatch: <strong>{{ date }}</strong>
+                                            {% endblocktrans %}
+                                        {% endif %}
+                                        </p>
+                                        <h5>QTY : <span style="color:#999;">{{ line.quantity }}</span></h5>
+                                        <p class="price_color"> PRICE<BR>
+                                        <span style="color:#999;">
+                                            {% if show_tax_separately %}
+                                                {{ line.line_price_before_discounts_excl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code }}
+                                            {% else %}
+                                                {{ line.line_price_before_discounts_incl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code }}
+                                            {% endif %}
+                                        </span>
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-sm-9 col-xs-9 vcenter2">
-                                <h4 class="name"><a href="{{ line.product.get_absolute_url }}">{{ line.description }}</a></h4>
-                                <h4 class="qty">QTY:<span>{{ line.quantity }}</span></h4>
-                                <h4 class="basket-price">PRICE:<br><span>
-                                    {% if show_tax_separately %}
-                                        {{ line.line_price_before_discounts_excl_tax|currency:order.currency }}
-                                    {% else %}
-                                        {{ line.line_price_before_discounts_incl_tax|currency:order.currency }}
-                                    {% endif %}
-                                </span></h4>
-                            </div>
-                            <hr>
                         </div>
-                    </div>
-                {% endfor %}
-
-            </div>
-            <div class="col-sm-12">
-                <div class="col-sm-3">
-                    Address:
-                </div>
-                <div class="col-sm-9">
-                    {% for field in order.shipping_address.active_address_fields %}
-                        {{ field }}<br/>
                     {% endfor %}
                 </div>
-                <hr>
+            </div><hr>
+            <div class="row shipping-payment">
+                <div class="col-sm-10 col-sm-offset-1">
+                    <div class="col-sm-3">
+                        <h5>{% trans "ORDER ID" %}</h5>
+                    </div>
+                    <div class="col-sm-9">
+                        {% blocktrans with number=order.number %}
+                            <p style="margin-top:10px;">{{ number }}</p>
+                        {% endblocktrans %}
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="row shipping-payment">
+                <div class="col-sm-10 col-sm-offset-1">
+                    {% block shipping_info %}
+                        <div class="col-sm-3">
+                            <h5>{% trans "DELIVERY TO" %}</h5>
+                        </div>
+                        <div class="col-sm-9">
+                            {% if order.shipping_address %}
+                                <address style="margin-top:5px;">
+                                    {% for field in order.shipping_address.active_address_fields %}
+                                        {{ field }}<br/>
+                                    {% endfor %}
+                                </address>
+                                {% if order.shipping_address.phone_number %}
+                                    {% trans "Phone" %}: {{ order.shipping_address.phone_number }}
+                                    {% if order.guest_email %}
+                                        <br/>{% trans "Email" %}: {{ order.guest_email }}
+                                    {% endif %}
+                                {% endif %}
+                                {% if order.shipping_address.notes %}
+                                    <h4>{% trans "Instructions" %}</h4>
+                                    <p>{{ order.shipping_address.notes|linebreaks }}</p>
+                                {% endif %}
+                            {% else %}
+                                <p>{% trans "No shipping address required." %}</p>
+                            {% endif %}
+                        </div>
+                    {% endblock %}
+                </div>
+            </div>
+            <hr>
+            <div class="row shipping-payment">
+                {% block order_total %}
+                <div class="col-sm-10 col-sm-offset-1">
+                    <div class="col-sm-3">
+                        <h5>{% trans "TOTAL AMOUNT" %}</h5>
+                    </div>
+                    <div class="col-sm-9">
+                       <p style="margin-top:10px;">
+                           {{ order.total_incl_tax|currency:order.currency }}
+                       </p>
+                    </div>
+                </div>
+                {% endblock order_total %}
+            </div>
+            <hr>
+        <br>
+        </div>
+        {% block order_tracking %}
+            {% if not order.user %}
+                <div class="sub-header">
+                    <h2>{% trans "Tracking your order" %}</h2>
+                </div>
+                <p>{% trans "You can track the status of your order" %}</p>
+                <a class="btn btn-primary" style="color:#fff;background:#000;outline:none;border:0px;" href="{% url 'customer:anon-order' order_number=order.number hash=order.verification_hash %}">{% trans "View order status" %}</a>.
+            {% endif %}
+        {% endblock %}
+        {% block order_actions %}
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-8 col-sm-offset-2">
+                        <a href="{{ homepage_url }}" class="save btn-lg pull-right">{% trans "Continue Shopping" %}</a>
+                    </div>
+                </div>
             </div>
         </div>
+    {% endblock order_actions %}
     </div>
-
 {% endblock content %}
-
 {% block tracking %}
     {% include "partials/google_analytics_transaction.html" %}
 {% endblock %}

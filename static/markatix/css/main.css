@@ -9313,7 +9313,6 @@ l,btn-box li:after {
 	border:0px;
 	border-bottom:1px solid #AFA488;
 	color:#AFA488;
-	width:100%;
 }
 .panel-body
 {
@@ -9333,7 +9332,7 @@ l,btn-box li:after {
 }
 /*****product detail accordion*****/
 .panel-group .panel+.panel {
-    margin-top: 20px;
+    margin-top: 0px;
 }
 .panel-group .panel {
         border-radius: 0;
@@ -9652,10 +9651,8 @@ l,btn-box li:after {
 		border: 0px;
 		border-radius:0px;
 		color: #999;
-		width:100%;
 		font-family: "MetaSerifTf-Book";
-		margin-bottom:0px;
-		background-color:#eee;
+		margin-bottom:20px;
 		outline:0;
         box-shadow:0px;
 	}
@@ -9668,7 +9665,26 @@ l,btn-box li:after {
 		background-color:#827272;
 		color:#fff !important;
 	}
-
+    .save
+	{
+		margin-top:10px;
+        margin-bottom:20px;
+		padding:10px 15px;
+		font-family: "MetaSerifTf-Book";
+		background-color:#827272;
+		color:#fff !important;
+        border-radius:0px;
+	}
+    .checkout .cod
+	{
+		margin-top:10px;
+        margin-bottom:20px;
+		padding:10px 15px;
+        width:30%;
+		font-family: "MetaSerifTf-Book";
+		background-color:#827272;
+		color:#fff !important;
+	}
 	.checkout .main-head
 	{
 		margin-top:40px;
@@ -9775,8 +9791,13 @@ l,btn-box li:after {
 		position: relative;
 		display: block;
 		margin-top: 10px;
-		margin-bottom: 20px;
+        outline:0px;
 		}
+    .checkout .radio-primary span{
+        margin-top: 2.5px;
+        position: absolute;
+        margin-left: 5px;
+    }
 
 	.checkout	.radio label {
 			display: inline-block;
@@ -9817,7 +9838,10 @@ l,btn-box li:after {
 			-o-transition: -o-transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
 			transition: transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33); }
 	.checkout	.radio input[type="radio"] {
-			opacity: 0; }
+			opacity: 1;
+            width:30px;
+            height:15px;
+    }
 	.checkout	.radio input[type="radio"]:focus + label::before {
 			outline:0px;
 			outline: 0px auto -webkit-focus-ring-color;
@@ -10534,6 +10558,26 @@ l,btn-box li:after {
 
 @media screen and (max-width:480px)
 {
+    .checkout .cod
+	{
+		margin-top:10px;
+        margin-bottom:20px;
+		padding:10px 15px;
+        width:100%;
+		font-family: "MetaSerifTf-Book";
+		background-color:#827272;
+		color:#fff !important;
+	}
+    .checkout .save
+	{
+		margin-top:10px;
+        margin-bottom:20px;
+		padding:10px 15px;
+        width:100%;
+		font-family: "MetaSerifTf-Book";
+		background-color:#827272;
+		color:#fff !important;
+	}
     .price-sec
     {
         line-height: 1.429 !important;

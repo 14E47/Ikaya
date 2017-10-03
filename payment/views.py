@@ -36,7 +36,7 @@ from django.template import loader,RequestContext
 from django.shortcuts import render, render_to_response
 ## from markatix.partner.models import Partner, PartnerShop
 #from payment_icici.models import IkayaPayment
-
+from django.http import JsonResponse
 
 # Load views dynamically
 PaymentDetailsView = get_class('checkout.views', 'PaymentDetailsView')
@@ -79,7 +79,8 @@ def payment_icici(request):
     hash_object = hashlib.sha1(ascii)
     hex_dig = hash_object.hexdigest()
     print(hex_dig)
-    return render(request, 'checkout/payment_details.html', {"sharedSecret":sharedSecret, "chargetotal":chargetotal,"storeId":storeId, "time":time,"hex_dig":hex_dig, "basket":basket })
+    data = {"sharedSecret":sharedSecret, "chargetotal":chargetotal,"storeId":storeId, "time":time,"hex_dig":hex_dig, "basket":basket,"currency":currency }
+    return JsonResponse(data)
 
 
 def getDateTime():
@@ -247,5 +248,5 @@ class SuccessResponseView(PaymentDetailsView):
                         amount_allocated=kwargs['payment_amount'],
                         amount_debited=kwargs['payment_amount'])
         self.add_payment_source(source)
-        self.add_payment_event('complete', kwargs['payment_amount'] ,
+        self.add_payment_event('complete', kwargs['payment_amount'],
                                reference=kwargs['payment_id'])
