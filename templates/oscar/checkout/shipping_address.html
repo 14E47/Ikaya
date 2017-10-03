@@ -112,10 +112,9 @@
                         <form action="{% url 'checkout:shipping-address' %}" method="post" id="new_shipping_address" class="form form-horizontal">
 {% csrf_token %}
    <div class="form-group ">
-      <label for="id_title" class="col-sm-4 control-label">
-      Title
-      </label>
-      <div class="col-sm-7">
+     <div class="col-md-12">
+     <div class="row">          
+      <div class="controls">
          <select class="form-control" id="id_title" name="title">
             <option value="">---------</option>
             <option value="Mr" selected="selected">Mr</option>
@@ -125,77 +124,57 @@
             <option value="Dr">Dr</option>
          </select>
       </div>
-   </div>
-   <div class="form-group ">
-      <label for="id_first_name" class="col-sm-4 control-label required">
-      First name
-      </label>
-      <div class="col-sm-7">
-         <input class="form-control" id="id_first_name" maxlength="255" name="first_name" type="text" value="Anup" required />
+      </div>
       </div>
    </div>
    <div class="form-group ">
-      <label for="id_last_name" class="col-sm-4 control-label required">
-      Last name
-      </label>
-      <div class="col-sm-7">
-         <input class="form-control" id="id_last_name" maxlength="255" name="last_name" type="text" value="Samyal" required />
+     <div class="col-md-6 col-xs-12">
+     <div class="row">
+         <input class="input-left" id="id_first_name" maxlength="255" name="first_name" type="text" value="Anup" required />
+   </div>
+   </div>
+     <div class="col-md-6 col-xs-12">
+     <div class="row">
+         <input class="input-right" id="id_last_name" maxlength="255" name="last_name" type="text" value="Samyal" required />
       </div>
    </div>
+   </div>
    <div class="form-group ">
-      <label for="id_line1" class="col-sm-4 control-label required">
-      First line of address
-      </label>
-      <div class="col-sm-7">
+     <div class="col-md-6 col-xs-12">
+     <div class="row">
          <input class="form-control" id="id_line1" maxlength="255" name="line1" type="text" value="qwwert" required />
       </div>
    </div>
-   <div class="form-group ">
-      <label for="id_line2" class="col-sm-4 control-label">
-      Second line of address
-      </label>
+
+     <div class="col-md-6 col-xs-12">
+     <div class="row">
       <div class="col-sm-7">
-         <input class="form-control" id="id_line2" maxlength="255" name="line2" type="text" value="ytui" />
+         <input class="input-left" id="id_line2" maxlength="255" name="line2" type="text" value="ytui" />
       </div>
    </div>
-   <div class="form-group ">
-      <label for="id_line3" class="col-sm-4 control-label">
-      Third line of address
-      </label>
-      <div class="col-sm-7">
-         <input class="form-control" id="id_line3" maxlength="255" name="line3" type="text" value="tyu" />
-      </div>
    </div>
    <div class="form-group ">
-      <label for="id_line4" class="col-sm-4 control-label">
-      City
-      </label>
-      <div class="col-sm-7">
-         <input class="form-control" id="id_line4" maxlength="255" name="line4" type="text" value="Sonnenbergstr 95" />
+     <div class="col-md-6 col-xs-12">
+     <div class="row">
+         <input class="input-right" id="id_line4" maxlength="255" name="line4" type="text" value="Sonnenbergstr 95" />
       </div>
    </div>
-   <div class="form-group ">
-      <label for="id_state" class="col-sm-4 control-label">
-      State/County
-      </label>
-      <div class="col-sm-7">
-         <input class="form-control" id="id_state" maxlength="255" name="state" type="text" value="Bratsch" />
+        <div class="col-md-6 col-xs-12">
+     <div class="row">
+
+         <input class="input-right" id="id_state" maxlength="255" name="state" type="text" value="State/County" />
       </div>
    </div>
-   <div class="form-group ">
-      <label for="id_postcode" class="col-sm-4 control-label required">
-      Post/Zip-code
-      </label>
-      <div class="col-sm-7">
-         <input class="form-control" id="id_postcode" maxlength="64" name="postcode" type="text" value="3957" required />
-      </div>
    </div>
    <div class="form-group ">
-      <label for="id_country" class="col-sm-4 control-label required">
-      Country
-      </label>
-      <div class="col-sm-7">
-         <select class="form-control" id="id_country" name="country" required>
+     <div class="col-md-6 col-xs-12">
+     <div class="row">
+         <input class="input-right" id="id_postcode" maxlength="64" name="postcode" type="text" value="3957" required />
+      </div>
+   </div>
+     <div class="col-md-6 col-xs-12">
+     <div class="row">
+         <select class="input-left" id="id_country" name="country" required>
             <option value="AF" selected="selected">Afghanistan</option>
             <option value="AL">Albania</option>
             <option value="DZ">Algeria</option>
@@ -446,6 +425,7 @@
             <option value="ZW">Zimbabwe</option>
             <option value="AX">Åland Islands</option>
          </select>
+      </div>
       </div>
    </div>
    <div class="form-group ">
