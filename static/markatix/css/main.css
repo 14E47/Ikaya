@@ -9355,7 +9355,7 @@ l,btn-box li:after {
 	}
     .panel-title > a {
         display: inline-block;
-        padding:10px 0 0 0;
+        padding:15px 0 0 0;
 		font-size:14px;
         text-decoration: none;
 		color:#AFA389;
@@ -10974,4 +10974,14 @@ l,btn-box li:after {
 .mt
 {
   margin-top:5px;
+}
+.alert-success,.alert-info,.alert-warning,.alert-danger
+{
+    border-radius: 0px !important;
+    border:1px solid #7b674f !important;
+    width:70% !important;
+    margin:auto !important;
+    margin-top:10px !important;
+    background-color: #fff !important;
+    color:#7b674f !important;
 }
