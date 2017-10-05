@@ -40,7 +40,7 @@
                                         </div>
                                     </div>
                                     <div class="col-sm-7 text-left">
-                                        <h5><a style="color:#000;text-decoration: none;" href="{{ line.product.get_absolute_url }}">{{ line.description }}</a></h5>
+                                        <h5><a class="test" style="color:#000;text-decoration: none;" href="{{ line.product.get_absolute_url }}">{{ line.description }}</a></h5>
                                         <p>
                                         {% if line.upc %}{{ line.upc }}<br/>{% endif %}
                                         {% if line.est_dispatch_date %}

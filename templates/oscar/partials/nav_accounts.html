@@ -304,7 +304,6 @@
                                     {% else %}
                                         {{ request.basket.total_excl_tax  }}
                                     {% endif %}
-
                                 </p>
                             </div>
                         </div>
@@ -314,7 +313,7 @@
                         {% if user.is_authenticated %}
                             <a href="/basket" class="btn-type3">{% trans "Proceed to checkout" %}</a>
                         {% else %}
-                            <a href="http://ekayaonline.com/accounts/login/" class="btn-type3">{% trans "Proceed to checkout" %}</a>
+                            <a href="/accounts/login/" class="btn-type3">{% trans "Proceed to checkout" %}</a>
                         {% endif %}
 {#                        <a href="{% url 'checkout:index' %}" class="btn-type3">{% trans "Proceed to checkout" %}</a>#}
                     </div>

@@ -149,6 +149,13 @@
 			});
 		});
 	</script>
+    <script>
+        $(document).ready(function() {
+            $('p.name').text(function (i, t) {
+                return t.replace('Ekaya Recommends: True, ', '');
+            })
+        });
+    </script>
     <!-- Oscar -->
 {% endblock %}
 

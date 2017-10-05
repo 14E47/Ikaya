@@ -25,7 +25,7 @@
          <div class="col-sm-6 basket">
             <p class="headding">CHECKOUT</p>
             <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-               <div class="panel panel-default bb">
+               <div class="panel panel-default bb1">
                   <div class="panel-heading" role="tab" id="headingOne">
                      <h4 class="panel-title">
                         <a href="{% url 'checkout:shipping-address' %}" aria-expanded="true" aria-controls="collapseOne">
@@ -35,7 +35,7 @@
                      </h4>
                   </div>
                </div>
-               <div class="panel panel-default bb">
+               <div class="panel panel-default bb1">
                     <div class="panel-heading" role="tab" id="headingfour">
                         <h4 class="panel-title">
                             <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
@@ -154,7 +154,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="panel panel-default bb">
+                <div class="panel panel-default bb1">
                     <div class="panel-heading" role="tab" id="headingThree">
                         <h4 class="panel-title">
                             <a href="#">
@@ -182,7 +182,7 @@
                      </div>
                   </div>
                   <div class="col-sm-9 col-xs-9 vcenter2">
-                     <h4 class="name"><a href="{{ line.product.get_absolute_url }}">{{ line.description }}</a></h4>
+                     <h4 class="name"><a class="test" href="{{ line.product.get_absolute_url }}">{{ line.description }}</a></h4>
                      <p class="qty">QTY:<span>{{ line.quantity }}</span></p>
                      <h4 class="basket-price">PRICE:<br><span>{{ line.unit_price_excl_tax }}</span></h4>
                      {#                                        <button class="remove-item">REMOVE</button>#}

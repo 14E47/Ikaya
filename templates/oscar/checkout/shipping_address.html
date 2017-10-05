@@ -21,60 +21,57 @@
       </div>
       <div class="row">
          <div class="col-sm-6 basket">
-            <div class="row">
-               <p class="headding">CHECKOUT</p>
-            </div>
+            <p class="headding">CHECKOUT</p>
             <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-               <div class="panel panel-default text bb">
-                  <div class="panel-heading" role="tab" id="headingOne">
-                     <div class="row">
+               <div class="panel panel-default text bb1">
+                    <div class="row">
+                        <div class="panel-heading" role="tab" id="headingOne">
                         {% if user.is_authenticated %}
-                        {% if addresses %}
-                        <h3>{% trans "An address from your address book?" %}</h3>
-                        <div class="choose-block">
-                           <div class="row">
-                              {% for address in addresses %}
-                              {% block select_address_form %}
-                              <div class="col-sm-6">
-                                 <div class="well">
-                                    <address>
-                                       {% block select_address_fields %}
-                                       {% for field in address.active_address_fields %}
-                                       <span>{{ field }}</span>{% if not forloop.first %}<br/>{% endif %}
-                                       {% endfor %}
-                                       {% endblock %}
-                                    </address>
-                                    <form action="{% url 'checkout:shipping-address' %}" method="post" id="select_shipping_address_{{ address.id }}">
-                                       {% csrf_token %}
-                                       <input type="hidden" name="action" value="ship_to" />
-                                       <input type="hidden" name="address_id" value="{{ address.id }}" />
-                                       {% if address.is_default_for_shipping %}
-                                       <button type="submit" class="btn save btn-large ship-address" data-loading-text="{% trans 'Saving...' %}"><i class="icon-ok"></i> {% trans "Ship to your default shipping address" %}</button>
-                                       {% else %}
-                                       <button type="submit" class="btn btn-lg save" data-loading-text="{% trans 'Saving...' %}">{% trans "Ship to this address" %}</button>
-                                       {% endif %}
-                                       <div class="btn-group address-controls">
-                                          <a href="{% url 'checkout:user-address-update' pk=address.id %}" class="btn btn-default btn-sm">{% trans "Edit address" %}</a>
-                                          <button class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">
-                                          <span class="caret"></span>
-                                          </button>
-                                          <ul class="dropdown-menu">
-                                             <li><a href="{% url 'checkout:user-address-delete' pk=address.id %}" class="btn-remove-address">{% trans "Delete" %}</a></li>
-                                          </ul>
-                                       </div>
-                                    </form>
-                                 </div>
-                              </div>
-                              {% if forloop.counter|divisibleby:2 %}
-                           </div>
-                           <div class="row">
-                              {% endif %}
-                              {% endblock %}
-                              {% endfor %}
-                           </div>
-                        </div>
-                        <h3>{% trans "Or a new address?" %}</h3>
-                        {% endif %}
+                            {% if addresses %}
+                                <h4 style="color: #827272;">{% trans "An address from your address book?" %}</h4>
+                                <div class="choose-block">
+                                   <div class="row">
+                                      {% for address in addresses %}
+                                      {% block select_address_form %}
+                                      <div class="col-sm-6">
+                                         <div class="well">
+                                            <address>
+                                               {% block select_address_fields %}
+                                               {% for field in address.active_address_fields %}
+                                               <span>{{ field }}</span>{% if not forloop.first %}<br/>{% endif %}
+                                               {% endfor %}
+                                               {% endblock %}
+                                            </address>
+                                            <form action="{% url 'checkout:shipping-address' %}" method="post" id="select_shipping_address_{{ address.id }}">
+                                               {% csrf_token %}
+                                               <input type="hidden" name="action" value="ship_to" />
+                                               <input type="hidden" name="address_id" value="{{ address.id }}" />
+                                               {% if address.is_default_for_shipping %}
+                                               <button type="submit" class="btn save_addr btn-large ship-address" data-loading-text="{% trans 'Saving...' %}"><i class="icon-ok"></i> {% trans "Ship to your default shipping address" %}</button>
+                                               {% else %}
+                                               <button type="submit" class="btn btn-lg save_addr" data-loading-text="{% trans 'Saving...' %}">{% trans "Ship to this address" %}</button>
+                                               {% endif %}
+                                               <div class="btn-group address-controls">
+
+                                                  <button class="btn save_btn btn-sm dropdown-toggle" data-toggle="dropdown">
+                                                    <span class="caret"></span>
+                                                  </button>
+                                                  <ul class="dropdown-menu">
+                                                     <li><a href="{% url 'checkout:user-address-delete' pk=address.id %}" class="btn btn-remove-address">{% trans "Delete" %}</a></li>
+                                                     <li><a href="{% url 'checkout:user-address-update' pk=address.id %}" class="btn btn-sm">{% trans "Edit address" %}</a></li>
+                                                  </ul>
+                                               </div>
+                                            </form>
+                                         </div>
+                                      </div>
+                                      {% if forloop.counter|divisibleby:2 %}
+                                      {% endif %}
+                                      {% endblock %}
+                                      {% endfor %}
+                                   </div>
+                                </div>
+                                <h4 style="color: #827272;margin-top:20px;">{% trans "Or a new address?" %}</h4>
+                            {% endif %}
                         {% endif %}
                         <h4 class="panel-title">
                            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -83,35 +80,28 @@
                            </a>
                         </h4>
                      </div>
-                  </div>
-                  <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                      <div class="panel-body">
-                        <div class="row">
-                           <div class="form-group">
-                              <div class="col-md-12">
-                                 <div class="row">
-                                    <h4>Email</h4>
-                                 </div>
-                              </div>
-                              <div class="col-md-12">
-                                 <div class="row">
-                                    <input type="text" name="email_address" placeholder="EMAIL" class="form-control" value="" />
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="form-group">
-                              <div class="col-md-12">
-                                 <div class="row">
-                                    <h4 class="main-head">Shipping Address</h4>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                        <form action="/checkout/shipping-address/" method="post" id="new_shipping_address" class="form form-horizontal">
-                           {% csrf_token %}
-                           <div class="form-group">
-                              <div class="col-md-12">
-                                 <div class="row">
+                          <div class="col-md-12">
+                             <div class="row">
+                                <h4>Email</h4>
+                             </div>
+                          </div>
+                          <div class="col-md-12">
+                             <div class="row">
+                                <input type="text" name="email_address" placeholder="EMAIL" class="form-control" value="" />
+                             </div>
+                          </div>
+                          <div class="col-md-12">
+                             <div class="row">
+                                <h4 class="main-head">Shipping Address</h4>
+                             </div>
+                          </div>
+                            <form action="{% url 'checkout:shipping-address' %}" method="post" id="new_shipping_address" class="form form-horizontal">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                  <div class="col-md-12">
                                     <div class="controls">
                                        <select class="form-control" id="id_title" name="title">
                                           <option value="">---------</option>
@@ -122,99 +112,97 @@
                                           <option value="Dr">Dr</option>
                                        </select>
                                     </div>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="form-group">
-                              <div class="col-md-6 col-xs-12">
-                                 <div class="row">
-                                    <input class="input-left" id="id_first_name" maxlength="255" name="first_name" type="text" placeholder="FIRST NAME" required />
-                                 </div>
-                              </div>
-                              <div class="span1"></div>
-                              <div class="col-md-6 col-xs-12">
-                                 <div class="row">
-                                    <input class="input-right" id="id_last_name" maxlength="255" name="last_name" type="text" placeholder="LAST NAME" required />
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="form-group">
-                              <div class="col-md-12">
-                                 <div class="row">
-                                    <input class="form-control" id="id_line1" maxlength="255" name="line1" type="text" placeholder="ADDRESS" required />
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="form-group">
-                              <div class="col-md-12">
-                                 <div class="row">
-                                    <input class="form-control" id="id_line2" maxlength="255" name="line2" type="text" placeholder="API/SUITS" />
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="form-group">
-                              <div class="col-md-6 col-xs-12">
-                                 <div class="row">
-                                    {{ form.country }}
-                                 </div>
-                              </div>
-                              <div class="span1"></div>
-                              <div class="col-md-6 col-xs-12">
-                                 <div class="row">
-                                    <input class="input-right" id="id_state" maxlength="255" name="state" type="text" placeholder="STATE" />
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="form-group">
-                              <div class="col-md-6 col-xs-12">
-                                 <div class="row">
-                                    <input class="input-left" id="id_postcode" placeholder="ZIP CODE" maxlength="64" name="postcode" type="text" required/>
-                                 </div>
-                              </div>
-                              <div class="span1"></div>
-                              <div class="col-md-6 col-xs-12">
-                                 <div class="row">
-                                    <input class="input-right" placeholder="CONTACT" id="id_phone_number" maxlength="10" name="phone_number" type="text" required />
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="form-group">
-                              <div class="col-sm-12">
-                                 <div class="row">
-                                    <button type="submit" class="save pull-right">SAVE & CONTINUE</button>
-                                 </div>
-                              </div>
-                           </div>
-                        </form>
+                                  </div>
+                               </div>
+                               <div class="form-group">
+                                  <div class="col-md-6 col-xs-12">
+                                      <div class="form-input-left">
+                                        <input class="input-left" id="id_first_name" maxlength="255" name="first_name" type="text" placeholder="FIRST NAME" required />
+                                      </div>
+                                  </div>
+                                  <div class="span1"></div>
+                                  <div class="col-md-6 col-xs-12">
+                                      <div class="form-input-right">
+                                        <input class="input-right" id="id_last_name" maxlength="255" name="last_name" type="text" placeholder="LAST NAME" required />
+                                      </div>
+                                  </div>
+                               </div>
+                               <div class="form-group">
+                                  <div class="col-md-12">
+                                     <input class="form-control" id="id_line1" maxlength="255" name="line1" type="text" placeholder="ADDRESS" required />
+                                  </div>
+                               </div>
+                               <div class="form-group">
+                                  <div class="col-md-12">
+                                     <input class="form-control" id="id_line2" maxlength="255" name="line2" type="text" placeholder="API/SUITS" />
+                                  </div>
+                               </div>
+                               <div class="form-group">
+                                  <div class="col-md-6 col-xs-12">
+                                    <div class="form-input-left">
+                                        {{ form.country }}
+                                    </div>
+                                  </div>
+                                  <div class="span1"></div>
+                                  <div class="col-md-6 col-xs-12">
+                                    <div class="form-input-right">
+                                        <input class="input-right" id="id_state" maxlength="255" name="state" type="text" placeholder="STATE" />
+                                    </div>
+                                  </div>
+                               </div>
+                               <div class="form-group">
+                                  <div class="col-md-6 col-xs-12">
+                                    <div class="form-input-left">
+                                        <input class="input-left form-control" id="id_postcode" placeholder="ZIP CODE" maxlength="64" name="postcode" type="text" required/>
+                                    </div>
+                                  </div>
+                                  <div class="span1"></div>
+                                  <div class="col-md-6 col-xs-12">
+                                    <div class="form-input-right">
+                                        <input class="input-right" placeholder="CONTACT" id="id_phone_number" maxlength="10" name="phone_number" type="text" required />
+                                    </div>
+                                  </div>
+                               </div>
+                                <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <button type="submit" class="save pull-right">SAVE & CONTINUE</button>
+                                    </div>
+                                </div>
+                            </form>
                      </div>
                   </div>
-                  <p class="new-text1">Delivery dates provided by us are estimates only.</p>
-                  <p class="new-text1">Customers ordering outside of India will be charged estimated custom fees.</p>
-                  <p class="new-text1">International shipment may be subject to additional import taxes, customs duties and fees, which are levied
-                     once a shipment reaches the destination country.
-                  </p>
                </div>
-               <div class="panel panel-default bb">
-                  <div class="panel-heading" role="tab" id="headingThree">
-                     <h4 class="panel-title">
-                        <a href="#">
-                        <i class="more-less glyphicon glyphicon-plus"></i>
-                        2. PAYMENT
-                        </a>
-                     </h4>
+               <div class="panel panel-default bb1">
+                   <div class="row">
+                        <div class="panel-heading" role="tab" id="headingThree">
+                            <h4 class="panel-title">
+                                <a href="#" data-toggle="modal" data-target="#restrict">
+                                    <i class="more-less glyphicon glyphicon-plus"></i>
+                                    2. PAYMENT
+                                </a>
+                            </h4>
+                        </div>
                   </div>
                </div>
-               <div class="panel panel-default bb">
-                  <div class="panel-heading" role="tab" id="headingThree">
-                     <h4 class="panel-title">
-                        <a href="#">
-                        <i class="more-less glyphicon glyphicon-plus"></i>
-                        3. CONFIRMATION
-                        </a>
-                     </h4>
+               <div class="panel panel-default bb1">
+                   <div class="row">
+                        <div class="panel-heading" role="tab" id="headingThree">
+                            <h4 class="panel-title">
+                                <a href="#" data-toggle="modal" data-target="#restrict">
+                                    <i class="more-less glyphicon glyphicon-plus"></i>
+                                    3. CONFIRMATION
+                                </a>
+                            </h4>
+                        </div>
                   </div>
                </div>
             </div>
+             <p class="new-text1">Delivery dates provided by us are estimates only.</p>
+             <p class="new-text1">Customers ordering outside of India will be charged estimated custom fees.</p>
+             <p class="new-text1">International shipment may be subject to additional import taxes, customs duties and fees, which are levied
+                 once a shipment reaches the destination country.
+             </p>
+         <br><br>
          </div>
          <div class="col-sm-1">
          </div>
@@ -227,13 +215,13 @@
                      <div class="row">
                         {% with image=line.product.primary_image %}
                         <a href="{{ line.product.get_absolute_url }}">
-                        <img src="{{ image.original.url }}" alt="{{ line.product.get_title }}">
+                            <img src="{{ image.original.url }}" alt="{{ line.product.get_title }}">
                         </a>
                         {% endwith %}
                      </div>
                   </div>
                   <div class="col-sm-9 col-xs-9 vcenter2">
-                     <h4 class="name"><a href="{{ line.product.get_absolute_url }}">{{ line.description }}</a></h4>
+                     <h4 class="name"><a class="test" href="{{ line.product.get_absolute_url }}">{{ line.description }}</a></h4>
                      <p class="qty">QTY:<span>{{ line.quantity }}</span></p>
                      <h4 class="basket-price">PRICE:<br><span>{{ line.unit_price_excl_tax }}</span></h4>
                      {#                                        <button class="remove-item">REMOVE</button>#}
@@ -340,6 +328,16 @@
       </div>
    </div>
 </main>
+<div class="modal fade" id="restrict" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content text-center">
+            <br>
+            <p>Please Complete Shipping Address First.</p>
+            <button type="button" style="outline:0px" class="btn save_addr" data-dismiss="modal" aria-label="Close">Close</button>
+            <br><br>
+        </div>
+    </div>
+</div>
 <!-- Main of the Page end here -->
 {% endblock %}
 {% endblock shipping_address %}
@@ -347,9 +345,70 @@
 {% block payment_method %}{% endblock %}
 {% block extrastyles %}
     <style>
+        .well {
+            min-height: 20px;
+            padding: 10px;
+            margin-bottom: 0px;
+            background-color: #f5f5f5;
+            border: 1px solid #e3e3e3;
+            border-radius: 0px;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+            box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+        }
         input
         {
             margin-bottom:0px !important;
         }
+        .save_addr
+        {
+            margin-top: 0px;
+            margin-bottom: 0px;
+            padding: 3px 5px;
+            border-radius: 0px;
+            font-family: "MetaSerifTf-Book";
+            background-color: #827272 !important;
+            color: #fff !important;
+        }
+        .save_btn
+        {
+            margin-top: 0px;
+            margin-bottom: 0px;
+            border-radius: 0px;
+            padding: 6px 10px;
+            font-family: "MetaSerifTf-Book";
+            background-color: #827272 !important;
+            color: #fff !important;
+        }
+        .dropdown-menu {
+            min-width: 100px;
+            padding: 0px 0;
+            margin: 0;
+            border-radius: 0px;
+        }
+
+        .panel-heading {
+            padding:0px 15px!important;
+        }
+        .panel-group .panel+.panel {
+            margin-top: 0px;
+        }
+        .form-input-right
+        {
+            margin-left:-7.5px;
+        }
+        .form-input-right
+        {
+            margin-right:-7.5px;
+        }
+        .alert-danger,label,#id_notes,#id_line3,#id_line4
+        {
+            display:none;
+        }
+        .has-error .form-control {
+            border:1px solid #827272 !important;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075)  !important;
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075)  !important;
+        }
+
     </style>
 {% endblock %}

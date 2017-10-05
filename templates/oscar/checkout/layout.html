@@ -52,3 +52,12 @@
     </div>
     {% include "partials/footer_checkout.html" %}
 {% endblock %}
+{% block extrascripts %}
+    <script>
+        $(document).ready(function() {
+            $('a.test').text(function (i, t) {
+                return t.replace('Ekaya Recommends: True, ', '');
+            })
+        });
+    </script>
+{% endblock %}
