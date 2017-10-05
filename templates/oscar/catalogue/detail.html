@@ -70,14 +70,15 @@
                             {% include "catalogue/partials/gallery.html" %}
                         </div>
                         <br>
-                        <p class="new-text mt">
-                            Shipping in 7 Business days from order date.
-                        </p>
-                        <p class="new-text">
-                            Import duties and levies if any, to be borne by customer.
-                        </p>
+                        <div class="row">
+                            <p class="new-text mt">
+                                Shipping in 7 Business days from order date.
+                            </p>
+                            <p class="new-text">
+                                Import duties and levies if any, to be borne by customer.
+                            </p>
 
-                        <div class="about-product">
+                            <div class="about-product">
                             <div class="col-sm-3">
                                 <div class="row">
                                     <p>
@@ -99,6 +100,7 @@
                                     </p>
                                 </div>
                             </div>
+                        </div>
                         </div>
                     </div>
                     {% endblock %}
@@ -205,7 +207,7 @@
                                                     <hr>
                                                 </div>
                                                 <div class="row">
-                                                    <p style="line-height:120%;font-size:16px !important;font-weight:700;margin-top:20px;margin-bottom:10px!important;">
+                                                    <p style="line-height:120%;font-size:16px !important;font-weight:700;margin-top:0px;margin-bottom:10px!important;">
         {#                                                <i>{{ product.description|safe }}</i>#}
                                                         <i>If your size or colour is not available, please contact us to place an order.</i>
                                                     </p>
@@ -219,12 +221,11 @@
                                             </div>
                                             <div class="col-sm-12 detail-about">
                                                <div class="row">
-
                                                     {% if product.attr.ekaya_recommends %}
                                                         <div class="mt-textbox equalh" style="padding:0px;">
                                                             <img src="{% static "markatix/images/new/about/07.png"%}" style="width:15%;height:15%;float:left" class="hidden-xs"><h2 style="color:#F6B82F !important;margin-left:15px;" class="vcenter1">EKAYA RECOMMENDS</h2>
                                                         </div><!-- mt-textbox end here -->
-                                                        <p>
+                                                        <p style="margin-top:15px;">
                                                             The colours you see on your device may vary due to the varying colour reproduction and temperature of individual devices.
                                                         </p>
                                                     {% endif %}
@@ -504,6 +505,10 @@
 {% endblock content %}
 {% block extrastyles  %}
     <style>
+        .alert-info,.alert-warning,.alert-danger
+        {
+            display:none;
+        }
         /****** LOGIN MODAL ******/
         .loginmodal-container {
           padding: 30px;

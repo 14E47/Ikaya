@@ -27,20 +27,20 @@
         {% endif %}
 
         {% if not basket.is_empty %}
-            <div class="col-sm-9">
-                <h4>Basket</h4>
+            <div class="col-sm-8">
+                <h4>MY ORDER SUMMARY</h4>
                 {% block basket_form_main %}
                     <form action="." method="post" class="basket_summary" id="basket_formset">
                         <table id="cart" class="table table-hover table-condensed">
-                            <thead>
-                                <tr>
-                                    <th style="width:50%;font-size:13px;">ITEM</th>
-									<th style="width:12%;font-size:13px;"class="text-center">UNIT PRICE</th>
-									<th style="width:10%;font-size:13px;">QUANTITY</th>
-									<th style="width:16%;font-size:13px;" class="text-center">TOTAL PRICE</th>
-									<th style="width:10%;font-size:13px;">REMOVE</th>
-                                </tr>
-                            </thead>
+{#                            <thead>#}
+{#                                <tr>#}
+{#                                    <th style="width:50%;font-size:13px;">ITEM</th>#}
+{#									<th style="width:12%;font-size:13px;"class="text-center">UNIT PRICE</th>#}
+{#									<th style="width:10%;font-size:13px;">QUANTITY</th>#}
+{#									<th style="width:16%;font-size:13px;" class="text-center">TOTAL PRICE</th>#}
+{#									<th style="width:10%;font-size:13px;">REMOVE</th>#}
+{#                                </tr>#}
+{#                            </thead>#}
 
                         {% csrf_token %}
                          {{ formset.management_form }}
@@ -49,16 +49,14 @@
                               {% with line=form.instance product=form.instance.product %}
                                 {% purchase_info_for_line request line as session %}
                                      <tr>
-                                        <td data-th="Product">
+                                        <td data-th="Product" class="nbdr head">
 										    <div class="row vertical-align">
 											    <div class="col-sm-3">
                                                     {{ form.id }}
                                                         {% with image=product.primary_image %}
-                                                            {% thumbnail image.original "300x400" upscale=False as thumb %}
-                                                                <a href="{{ product.get_absolute_url }}">
-                                                                    <img src="{{ thumb.url }}" alt="{{ product.get_title }}" class="wid"/>
-                                                                </a>
-                                                            {% endthumbnail %}
+                                                            <a href="{{ product.get_absolute_url }}">
+                                                                <img src="{{ image.original.url }}" alt="{{ product.get_title }}" class="wid"/>
+                                                            </a>
                                                         {% endwith %}
                                                 </div>
                                                 <div class="col-sm-9">
@@ -68,17 +66,19 @@
                                                 </div>
                                             </div>
                                         </td>
-                                        <td data-th="Price" class="text-center">
-                                            {% if line.is_tax_known %}
-                                                {{ line.unit_price_incl_tax|currency:line.price_currency }}
-                                            {% else %}
-                                                {{ line.unit_price_excl_tax|currency:line.price_currency }}
-                                            {% endif %}
+                                        <td data-th="Price" class="text-center" class="bprice">
+                                            <p  style="margin-top:9.5px">
+                                                {% if line.is_tax_known %}
+                                                    {{ line.unit_price_incl_tax|currency:line.price_currency }}
+                                                {% else %}
+                                                    {{ line.unit_price_excl_tax|currency:line.price_currency }}
+                                                {% endif %}
+                                            </p>
                                         </td>
-                                        <td data-th="Quantity" class="text-center">
-                                            <div class="checkout-quantity">
+                                        <td data-th="Quantity" class="text-center" class="bqty">
+                                            <div class="checkout-quantity" style="margin-top:9.5px">
                                                 {% render_field form.quantity class+="form-control input-mini" %}
-                                                <button class="btn btn-info btn-sm hidden-md hidden-lg" title="Update"><i class="fa fa-refresh"></i></button>
+                                                <button class="btn btn-sm btn-update" title="Update"><i class="fa fa-refresh"></i></button>
                                             </div>
                                             <div>
                                                 {% if user.is_authenticated %}
@@ -95,16 +95,17 @@
                                                 {% endfor %}
                                             </div>
                                          </td>
-                                         <td data-th="Subtotal" class="text-center">
-                                             {% if line.is_tax_known %}
-                                                {{ line.line_price_incl_tax|currency:line.price_currency }}
-                                            {% else %}
-                                                {{ line.line_price_excl_tax|currency:line.price_currency }}
-                                            {% endif %}
+                                         <td data-th="Subtotal" class="text-center" class="btotal">
+                                             <p  style="margin-top:9.5px">
+                                                 {% if line.is_tax_known %}
+                                                    {{ line.line_price_incl_tax|currency:line.price_currency }}
+                                                {% else %}
+                                                    {{ line.line_price_excl_tax|currency:line.price_currency }}
+                                                {% endif %}
+                                             </p>
                                          </td>
-                                         <td class="text-center" data-th="Remove">
-                                            <button class="btn btn-info btn-sm hidden-xs hidden-sm" title="Update"><i class="fa fa-refresh"></i></button>
-                                            <a href="#" data-id="{{ forloop.counter0 }}" data-behaviours="remove" class="inline btn-danger btn btn-sm" title="Remove"><i class="fa fa-trash-o"></i></a>
+                                         <td class="text-center" data-th="Remove" class="bremove">
+                                            <a  style="margin-top:9.5px;border-radius:0px" href="#" data-id="e{{ forloop.counter0 }}" data-behaviours="remove" class="inline btn-danger btn btn-sm" title="Remove"><i class="fa fa-trash-o"></i></a>
                                         </td>
                                      </tr>
 
@@ -114,6 +115,7 @@
                     </form>
                 {% endblock %}
             </div>
+            <div class="col-sm-1"></div>
             <div class="col-sm-3">
                 {% include 'basket/partials/basket_totals.html' %}
                 <a class="btn save" style="background-color:#7b674f;border-radius:0px;outline:0px;border:0px;color:#fff" href="{% url 'checkout:index' %}">CONTINUE TO CHECKOUT</a>
@@ -140,6 +142,30 @@
             margin-top:10px !important;
             background-color: #fff !important;
             color:#7b674f !important;
+        }
+        .form-control {
+            display: block;
+            width: 60%;
+            height: 30px;
+            float: left;
+            padding: 0px 5px;
+            font-size: 14px;
+            line-height: 1.4285;
+            color: #555555;
+            background-color: #fff;
+            background-image: none;
+            border: 1px solid #ccc;
+            border-radius: 0px;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+            -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+            -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+            transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+        }
+        .btn-update {
+            border-radius: 0px;
+            background: #827272;
+            color:#fff;
         }
     </style>
 {% endblock %}

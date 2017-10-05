@@ -270,34 +270,27 @@
             {% if request.basket.num_lines %}
                 {% for line in request.basket.all_lines %}
                     <div class="basket-items" style="margin-bottom:8px;">
-                          <div class="row">
+                        <div class="row">
                             <div class="col-sm-4 col-xs-4" id="menu-close">
                                 {% with image=line.product.primary_image %}
-                                    {% thumbnail image.original "60x100" upscale=False as thumb %}
                                     <a href="{{ line.product.get_absolute_url }}">
-                                        <img src="{{ thumb.url }}" alt="{{ line.product.get_title }}">
+                                        <img src="{{ image.original.url }}" alt="{{ line.product.get_title }}">
                                     </a>
-                                    {% endthumbnail %}
                                 {% endwith %}
                             </div>
 
-                            <div class="col-sm-7 col-xs-7">
+                            <div class="col-sm-8 col-xs-8">
                                 <div class="row">
                                     <p class="name">{{ line.description }}</p>
                                     <span class="price">{{ line.quantity }} x {{ line.unit_price_excl_tax  }}</span>
                                 </div>
                             </div>
-
-                            <div class="col-sm-1 col-xs-1">
-{#                                <a id="menu-close" href="#" class="pull-right toggle1"><small><i class="glyphicon glyphicon-minus"></i></small>&nbsp;</a>#}
-                                <a href="#" data-id="{{ forloop.counter0 }}" data-behaviours="remove" class="inline"><small><i class="glyphicon glyphicon-minus"></i></small></a>
-                            </div>
                         </div>
-
                     </div>
+                    <hr style="margin:5px 0px;border-color: #827272">
                 {% endfor %}
                     <div class="col-sm-12 col-xs-12">
-                    <br><br>
+                        <br>
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="row">
@@ -306,11 +299,6 @@
                             </div>
                             <div class="col-sm-6">
                                 <p class="mt-total-txt">
-{#                                    {% if request.basket.is_tax_known %}#}
-{#                                        <small>{% trans "Total:" %} {{ request.basket.total_incl_tax  }}</small>#}
-{#                                    {% else %}#}
-{#                                        <small>{% trans "Total:" %} {{ request.basket.total_excl_tax  }}</small>#}
-{#                                    {% endif %}#}
                                     {% if request.basket.is_tax_known %}
                                         {{ request.basket.total_incl_tax  }}
                                     {% else %}
@@ -335,20 +323,3 @@
             {% endif %}
         </div>
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
