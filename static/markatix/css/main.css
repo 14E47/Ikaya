@@ -11876,9 +11876,37 @@ select {
     text-transform: uppercase;
 }
 #id_title {
-    width: 47.5%;
+    width: 49%;
     margin-bottom: 0px;
     border-radius: 0px;
+    background-color: #eee;
+    border-radius: 0;
+}
+#id_first_name,#id_state,#id_country{
+    width: 97.5% !important;
+    background-color: #eee;
+    border-radius: 0;
+    outline:0px;
+    webkit-box-shadow:none !important;
+    box-shadow:none !important;
+    border:0px !important;
+    -webkit-transition:none !important;
+}
+#id_last_name,#id_postcode,#id_phone_number{
+    width: 97.5% !important;
+    background-color: #eee;
+    border-radius: 0;
+    margin-left: 2.5% !important;
+    outline:0px;
+    webkit-box-shadow:none !important;
+    box-shadow:none !important;
+    -webkit-transition:none !important;
+}
+#id_line1,#id_line2
+{
+    webkit-box-shadow:none !important;
+    box-shadow:none !important;
+    -webkit-transition:none !important;
 }
 .size-guide {
     margin-top: 5px;
@@ -12503,9 +12531,37 @@ select {
         width: 100%;
         margin-bottom: 0px !important;
         border-radius: 0px;
+        border:0 !important;
+        outline:0px;
+    }
+    #id_first_name,#id_state,#id_country{
+        width: 100% !important;
+        background-color: #eee;
+        border-radius: 0;
+        outline:0px;
+        webkit-box-shadow:none !important;
+        box-shadow:none !important;
+        border:0px !important;
+        -webkit-transition:none !important;
+    }
+    #id_last_name,#id_postcode,#id_phone_number{
+        width: 100% !important;
+        background-color: #eee;
+        border-radius: 0;
+        margin-left: 0% !important;
+        outline:0px;
+        webkit-box-shadow:none !important;
+        box-shadow:none !important;
+        -webkit-transition:none !important;
+    }
+    #id_line1,#id_line2
+    {
+        webkit-box-shadow:none !important;
+        box-shadow:none !important;
+        -webkit-transition:none !important;
     }
     .checkout .main-head {
-        margin:0px;
+        margin:10px 0px;
     }
     .checkout .panel-body input {
         border: 0px;

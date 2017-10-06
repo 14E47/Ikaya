@@ -98,77 +98,89 @@
                                 <h4 class="main-head">Shipping Address</h4>
                              </div>
                           </div>
-                            <form action="{% url 'checkout:shipping-address' %}" method="post" id="new_shipping_address" class="form form-horizontal">
-                                {% csrf_token %}
-                                <div class="form-group">
-                                  <div class="col-md-12">
-                                    <div class="controls">
-                                       <select class="form-control" id="id_title" name="title">
-                                          <option value="">---------</option>
-                                          <option value="Mr" selected="selected">Mr</option>
-                                          <option value="Miss">Miss</option>
-                                          <option value="Mrs">Mrs</option>
-                                          <option value="Ms">Ms</option>
-                                          <option value="Dr">Dr</option>
-                                       </select>
-                                    </div>
-                                  </div>
-                               </div>
-                               <div class="form-group">
-                                  <div class="col-md-6 col-xs-12">
-                                      <div class="form-input-left">
-                                        <input class="input-left" id="id_first_name" maxlength="255" name="first_name" type="text" placeholder="FIRST NAME" required />
-                                      </div>
-                                  </div>
-                                  <div class="span1"></div>
-                                  <div class="col-md-6 col-xs-12">
-                                      <div class="form-input-right">
-                                        <input class="input-right" id="id_last_name" maxlength="255" name="last_name" type="text" placeholder="LAST NAME" required />
-                                      </div>
-                                  </div>
-                               </div>
-                               <div class="form-group">
-                                  <div class="col-md-12">
-                                     <input class="form-control" id="id_line1" maxlength="255" name="line1" type="text" placeholder="ADDRESS" required />
-                                  </div>
-                               </div>
-                               <div class="form-group">
-                                  <div class="col-md-12">
-                                     <input class="form-control" id="id_line2" maxlength="255" name="line2" type="text" placeholder="API/SUITS" />
-                                  </div>
-                               </div>
-                               <div class="form-group">
-                                  <div class="col-md-6 col-xs-12">
-                                    <div class="form-input-left">
-                                        {{ form.country }}
-                                    </div>
-                                  </div>
-                                  <div class="span1"></div>
-                                  <div class="col-md-6 col-xs-12">
-                                    <div class="form-input-right">
-                                        <input class="input-right" id="id_state" maxlength="255" name="state" type="text" placeholder="STATE" />
-                                    </div>
-                                  </div>
-                               </div>
-                               <div class="form-group">
-                                  <div class="col-md-6 col-xs-12">
-                                    <div class="form-input-left">
-                                        <input class="input-left form-control" id="id_postcode" placeholder="ZIP CODE" maxlength="64" name="postcode" type="text" required/>
-                                    </div>
-                                  </div>
-                                  <div class="span1"></div>
-                                  <div class="col-md-6 col-xs-12">
-                                    <div class="form-input-right">
-                                        <input class="input-right" placeholder="CONTACT" id="id_phone_number" maxlength="10" name="phone_number" type="text" required />
-                                    </div>
-                                  </div>
-                               </div>
-                                <div class="form-group">
-                                    <div class="col-sm-12">
-                                        <button type="submit" class="save pull-right">SAVE & CONTINUE</button>
-                                    </div>
-                                </div>
-                            </form>
+
+{#                         <form action="{% url 'checkout:shipping-address' %}" method="post" id="new_shipping_address" class="form form-horizontal">#}
+{#                                {% csrf_token %}#}
+{#                                <div class="form-group">#}
+{#                                  <div class="col-md-12">#}
+{#                                    <div class="controls">#}
+{#                                       <select class="form-control" id="id_title" name="title">#}
+{#                                          <option value="">---------</option>#}
+{#                                          <option value="Mr" selected="selected">Mr</option>#}
+{#                                          <option value="Miss">Miss</option>#}
+{#                                          <option value="Mrs">Mrs</option>#}
+{#                                          <option value="Ms">Ms</option>#}
+{#                                          <option value="Dr">Dr</option>#}
+{#                                       </select>#}
+{#                                    </div>#}
+{#                                  </div>#}
+{#                               </div>#}
+{#                               <div class="form-group">#}
+{#                                  <div class="col-md-6 col-xs-12">#}
+{#                                      <div class="form-input-left">#}
+{#                                        <input class="input-left" id="id_first_name" maxlength="255" name="first_name" type="text" placeholder="FIRST NAME" required />#}
+{#                                      </div>#}
+{#                                  </div>#}
+{#                                  <div class="span1"></div>#}
+{#                                  <div class="col-md-6 col-xs-12">#}
+{#                                      <div class="form-input-right">#}
+{#                                        <input class="input-right" id="id_last_name" maxlength="255" name="last_name" type="text" placeholder="LAST NAME" required />#}
+{#                                      </div>#}
+{#                                  </div>#}
+{#                               </div>#}
+{#                               <div class="form-group">#}
+{#                                  <div class="col-md-12">#}
+{#                                     <input class="form-control" id="id_line1" maxlength="255" name="line1" type="text" placeholder="ADDRESS" required />#}
+{#                                  </div>#}
+{#                               </div>#}
+{#                               <div class="form-group">#}
+{#                                  <div class="col-md-12">#}
+{#                                     <input class="form-control" id="id_line2" maxlength="255" name="line2" type="text" placeholder="API/SUITS" />#}
+{#                                  </div>#}
+{#                               </div>#}
+{#                               <div class="form-group">#}
+{#                                  <div class="col-md-6 col-xs-12">#}
+{#                                    <div class="form-input-left">#}
+{#                                        {{ form.country }}#}
+{#                                    </div>#}
+{#                                  </div>#}
+{#                                  <div class="span1"></div>#}
+{#                                  <div class="col-md-6 col-xs-12">#}
+{#                                    <div class="form-input-right">#}
+{#                                        <input class="input-right" id="id_state" maxlength="255" name="state" type="text" placeholder="STATE" />#}
+{#                                    </div>#}
+{#                                  </div>#}
+{#                               </div>#}
+{#                               <div class="form-group">#}
+{#                                  <div class="col-md-6 col-xs-12">#}
+{#                                    <div class="form-input-left">#}
+{#                                        <input class="input-left form-control" id="id_postcode" placeholder="ZIP CODE" maxlength="64" name="postcode" type="text" required/>#}
+{#                                    </div>#}
+{#                                  </div>#}
+{#                                  <div class="span1"></div>#}
+{#                                  <div class="col-md-6 col-xs-12">#}
+{#                                    <div class="form-input-right">#}
+{#                                        <input class="input-right" placeholder="CONTACT" id="id_phone_number" maxlength="10" name="phone_number" type="text" required />#}
+{#                                    </div>#}
+{#                                  </div>#}
+{#                               </div>#}
+{#                             <div class="form-group">#}
+{#                                 <div class="col-sm-12">#}
+{#                                     <button type="submit" class="save pull-right">SAVE & CONTINUE</button>#}
+{#                                 </div>#}
+{#                             </div>#}
+{#                            </form>#}
+                 <form action="{% url 'checkout:shipping-address' %}" method="post" id="new_shipping_address" class="form form-horizontal">
+                    {% csrf_token %}
+                    {% include "partials/form_fields.html" with form=form style='vertical' %}
+                    <div class="form-group">
+                         <div class="col-sm-12">
+                             <div class="row">
+                                <button type="submit" class="save pull-right">SAVE & CONTINUE</button>
+                             </div>
+                         </div>
+                     </div>
+                </form>
                      </div>
                   </div>
                </div>
@@ -385,7 +397,10 @@
             margin: 0;
             border-radius: 0px;
         }
-
+        .form-group{
+            margin-left: 0px !important;
+            margin-right: 0px !important;
+        }
         .panel-heading {
             padding:0px 15px!important;
         }
@@ -411,4 +426,17 @@
         }
 
     </style>
+{% endblock %}
+{% block extrascripts %}
+    <script>
+        $(document).ready(function(){
+            $("#id_first_name").attr("placeholder", "First Name");
+            $("#id_last_name").attr("placeholder", "Last Name");
+            $("#id_state").attr("placeholder", "State");
+            $("#id_line1").attr("placeholder", "Address");
+            $("#id_line2").attr("placeholder", "API/SUIT");
+            $("#id_postcode").attr("placeholder", "Zipcode");
+            $("#id_phone_number").attr("placeholder", "Contact");
+        });
+    </script>
 {% endblock %}

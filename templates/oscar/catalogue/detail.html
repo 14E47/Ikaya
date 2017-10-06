@@ -611,6 +611,15 @@
 {% endblock %}
 
 {% block extrascripts %}
+    {% for message in messages %}
+        {% if "added to your cart" in message.message %}
+            <script>
+                $(document).ready(function(){
+                    $("#sidebar-wrapper").toggleClass("active");
+                });
+            </script>
+        {% endif %}
+    {% endfor %}
     <script>
         $(document).ready(function(){
             $(".alert-success,.alert-info,.alert-warning,.alert-danger").delay("5000").fadeOut("2000");

@@ -66,7 +66,39 @@
         {% if field.name == 'child_id' %}
             {% include 'catalogue/ikaya_variant.html' %}
         {% else %}
-            <div class="form-group {% if field.errors %}has-error{% endif %}">
+            {% if style == 'vertical' %}
+                {% if field.name == 'title' or field.name == 'line1' or field.name == 'line2' %}
+                    <div class="form-group col-sm-12 {% if field.errors %}has-error{% endif %}">
+
+                {% elif field.name == 'line3' or field.name == 'line4' %}
+                    <div class="{% if field.errors %}has-error{% endif %}">
+
+                {% elif field.name == 'notes' %}
+                    <div class="hide {% if field.errors %}has-error{% endif %}">
+
+                {% else %}
+                    <div class="form-group col-sm-6 {% if field.errors %}has-error{% endif %}">
+
+                {% endif %}
+                    <div class="row {% if style|default:"stacked" != 'stacked' %} {% endif %}">
+                        {% render_field field class+="form-control" %}
+                        {% for error in field.errors %}
+                            <span class="error-block col-sm-12">
+                                <i class="icon-exclamation-sign"></i> {{ error }}
+                            </span>
+
+                        {% endfor %}
+                        {% if field.help_text %}
+                            <span class='help-block col-sm-12'>
+                                {# We allow HTML within form help fields #}
+                                {{ field.help_text|safe }}
+                            </span>
+                        {% endif %}
+                    </div>
+
+                </div>
+            {% else %}
+                <div class="form-group {% if field.errors %}has-error{% endif %}">
 
                 {% block label %}
                     {% if not nolabel and field.widget_type != 'CheckboxInput' %}
@@ -77,12 +109,12 @@
                 {% endblock %}
 
                 {% block controls %}
-                    <div class="{% if style|default:"stacked" != 'stacked' %}col-sm-7{% endif %}">
+                    <div class="{% if style|default:"stacked" != 'stacked' %}col-sm-6{% endif %}">
                         {% block widget %}
                             {% if field.widget_type == 'CheckboxInput' %}
                                 <label for="{{ field.auto_id }}" class="checkbox {% if field.field.required %}required{% endif %}">
                                     {{ field.label|safe }}
-                                    {% render_field field class+="form-control" %}
+                                    {% render_field field %}
                                 </label>
                             {% else %}
                                 {% render_field field class+="form-control" %}
@@ -106,6 +138,7 @@
                     </div>
                 {% endblock %}
             </div>
+            {%  endif %}
         {% endif %}
     {% endblock %}
 {% endif %}
