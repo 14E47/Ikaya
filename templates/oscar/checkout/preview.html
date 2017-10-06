@@ -1,5 +1,6 @@
 {% extends "checkout/preview_layout.html" %}
 {% load i18n %}
+{% load staticfiles %}
 
 {% block title %}
     {% trans "Order preview" %} | {{ block.super }}
@@ -59,4 +60,18 @@
             padding-top:60px;
         }
     </style>
+{% endblock %}
+
+{% block extrascripts %}
+{#    <script src="{% static "markatix/js/jquery.js" %}"  type="text/javascript"></script>#}
+    <script>
+        $(document).ready(function() {
+            $('a.test').text(function (i, t) {
+                return t.replace('Ekaya Recommends: True, ', '');
+            })
+        });
+        $(document).ready(function(){
+            $(".alert-success,.alert-info,.alert-warning,.alert-danger").delay("5000").fadeOut("2000");
+        });
+    </script>
 {% endblock %}

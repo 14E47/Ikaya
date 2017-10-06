@@ -4,6 +4,7 @@
 {% load basket_tags %}
 {% load currency_filters %}
 {% load shipping_tags custom_tags %}
+
 {% block title %}
 {% trans "Payment details" %} | {{ block.super }}
 {% endblock %}
@@ -310,7 +311,6 @@
                url: "/payment/payment_page",
                cache: false,
                success: function(data){
-                   console.log(data);
                     $("#secret").val(data.sharedSecret);
                     $("#total").val(data.chargetotal);
                     $("#hash").val(data.hex_dig);
@@ -326,6 +326,21 @@
            }
        })
 
-   })
+   });
+   $(document).ready(function() {
+      $('a.test').text(function (i, t) {
+        return t.replace('Ekaya Recommends: True, ', '');
+      })
+   });
+   $(document).ready(function(){
+      $(".alert-success,.alert-info,.alert-warning,.alert-danger").delay("5000").fadeOut("2000");
+   });
 </script>
 {% endblock%}
+{% block extrastyles %}
+    <style>
+        .panel-group .panel+.panel {
+            margin-top: 0px !important;
+        }
+    </style>
+{% endblock %}

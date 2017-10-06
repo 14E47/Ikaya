@@ -298,13 +298,15 @@
                                 </div>
                             </div>
                             <div class="col-sm-6">
-                                <p class="mt-total-txt">
-                                    {% if request.basket.is_tax_known %}
-                                        {{ request.basket.total_incl_tax  }}
-                                    {% else %}
-                                        {{ request.basket.total_excl_tax  }}
-                                    {% endif %}
-                                </p>
+                                <div class="row">
+                                    <p class="mt-total-txt">
+                                        {% if request.basket.is_tax_known %}
+                                            {{ request.basket.total_incl_tax  }}
+                                        {% else %}
+                                            {{ request.basket.total_excl_tax  }}
+                                        {% endif %}
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>

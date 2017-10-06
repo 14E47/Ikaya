@@ -5,6 +5,7 @@
 {% load currency_filters %}
 {% load shipping_tags %}
 {% load debug_tags custom_tags %}
+
 {% block title %}
 {% trans "Shipping address" %} | {{ block.super }}
 {% endblock %}
@@ -437,6 +438,14 @@
             $("#id_line2").attr("placeholder", "API/SUIT");
             $("#id_postcode").attr("placeholder", "Zipcode");
             $("#id_phone_number").attr("placeholder", "Contact");
+        });
+        $(document).ready(function() {
+            $('a.test').text(function (i, t) {
+                return t.replace('Ekaya Recommends: True, ', '');
+            })
+        });
+        $(document).ready(function(){
+            $(".alert-success,.alert-info,.alert-warning,.alert-danger").delay("5000").fadeOut("2000");
         });
     </script>
 {% endblock %}
