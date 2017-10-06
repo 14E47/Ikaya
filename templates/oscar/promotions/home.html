@@ -219,42 +219,42 @@
         <!-- home row-7 end here -->
         <!-- Insta feed start here -->
 
-{#        <div class="mt-bestseller bg-grey1 text-center wow slideInUp" data-wow-delay="0.4s" data-wow-duration="2s">#}
-{#        <div class=" bg-grey1 text-center wow slideInUp" data-wow-delay="0.4s" data-wow-duration="2s">#}
-{#            <div class="container">#}
-{##}
-{#                <div class="row">#}
-{#                    <div class="col-xs-12">#}
-{#                        <br>#}
-{#                    </div>#}
-{#                </div>#}
-{##}
-{#                <div class="row">#}
-{#                    <div class="col-xs-12">#}
-{#                        <h3 style="color: #7b674f">We're on Instragram</h3>#}
-{#                        <br>#}
-{#                        <div class="bestseller-slider">#}
-{#                            {% get_instagram_feed as instagram_feeds %}#}
-{#                            {% for instagram_feed in instagram_feeds %}#}
-{#                                <div class="slide">#}
-{#                                    <!-- mt product1 center start here -->#}
-{#                                    <div class="mt-product1">#}
-{#                                        <div class="box">#}
-{#                                            <div class="b1">#}
-{#                                                <div class="b2">#}
-{#                                                    <a href={{ instagram_feed.1 }} target="_blank"> <img src="{{instagram_feed.0}}" alt="instagram feed"> </a>#}
-{#                                                </div>#}
-{#                                            </div>#}
-{#                                        </div>#}
-{#                                    </div><!-- mt product1 center end here -->#}
-{#                                </div>#}
-{#                            {% endfor %}#}
-{#                        </div>#}
-{#                    </div>#}
-{#                </div>#}
-{##}
-{#            </div>#}
-{#        </div>#}
+        <div class="mt-bestseller bg-grey1 text-center wow slideInUp" data-wow-delay="0.4s" data-wow-duration="2s">
+        <div class=" bg-grey1 text-center wow slideInUp" data-wow-delay="0.4s" data-wow-duration="2s">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-xs-12">
+                        <br>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h3 style="color: #7b674f">We're on Instragram</h3>
+                        <br>
+                        <div class="bestseller-slider">
+                            {% get_instagram_feed as instagram_feeds %}
+                            {% for instagram_feed in instagram_feeds %}
+                                <div class="slide">
+                                    <!-- mt product1 center start here -->
+                                    <div class="mt-product1">
+                                        <div class="box">
+                                            <div class="b1">
+                                                <div class="b2">
+                                                    <a href={{ instagram_feed.1 }} target="_blank"> <img src="{{instagram_feed.0}}" alt="instagram feed"> </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><!-- mt product1 center end here -->
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
 
         <!-- Insta feed end here -->
 
