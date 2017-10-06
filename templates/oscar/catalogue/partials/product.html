@@ -5,10 +5,10 @@
 {% load display_tags %}
 {% load staticfiles %}
 {% load debug_tags %}
+{% load purchase_info_tags custom_tags %}
 
 {% block product %}
-
-
+    {% purchase_info_for_product request product as session %}
     <a href="{{ product.get_absolute_url }}"  class="hovereffect">
         {% block product_image %}
             {% with image=product.primary_image %}
@@ -17,12 +17,14 @@
         {% endblock %}
         <div class="overlay">
             <p style="margin-top:60%;font-size:40px;color:#ABAE8F;font-weight:600">+</p>
+            {% if not session.availability.is_available_to_buy %}
+                <p style="width:100%;bottom:10px;font-size:20px;color:#ABAE8F;font-weight:500;position:absolute;border:1px solid #ABAE8F">OUT OF STOCK</p>
+            {% endif %}
         </div>
     </a>
 
     <div>
         <h3 style="width:88%;float: left;margin-top:10px;font-size:18px;"><a style="text-decoration: none;color:#ac997d;" href="{{ product.get_absolute_url }}" title="{{ product.get_title }}">{{ product.get_title }}</a></h3>
-
         {% if user.is_authenticated %}
             {% if product.wishlists_lines.all %}
                 {% for pro_wish in product.wishlists_lines.all %}
@@ -38,7 +40,6 @@
                     <button type="submit" style="outline:0;padding:5px 2px;text-align:right;background-color:transparent;border:0px;font-size:18px"><i style="color:#f6b220" class="fa fa-heart-o"></i></button>
                 </form>
             {% endif %}
-
         {% else %}
             <button style="outline:0;color:#f6b220;width:12%;padding:5px 2px;text-align:right;background-color:transparent;border:0px;font-size:18px"><i class="fa fa-heart-o"></i></button><br/>
         {% endif %}

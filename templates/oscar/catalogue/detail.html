@@ -611,6 +611,11 @@
 {% endblock %}
 
 {% block extrascripts %}
+    <script>
+        $(document).ready(function(){
+            $(".alert-success,.alert-info,.alert-warning,.alert-danger").delay("5000").fadeOut("2000");
+        });
+    </script>
     {% for message in messages %}
         {% if "added to your cart" in message.message %}
             <script>
@@ -620,10 +625,5 @@
             </script>
         {% endif %}
     {% endfor %}
-    <script>
-        $(document).ready(function(){
-            $(".alert-success,.alert-info,.alert-warning,.alert-danger").delay("5000").fadeOut("2000");
-        });
-    </script>
     {{ block.super }}
 {% endblock %}
