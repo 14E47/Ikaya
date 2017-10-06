@@ -4,6 +4,7 @@
 
 {% if field.is_hidden %}
     {{ field }}
+    {% set_trace %}
     {% if field.name == 'quantity' %}
         <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true" style="margin-bottom:0px;">
             <div class="panel panel-default">
@@ -17,7 +18,7 @@
                 </div>
                 <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
                     <div class="panel-body">
-                        <p>{{product.attr.fit.option}}</p>
+                        <p>{{product.attr.fit}}</p>
                     </div>
                 </div>
             </div>
