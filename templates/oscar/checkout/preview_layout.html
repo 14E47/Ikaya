@@ -24,9 +24,6 @@
     <div class="row shipping-payment">
         {% block shipping_address %}
             <div class="col-sm-4">
-                <div class="sub-header">
-                    <h2>{% trans "Shipping" %}</h2>
-                </div>
                 {% if shipping_address %}
                     <div class="well well-info">
                         {% block shipping_address_actions %}
@@ -63,9 +60,6 @@
         {# You will almost certainly want to override this block to provide a payment summary #}
         {% block payment_method %}
             <div class="col-sm-4">
-                <div class="sub-header">
-                    <h2>{% trans "Payment" %}</h2>
-                </div>
                 <div class="well well-success">
                     <a href="{% url 'checkout:payment-details' %}" class="pull-right">
                         {% trans "Change" %}
@@ -79,59 +73,61 @@
 
     {% block order_contents %}
 
-        <div class="col-sm-9">
-            <h4>Basket</h4>
-            {% block basket_form_main %}
-                <table id="cart" class="table table-hover table-condensed">
-                    <thead>
-                        <tr>
-                            <th style="width:50%;font-size:13px;">ITEM</th>
-                            <th style="width:12%;font-size:13px;"class="text-center">UNIT PRICE</th>
-                            <th style="width:10%;font-size:13px;">QUANTITY</th>
-                            <th style="width:16%;font-size:13px;" class="text-center">TOTAL PRICE</th>
-                        </tr>
-                    </thead>
+        <div class="col-sm-8">
+            <div class="row">
+                <h4>Basket</h4>
+                {% block basket_form_main %}
+                    <table id="cart" class="table table-hover table-condensed">
+                        <thead>
+                            <tr>
+                                <th style="width:50%;font-size:13px;">ITEM</th>
+                                <th style="width:12%;font-size:13px;"class="text-center">UNIT PRICE</th>
+                                <th style="width:10%;font-size:13px;">QUANTITY</th>
+                                <th style="width:16%;font-size:13px;" class="text-center">TOTAL PRICE</th>
+                            </tr>
+                        </thead>
 
-                    {% for line in basket.all_lines %}
-                        {% purchase_info_for_line request line as session %}
-                             <tr>
-                                <td data-th="Product">
-                                    <div class="row vertical-align">
-                                        <div class="col-sm-3">
-                                            {% with image=line.product.primary_image %}
-                                                <a href="{{ form.instance.product.get_absolute_url }}"><img src="{{ image.original.url }}" alt="{{ product.get_title }}"></a>
-                                            {% endwith %}
+                        {% for line in basket.all_lines %}
+                            {% purchase_info_for_line request line as session %}
+                                 <tr>
+                                    <td data-th="Product">
+                                        <div class="row vertical-align">
+                                            <div class="col-sm-3">
+                                                {% with image=line.product.primary_image %}
+                                                    <a href="{{ form.instance.product.get_absolute_url }}"><img src="{{ image.original.url }}" alt="{{ product.get_title }}"></a>
+                                                {% endwith %}
+                                            </div>
+                                            <div class="col-sm-9">
+                                                <h4 class="nomargin" >
+                                                    <a href="{{ line.product.get_absolute_url }}">{{ line.description }}</a>
+                                                </h4>
+                                            </div>
                                         </div>
-                                        <div class="col-sm-9">
-                                            <h4 class="nomargin" >
-                                                <a href="{{ line.product.get_absolute_url }}">{{ line.description }}</a>
-                                            </h4>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td data-th="Price" class="text-center">
-                                    {% if line.is_tax_known %}
-                                        {{ line.unit_price_incl_tax|currency:line.price_currency }}
-                                    {% else %}
-                                        {{ line.unit_price_excl_tax|currency:line.price_currency }}
-                                    {% endif %}
-                                </td>
-                                 <td class="text-center" data-th="Remove">
-                                     {{ line.quantity }}
-                                 </td>
-                                 <td data-th="Subtotal" class="text-center">
-                                     {% if not show_tax_separately and line.is_tax_known %}
-                                        {{ line.line_price_incl_tax|currency:basket.currency }}
-                                    {% else %}
-                                        {{ line.line_price_excl_tax|currency:basket.currency }}
-                                    {% endif %}
-                                 </td>
-                             </tr>
-                        {% endfor %}
-                     </table>
-
-            {% endblock %}
+                                    </td>
+                                    <td data-th="Price" class="text-center">
+                                        {% if line.is_tax_known %}
+                                            {{ line.unit_price_incl_tax|currency:line.price_currency }}
+                                        {% else %}
+                                            {{ line.unit_price_excl_tax|currency:line.price_currency }}
+                                        {% endif %}
+                                    </td>
+                                     <td class="text-center" data-th="Remove">
+                                         {{ line.quantity }}
+                                     </td>
+                                     <td data-th="Subtotal" class="text-center">
+                                         {% if not show_tax_separately and line.is_tax_known %}
+                                            {{ line.line_price_incl_tax|currency:basket.currency }}
+                                        {% else %}
+                                            {{ line.line_price_excl_tax|currency:basket.currency }}
+                                        {% endif %}
+                                     </td>
+                                 </tr>
+                            {% endfor %}
+                        </table>
+                    {% endblock %}
+                </div>
             </div>
+        <div class="col-sm-1"></div>
         <div class="col-sm-3">
             {% include 'basket/partials/basket_totals.html' %}
         </div>
