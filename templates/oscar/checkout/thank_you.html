@@ -110,6 +110,66 @@
                 </div>
             </div>
             <hr>
+            {% block shipping_total %}
+                {% if order.has_shipping_discounts %}
+                    <div class="row shipping-payment">
+                        <div class="col-sm-10 col-sm-offset-1">
+                            <div class="col-sm-3">
+                                <h5>{% trans "Shipping charge (before discounts)" %}</h5>
+                            </div>
+                            <div class="col-sm-9">
+                               <p style="margin-top:10px;">
+                                   {{ order.shipping_before_discounts_incl_tax|currency:order.currency }}
+                               </p>
+                            </div>
+                        </div>
+                    </div>
+                    {% for discount in order.shipping_discounts %}
+                        <div class="row shipping-payment">
+                            <div class="col-sm-10 col-sm-offset-1">
+                                <div class="col-sm-3">
+                                    <h5>{% trans "Discount" %}</h5>
+                                </div>
+                                <div class="col-sm-9">
+                                   <p style="margin-top:10px;">
+                                       {{ discount.amount|currency:order.currency }}
+                                   </p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    <div class="row shipping-payment">
+                        <div class="col-sm-10 col-sm-offset-1">
+                            <div class="col-sm-3">
+                                <h5>{% trans "Shipping charge (after discounts)" %}</h5>
+                            </div>
+                            <div class="col-sm-9">
+                               <p style="margin-top:10px;">
+                                   {{ order.shipping_incl_tax|currency:order.currency }}
+                               </p>
+                            </div>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="row shipping-payment">
+                        <div class="col-sm-10 col-sm-offset-1">
+                            <div class="col-sm-3">
+                                <h5>{% trans "SHIPPING CHARGES" %}</h5>
+                            </div>
+                            <div class="col-sm-9">
+                               <p style="margin-top:10px;">
+                                   {% if show_tax_separately %}
+                                       {{ order.shipping_excl_tax|currency:order.currency }}
+                                   {% else %}
+                                       {{ order.shipping_incl_tax|currency:order.currency }}
+                                   {% endif %}
+                               </p>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endblock shipping_total %}
+            <hr>
             <div class="row shipping-payment">
                 {% block order_total %}
                 <div class="col-sm-10 col-sm-offset-1">
@@ -118,7 +178,7 @@
                     </div>
                     <div class="col-sm-9">
                        <p style="margin-top:10px;">
-                           {{ order.total_incl_tax|currency:order.currency }}
+                           {{ order.total_excl_tax|currency:order.currency }}
                        </p>
                     </div>
                 </div>

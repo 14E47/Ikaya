@@ -31,7 +31,7 @@
                 {% csrf_token %}
                 {% include "partials/form_fields.html" with form=alert_form %}
                 <div class="row-val">
-                    <button style="background-color: #7B674F; border: hidden" type="submit" class="btn btn-lg btn-info btn-add-to-basket" data-loading-text="{% trans 'Submitting...' %}">{% trans "Notify Me" %}</button>
+                    <button style="background-color: #7B674F; border: hidden;border-radius: 0;outline: 0px;" type="submit" class="btn btn-lg btn-info btn-add-to-basket" data-loading-text="{% trans 'Submitting...' %}">{% trans "Notify Me" %}</button>
                 </div>
             </form>
         {% endiffeature %}
