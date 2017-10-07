@@ -5,7 +5,7 @@
 {% if field.is_hidden %}
     {{ field }}
     {% if field.name == 'quantity' %}
-        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true" style="margin-bottom:0px;">
+        <div class="panel-group marbottom" id="accordion" role="tablist" aria-multiselectable="true" >
             <div class="panel panel-default">
                 <div class="panel-heading" role="tab" id="headingOne">
                     <h4 class="panel-title">
@@ -64,6 +64,12 @@
 
     {% block control_group %}
         {% if field.name == 'child_id' %}
+            <style>
+                .marbottom
+                {
+                    margin-bottom:0px !important;
+                }
+            </style>
             {% include 'catalogue/ikaya_variant.html' %}
         {% else %}
             {% if style == 'vertical' %}
