@@ -192,6 +192,8 @@ OSCAR_REQUIRED_ADDRESS_FIELDS = ('first_name', 'last_name', 'line1', 'postcode',
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 ###########################
 EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_HOST_USER = 'orders@ekaya.in'
+# EMAIL_HOST_PASSWORD = 'Nineyardsekaya214
 EMAIL_HOST_USER = 'markatixcontact@gmail.com'
 EMAIL_HOST_PASSWORD = 'markatent@123'
 EMAIL_PORT = 587

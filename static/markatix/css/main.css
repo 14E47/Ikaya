@@ -2338,15 +2338,17 @@ a:hover {
 }
 .btn-type2:focus,
 .btn-type2:hover {
-    color: #fff;
-    background: #000;
-    border: 1px solid #000;
+    color: #7c6751;
+    background: #d9cfac;
+    border: 1px solid #7c6751;
 }
 .btn-type3 {
     outline: none;
+    float: left;
+    margin:auto;
     color: #d9cfac;
     padding: 9px 20px;
-    background: #000;
+    background:#7c6751;
     border-radius: 0px;
     vertical-align: top;
     display: inline-block;
@@ -10985,7 +10987,7 @@ footer .menu {
 }
 .price {
     margin: 0 auto 50px;
-    color: #d9cfac;
+    color: #7c6751;
 }
 label input {
     display: none;
@@ -12087,11 +12089,11 @@ select {
     float: left;
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: #d9cfac;
+    color:#7c6751;
 }
 #sidebar-wrapper .mt-total-txt {
     float: right;
-    color: #d9cfac;
+    color:#7c6751;
     font: 600 14px/20px "MetaSerifTf-Book";
 }
 #sidebar-wrapper .input-group {
@@ -12106,12 +12108,12 @@ select {
 .toggle1:hover,
 .toggle1.active {
     margin: 0px 5px 5px;
-    color: #d9cfac;
+    color: #7c6751;
     opacity: 1 !important;
 }
 .cart {
     font-size: 12px;
-    color: #d9cfac;
+    color:#7c6751;
     text-align: center;
     margin-bottom: 30px;
     margin-top: 10px
@@ -12167,11 +12169,11 @@ select {
     user-select: none;
 }
 #sidebar-wrapper .price1 {
-    color: #d9cfac;
+    color: #7c6751;
     font: 100 11px/20px "MetaSerifTf-Book";
 }
 #sidebar-wrapper .name {
-    color: #d9cfac !important;
+    color: #7c6751;
     font: 100 14px/20px "MetaSerifTf-Book";
     margin-bottom: 0px;
 }
@@ -12344,7 +12346,7 @@ select {
 @media screen and (max-width: 480px) {
     .price {
         margin: 0 auto 50px;
-        color: #d9cfac;
+        color:#7c6751;
         display:inline-block;
         width:100%;
     }

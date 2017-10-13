@@ -9,9 +9,9 @@
          <p style="color:#d9cfac;padding:3px 0px;margin:0px;border-bottom:1px solid #d9cfac;">SUBTOTAL
             <span class="pull-right">
             {% if basket.is_tax_known and not show_tax_separately %}
-            {{ basket.total_incl_tax_excl_discounts  }}
+            {{ basket.total_incl_tax_excl_discounts|multiply:request.session.currency_factor|currency:request.session.currency_code}}
             {% else %}
-            {{ basket.total_excl_tax_excl_discounts  }}
+            {{ basket.total_excl_tax_excl_discounts|multiply:request.session.currency_factor|currency:request.session.currency_code}}
             {% endif %}
             </span>
          </p>
@@ -22,7 +22,7 @@
       <div class="row bb">
          <p style="color:#d9cfac;padding:3px 0px;margin:0px;border-bottom:1px solid #d9cfac;">DISCOUNT({{ discount.description }})
             <span class="pull-right">
-            -{{ discount.discount  }}
+            -{{ discount.discount|multiply:request.session.currency_factor|currency:request.session.currency_code}}
             </span>
          </p>
       </div>
@@ -33,7 +33,7 @@
       <div class="row bb">
          <p style="padding:3px 0px;margin:0px;border-bottom:1px solid #d9cfac;">COUPON({{ discount.voucher.name }} ({{ discount.voucher.code }}))
             <span class="pull-right">
-            -{{ discount.discount  }}
+            -{{ discount.discount|multiply:request.session.currency_factor|currency:request.session.currency_code}}
             </span>
          </p>
       </div>
@@ -46,9 +46,9 @@
          <p style="color:#d9cfac !important;padding:3px 0px;margin:0px;border-bottom:1px solid #d9cfac;">SHIPING({{ shipping_method.name }})
             <span class="pull-right">
             {% if not show_tax_separately and shipping_charge.is_tax_known %}
-            {{ shipping_charge.incl_tax  }}
+            {{ shipping_charge.incl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code}}
             {% else %}
-            {{ shipping_charge.excl_tax  }}
+            {{ shipping_charge.excl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code}}
             {% endif %}
             </span>
          </p>
@@ -60,9 +60,9 @@
          <p style="color:#d9cfac;padding:3px 0px;margin:0px;border-bottom:1px solid #d9cfac;">SHIIPING({{ shipping_method.name }})
             <span class="pull-right">
             {% if not show_tax_separately and shipping_charge.is_tax_known %}
-            {{ shipping_charge.incl_tax  }}
+            {{ shipping_charge.incl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code}}
             {% else %}
-            {{ shipping_charge.excl_tax  }}
+            {{ shipping_charge.excl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code}}
             {% endif %}
             </span>
          </p>
@@ -73,14 +73,14 @@
       <div class="row bb">
          <p style="color:#d9cfac;padding:3px 0px;margin:0px;border-bottom:1px solid #d9cfac;">TAXES (On Products)
             <span class="pull-right">
-            {{ basket.total_tax  }}
+            {{ basket.total_tax|multiply:request.session.currency_factor|currency:request.session.currency_code}}
             </span>
          </p>
       </div>
       <div class="row bb">
          <p style="color:#d9cfac;padding:3px 0px;margin:0px;border-bottom:1px solid #d9cfac;">TAXES (On Shipping)
             <span class="pull-right">
-            {{ shipping_charge.tax  }}
+            {{ shipping_charge.tax|multiply:request.session.currency_factor|currency:request.session.currency_code}}
             </span>
          </p>
       </div>
@@ -88,9 +88,9 @@
       {% endblock %}
       <div class="row bb">
          {% if request.basket.is_tax_known %}
-         <p style="color:#d9cfac;padding:3px 0px;margin:0px;border-bottom:1px solid #d9cfac;">TOTAL<span class="pull-right">{{ request.basket.total_incl_tax  }}</span></p>
+         <p style="color:#d9cfac;padding:3px 0px;margin:0px;border-bottom:1px solid #d9cfac;">TOTAL<span class="pull-right">{{ request.basket.total_incl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code}}</span></p>
          {% else %}
-         <p style="color:#d9cfac;padding:3px 0px;margin:0px;border-bottom:1px solid #d9cfac;">TOTAL<span class="pull-right">{{ request.basket.total_excl_tax  }}</span></p>
+         <p style="color:#d9cfac;padding:3px 0px;margin:0px;border-bottom:1px solid #d9cfac;">TOTAL<span class="pull-right">{{ request.basket.total_excl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code}}</span></p>
          {% endif %}
       </div>
    </div>
