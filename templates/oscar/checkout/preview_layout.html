@@ -27,7 +27,7 @@
                 {% if shipping_address %}
                     <div class="well well-info">
                         {% block shipping_address_actions %}
-                            <a href="{% url 'checkout:shipping-address' %}" class="pull-right">
+                            <a style="color:#d9cfac" href="{% url 'checkout:shipping-address' %}" class="pull-right">
                                 {% trans "Change" %}
                             </a>
                         {% endblock %}
@@ -61,7 +61,7 @@
         {% block payment_method %}
             <div class="col-sm-4">
                 <div class="well well-success">
-                    <a href="{% url 'checkout:payment-details' %}" class="pull-right">
+                    <a style="color:#d9cfac" href="{% url 'checkout:payment-details' %}" class="pull-right">
                         {% trans "Change" %}
                     </a>
                     <h3>{% trans "Payment" %}</h3>
@@ -75,15 +75,15 @@
 
         <div class="col-sm-8">
             <div class="row">
-                <h4>Basket</h4>
+                <h4 style="color:#d9cfac">Basket</h4>
                 {% block basket_form_main %}
                     <table id="cart" class="table table-hover table-condensed">
                         <thead>
                             <tr>
-                                <th style="width:50%;font-size:13px;">ITEM</th>
-                                <th style="width:12%;font-size:13px;"class="text-center">UNIT PRICE</th>
-                                <th style="width:10%;font-size:13px;">QUANTITY</th>
-                                <th style="width:16%;font-size:13px;" class="text-center">TOTAL PRICE</th>
+                                <th style="color:#d9cfac;width:50%;font-size:13px;border-color:#d9cfac;">ITEM</th>
+                                <th style="color:#d9cfac;width:12%;font-size:13px;border-color:#d9cfac;"class="text-center">UNIT PRICE</th>
+                                <th style="color:#d9cfac;width:10%;font-size:13px;border-color:#d9cfac;">QUANTITY</th>
+                                <th style="color:#d9cfac;width:16%;font-size:13px;border-color:#d9cfac;" class="text-center">TOTAL PRICE</th>
                             </tr>
                         </thead>
 
@@ -99,22 +99,22 @@
                                             </div>
                                             <div class="col-sm-9">
                                                 <h4 class="nomargin" >
-                                                    <a class="test" href="{{ line.product.get_absolute_url }}">{{ line.description }}</a>
+                                                    <a style="color:#d9cfac;" class="test" href="{{ line.product.get_absolute_url }}">{{ line.description }}</a>
                                                 </h4>
                                             </div>
                                         </div>
                                     </td>
-                                    <td data-th="Price" class="text-center">
+                                    <td data-th="Price" style="color:#d9cfac;" class="text-center">
                                         {% if line.is_tax_known %}
                                             {{ line.unit_price_incl_tax|currency:line.price_currency }}
                                         {% else %}
                                             {{ line.unit_price_excl_tax|currency:line.price_currency }}
                                         {% endif %}
                                     </td>
-                                     <td class="text-center" data-th="Remove">
+                                     <td class="text-center" style="color:#d9cfac;" data-th="Remove">
                                          {{ line.quantity }}
                                      </td>
-                                     <td data-th="Subtotal" class="text-center">
+                                     <td data-th="Subtotal" class="text-center" style="color:#d9cfac;">
                                          {% if not show_tax_separately and line.is_tax_known %}
                                             {{ line.line_price_incl_tax|currency:basket.currency }}
                                         {% else %}

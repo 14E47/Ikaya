@@ -52,18 +52,7 @@
         <!-- Mt Product Detial of the Page -->
         <section class="mt-product-detial wow fadeInUp" data-wow-delay="0.4s">
             <div class="container">
-
-{#                <div class="row">#}
-{#                    <div class="mt-textbox equalhh basket">#}
-{#                        <img src="{% static "markatix/images/new/about/07.png"%}" class="pro-logo" >#}
-{#                        <h4 class="vcenter2" style="margin:0px;color:#ac997d;margin-left:5px">{{ product.categories.first.name }}</h4>#}
-{#                    </div>#}
-{#                    <br><br><br>#}
-{#                </div>#}
-
-
                 <div class="row">
-
                     {% block product_gallery %}
                     <div class="col-xs-12 col-sm-5 text">
                         <div class="row">
@@ -79,28 +68,28 @@
                             </p>
 
                             <div class="about-product">
-                            <div class="col-sm-3">
-                                <div class="row">
-                                    <p>
-                                        7 day Exchange
-                                    </p>
+                                <div class="col-sm-3">
+                                    <div class="row">
+                                        <p>
+                                            7 day Exchange
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="row">
+                                        <p>
+                                            Free Shipping Across India
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-sm-5">
+                                    <div class="row">
+                                        <p>
+                                            World Wide Shipping Available
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-sm-4">
-                                <div class="row">
-                                    <p>
-                                        Free Shipping Across India
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="col-sm-5">
-                                <div class="row">
-                                    <p>
-                                        World Wide Shipping Available
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
                         </div>
                     </div>
                     {% endblock %}
@@ -132,11 +121,6 @@
                                                     <div class="col-sm-4">
                                                         <div class="row">
                                                             {% include "catalogue/partials/add_to_basket_form.html" %}
-                {#                                            <form action="#" class="product-form">#}
-                {#                                                <div class="row-val">#}
-                {#                                                    <button type="submit">ADD TO CART <span class="pull-right">+</span></button>#}
-                {#                                                </div>#}
-                {#                                            </form>#}
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-8 price-sec vend">
@@ -208,7 +192,6 @@
                                                 </div>
                                                 <div class="row">
                                                     <p style="line-height:120%;font-size:16px !important;font-weight:700;margin-top:0px;margin-bottom:10px!important;">
-        {#                                                <i>{{ product.description|safe }}</i>#}
                                                         <i>If your size or colour is not available, please contact us to place an order.</i>
                                                     </p>
                                                     <p style="line-height:120%;font-size:14px !important;font-weight:600;margin-top:10px;margin-bottom:10px!important;">
@@ -255,7 +238,7 @@
                                                                 <a href="https://twitter.com/share?url={{url}}&text={{title}}&via=Ekaya&hashtags=ekaya" ><i class="fa fa-instagram"></i></a>
                                                             </li>
                                                             <li>
-                                                                <a href="http://www.facebook.com/sharer.php?u={{url}}"><i class="fa fa-facebook fa-1x"></i></a>
+                                                                <a href="https://www.facebook.com/dialog/feed?app_id=1984263138455010&ref=site&display=page&link=http://ekayaonline.com/{{request.path}}&redirect_uri=http://ekayaonline.com"><i class="fa fa-facebook fa-1x"></i></a>
                                                             </li>
                                                             <li>
                                                                 <a href="https://pinterest.com/pin/create/bookmarklet/?media={{img}}&url={{url}}&description={{title}}"><i class="fa fa-pinterest"></i></a>
@@ -274,96 +257,6 @@
                         </div>
                     {% endblock %}
                 </div><!-- /row -->
-
-{#                {% block product_description %}#}
-{#                    {% if product.description %}#}
-{#                    <div id="product_description" class="sub-header">#}
-{#                        <h2>{% trans "Product Description" %}</h2>#}
-{#                    </div>#}
-{#                    <p></p>#}
-{#                    {% endif %}#}
-{#                {% endblock %}#}
-
-{#                {% block product_info %}#}
-{#                    <div class="sub-header">#}
-{#                        <h2>{% trans "Product Information" %}</h2>#}
-{#                    </div>#}
-{#                    <table class="table table-striped">#}
-{#                        {% if product.upc %}#}
-{#                        <tr>#}
-{#                            <th>{% trans "UPC" %}</th><td></td>#}
-{#                        </tr>#}
-{#                        {% endif %}#}
-{#                        <tr>#}
-{#                            <th>{% trans "Product Type" %}</th><td>{{ product.get_product_class.name }}</td>#}
-{#                        </tr>#}
-{##}
-{#                        {% purchase_info_for_product request product as session %}#}
-{#                        {% if session.price.exists %}#}
-{#                            <tr>#}
-{#                                <th>{% trans "Price (excl. tax)" %}</th><td>{{ session.price.excl_tax|currency:session.price.currency }}</td>#}
-{#                            </tr>#}
-{#                            {% if session.price.is_tax_known %}#}
-{#                                <tr>#}
-{#                                    <th>{% trans "Price (incl. tax)" %}</th><td>{{ session.price.incl_tax|currency:session.price.currency }}</td>#}
-{#                                </tr>#}
-{#                                <tr>#}
-{#                                    <th>{% trans "Tax" %}</th><td>{{ session.price.tax|currency:session.price.currency }}</td>#}
-{#                                </tr>#}
-{#                            {% endif %}#}
-{#                            <tr>#}
-{#                                <th>{% trans "Availability" %}</th>#}
-{#                                <td>{{ session.availability.message }}</td>#}
-{#                            </tr>#}
-{#                        {% endif %}#}
-{#                        {% for av in product.attribute_values.all %}#}
-{#                            <tr>#}
-{#                                <th>{{ av.attribute.name }}</th>#}
-{#                                <td>{{ av.value_as_html }}</td>#}
-{#                            </tr>#}
-{#                        {% endfor %}#}
-{#                        {% iffeature "reviews" %}#}
-{#                            <tr>#}
-{#                                <th>{% trans "Number of reviews" %}</th>#}
-{#                                <td>{{ product.num_approved_reviews }}</td>#}
-{#                            </tr>#}
-{#                        {% endiffeature %}#}
-{#                    </table>#}
-{#                {% endblock %}#}
-{##}
-{#                {% iffeature "reviews" %}#}
-{#                    {% block product_review %}#}
-{#                        <section>#}
-{#                        <div id="reviews" class="sub-header">#}
-{#                            {% if product.num_approved_reviews > 3 %}#}
-{#                                <a href="{% url 'catalogue:reviews-list' product_slug=product.slug product_pk=product.id %}" class="btn pull-right">{% trans "See all reviews" %}</a>#}
-{#                            {% endif %}#}
-{#                            <h2>{% trans "Customer Reviews" %}</h2>#}
-{#                        </div>#}
-{##}
-{#                        {% if product.num_approved_reviews == 0 %}#}
-{#                            <p>#}
-{#                                {% if product|is_review_permitted:user %}#}
-{#                                    {% url 'catalogue:reviews-add' product_slug=product.slug product_pk=product.id as add_review_url %}#}
-{#                                        {% blocktrans %}This product does not have any reviews yet -#}
-{#                                        <a href="{{ add_review_url }}#addreview">be the first to write one</a>.#}
-{#                                    {% endblocktrans %}#}
-{#                                {% else %}#}
-{#                                    {% trans "This product does not have any reviews yet" %}.#}
-{#                                {% endif %}#}
-{#                            </p>#}
-{#                        {% else %}#}
-{#                            <ol class="list-unstyled review-list">#}
-{#                                {% for review in product.reviews.approved.all|slice:":3" %}#}
-{#                                    <li>#}
-{#                                    {% include 'catalogue/partials/review.html' %}#}
-{#                                    </li>#}
-{#                                {% endfor %}#}
-{#                            </ol>#}
-{#                        {% endif %}#}
-{#                    </section>#}
-{#                    {% endblock product_review %}#}
-{#                {% endiffeature %}#}
 {#                {% recently_viewed_products current_product=product %}#}
 
             </div><!-- End of product page -->

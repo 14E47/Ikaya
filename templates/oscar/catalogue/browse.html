@@ -101,40 +101,31 @@
 
         <main id="mt-main">
 				<!-- Mt Contact Banner of the Page -->
-
                 <div>
-
                     <!-- sec 1 -->
-
-					<article class="hidden-xs hidden-sm">
+                    <article class="hidden-xs hidden-sm">
 						<img src="{% static "markatix/images/new/product/01.jpg"%}" alt="Paris" data-parallax='{"y": 200}'/>
 					</article>
 					<article class="hidden-lg hidden-md">
 						<img src="{% static "markatix/images/new/product/01.jpg"%}"/>
 					</article>
-
                     <!-- end sec 1 -->
-                    <!-- sec 2 -->
 
+                    <!-- sec 2 -->
 					<div class="container">
 						<div class="row">
 							<!-- sidebar of the Page start here -->
 							<div class="wow fadeInRight" data-wow-delay="0.4s">
-
 								<!-- mt shoplist header start here -->
-
 								<header class="mt-shoplist-header equalh">
                                     <div class="mt-textbox equalh hidden-xs">
 										<img src="{% static "markatix/images/new/about/07.png" %}" style="width:120px;height:120px;float:left" >
                                         <h4 style="color:#ac997d;margin:0;margin-left: 10px;" class="vcenter1">{{ category.name }}</h4>
 									</div>
-
                                     <!-- mt-textbox end here -->
 									<!-- btn-box start here -->
-
 									<div class="btn-box vcenter1">
 										<ul class="list-inline">
-
                                             <!-- REFINE SEARCH STARTS -->
 
 											<li class="fil">
@@ -144,7 +135,6 @@
 												<div class="drop filter-width">
 													<div>
 														<div class="panel">
-
 															<div class="panel-heading">
                                                                 <!-- Tabs -->
 																<ul class="nav panel-tabs">
@@ -158,35 +148,26 @@
 
 															<div class="panel-body">
 																<div class="tab-content">
-
-
-																	<div class="tab-pane active" id="tab1">
+																	<div class=" row tab-pane active" id="tab1">
 																		<div class="form" >
-
 																			<form action='/catalogue/' method='GET'>
+                                                                                <div class="col-xs-5 col-sm-3">
+                                                                                    <input name='price_min' type="text">
+                                                                                </div>
 
-                                                                            <div class="col-xs-5 col-sm-3">
-																				<div class="row">
-																					<input name='price_min' type="text">
-																				</div>
-																			</div>
+                                                                                <div class="col-xs-2 col-sm-1">
+                                                                                    <div class="text-center vend fp">
+                                                                                        <span class="price_filter">TO</span>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-xs-5 col-sm-3">
 
-																			<div class="col-xs-2 col-sm-1">
-																				<div class="row text-center vend fp">
-																					<span>TO</span>
-																				</div>
-																			</div>
+                                                                                        <input name='price_max' type="text">
 
-																			<div class="col-xs-5 col-sm-3">
-																				<div class="row">
-																					<input name='price_max' type="text">
-																				</div>
-																			</div>
-
-																			<div class="col-sm-3">
-																				<button>GO</button>
-																			</div>
-
+                                                                                </div>
+                                                                                <div class="col-sm-3">
+                                                                                    <button>GO</button>
+                                                                                </div>
                                                                             </form>
 
 																		</div>
@@ -545,52 +526,51 @@
         var $filterCheckboxes = $('input[type="checkbox"]');
         $filterCheckboxes.on('change', function()
         {
-        var selectedFilters = {};
+            var selectedFilters = {};
 
-        $filterCheckboxes.filter(':checked').each(function()
-            {
-            if (!selectedFilters.hasOwnProperty(this.name))
-            {
-                selectedFilters[this.name] = [];
-            }
-                selectedFilters[this.name].push(this.value);
-            }
-        );
+            $filterCheckboxes.filter(':checked').each(function()
+                {
+                if (!selectedFilters.hasOwnProperty(this.name))
+                {
+                    selectedFilters[this.name] = [];
+                }
+                    selectedFilters[this.name].push(this.value);
+                }
+            );
 
         // create a collection containing all of the filterable elements
 
-        var $filteredResults = $('.pro-grid');
-        // loop over the selected filter name -> (array) values pairs
-        $.each(selectedFilters, function(name, filterValues)
-        {
-        // filter each .flower element
-        $filteredResults = $filteredResults.filter(function()
-        {
-        var matched = false,
-        currentFilterValues = $(this).data('category').split(' ');
-
-        // loop over each category value in the current .flower's data-category
-        $.each(currentFilterValues, function(_, currentFilterValue)
-        {
-        // if the current category exists in the selected filters array
-        // set matched to true, and stop looping. as we're ORing in each
-        // set of filters, we only need to match once
-
-            if ($.inArray(currentFilterValue, filterValues) != -1)
+            var $filteredResults = $('.pro-grid');
+            // loop over the selected filter name -> (array) values pairs
+            $.each(selectedFilters, function(name, filterValues)
+            {
+                // filter each .flower element
+                $filteredResults = $filteredResults.filter(function()
                 {
-                    matched = true;
-                    return false;
-                }
-        });
+                    var matched = false,
+                    currentFilterValues = $(this).data('category').split(' ');
 
-            // if matched is true the current .flower element is returned
-            return matched;
+                    // loop over each category value in the current .flower's data-category
+                    $.each(currentFilterValues, function(_, currentFilterValue)
+                    {
+                    // if the current category exists in the selected filters array
+                    // set matched to true, and stop looping. as we're ORing in each
+                    // set of filters, we only need to match once
 
-        });
+                        if ($.inArray(currentFilterValue, filterValues) != -1)
+                            {
+                                matched = true;
+                                return false;
+                            }
+                    });
+
+                // if matched is true the current .flower element is returned
+                return matched;
+
+            });
         });
 
         $('.pro-grid').hide().filter($filteredResults).show();
-
         });
 
     </script>

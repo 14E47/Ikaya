@@ -15,13 +15,13 @@
     {% get_home_sections 'Banner' as home_sections %}
     <article class="hidden-xs hidden-sm">
         <img src="{{home_sections.image.url}}" alt="Ekaya Banner" data-parallax='{"y": 50}'/>
-        <p class="wow slideInUp" data-wow-duration="2s" style="color:{{home_sections.text_colour|safe}}">{{home_sections.text|safe}}<br><br>
+        <p style="color:{{home_sections.text_colour|safe}}">{{home_sections.text|safe}}<br><br>
             <a style="font-size:0.5em;text-decoration:underline;font-family: 'MetaSerifTf-Book';color:#fff" href="{{home_sections.link_url}}">{{home_sections.button}}</a>
         </p>
     </article>
     <article class="hidden-lg hidden-md">
         <img src="{{home_sections.image.url}}" alt="Ekaya Banner" data-parallax='{"y": 50}'/>
-        <p class="wow slideInUp" data-wow-duration="2s" style="color:{{home_sections.text_colour|safe}}">{{home_sections.text|safe}}<br><br>
+        <p style="color:{{home_sections.text_colour|safe}}">{{home_sections.text|safe}}<br><br>
             <a style="font-size:0.5em;text-decoration:underline;font-family: 'MetaSerifTf-Book';color:#fff" href="{{home_sections.link_url}}">{{home_sections.button}}</a>
         </p>
     </article>
@@ -34,10 +34,10 @@
                     <!-- banner row-3 start here -->
                     <div class="banner-frame equalh martb">
                         {% get_home_sections 'section1' as home_sections %}
-                        <div class="col-sm-4 vcenter wow slideInUp" data-wow-duration="2s">
+                        <div class="col-sm-4 vcenter">
                             <img src="{% static "markatix/images/new/03.jpg"%}" alt="image description">
                         </div>
-                        <div class="col-sm-2 vend1 hidden-xs wow slideInUp" data-wow-duration="2s">
+                        <div class="col-sm-2 vend1 hidden-xs">
                             <div class="text-right">
                                 <h3>
                                     {{home_sections.text|safe}}
@@ -48,18 +48,19 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="col-sm-4 wow slideInUp" data-wow-duration="2s">
+                        <div class="col-sm-5 wow slideInUp" data-wow-duration="2s">
                             <div class="row">
                                 <div class="hovereffect">
-                                    <img src="{{home_sections.image.url}}" alt="image description">
-{#                                    <img src="{% static "markatix/images/new/04.jpeg"%}" alt="image description">#}
-                                    <div class="overlay">
-                                    </div>
+                                    <a href="{{home_sections.link_url}}" style="font-family: 'MetaSerifTf-Book';font-weight:bold;">
+                                        <img src="{{home_sections.image.url}}" alt="image description">
+                                        <div class="overlay">
+                                        </div>
+                                    </a>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-2 vend2 hidden-lg hidden-md hidden-sm wow slideInUp" data-wow-delay="0" data-wow-duration="2s">
-                            <div class="">
+                        <div class="col-sm-2 vend2 hidden-lg hidden-md hidden-sm">
+                            <div>
                                 <h3>
                                     {{home_sections.text|safe}}
                                 </h3>
@@ -73,18 +74,19 @@
                     <div class="banner-frame equalh">
                         {% get_home_sections 'section2' as home_sections %}
 
-                        <div class="col-sm-8 wow slideInUp" data-wow-delay="0" data-wow-duration="2s">
+                        <div class="col-sm-8">
                             <div class="row">
                                 <div class="hovereffect">
-                                    <img src="{{home_sections.image.url}}" alt="image description">
-{#                                    <img src="{% static "markatix/images/new/04.jpeg"%}" alt="image description">#}
-                                    <div class="overlay">
-                                    </div>
+                                    <a href="{{home_sections.link_url}}" style="font-family: 'MetaSerifTf-Book';font-weight:bold;">
+                                        <img src="{{home_sections.image.url}}" alt="image description">
+                                        <div class="overlay">
+                                        </div>
+                                    </a>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col-sm-2 vend2 wow slideInUp" data-wow-delay="0" data-wow-duration="2s">
+                        <div class="col-sm-2 vend2">
                             <div>
                                 <h3>
                                     {{home_sections.text|safe}}
@@ -92,7 +94,6 @@
                                 <a href="{{home_sections.link_url}}" style="font-family: 'MetaSerifTf-Book';font-weight:bold;"> {{home_sections.button}} </a>
                             </div>
                         </div>
-
                     </div>
                     <!-- banner row-4 end here -->
                 </div>
@@ -105,7 +106,7 @@
             {% get_home_sections 'section3' as home_sections %}
             <div class="container">
                 <div class="row vcenter">
-                    <div class="col-sm-6 wow slideInUp" data-wow-duration="2s">
+                    <div class="col-sm-6">
                         <h2>
                             ABOUT  EKAYA
                             <br>
@@ -118,8 +119,14 @@
                     </div>
                     <div class="col-sm-1">
                     </div>
-                    <div class="col-sm-3 wow slideInUp" data-wow-delay="0" data-wow-duration="2s">
-                        <img src="{{home_sections.image.url}}" class="about-img" alt="image description">
+                    <div class="col-sm-3">
+                        <div class="hovereffect about-img">
+                            <a href="{{home_sections.link_url}}" style="font-size:14px;color:#fff;font-family: 'MetaSerifTf-Book';text-decoration:underline">
+                                <img src="{{home_sections.image.url}}"  class="" alt="image description">
+                                <div class="overlay">
+                                </div>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -128,13 +135,13 @@
         <!-- home row-6 start here -->
         <div class="mt-smallproducts test">
             <div class="container">
-                <div class="row equalh wow slideInUp" data-wow-delay="0" data-wow-duration="2s">
+                <div class="row equalh">
                     <div class="col-sm-11">
-                        <h3>SPRING 2017 <br><span>COLLECTION</span></h3>
+                        <h3>Best Seller</h3>
                     </div>
-                    <div class="col-sm-1 vend2 wow slideInUp" data-wow-delay="0" data-wow-duration="2s">
+                    <div class="col-sm-1 vend2">
                         <div class="row m-row">
-                            <h2 style="color:#7C6752"><a href="#" style="font-family: 'MetaSerifTf-Book';font-weight:bold;">SHOP NOW</a></h2>
+                            <h3 style="color:#7C6751;margin-top:19px;margin-bottom: 9.5px;"><a href="#" style="border:0px;text-decoration:none;font-family: 'MetaSerifTf-Book';font-weight:bold;">SHOP NOW</a></h3>
                         </div>
                     </div>
                 </div>
@@ -143,7 +150,7 @@
                     {% top_products as products %}
                     {% if products %}
                         {% for product in products %}
-                            <div class="col-sm-4 col-pad wow slideInUp"  data-wow-delay="0" data-wow-duration="2s">
+                            <div class="col-sm-4 col-pad">
                                 <div class="mt-product1 large">
                                     <div class="box">
                                         <div class="b1">
@@ -177,9 +184,9 @@
             {% get_home_sections 'section4' as home_sections %}
             <div class="container">
 
-                <div class="row wow slideInUp" data-wow-delay="0" data-wow-duration="2s">
+                <div class="row">
                     <div class="col-xs-12 mt-heading text-center">
-                        <p style="color:#948373;font-weight:bold;font-size:18px;letter-spacing:1;">Re-interpreting and receiving traditional weaves <br> and motifs with indian-Modern vision.</p>
+                        <p style="color:#7c6751;font-weight:bold;font-size:18px;letter-spacing:1;">Re-interpreting and receiving traditional weaves <br> and motifs with indian-Modern vision.</p>
                     </div>
                 </div>
 
@@ -190,19 +197,19 @@
                     <div class="col-sm-2">
                     </div>
 
-                    <div class="col-sm-8 wow slideInUp" data-wow-delay="0" data-wow-duration="2s">
+                    <div class="col-sm-8">
                         <div class="row">
                             <div class="hovereffect">
                                 <a href="{{home_sections.link_url}}" style="font-family: 'MetaSerifTf-Book';font-weight:bold;">
-                                <img src="{{home_sections.image.url}}" alt="image description">
-                                <div class="overlay">
-                                </div>
+                                    <img src="{{home_sections.image.url}}" alt="image description">
+                                    <div class="overlay">
+                                    </div>
                                 </a>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-sm-2 vcenter1 wow slideInUp" data-wow-delay="0" data-wow-duration="2s">
+                    <div class="col-sm-2 vcenter1">
                         <div>
                             <h3>
                                 {{home_sections.text|safe}}
@@ -219,16 +226,14 @@
         <!-- home row-7 end here -->
         <!-- Insta feed start here -->
 
-        <div class="mt-bestseller bg-grey1 text-center wow slideInUp" data-wow-delay="0.4s" data-wow-duration="2s">
-        <div class=" bg-grey1 text-center wow slideInUp" data-wow-delay="0.4s" data-wow-duration="2s">
+        <div class="mt-bestseller bg-grey1 text-center">
+        <div class=" bg-grey1 text-center">
             <div class="container">
-
                 <div class="row">
                     <div class="col-xs-12">
                         <br>
                     </div>
                 </div>
-
                 <div class="row">
                     <div class="col-xs-12">
                         <h3 style="color: #7b674f">We're on Instragram</h3>

@@ -6,7 +6,7 @@
    <div class="total">
       {% with offer_discounts=basket.offer_discounts voucher_discounts=basket.grouped_voucher_discounts %}
       <div class="row bb">
-         <p style="padding:3px 0px;margin:0px;border-bottom:1px solid #a6a6a6;">SUBTOTAL
+         <p style="color:#d9cfac;padding:3px 0px;margin:0px;border-bottom:1px solid #d9cfac;">SUBTOTAL
             <span class="pull-right">
             {% if basket.is_tax_known and not show_tax_separately %}
             {{ basket.total_incl_tax_excl_discounts  }}
@@ -20,7 +20,7 @@
       {% for discount in offer_discounts %}
       {% if discount.description %}
       <div class="row bb">
-         <p style="padding:3px 0px;margin:0px;border-bottom:1px solid #a6a6a6;">DISCOUNT({{ discount.description }})
+         <p style="color:#d9cfac;padding:3px 0px;margin:0px;border-bottom:1px solid #d9cfac;">DISCOUNT({{ discount.description }})
             <span class="pull-right">
             -{{ discount.discount  }}
             </span>
@@ -31,7 +31,7 @@
       {% if voucher_discounts %}
       {% for discount in voucher_discounts %}
       <div class="row bb">
-         <p style="padding:3px 0px;margin:0px;border-bottom:1px solid #a6a6a6;">COUPON({{ discount.voucher.name }} ({{ discount.voucher.code }}))
+         <p style="padding:3px 0px;margin:0px;border-bottom:1px solid #d9cfac;">COUPON({{ discount.voucher.name }} ({{ discount.voucher.code }}))
             <span class="pull-right">
             -{{ discount.discount  }}
             </span>
@@ -43,7 +43,7 @@
       {% endwith %}
       {% if not shipping_method.is_discounted %}
       <div class="row bb">
-         <p style="padding:3px 0px;margin:0px;border-bottom:1px solid #a6a6a6;">SHIPING({{ shipping_method.name }})
+         <p style="color:#d9cfac !important;padding:3px 0px;margin:0px;border-bottom:1px solid #d9cfac;">SHIPING({{ shipping_method.name }})
             <span class="pull-right">
             {% if not show_tax_separately and shipping_charge.is_tax_known %}
             {{ shipping_charge.incl_tax  }}
@@ -57,7 +57,7 @@
       {% shipping_charge_discount shipping_method basket as shipping_discount %}
       {% shipping_charge_excl_discount shipping_method basket as shipping_charge_excl_discount %}
       <div class="row bb">
-         <p style="padding:3px 0px;margin:0px;border-bottom:1px solid #a6a6a6;">SHIIPING({{ shipping_method.name }})
+         <p style="color:#d9cfac;padding:3px 0px;margin:0px;border-bottom:1px solid #d9cfac;">SHIIPING({{ shipping_method.name }})
             <span class="pull-right">
             {% if not show_tax_separately and shipping_charge.is_tax_known %}
             {{ shipping_charge.incl_tax  }}
@@ -71,14 +71,14 @@
       {% block tax_totals %}
       {% if show_tax_separately %}
       <div class="row bb">
-         <p style="padding:3px 0px;margin:0px;border-bottom:1px solid #a6a6a6;">TAXES (On Products)
+         <p style="color:#d9cfac;padding:3px 0px;margin:0px;border-bottom:1px solid #d9cfac;">TAXES (On Products)
             <span class="pull-right">
             {{ basket.total_tax  }}
             </span>
          </p>
       </div>
       <div class="row bb">
-         <p style="padding:3px 0px;margin:0px;border-bottom:1px solid #a6a6a6;">TAXES (On Shipping)
+         <p style="color:#d9cfac;padding:3px 0px;margin:0px;border-bottom:1px solid #d9cfac;">TAXES (On Shipping)
             <span class="pull-right">
             {{ shipping_charge.tax  }}
             </span>
@@ -88,9 +88,9 @@
       {% endblock %}
       <div class="row bb">
          {% if request.basket.is_tax_known %}
-         <p style="padding:3px 0px;margin:0px;border-bottom:1px solid #a6a6a6;">TOTAL<span class="pull-right">{{ request.basket.total_incl_tax  }}</span></p>
+         <p style="color:#d9cfac;padding:3px 0px;margin:0px;border-bottom:1px solid #d9cfac;">TOTAL<span class="pull-right">{{ request.basket.total_incl_tax  }}</span></p>
          {% else %}
-         <p style="padding:3px 0px;margin:0px;border-bottom:1px solid #a6a6a6;">TOTAL<span class="pull-right">{{ request.basket.total_excl_tax  }}</span></p>
+         <p style="color:#d9cfac;padding:3px 0px;margin:0px;border-bottom:1px solid #d9cfac;">TOTAL<span class="pull-right">{{ request.basket.total_excl_tax  }}</span></p>
          {% endif %}
       </div>
    </div>

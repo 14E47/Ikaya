@@ -24,20 +24,20 @@
     </a>
 
     <div>
-        <h3 style="width:88%;float: left;margin-top:10px;font-size:18px;"><a style="text-decoration: none;color:#ac997d;" href="{{ product.get_absolute_url }}" title="{{ product.get_title }}">{{ product.get_title }}</a></h3>
+        <h3 class="product_name"><a style="font-weight:bold;text-decoration: none;color:#7C6751;" href="{{ product.get_absolute_url }}" title="{{ product.get_title }}">{{ product.get_title }}</a></h3>
         {% if user.is_authenticated %}
             {% if product.wishlists_lines.all %}
                 {% for pro_wish in product.wishlists_lines.all %}
                     <form action="{% url 'customer:wishlists-remove-product' key=pro_wish.wishlist.key product_pk=product.id %}" method="post" style="width:12%;float: left;text-align:right;">
                         {% csrf_token %}
                         <input type="hidden" name="next" value="/catalogue" />
-                        <button type="submit" style="text-align:right;padding:5px 2px;outline:0;background-color:transparent;border:0px;font-size:18px"><i style="color:#f6b220"  class="fa fa-heart"></i></button>
+                        <button type="submit" style="text-align:right;padding:10px 2px;outline:0;background-color:transparent;border:0px;font-size:16px"><i style="color:#f6b220" class="fa fa-heart"></i></button>
                     </form>
                 {% endfor %}
             {% else %}
                 <form id="add_to_wishlist_form" action="{% url 'customer:wishlists-add-product' product_pk=product.pk %}" method="post" style="width:12%;float: left;text-align:right;">
                     {% csrf_token %}
-                    <button type="submit" style="outline:0;padding:5px 2px;text-align:right;background-color:transparent;border:0px;font-size:18px"><i style="color:#f6b220" class="fa fa-heart-o"></i></button>
+                    <button type="submit" style="outline:0;padding:10px 2px;text-align:right;background-color:transparent;border:0px;font-size:16px"><i style="color:#f6b220" class="fa fa-heart-o"></i></button>
                 </form>
             {% endif %}
         {% else %}
