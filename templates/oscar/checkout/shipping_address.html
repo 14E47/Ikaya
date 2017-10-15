@@ -209,7 +209,7 @@
                   {% endwith %}
                   {% if not shipping_method.is_discounted %}
                   <div class="row bb">
-                     <p style="color:#d9cfac;padding:0px;margin:0px">SHIPPING({{ shipping_method.name }})
+                     <p style="color:#d9cfac;padding:0px;margin:0px">SHIPPING
                         <span class="pull-right">
                         {% if not show_tax_separately and shipping_charge.is_tax_known %}
                         {{ shipping_charge.incl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code}}
@@ -223,7 +223,7 @@
                   {% shipping_charge_discount shipping_method basket as shipping_discount %}
                   {% shipping_charge_excl_discount shipping_method basket as shipping_charge_excl_discount %}
                   <div class="row bb">
-                     <p style="color:#d9cfac;padding:0px;margin:0px">SHIPPING({{ shipping_method.name }})
+                     <p style="color:#d9cfac;padding:0px;margin:0px">SHIPPING
                         <span class="pull-right">
                         {% if not show_tax_separately and shipping_charge.is_tax_known %}
                         {{ shipping_charge.incl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code}}

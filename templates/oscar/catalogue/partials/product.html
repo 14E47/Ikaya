@@ -24,7 +24,7 @@
     </a>
 
     <div>
-        <h3 class="product_name"><a style="font-weight:bold;text-decoration: none;color:#7C6751;" href="{{ product.get_absolute_url }}" title="{{ product.get_title }}">{{ product.get_title }}</a></h3>
+        <h3 class="product_name"><a style="font-weight:100;text-decoration: none;color:#7C6751;" href="{{ product.get_absolute_url }}" title="{{ product.get_title }}">{{ product.get_title }}</a></h3>
         {% if user.is_authenticated %}
             {% if product.wishlists_lines.all %}
                 {% for pro_wish in product.wishlists_lines.all %}

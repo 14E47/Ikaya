@@ -1214,11 +1214,11 @@ a:hover {
     vertical-align: top;
 }
 .mt-bottom-bar .mt-icon-list li > a {
-    color: #d9cfac;
+    color: #7c6751;
     font-size: 14px;
 }
 .mt-bottom-bar .mt-icon-list li > a:hover {
-    color: #d9cfac;
+    color: #7c6751;
     text-decoration: none;
 }
 .mt-bottom-bar .mt-icon-list li.open > a {
@@ -1281,7 +1281,7 @@ a:hover {
     color: #fff;
     padding: 2px 0px;
     text-align: center;
-    background-color: #d9cfac;
+    background-color: #7c6751;
     position: absolute;
     border-radius: 50%;
     border: 2px solid #fff;
@@ -1710,7 +1710,7 @@ a:hover {
 }
 #nav .s-drop a {
     display: block;
-    color: #d9cfac;
+    color: #7c6751;
     position: relative;
     letter-spacing: 1px;
 }
@@ -2358,9 +2358,9 @@ a:hover {
 }
 .btn-type3:focus,
 .btn-type3:hover {
-    color: #d9cfac;
+    color: #7c6751;
     background: transparent;
-    border: 1px solid #d9cfac;
+    border: 1px solid #7c6751;
 }
 .btn-type4 {
     color: #aaa;
@@ -4172,7 +4172,7 @@ a:hover {
 }
 .banner-frame h3 {
     margin: 0 0 10px;
-    font: 700 16px/24px "MetaSerifTf-Book";
+    font: 500 16px/24px "MetaSerifTf-Book";
     line-height: 1;
 }
 .banner-frame .textsleft {
@@ -6176,7 +6176,7 @@ a:hover {
     letter-spacing: 1px;
     word-spacing: 0px;
     margin: 0 0;
-    color: #d9cfac;
+    color: #7c6751;
 }
 .mt-product-detial .breadcrumbs {
     overflow: hidden;
@@ -6331,16 +6331,18 @@ a:hover {
     line-height: 20px;
     font-family: "MetaSerifTf-Book";
     font-weight: 700;
-    border: none;
+    border:1px solid #7c6751;
     outline: none;
     border-radius: 0px;
     -webkit-transition: all 0.25s linear;
     transition: all 0.25s linear;
-    background: #d9cfac;
+    background: #7c6751;
     color: #fff;
 }
 .mt-product-detial .product-form button:hover {
-    background: #d9cfac;
+    background: #fff;
+    border: 1px solid #7c6751;
+    color: #7c6751;
 }
 .lightbox .mt-product-detial {
     padding: 0;
@@ -10934,7 +10936,7 @@ a:focus {
     content: "";
     position: absolute;
     bottom: 0;
-    left: 100px;
+    left: 145px;
     right: 0;
     height: 0.3em;
     border-top: 2px solid #7C6751;
@@ -10982,7 +10984,7 @@ footer .menu {
     font-family: 'Gotham-XLight', sans-serif;
 }
 .detail_price {
-    font-size: 30px;
+    font-size: 28px;
     color: #d9cfac;
 }
 .price {
@@ -11163,9 +11165,9 @@ btn-box li:after {
 .detail h3 {
     margin-top: 0px;
     margin-bottom: 5px;
-    color: #d9cfac;
+    color: #7c6751;
     font-size: 20px !important;
-    font-weight: 600;
+    font-weight: 500;
 }
 .detail p {
     margin-bottom: 0px !important;
@@ -11419,7 +11421,7 @@ btn-box li:after {
     font-family: "MetaSerifTf-Book";
     margin-bottom: 20px;
     outline: 0;
-    background-color: #d9cfac;
+    background-color: #f8f8f8;
     box-shadow: 0px;
     webkit-box-shadow:none !important;
     box-shadow:none !important;
@@ -11524,6 +11526,7 @@ btn-box li:after {
 }
 .basket .name a {
     color: #d9cfac !important;
+    font-weight: 100;
 }
 .basket .qty {
     font-size: 14px;
@@ -11534,7 +11537,7 @@ btn-box li:after {
 }
 .basket .basket-price {
     font-size: 14px;
-    font-weight: bold;
+    font-weight: 100;
     color: #d9cfac !important;
     font-family: "MetaSerifTf-Book";
 }
@@ -11915,7 +11918,7 @@ select {
     webkit-box-shadow:none !important;
     box-shadow:none !important;
     -webkit-transition:none !important;
-    background-color: #d9cfac;
+    background-color: #f8f8f8;
 }
 .size-guide {
     margin-top: 5px;
@@ -12804,10 +12807,10 @@ select {
     font-family: "MetaSerifTf-Book";
     font-weight: 500;
     padding: 0 0 0 0px;
-    border-radius: 0px;
+    border-radius: 0px !important;
     outline: none;
     border: 1px solid #d9cfac;
-    width: 100px;
+    width: 50px;
     height: 26px;
     color: #d9cfac;
     background: #fff;

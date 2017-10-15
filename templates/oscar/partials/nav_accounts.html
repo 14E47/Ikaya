@@ -208,13 +208,15 @@
                         </div>
                     </div>
                     <div class="col-xs-12 text-center">
+                        <div class="row">
                         <br><br>
-                        {% if user.is_authenticated %}
-                            <a href="{% url 'basket:summary' %}" class="btn-type3">{% trans "View basket" %}</a>
-                            <a href="{% url 'checkout:index' %}" class="btn-type3">{% trans "Checkout" %}</a>
-                        {% else %}
-                            <a href="/accounts/login/" class="btn-type3">{% trans "Proceed to checkout" %}</a>
-                        {% endif %}
+                            {% if user.is_authenticated %}
+                                <a href="{% url 'basket:summary' %}" class="btn-type3">{% trans "View basket" %}</a>
+                                <a href="{% url 'checkout:index' %}" class="btn-type3">{% trans "Checkout" %}</a>
+                            {% else %}
+                                <a href="/accounts/login/" class="btn-type3">{% trans "Proceed to checkout" %}</a>
+                            {% endif %}
+                        </div>
                     </div>
             {% else %}
                 <p>{% trans "Your basket is empty." %}</p>
