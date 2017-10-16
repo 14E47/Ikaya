@@ -106,7 +106,7 @@
                                          </td>
                                          <td class="text-center bremove" data-th="Remove">
 {#                                             <a href="#" data-id="{{ forloop.counter0 }}" data-behaviours="remove" class="inline">{% trans "Remove" %}</a>#}
-                                            <a href="#" data-id="{{ forloop.counter0 }}" data-behaviours="remove" class="inline btn-danger btn btn-sm" title="Remove"  style="margin-top:9.5px;border-radius:0px;outline:0px;"><i class="fa fa-trash-o"></i></a>
+                                            <a href="#" data-id="{{ forloop.counter0 }}" data-behaviours="remove" class="inline btn btn-sm btn-update" title="Remove"  style="margin-top:9.5px;border-radius:0px;outline:0px;"><i class="fa fa-trash-o"></i></a>
                                         </td>
                                      </tr>
                               {% endwith %}
@@ -127,7 +127,7 @@
                 <h2 class="text-center">
                     <img src="{% static "markatix/img/images/cart.gif" %}"><br>
                     {% trans "Your basket is empty." %}
-                    <a href="{{ homepage_url }}">{% trans "Continue shopping" %}</a>
+                    <a style="color:#7C6751" href="{{ homepage_url }}">{% trans "Continue shopping" %}</a>
                 </h2>
             {% endblock %}
         {% endif %}
