@@ -11785,7 +11785,7 @@ article p {
 }
 .login_form button[type="submit"],
 .login_form button[type="submit"]:hover {
-    background-color: #827272;
+    background-color: #7c6751;
     border-radius: 0px;
     border: 0px;
     outline: 0px;
@@ -11831,7 +11831,7 @@ article p {
 }
 #register_form button[type="submit"],
 .register_form button[type="submit"]:hover {
-    background-color: #827272;
+    background-color: #7c6751;
     border-radius: 0px;
     border: 0px;
     color: #fff;
@@ -11877,7 +11877,7 @@ article p {
     margin-left: 5%;
     padding: 10px 0px;
     text-align: center;
-    background-color: #827272;
+    background-color: #7c6751;
     color: #fff;
     outline: 0;
     border: 0px;
@@ -12381,7 +12381,7 @@ select {
         margin-left:0px;
         padding: 10px 0px;
         text-align: center;
-        background-color: #827272;
+        background-color: #7c6751;
         color: #fff;
         outline: 0;
         border: 0px;
@@ -12389,7 +12389,7 @@ select {
     }
     .login_form button[type="submit"],
     .login_form button[type="submit"]:hover {
-        background-color: #827272;
+        background-color: #7c6751;
         border-radius: 0px;
         border: 0px;
         outline: 0px;
