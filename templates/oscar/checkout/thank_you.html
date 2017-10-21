@@ -40,8 +40,8 @@
                                         </div>
                                     </div>
                                     <div class="col-sm-7 text-left">
-                                        <h5><a class="test" style="color:#d9cfac;text-decoration: none;" href="{{ line.product.get_absolute_url }}">{{ line.description }}</a></h5>
-                                        <p style="color:#d9cfac;">
+                                        <h5><a class="test" style="color:#7c6751;text-decoration: none;" href="{{ line.product.get_absolute_url }}">{{ line.description }}</a></h5>
+                                        <p style="color:#7c6751;">
                                         {% if line.upc %}{{ line.upc }}<br/>{% endif %}
                                         {% if line.est_dispatch_date %}
                                             {% blocktrans with date=line.est_dispatch_date %}
@@ -49,9 +49,9 @@
                                             {% endblocktrans %}
                                         {% endif %}
                                         </p>
-                                        <h5 style="color:#d9cfac;">QTY : <span style="color:#d9cfac;">{{ line.quantity }}</span></h5>
-                                        <p style="color:#d9cfac;" class="price_color"> PRICE<BR>
-                                        <span style="color:#d9cfac;">
+                                        <h5 style="color:#7c6751;">QTY : <span style="color:#7c6751;">{{ line.quantity }}</span></h5>
+                                        <p style="color:#7c6751;" class="price_color"> PRICE<BR>
+                                        <span style="color:#7c6751;">
                                             {% if show_tax_separately %}
                                                 {{ line.line_price_before_discounts_excl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code }}
                                             {% else %}
@@ -69,11 +69,11 @@
             <div class="row shipping-payment">
                 <div class="col-sm-10 col-sm-offset-1">
                     <div class="col-sm-3">
-                        <h5 style="color:#d9cfac;">{% trans "ORDER ID" %}</h5>
+                        <h5 style="color:#7c6751;">{% trans "ORDER ID" %}</h5>
                     </div>
                     <div class="col-sm-9">
                         {% blocktrans with number=order.number %}
-                            <p style="color:#d9cfac;margin-top:10px;">{{ number }}</p>
+                            <p style="color:#7c6751;margin-top:10px;">{{ number }}</p>
                         {% endblocktrans %}
                     </div>
                 </div>
@@ -83,11 +83,11 @@
                 <div class="col-sm-10 col-sm-offset-1">
                     {% block shipping_info %}
                         <div class="col-sm-3">
-                            <h5 style="color:#d9cfac;">{% trans "DELIVERY TO" %}</h5>
+                            <h5 style="color:#7c6751;">{% trans "DELIVERY TO" %}</h5>
                         </div>
-                        <div class="col-sm-9" style="color:#d9cfac;">
+                        <div class="col-sm-9" style="color:#7c6751;">
                             {% if order.shipping_address %}
-                                <address style="color:#d9cfac;margin-top:5px;">
+                                <address style="color:#7c6751;margin-top:5px;">
                                     {% for field in order.shipping_address.active_address_fields %}
                                         {{ field }}<br/>
                                     {% endfor %}
@@ -99,11 +99,11 @@
                                     {% endif %}
                                 {% endif %}
                                 {% if order.shipping_address.notes %}
-                                    <h4 style="color:#d9cfac;">{% trans "Instructions" %}</h4>
-                                    <p style="color:#d9cfac;">{{ order.shipping_address.notes|linebreaks }}</p>
+                                    <h4 style="color:#7c6751;">{% trans "Instructions" %}</h4>
+                                    <p style="color:#7c6751;">{{ order.shipping_address.notes|linebreaks }}</p>
                                 {% endif %}
                             {% else %}
-                                <p style="color:#d9cfac;">{% trans "No shipping address required." %}</p>
+                                <p style="color:#7c6751;">{% trans "No shipping address required." %}</p>
                             {% endif %}
                         </div>
                     {% endblock %}
@@ -115,10 +115,10 @@
                     <div class="row shipping-payment">
                         <div class="col-sm-10 col-sm-offset-1">
                             <div class="col-sm-3">
-                                <h5 style="color:#d9cfac;">{% trans "Shipping charge (before discounts)" %}</h5>
+                                <h5 style="color:#7c6751;">{% trans "Shipping charge (before discounts)" %}</h5>
                             </div>
                             <div class="col-sm-9">
-                               <p style="color:#d9cfac;margin-top:10px;">
+                               <p style="color:#7c6751;margin-top:10px;">
                                    {{ order.shipping_before_discounts_incl_tax|currency:order.currency }}
                                </p>
                             </div>
@@ -128,10 +128,10 @@
                         <div class="row shipping-payment">
                             <div class="col-sm-10 col-sm-offset-1">
                                 <div class="col-sm-3">
-                                    <h5 style="color:#d9cfac;">{% trans "Discount" %}</h5>
+                                    <h5 style="color:#7c6751;">{% trans "Discount" %}</h5>
                                 </div>
                                 <div class="col-sm-9">
-                                   <p style="color:#d9cfac;margin-top:10px;">
+                                   <p style="color:#7c6751;margin-top:10px;">
                                        {{ discount.amount|currency:order.currency }}
                                    </p>
                                 </div>
@@ -141,10 +141,10 @@
                     <div class="row shipping-payment">
                         <div class="col-sm-10 col-sm-offset-1">
                             <div class="col-sm-3">
-                                <h5 style="color:#d9cfac;">{% trans "Shipping charge (after discounts)" %}</h5>
+                                <h5 style="color:#7c6751;">{% trans "Shipping charge (after discounts)" %}</h5>
                             </div>
                             <div class="col-sm-9">
-                               <p style="color:#d9cfac;margin-top:10px;">
+                               <p style="color:#7c6751;margin-top:10px;">
                                    {{ order.shipping_incl_tax|currency:order.currency }}
                                </p>
                             </div>
@@ -154,10 +154,10 @@
                     <div class="row shipping-payment">
                         <div class="col-sm-10 col-sm-offset-1">
                             <div class="col-sm-3">
-                                <h5 style="color:#d9cfac;">{% trans "SHIPPING CHARGES" %}</h5>
+                                <h5 style="color:#7c6751;">{% trans "SHIPPING CHARGES" %}</h5>
                             </div>
                             <div class="col-sm-9">
-                               <p style="color:#d9cfac;margin-top:10px;">
+                               <p style="color:#7c6751;margin-top:10px;">
                                    {% if show_tax_separately %}
                                        {{ order.shipping_excl_tax|currency:order.currency }}
                                    {% else %}
@@ -174,10 +174,10 @@
                 {% block order_total %}
                 <div class="col-sm-10 col-sm-offset-1">
                     <div class="col-sm-3">
-                        <h5 style="color:#d9cfac;">{% trans "TOTAL AMOUNT" %}</h5>
+                        <h5 style="color:#7c6751;">{% trans "TOTAL AMOUNT" %}</h5>
                     </div>
                     <div class="col-sm-9">
-                       <p style="color:#d9cfac;margin-top:10px;">
+                       <p style="color:#7c6751;margin-top:10px;">
                            {{ order.total_excl_tax|currency:order.currency }}
                        </p>
                     </div>
@@ -198,10 +198,8 @@
 {#        {% endblock %}#}
         {% block order_actions %}
             <div class="form-group">
-                <div class="row">
-                    <div class="col-sm-8 col-sm-offset-2">
-                        <a href="{{ homepage_url }}" class="save btn-lg pull-right">{% trans "Continue Shopping" %}</a>
-                    </div>
+                <div class="col-sm-8 col-sm-offset-2">
+                    <a href="{{ homepage_url }}" class="save btn-lg pull-right">{% trans "Continue Shopping" %}</a>
                 </div>
             </div>
         </div>
@@ -217,7 +215,7 @@
             margin-top: 19px;
             margin-bottom: 19px;
             border: 0;
-            border-top: 1px solid #d9cfac;
+            border-top: 1px solid #7c6751;
         }
     </style>
 {% endblock %}

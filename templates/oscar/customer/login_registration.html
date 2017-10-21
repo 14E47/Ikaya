@@ -27,29 +27,31 @@
                     </div><!-- mt-textbox end here -->
                 </a>
             </div>
-            <div class="row equalh">
-                <div class="col-sm-4 register_form">
-                    <form id="register_form" action="{{ request.get_full_path }}" method="post">
-                        <h2>{% trans 'REGISTER' %}</h2>
-                        {% csrf_token %}
-                        {% include "partials/form_fields.html" with form=registration_form %}
-                        <button name="registration_submit" type="submit" value="Register" class="btn btn-lg btn-primary" data-loading-text="{% trans 'REGISTERING...' %}">{% trans 'REGISTER' %}</button>
-                        <p class="text-center" style="width:90%;margin-top:10px;"><a style="text-decoration: underline;" href="{% url 'password-reset' %}">{% trans "FORGOT PASSWORD ?" %}</a></p>
-                    </form>
-                </div>
-                <div class="col-sm-4 login_form">
-                    <form id="login_form" action="{{ request.get_full_path }}" method="post">
-                        <h2>{% trans 'LOG IN' %}</h2>
-                        {% csrf_token %}
-                        {% include "partials/form_fields.html" with form=login_form %}
-                        <button name="login_submit" type="submit" value="Log In" class="btn btn-lg btn-primary" data-loading-text="{% trans "Logging in..." %}">{% trans 'LOG IN' %}</button>
-                        <p class="text-center" style="width:90%;margin-top:10px;"><a style="text-decoration: underline;" href="{% url 'password-reset' %}">{% trans "FORGOT PASSWORD ?" %}</a></p>
-                    </form>
 
-                </div>
-                <div class="col-sm-4 guest_form">
-                    <h2>{% trans 'GUEST USER' %}</h2>
-                    <a href="{% url 'checkout:index' %}" name="registration_submit" type="submit" value="Register" class="btn btn-lg btn-primary" data-loading-text="{% trans 'Checkout...' %}">{% trans 'CHECKOUT AS GUEST' %}</a>
+                <div class="row equalh">
+                    <div class="col-sm-10 col-sm-offset-1">
+                        <div class="col-sm-6 register_form">
+                            <div class="row">
+                                <form id="register_form" action="{{ request.get_full_path }}" method="post">
+                                    <h2>{% trans 'REGISTER' %}</h2>
+                                    {% csrf_token %}
+                                    {% include "partials/form_fields.html" with form=registration_form %}
+                                    <button name="registration_submit" type="submit" value="Register" class="btn btn-lg btn-primary" data-loading-text="{% trans 'REGISTERING...' %}">{% trans 'REGISTER' %}</button>
+                                    <p class="text-center" style="width:90%;margin-top:10px;"><a style="text-decoration: underline;" href="{% url 'password-reset' %}">{% trans "FORGOT PASSWORD ?" %}</a></p>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 login_form">
+                            <form id="login_form" action="{{ request.get_full_path }}" method="post">
+                                <h2>{% trans 'LOG IN' %}</h2>
+                                {% csrf_token %}
+                                {% include "partials/form_fields.html" with form=login_form %}
+                                <button name="login_submit" type="submit" value="Log In" class="btn btn-lg btn-primary" data-loading-text="{% trans "Logging in..." %}">{% trans 'LOG IN' %}</button>
+                                <p class="text-center" style="width:90%;margin-top:10px;"><a style="text-decoration: underline;" href="{% url 'password-reset' %}">{% trans "FORGOT PASSWORD ?" %}</a></p>
+                            </form>
+
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="row" style="margin-top:50px;">
