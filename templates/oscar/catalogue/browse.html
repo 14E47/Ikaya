@@ -57,8 +57,6 @@
 {#{% endblock %}#}
 
 {% block content %}
-
-
     <form method="get" class="form-horizontal">
         {#Render other search params in a hidden block#}
         <div style="display:none">
@@ -152,18 +150,15 @@
 																		<div class="form" >
 																			<form action='/catalogue/' method='GET'>
                                                                                 <div class="col-xs-5 col-sm-3">
-                                                                                    <input name='price_min' type="text">
+                                                                                    <input name='price_min' type="text" style="width:100%">
                                                                                 </div>
-
                                                                                 <div class="col-xs-2 col-sm-1">
                                                                                     <div class="text-center vend fp">
                                                                                         <span class="price_filter">TO</span>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="col-xs-5 col-sm-3">
-
-                                                                                        <input name='price_max' type="text">
-
+                                                                                    <input name='price_max' type="text" style="width:100%">
                                                                                 </div>
                                                                                 <div class="col-sm-3">
                                                                                     <button>GO</button>
@@ -365,7 +360,7 @@
 																			</label>
 
                                                                             <label>
-																				<input type='checkbox' name="fl-colour" value="Yellow" id="Yellow">
+																				<input type='checkbox' name="fl-colour" value="yellow" id="Yellow">
 																				<span></span>
 																				<p>Yellow</p>
 																			</label>
@@ -474,7 +469,8 @@
                                         </div>
                                     {% endfor %}
                                     <div class="col-sm-12">
-                                        <div class="col-sm-6 col-sm-offset-3">
+                                        <p id="NP" style="display: none;">No Product Found.</p>
+                                        <div class="col-sm-6 col-sm-offset-3" id="page">
                                             {% include "partials/pagination.html" %}
                                         </div>
                                     </div>
@@ -556,21 +552,33 @@
                     // if the current category exists in the selected filters array
                     // set matched to true, and stop looping. as we're ORing in each
                     // set of filters, we only need to match once
-
                         if ($.inArray(currentFilterValue, filterValues) != -1)
-                            {
-                                matched = true;
-                                return false;
-                            }
+                        {
+                            matched = true;
+                            return false;
+                        }
                     });
 
                 // if matched is true the current .flower element is returned
                 return matched;
-
             });
         });
-
-        $('.pro-grid').hide().filter($filteredResults).show();
+{#        if($filteredResults.length==0)#}
+{#        {#}
+{#            $("#page").hide();#}
+{#            $("#NP").show();#}
+{#        }#}
+{#        else if($filteredResults.length>32)#}
+{#        {#}
+{#            $("#page").show();#}
+{#            $("#NP").hide();#}
+{#        }#}
+{#        else#}
+{#        {#}
+{#            $("#page").hide();#}
+{#            $("#NP").hide();#}
+{#        }#}
+            $('.pro-grid').hide().filter($filteredResults).show();
         });
 
     </script>
