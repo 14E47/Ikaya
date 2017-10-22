@@ -3,7 +3,8 @@
 {% load thumbnail %}
 {% load basket_tags %}
 {% load currency_filters %}
-{% load shipping_tags custom_tags %}
+{% load shipping_tags custom_tags debug_tags %}
+
 
 {% block title %}
 {% trans "Payment details" %} | {{ block.super }}
@@ -47,9 +48,11 @@
                     </div>
                     <div id="collapseFour" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingFour">
                         <div class="panel-body">
-                            <div class="radio radio-primary">
-                                <input type="radio" name="radio1" id="radio1_A" value="cod"><span>Cash on Delivery</span><br/>
-                            </div>
+                            {% if shipping_address.country|safe == "India" and order_total.excl_tax <= 20000.00 %}
+                                <div class="radio radio-primary">
+                                    <input type="radio" name="radio1" id="radio1_A" value="cod"><span>Cash on Delivery</span><br/>
+                                </div>
+                            {% endif %}
                             <div class="radio radio-primary">
                                 <input type="radio" name="radio1" id="radio1_B" value="icici"><span>Debit\Credit Card</span><br/>
                             </div>
@@ -275,11 +278,11 @@
                   {% endif %}
                   {% endblock %}
                   <div class="row bb">
-                     {% if request.basket.is_tax_known %}
-                     <p style="color:#7c6751;padding:0px;margin:0px">TOTAL<span class="pull-right">{{ request.basket.total_incl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code}}</span></p>
-                     {% else %}
-                     <p style="color:#7c6751;padding:0px;margin:0px">TOTAL<span class="pull-right">{{ request.basket.total_excl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code}}</span></p>
-                     {% endif %}
+                     {% if order_total.is_tax_known %}
+                        <p style="color:#7c6751;padding:0px;margin:0px">TOTAL<span class="pull-right">{{ order_total.incl_tax|multiply:request.session.currency_factor|currency:basket.currency }}</span></p>
+                    {% else %}
+                        <p style="color:#7c6751;padding:0px;margin:0px">TOTAL<span class="pull-right">{{ order_total.excl_tax|multiply:request.session.currency_factor|currency:basket.currency }}</span></p>
+                    {% endif %}
                   </div>
                </div>
                <br><br><br><br>

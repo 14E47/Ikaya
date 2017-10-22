@@ -1,0 +1,129 @@
+
+<div class="col-sm-12">
+            <br>
+            <h3 class="cart">&nbsp;&nbsp;MY CART
+                <a id="menu-close" href="#" class="pull-right toggle1"><i class="glyphicon glyphicon-remove"></i>&nbsp;</a>
+            </h3>
+            <h4 class="cart">{{ request.basket.num_items }}&nbsp;&nbsp;ARTICLE ADDED</h4>
+            {% if request.basket.num_lines %}
+                {% for line in request.basket.all_lines %}
+                    <div class="basket-items" style="margin-bottom:8px;">
+                        <div class="row">
+                            <div class="col-sm-4 col-xs-4" id="menu-close">
+                                {% with image=line.product.primary_image %}
+                                    <a href="{{ line.product.get_absolute_url }}">
+                                        <img src="{{ image.original.url }}" alt="{{ line.product.get_title }}">
+                                    </a>
+                                {% endwith %}
+                            </div>
+
+                            <div class="col-sm-8 col-xs-8">
+                                <div class="row">
+                                    <p class="name">{{ line.description }}</p>
+                                    <span class="price">{{ line.quantity }} x {{ line.unit_price_excl_tax  }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr style="margin:5px 0px;border-color: #827272">
+                {% endfor %}
+                    <div class="col-sm-12 col-xs-12">
+                        <br>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="row">
+                                    <p class="mt-total">Sub Total</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="row">
+                                    <p class="mt-total-txt">
+                                        {% if request.basket.is_tax_known %}
+                                            {{ request.basket.total_incl_tax|currency:line.price_currency  }}
+                                        {% else %}
+                                            {{ request.basket.total_excl_tax|currency:line.price_currency  }}
+                                        {% endif %}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 text-center">
+                        <br><br>
+                        {% if user.is_authenticated %}
+                            <a href="/basket" class="btn-type3">{% trans "Proceed to checkout" %}</a>
+                        {% else %}
+                            <a href="/accounts/login/" class="btn-type3">{% trans "Proceed to checkout" %}</a>
+                        {% endif %}
+{#                        <a href="{% url 'checkout:index' %}" class="btn-type3">{% trans "Proceed to checkout" %}</a>#}
+                    </div>
+            {% else %}
+                <p>{% trans "Your basket is empty." %}</p>
+            {% endif %}
+        </div>
+
+
+
+
+        <div class="col-sm-12">
+    <br>
+    <h3 class="cart">&nbsp;&nbsp;MY CART
+        <a id="menu-close" href="#" class="pull-right toggle1"><i class="glyphicon glyphicon-remove"></i>&nbsp;</a>
+    </h3>
+    <h4 class="cart">{{ request.basket.num_items }}&nbsp;&nbsp;ARTICLE ADDED</h4>
+    {% if request.basket.num_lines %}
+        {% for line in request.basket.all_lines %}
+            <div class="basket-items" style="margin-bottom:8px;">
+                <div class="row">
+                    <div class="col-sm-4 col-xs-4" id="menu-close">
+                        {% with image=line.product.primary_image %}
+                            <a href="{{ line.product.get_absolute_url }}">
+                                <img src="{{ image.original.url }}" alt="{{ line.product.get_title }}">
+                            </a>
+                        {% endwith %}
+                    </div>
+
+                    <div class="col-sm-8 col-xs-8">
+                        <div class="row">
+                            <p class="name">{{ line.description }}</p>
+                            <span class="price">{{ line.quantity }} x {{ line.unit_price_excl_tax|multiply:request.session.currency_factor|currency:request.session.currency_code }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr style="margin:5px 0px;border-color: #827272">
+        {% endfor %}
+            <div class="col-sm-12 col-xs-12">
+                <br>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="row">
+                            <p class="mt-total">Sub Total</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="row">
+                            <p class="mt-total-txt">
+                                {% if request.basket.is_tax_known %}
+                                    {{ request.basket.total_incl_tax|currency:line.price_currency  }}
+                                {% else %}
+                                    {{ request.basket.total_excl_tax|currency:line.price_currency  }}
+                                {% endif %}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 text-center">
+                <br><br>
+                {% if user.is_authenticated %}
+                    <a href="{% url 'basket:summary' %}" class="btn-type3">{% trans "View basket" %}</a>
+                    <a href="{% url 'checkout:index' %}" class="btn-type3">{% trans "Checkout" %}</a>
+                {% else %}
+                    <a href="/accounts/login/" class="btn-type3">{% trans "Proceed to checkout" %}</a>
+                {% endif %}
+            </div>
+    {% else %}
+        <p>{% trans "Your basket is empty." %}</p>
+    {% endif %}
+</div>
