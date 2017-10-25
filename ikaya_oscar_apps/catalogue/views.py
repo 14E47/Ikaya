@@ -111,12 +111,12 @@ class ProductCategoryView(TemplateCategoryView):
         ctx.update(search_context)
 
         if sorttype == 'low-to-high':
-            ctx['products'] = Product.objects.all().order_by('stockrecords__price_excl_tax')
+            ctx['products'] = Product.objects.filter(categories=ctx['category']).order_by('stockrecords__price_excl_tax')
         elif sorttype == 'high-to-low':
-            ctx['products'] = Product.objects.all().order_by('-stockrecords__price_excl_tax')
+            ctx['products'] = Product.objects.filter(categories=ctx['category']).order_by('-stockrecords__price_excl_tax')
         elif sorttype == 'ekaya-recommends':
             temp = []
-            products = Product.objects.all()
+            products = Product.objects.filter(categories=ctx['category'])
             for product in products:
                 if 'Ekaya Recommends: True' in product.attribute_summary:
                     temp.append(product)
